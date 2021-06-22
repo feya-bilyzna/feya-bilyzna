@@ -1,12 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import {HashRouter} from 'react-router-dom'
+import {useRoutes} from "./routes";
+import 'materialize-css'
 
 function App() {
-  return (
-        <>
-          <h1>feya-bilyzna.github.io</h1>
-        </>
-  );
+    const routes = useRoutes()
+    return (
+        <HashRouter>
+            <div className="container">
+                {routes}
+            </div>
+        </HashRouter>
+    );
 }
 
 export default App;
