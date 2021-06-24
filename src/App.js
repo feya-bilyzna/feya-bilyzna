@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {HashRouter} from 'react-router-dom'
 import {useRoutes} from "./routes";
-import 'materialize-css'
+
 
 function App() {
     const routes = useRoutes()
