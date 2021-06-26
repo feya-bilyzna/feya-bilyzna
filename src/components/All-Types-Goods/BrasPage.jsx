@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Brands = () => {
+export const BrasPage = () => {
     return (
         <div>
-            <h1>Бренды</h1>
+            <h1>Бюстгальтеры</h1>
         </div>
     );
 };
-
-export default Brands;

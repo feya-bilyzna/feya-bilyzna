@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Main = () => {
+export const MainPage = () => {
     return(
         <div>
             <h1>Main Page</h1>

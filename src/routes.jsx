@@ -1,13 +1,13 @@
 import React from 'react'
 import {Switch ,Route, Redirect} from 'react-router-dom'
 import {NavbarMenu} from "./components/NavbarMenu";
-import {Main} from "./components/Main/Main";
-import {Contacts} from "./components/Main/Contacts";
-import Brands from "./components/All-Types-Goods/Brands";
-import Bras from "./components/All-Types-Goods/Bras";
-import Knickers from "./components/All-Types-Goods/Knickers";
-import Sale from "./components/All-Types-Goods/Sale";
-import Shapewear from "./components/All-Types-Goods/Shapewear";
+import {MainPage} from "./components/Main/Main";
+import {ContactsPage} from "./components/Main/Contacts";
+import {BrandsPage} from "./components/All-Types-Goods/BrandsPage";
+import {BrasPage} from "./components/All-Types-Goods/BrasPage";
+import {KnickersPage} from "./components/All-Types-Goods/KnickersPage";
+import {SalePage} from "./components/All-Types-Goods/SalePage";
+import {ShapewearPage} from "./components/All-Types-Goods/ShapewearPage";
 
 export  const useRoutes = () => {
     return(
@@ -15,25 +15,25 @@ export  const useRoutes = () => {
             <NavbarMenu></NavbarMenu>
             <Switch>
                 <Route path="/" exact>
-                    <Main/>
+                    <MainPage/>
                 </Route>
                 <Route path="/contacts" exact>
-                    <Contacts/>
+                    <ContactsPage/>
                 </Route>
                 <Route path="/brands" exact>
-                    <Brands/>
+                    <BrandsPage/>
                 </Route>
                 <Route path="/bras" exact>
-                    <Bras/>
+                    <BrasPage/>
                 </Route>
                 <Route path="/knickers" exact>
-                    <Knickers/>
+                    <KnickersPage/>
                 </Route>
                 <Route path="/sale" exact>
-                    <Sale/>
+                    <SalePage/>
                 </Route>
                 <Route path="/shapewear" exact>
-                    <Shapewear/>
+                    <ShapewearPage/>
                 </Route>
                 <Redirect to = "/"/>
             </Switch>

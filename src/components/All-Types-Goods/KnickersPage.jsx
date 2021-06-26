@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Knickers = () => {
+export const KnickersPage = () => {
     return (
         <div>
             <h1>Трусики</h1>
         </div>
     );
 };
-
-export default Knickers;
