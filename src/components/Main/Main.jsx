@@ -1,9 +1,10 @@
 import React from 'react';
+import { ProductList } from "../Product-Views/ProductList";
 
 export const Main = () => {
     return(
-        <div>
-            <h1>Main Page</h1>
+        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+            <ProductList />
         </div>
     )
 }
