@@ -1,6 +1,5 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {Contacts} from "./Main/Contacts";
 import {Divider, Dropdown, Icon, Navbar, NavItem, Tab, Tabs} from "react-materialize"
 
 export let NavbarMenu = (props) => {

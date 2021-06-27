@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {HashRouter, Footer} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom'
 import {useRoutes} from "./routes";
 
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import {Switch ,Route, Redirect} from 'react-router-dom'
 import {NavbarMenu} from "./components/NavbarMenu";
-import {MainPage} from "./components/Main/Main";
-import {ContactsPage} from "./components/Main/Contacts";
+import {MainPage} from "./components/Main/MainPage";
+import {ContactsPage} from "./components/Main/ContactsPage";
 import {BrandsPage} from "./components/All-Types-Goods/BrandsPage";
 import {BrasPage} from "./components/All-Types-Goods/BrasPage";
 import {KnickersPage} from "./components/All-Types-Goods/KnickersPage";
