@@ -7,11 +7,21 @@ export let NavbarMenu = (props) => {
     return(
        <>
            <Navbar
-               alignLinks="right"
                brand={<a className="brand-logo" href="#">Logo</a>}
                centerChildren
                id="mobile-nav"
                menuIcon={<Icon>menu</Icon>}
+               alignLinks='right sidenav-close'
+               sidenav={
+                   <>
+                       <li><NavLink to="/brands">Бренды</NavLink></li>
+                       <li><NavLink to="/bras">Бюстгальтеры</NavLink></li>
+                       <li><NavLink to="/knickers">Трусики</NavLink></li>
+                       <li><NavLink to="/sale">Распродажа</NavLink></li>
+                       <li><NavLink to="/shapewear">Корректирующее бельё</NavLink></li>
+                       <li><NavLink to="/contacts">Контакты</NavLink></li>
+                   </>
+               }
                options={{
                    draggable: true,
                    edge: 'left',
@@ -21,7 +31,8 @@ export let NavbarMenu = (props) => {
                    onOpenEnd: null,
                    onOpenStart: null,
                    outDuration: 200,
-                   preventScrolling: true
+                   preventScrolling: true,
+                   closeOnClick: true,
                }}
            >
                <Dropdown
@@ -33,7 +44,7 @@ export let NavbarMenu = (props) => {
                        constrainWidth: false,
                        container: null,
                        coverTrigger: true,
-                       hover: false,
+                       hover: true,
                        inDuration: 150,
                        onCloseEnd: null,
                        onCloseStart: null,

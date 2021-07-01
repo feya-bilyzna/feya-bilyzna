@@ -8,11 +8,12 @@ import {BrasPage} from "./components/All-Types-Goods/BrasPage";
 import {KnickersPage} from "./components/All-Types-Goods/KnickersPage";
 import {SalePage} from "./components/All-Types-Goods/SalePage";
 import {ShapewearPage} from "./components/All-Types-Goods/ShapewearPage";
+import FooterComp from "./components/Main/Test/Footer-Component";
 
 export  const useRoutes = () => {
     return(
         <div>
-            <NavbarMenu></NavbarMenu>
+            <NavbarMenu/>
             <Switch>
                 <Route path="/" exact>
                     <MainPage/>
@@ -37,6 +38,7 @@ export  const useRoutes = () => {
                 </Route>
                 <Redirect to = "/"/>
             </Switch>
+            <FooterComp/>
         </div>
 
     )
