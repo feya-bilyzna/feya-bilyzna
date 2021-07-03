@@ -9,6 +9,7 @@ import {KnickersPage} from "./components/All-Types-Goods/KnickersPage";
 import {SalePage} from "./components/All-Types-Goods/SalePage";
 import {ShapewearPage} from "./components/All-Types-Goods/ShapewearPage";
 import FooterComp from "./components/Main/Test/Footer-Component";
+import PageContainer from "./components/PageContainer";
 
 export  const useRoutes = () => {
     return(
@@ -16,25 +17,25 @@ export  const useRoutes = () => {
             <NavbarMenu/>
             <Switch>
                 <Route path="/" exact>
-                    <MainPage/>
+                    <PageContainer Page={<MainPage/>}/>
                 </Route>
                 <Route path="/contacts" exact>
-                    <ContactsPage/>
+                    <PageContainer Page={<ContactsPage/>}/>
                 </Route>
                 <Route path="/brands" exact>
-                    <BrandsPage/>
+                    <PageContainer Page={<BrandsPage/>}/>
                 </Route>
                 <Route path="/bras" exact>
-                    <BrasPage/>
+                    <PageContainer Page={<BrasPage/>}/>
                 </Route>
                 <Route path="/knickers" exact>
-                    <KnickersPage/>
+                    <PageContainer Page={<KnickersPage/>}/>
                 </Route>
                 <Route path="/sale" exact>
-                    <SalePage/>
+                    <PageContainer Page={<SalePage/>}/>
                 </Route>
                 <Route path="/shapewear" exact>
-                    <ShapewearPage/>
+                    <PageContainer Page={<ShapewearPage/>}/>
                 </Route>
                 <Redirect to = "/"/>
             </Switch>

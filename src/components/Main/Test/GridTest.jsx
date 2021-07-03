@@ -1,17 +1,16 @@
 import React from 'react';
 import {Col, Row} from "react-materialize";
-import MediaBoxTest from "./MediaBoxTest";
 import CardImageTest from "./CardImageTest";
 
 const GridTest = () => {
     return (
         <>
-            <Row >
+            <Row>
                 <Col
                     className="teal red darken-1"
                     xl={4}
                     l={6}
-                    m={9}
+                    m={12}
                     s={12}
                 >
                     <CardImageTest/>
@@ -20,7 +19,7 @@ const GridTest = () => {
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={9}
+                    m={12}
                     s={12}
                 >
                     <CardImageTest/>
@@ -29,7 +28,7 @@ const GridTest = () => {
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={9}
+                    m={12}
                     s={12}
                 >
                     <CardImageTest/>
@@ -38,7 +37,7 @@ const GridTest = () => {
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={9}
+                    m={12}
                     s={12}
                 >
                     <CardImageTest/>
@@ -47,7 +46,7 @@ const GridTest = () => {
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={9}
+                    m={12}
                     s={12}
                 >
                     <CardImageTest/>
@@ -56,7 +55,7 @@ const GridTest = () => {
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={9}
+                    m={12}
                     s={12}
                 >
                     <CardImageTest/>
