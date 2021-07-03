@@ -1,11 +1,11 @@
 import React from 'react';
-import GridTest from "../Main/Test/GridTest";
+import GridView from "../Main/VisualElements/GridView";
 
 export const ShapewearPage = () => {
     return (
         <div>
             <h1>Корректирующее белье</h1>
-            <GridTest/>
+            <GridView/>
         </div>
     );
 };

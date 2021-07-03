@@ -1,9 +1,9 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import {Dropdown, Icon, Navbar} from "react-materialize"
-import PagesList from "../utils/pagesList";
+import PagesList from "../data/pagesList";
 
-export let NavbarMenu = (props) => {
+export let NavbarMenu = () => {
     return (
         <>
             <Navbar
@@ -15,12 +15,6 @@ export let NavbarMenu = (props) => {
                 alignLinks='right sidenav-close'
                 sidenav={
                     <>
-                        {/*<li><NavLink to="/brands">Бренды</NavLink></li>*/}
-                        {/*<li><NavLink to="/bras">Бюстгальтеры</NavLink></li>*/}
-                        {/*<li><NavLink to="/knickers">Трусики</NavLink></li>*/}
-                        {/*<li><NavLink to="/sale">Распродажа</NavLink></li>*/}
-                        {/*<li><NavLink to="/shapewear">Корректирующее бельё</NavLink></li>*/}
-                        {/*<li><NavLink to="/contacts">Контакты</NavLink></li>*/}
 
                         {PagesList.map(p => {
                                 return (
@@ -28,6 +22,7 @@ export let NavbarMenu = (props) => {
                                 )
                             }
                         )}
+                        <li><NavLink to="/contacts">Контакты</NavLink></li>
                     </>
                 }
                 options={{

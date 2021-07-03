@@ -1,8 +1,8 @@
 import React from 'react';
 import {Col, Row} from "react-materialize";
-import CardImageTest from "./CardImageTest";
+import PreviewCard from "./PreviewCard";
 
-const GridTest = () => {
+const GridView = () => {
     return (
         <>
             <Row>
@@ -10,59 +10,47 @@ const GridTest = () => {
                     className="teal red darken-1"
                     xl={4}
                     l={6}
-                    m={12}
-                    s={12}
                 >
-                    <CardImageTest/>
+                    <PreviewCard/>
                 </Col>
                 <Col
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={12}
-                    s={12}
                 >
-                    <CardImageTest/>
+                    <PreviewCard/>
                 </Col>
                 <Col
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={12}
-                    s={12}
                 >
-                    <CardImageTest/>
+                    <PreviewCard/>
                 </Col>
                 <Col
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={12}
-                    s={12}
                 >
-                    <CardImageTest/>
+                    <PreviewCard/>
                 </Col>
                 <Col
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={12}
-                    s={12}
                 >
-                    <CardImageTest/>
+                    <PreviewCard/>
                 </Col>
                 <Col
                     className="teal darken-1"
                     xl={4}
                     l={6}
-                    m={12}
-                    s={12}
                 >
-                    <CardImageTest/>
+                    <PreviewCard/>
                 </Col>
             </Row>
         </>
     );
 };
 
-export default GridTest;
+export default GridView;

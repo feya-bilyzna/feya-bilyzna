@@ -1,10 +1,10 @@
 import React from 'react';
-import PopoutTest from "./Test/PopoutTest";
+import PopoutContactElements from "./PopoutContactElements";
 
 export const ContactsPage = () => {
     return (
         <div>
             <h1>Contacts</h1>
-            <PopoutTest/>
+            <PopoutContactElements/>
         </div>)
 }

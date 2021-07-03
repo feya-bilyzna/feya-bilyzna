@@ -1,6 +1,7 @@
 import React from 'react';
 import { ProductList } from "../Product-Views/ProductList";
-import GridTest from "./Test/GridTest";
+import GridView from "./VisualElements/GridView";
+
 
 export const MainPage = () => {
 
@@ -8,7 +9,7 @@ export const MainPage = () => {
         <div>
             <div >
                 <h1>Группы товаров:</h1>
-                <GridTest/>
+                <GridView/>
             </div>
             <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
                 <ProductList />

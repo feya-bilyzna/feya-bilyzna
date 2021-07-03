@@ -1,15 +1,8 @@
 import React from 'react';
-import {Card, CardTitle, Col, Icon, Row} from "react-materialize";
+import {Card, CardTitle, Icon} from "react-materialize";
 
-const CardImageTest = () => {
+const PreviewCard = () => {
     return (
-        <Row>
-            <Col
-                lx={12}
-                l={12}
-                m={12}
-                s={12}
-            >
                 <Card
                     actions={[
                         <a key="1" href="#">This is a Link</a>
@@ -20,9 +13,7 @@ const CardImageTest = () => {
                 >
                     Here is the standard card with an image thumbnail.
                 </Card>
-            </Col>
-        </Row>
     );
 };
 
-export default CardImageTest;
+export default PreviewCard;
