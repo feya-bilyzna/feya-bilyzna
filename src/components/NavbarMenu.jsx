@@ -2,23 +2,30 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import {Dropdown, Icon, Navbar} from "react-materialize"
 import PagesList from "../data/pagesList";
+import PropTypes from "prop-types";
+
+Navbar.propTypes = {
+    ...Navbar.propTypes,
+    alignLinks: PropTypes.oneOf(['right sidenav-close']),
+}
 
 export let NavbarMenu = () => {
+
     return (
         <>
             <Navbar
-                brand={<a className="brand-logo" href="#">Logo</a>}
+                brand={<a className="brand-logo" href="/">Logo</a>}
                 centerChildren
                 id="mobile-nav"
 
                 menuIcon={<Icon>menu</Icon>}
+
                 alignLinks='right sidenav-close'
                 sidenav={
                     <>
-
                         {PagesList.map(p => {
                                 return (
-                                    <li><NavLink to={p.route}>{p.menuItem}</NavLink></li>
+                                    <li key={p.route}><NavLink to={p.route}>{p.menuItem}</NavLink></li>
                                 )
                             }
                         )}
@@ -47,7 +54,7 @@ export let NavbarMenu = () => {
                         constrainWidth: false,
                         container: null,
                         coverTrigger: true,
-                        hover: true,
+                        hover: false,
                         inDuration: 150,
                         onCloseEnd: null,
                         onCloseStart: null,
@@ -56,11 +63,11 @@ export let NavbarMenu = () => {
                         outDuration: 250,
                     }}
 
-                    trigger={<a href="#!">Все товары{' '}<Icon right></Icon></a>}
+                    trigger={<a href="#!">Все товары{' '}</a>}
                 >
                     {PagesList.map(p => {
                             return (
-                                <NavLink to={p.route}>{p.menuItem}</NavLink>
+                                <NavLink key={p.route} to={p.route}>{p.menuItem}</NavLink>
                             )
                         }
                     )}

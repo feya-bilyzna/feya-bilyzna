@@ -5,11 +5,11 @@ import {useRoutes} from "./routes";
 function App() {
     const routes = useRoutes()
     return (
-            <HashRouter>
-                <div>
-                    {routes}
-                </div>
-            </HashRouter>
+        <HashRouter>
+            <div>
+                {routes}
+            </div>
+        </HashRouter>
     );
 }
 
