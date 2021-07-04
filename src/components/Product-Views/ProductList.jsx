@@ -1,9 +1,5 @@
-import { ProductListItem } from "./ProductListItem";
-import {
-    useQuery,
-    gql
-} from "@apollo/client";
-
+import {ProductListItem} from "./ProductListItem";
+import {gql, useQuery} from "@apollo/client";
 
 const ALL_PRODUCTS = gql`
     query getAllProducts {
@@ -20,12 +16,12 @@ const ALL_PRODUCTS = gql`
 
 export const ProductList = () => {
 
-    const { loading, error, data } = useQuery(ALL_PRODUCTS)
+    const {loading, error, data} = useQuery(ALL_PRODUCTS)
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error</p>
-  
+
     return data.allProducts.map((product) => (
-        <ProductListItem key={product.id} product={product} />
+        <ProductListItem key={product.id} product={product}/>
     ))
 }
