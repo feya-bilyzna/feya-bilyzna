@@ -1,7 +1,7 @@
 import React from 'react';
 import GridView from "../Main/VisualElements/GridView";
 
-export const SalePage = () => {
+const SalePage = () => {
     return (
         <div>
             <h1>Распродажа</h1>
@@ -9,3 +9,5 @@ export const SalePage = () => {
         </div>
     );
 };
+
+export default SalePage

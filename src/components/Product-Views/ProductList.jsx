@@ -1,4 +1,4 @@
-import {ProductListItem} from "./ProductListItem";
+import {ProductListItem} from "../../components";
 import {gql, useQuery} from "@apollo/client";
 
 const ALL_PRODUCTS = gql`
@@ -14,7 +14,7 @@ const ALL_PRODUCTS = gql`
     }
 `
 
-export const ProductList = () => {
+const ProductList = () => {
 
     const {loading, error, data} = useQuery(ALL_PRODUCTS)
 
@@ -25,3 +25,5 @@ export const ProductList = () => {
         <ProductListItem key={product.id} product={product}/>
     ))
 }
+
+export default ProductList

@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import {Dropdown, Icon, Navbar} from "react-materialize"
-import PagesList from "../data/pagesList";
+import {PagesList} from "../components";
 import PropTypes from "prop-types";
 
 Navbar.propTypes = {
@@ -9,7 +9,7 @@ Navbar.propTypes = {
     alignLinks: PropTypes.oneOf(['right sidenav-close']),
 }
 
-export let NavbarMenu = () => {
+const NavbarMenu = () => {
 
     return (
         <>
@@ -77,3 +77,5 @@ export let NavbarMenu = () => {
         </>
     )
 }
+
+export default NavbarMenu
