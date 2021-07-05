@@ -1,7 +1,7 @@
 import React from 'react';
 import GridView from "../Main/VisualElements/GridView";
 
-export const ShapewearPage = () => {
+const ShapewearPage = () => {
     return (
         <div>
             <h1>Корректирующее белье</h1>
@@ -9,3 +9,5 @@ export const ShapewearPage = () => {
         </div>
     );
 };
+
+export default ShapewearPage

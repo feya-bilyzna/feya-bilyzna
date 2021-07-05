@@ -1,0 +1,5 @@
+export {default as BrandsPage} from './All-Types-Goods/BrandsPage'
+export {default as BrasPage} from './All-Types-Goods/BrasPage'
+export {default as KnickersPage} from './All-Types-Goods/KnickersPage'
+export {default as SalePage} from './All-Types-Goods/SalePage'
+export {default as ShapewearPage} from './All-Types-Goods/ShapewearPage'

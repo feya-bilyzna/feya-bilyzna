@@ -1,8 +1,4 @@
-import {BrandsPage} from "../components/All-Types-Goods/BrandsPage"
-import {BrasPage} from "../components/All-Types-Goods/BrasPage"
-import {KnickersPage} from "../components/All-Types-Goods/KnickersPage"
-import {SalePage} from "../components/All-Types-Goods/SalePage"
-import {ShapewearPage} from "../components/All-Types-Goods/ShapewearPage"
+import {BrandsPage, BrasPage, KnickersPage, SalePage, ShapewearPage} from '../components'
 
 const PagesList = [
     {route: "/brands", menuItem: "Бренды", component: <BrandsPage/>},
