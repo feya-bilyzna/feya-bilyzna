@@ -1,4 +1,4 @@
-export const ProductListItem = ({product}) => {
+const ProductListItem = ({product}) => {
     return (
         <div style={{maxWidth: 200, margin: 10}}>
             <h5>{product.name}</h5>
@@ -7,3 +7,5 @@ export const ProductListItem = ({product}) => {
         </div>
     )
 }
+
+export default ProductListItem

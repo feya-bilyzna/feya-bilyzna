@@ -1,7 +1,7 @@
 import React from 'react';
 import {Footer} from "react-materialize"
 
-const FooterComp = () => {
+const FooterComponent = () => {
     return (
         <Footer
             links={
@@ -18,4 +18,4 @@ const FooterComp = () => {
     );
 };
 
-export default FooterComp;
+export default FooterComponent;

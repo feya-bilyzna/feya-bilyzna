@@ -1,11 +1,7 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
-import {NavbarMenu} from "./components/NavbarMenu";
-import {MainPage} from "./components/Main/MainPage";
-import {ContactsPage} from "./components/ContactsPage/ContactsPage";
-import FooterComp from "./components/Footer-Component";
-import PageContainer from "./components/PageContainer";
-import PagesList from "./data/pagesList";
+
+import {NavbarMenu, MainPage, ContactsPage, FooterComponent, PageContainer, PagesList} from './components'
 
 export const useRoutes = () => {
     return (
@@ -29,7 +25,7 @@ export const useRoutes = () => {
                 )}
                 <Redirect to="/"/>
             </Switch>
-            <FooterComp/>
+            <FooterComponent/>
         </div>
     )
 }

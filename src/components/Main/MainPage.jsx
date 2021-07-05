@@ -1,8 +1,7 @@
 import React from 'react';
-import {ProductList} from "../Product-Views/ProductList";
-import GridView from "./VisualElements/GridView";
+import {ProductList, GridView} from "../../components";
 
-export const MainPage = () => {
+const MainPage = () => {
 
     return (
         <div>
@@ -16,3 +15,5 @@ export const MainPage = () => {
         </div>
     )
 }
+
+export default MainPage

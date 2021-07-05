@@ -10,5 +10,4 @@ const KnickersPage = () => {
     );
 };
 
-
 export default KnickersPage
