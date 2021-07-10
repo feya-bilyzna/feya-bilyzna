@@ -1,6 +1,6 @@
-import {BrandsPage, BrasPage, KnickersPage, SalePage, ShapewearPage} from '../components'
+import {BrandsPage, BrasPage, KnickersPage, SalePage, ShapewearPage} from '../../components'
 
-const PagesList = [
+const linkListCategories = [
     {route: "/brands", menuItem: "Бренды", component: <BrandsPage/>},
     {route: "/bras", menuItem: "Бюстгальтеры", component: <BrasPage/>},
     {route: "/knickers", menuItem: "Трусики", component: <KnickersPage/>},
@@ -8,4 +8,4 @@ const PagesList = [
     {route: "/shapewear", menuItem: "Корректирующее бельё", component: <ShapewearPage/>}
 ]
 
-export default PagesList
+export default linkListCategories

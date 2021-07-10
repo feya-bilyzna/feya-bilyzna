@@ -1,16 +1,12 @@
 import React from 'react';
-import {ProductList, GridView} from "../../components";
+import {imageListCategories, CategoryGridView} from "../../components"
 
 const MainPage = () => {
-
     return (
         <div>
             <div>
-                <h1>Группы товаров:</h1>
-                <GridView/>
-            </div>
-            <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
-                <ProductList/>
+                <h1 style={{"fontSize": "calc(24px + 16 * (120vw / 1280))", "textAlign": "center"}}>Группы товаров:</h1>
+                <CategoryGridView CategoryList={imageListCategories}/>
             </div>
         </div>
     )

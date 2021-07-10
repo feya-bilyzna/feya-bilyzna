@@ -1,5 +1,5 @@
 import React from 'react';
-import PopoutContactElements from "./PopoutContactElements";
+import {PopoutContactElements} from "../../components";
 
 const ContactsPage = () => {
     return (

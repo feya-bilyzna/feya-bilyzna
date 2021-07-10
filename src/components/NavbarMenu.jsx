@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import {Dropdown, Icon, Navbar} from "react-materialize"
-import {PagesList} from "../components";
+import {linkListCategories} from "../components";
 import PropTypes from "prop-types";
 
 Navbar.propTypes = {
@@ -23,7 +23,7 @@ const NavbarMenu = () => {
                 alignLinks='right sidenav-close'
                 sidenav={
                     <>
-                        {PagesList.map(p => {
+                        {linkListCategories.map(p => {
                                 return (
                                     <li key={p.route}><NavLink to={p.route}>{p.menuItem}</NavLink></li>
                                 )
@@ -65,7 +65,7 @@ const NavbarMenu = () => {
 
                     trigger={<a href="#!">Все товары{' '}</a>}
                 >
-                    {PagesList.map(p => {
+                    {linkListCategories.map(p => {
                             return (
                                 <NavLink key={p.route} to={p.route}>{p.menuItem}</NavLink>
                             )
