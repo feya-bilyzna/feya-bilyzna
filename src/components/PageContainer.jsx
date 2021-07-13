@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PageContainer = ({Page}) => {
+const PageContainer = ({children}) => {
     return (
         <div className="container">
-            {Page}
+            {children}
         </div>
     );
 };
