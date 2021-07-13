@@ -8,3 +8,6 @@ export {default as PreviewCard}  from './VisualElements/PreviewCard'
 export {default as NavbarMenu}       from './NavbarMenu'
 export {default as PageContainer}    from './PageContainer'
 export {default as FooterComponent}  from './FooterComponent'
+
+export {default as ProductSubcategoryPage} from './VisualElements/ProductSubcategoryPage'
+export {default as ProductCategoryPage} from './VisualElements/ProductCategoryPage'
