@@ -1,8 +1,8 @@
-import React from 'react';
-import {NavLink} from "react-router-dom";
+import React from 'react'
+import {NavLink} from "react-router-dom"
 import {Dropdown, Icon, Navbar} from "react-materialize"
-import {PagesList} from "../components";
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"
+import {categoriesData} from "../data"
 
 Navbar.propTypes = {
     ...Navbar.propTypes,
@@ -14,7 +14,7 @@ const NavbarMenu = () => {
     return (
         <>
             <Navbar
-                brand={<a className="brand-logo" href="/">Logo</a>}
+                brand={<NavLink className="brand-logo" to="/">Главная</NavLink>}
                 centerChildren
                 id="mobile-nav"
 
@@ -23,11 +23,15 @@ const NavbarMenu = () => {
                 alignLinks='right sidenav-close'
                 sidenav={
                     <>
-                        {PagesList.map(p => {
-                                return (
-                                    <li key={p.route}><NavLink to={p.route}>{p.menuItem}</NavLink></li>
-                                )
-                            }
+                        {Object.values(categoriesData.categories).map(categoryData =>
+                            <li key={categoryData.route}>
+                                <NavLink to={categoryData.route}>{categoryData.name}</NavLink>
+                            </li>
+                        )}
+                        {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
+                            <li key={subcategoryData.route}>
+                                <NavLink to={subcategoryData.route}>{subcategoryData.name}</NavLink>
+                            </li>
                         )}
                         <li><NavLink to="/contacts">Контакты</NavLink></li>
                     </>
@@ -46,7 +50,6 @@ const NavbarMenu = () => {
                 }}
             >
                 <Dropdown
-                    id="Dropdown_6"
                     options={{
                         alignment: 'left',
                         autoTrigger: true,
@@ -65,11 +68,15 @@ const NavbarMenu = () => {
 
                     trigger={<a href="#!">Все товары{' '}</a>}
                 >
-                    {PagesList.map(p => {
-                            return (
-                                <NavLink key={p.route} to={p.route}>{p.menuItem}</NavLink>
-                            )
-                        }
+                    {Object.values(categoriesData.categories).map(categoryData =>
+                        <NavLink key={categoryData.route} to={categoryData.route}>
+                            {categoryData.name}
+                        </NavLink>
+                    )}
+                    {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
+                        <NavLink key={subcategoryData.route} to={subcategoryData.route}>
+                            {subcategoryData.name}
+                        </NavLink>
                     )}
                 </Dropdown>
                 <NavLink to="/contacts">Контакты</NavLink>

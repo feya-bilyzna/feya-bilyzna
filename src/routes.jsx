@@ -1,30 +1,49 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
+import {
+    NavbarMenu,
+    MainPage,
+    ContactsPage,
+    FooterComponent,
+    PageContainer,
+    ProductCategoryPage,
+    ProductSubcategoryPage
+} from './components'
 
-import {NavbarMenu, MainPage, ContactsPage, FooterComponent, PageContainer, PagesList} from './components'
+import {categoriesData} from './data'
 
 export const useRoutes = () => {
     return (
         <div>
             <NavbarMenu/>
-            <Switch>
-                <Route path="/" exact>
-                    <PageContainer Page={<MainPage/>}/>
-                </Route>
-                <Route path="/contacts" exact>
-                    <PageContainer Page={<ContactsPage/>}/>
-                </Route>
-                {PagesList.map(p => {
-                        return (
-
-                            <Route key={p.route} path={p.route} exact>
-                                <PageContainer Page={p.component}/>
+                <PageContainer>
+                    <Switch>
+                        <Route path="/" exact>
+                            <MainPage/>
+                        </Route>
+                        <Route path="/contacts" exact>
+                            <ContactsPage/>
+                        </Route>
+                        {Object.values(categoriesData.categories).map(categoryData =>
+                            <Route key={categoryData.route} path={categoryData.route} exact>
+                                <ProductCategoryPage category={categoryData}/>
                             </Route>
-                        )
-                    }
-                )}
-                <Redirect to="/"/>
-            </Switch>
+                        )}
+                        {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
+                            <Route key={subcategoryData.route} path={subcategoryData.route} exact>
+                                <ProductSubcategoryPage subcategory={subcategoryData}/>
+                            </Route>
+                        )}
+                        {Object.values(categoriesData.categories).map(categoryData =>
+                            categoryData.subcategories.map(subcategoryData =>
+                                <Route key={subcategoryData.route} path={subcategoryData.route} exact>
+                                    <ProductSubcategoryPage subcategory={subcategoryData}/>
+                                </Route>
+                            )
+                        )}
+                        <Redirect to="/"/>
+                    </Switch>
+                </PageContainer>
             <FooterComponent/>
         </div>
     )
