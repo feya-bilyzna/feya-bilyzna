@@ -12,6 +12,8 @@ import {
 
 import {categoriesData} from './data'
 
+import DetailPage from './components/VisualElements/DetailPage'
+
 export const useRoutes = () => {
     return (
         <div>
@@ -41,6 +43,9 @@ export const useRoutes = () => {
                                 </Route>
                             )
                         )}
+                        <Route path="/:productId" exact>
+                            <DetailPage/>
+                        </Route>
                         <Redirect to="/"/>
                     </Switch>
                 </PageContainer>

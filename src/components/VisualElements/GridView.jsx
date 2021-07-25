@@ -2,7 +2,7 @@ import React from 'react'
 import {Col, Row} from "react-materialize"
 import {PreviewCard} from "../../components"
 
-const GridView = ({cardItems, apiPatterns}) => {
+const GridView = ({cardItems, apiPatterns, route}) => {
     return (
         <Row>
             {cardItems.map((cardItem)=>(
@@ -13,7 +13,7 @@ const GridView = ({cardItems, apiPatterns}) => {
                     s={12}
                     key={cardItem.name}
                 >
-                    <PreviewCard item={cardItem} image={apiPatterns ? cardItem.images[0]?.url : cardItem.imageUrl}/>
+                    <PreviewCard item={cardItem} route = {route} image={apiPatterns ? cardItem.images[0]?.url : cardItem.imageUrl}/>
                 </Col>
             ))}
         </Row>
