@@ -24,7 +24,7 @@ const ProductSubcategoryPage = ({subcategory}) => {
     return (
         <div>
             <h3 style={{"textAlign": "center"}}>{subcategory.name}</h3>
-            <GridView apiPatterns cardItems={data.categoryProducts}/>
+            <GridView apiPatterns cardItems={data.categoryProducts} route = {subcategory.route}/>
         </div>
     )
 }
