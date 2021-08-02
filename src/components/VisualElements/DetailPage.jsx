@@ -51,6 +51,11 @@ const DetailPage = () => {
                 xl={6}
                 m={6}
                 s={12}
+                style={{
+                    position: "sticky",
+                    top: 0,
+                    padding: "10%",
+                }}
             >
                 <Row>
                     <Col
