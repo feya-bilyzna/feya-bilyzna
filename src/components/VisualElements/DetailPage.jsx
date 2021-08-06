@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Card, CardTitle, Col, Icon, Row} from "react-materialize";
+import {Button, Col, MediaBox, Row} from "react-materialize";
 import {useParams} from 'react-router';
 import {gql, useQuery} from "@apollo/client";
 
@@ -36,18 +36,28 @@ const DetailPage = () => {
                 s={12}
             >
                 {Object.values(data?.productById.images).map(image =>
-                    <Card
+                    <MediaBox
                         key={image.id}
-                        closeIcon={<Icon>close</Icon>}
-                        header={<CardTitle image={image.url}>Card Title</CardTitle>}
-                        revealIcon={<Icon>more_vert</Icon>}
+                        options={{
+                            inDuration: 250,
+                            outDuration: 200
+
+                        }}
                     >
-                    </Card>
+                        <img style={{
+                            marginTop: 15,
+                            boxShadow: "0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%)",
+                            borderRadius: "2px"
+                        }}
+                             alt="Изображение товара"
+                             src={image.url}
+                             width="100%"
+                        />
+                    </MediaBox>
                 )}
             </Col>
             <Col
                 className="white-text"
-                style={{padding: '10%'}}
                 xl={6}
                 m={6}
                 s={12}
@@ -177,7 +187,6 @@ const DetailPage = () => {
                 </Row>
             </Col>
         </Row>
-
     )
 }
 
