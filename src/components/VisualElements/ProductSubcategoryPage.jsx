@@ -1,6 +1,7 @@
 import {gql, useQuery} from "@apollo/client";
 import {GridView} from "../index";
 import React from "react";
+import { LoadingAnimation } from '..'
 
 const ProductSubcategoryPage = ({subcategory}) => {
     const ProductsQuery = gql`
@@ -19,7 +20,7 @@ const ProductSubcategoryPage = ({subcategory}) => {
         variables: {categoryName: subcategory.name},
     })
 
-    if (loading) return <p>Loading...</p>
+    if (loading) return <LoadingAnimation style={{height: "50vh"}} />
     if (error) return <p>Error</p>
     return (
         <div>

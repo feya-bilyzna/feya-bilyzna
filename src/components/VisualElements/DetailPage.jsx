@@ -2,6 +2,8 @@ import React from 'react'
 import {Button, Col, MediaBox, Row} from "react-materialize";
 import {useParams} from 'react-router';
 import {gql, useQuery} from "@apollo/client";
+import { LoadingAnimation } from '..';
+
 
 const DetailPage = () => {
 
@@ -24,7 +26,7 @@ const DetailPage = () => {
         variables: {id: productId},
     })
 
-    if (loading) return <p>Loading...</p>
+    if (loading) return <LoadingAnimation style={{height: "50vh"}} />
     if (error) return <p>Error</p>
 
     return (
