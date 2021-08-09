@@ -6,7 +6,11 @@ function App() {
     const routes = useRoutes()
     return (
         <HashRouter>
-            <div>
+            <div style={{
+                display: "flex",
+                minHeight: "100vh",
+                flexDirection: "column",
+            }}>
                 {routes}
             </div>
         </HashRouter>
