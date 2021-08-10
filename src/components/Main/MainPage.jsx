@@ -6,7 +6,7 @@ const MainPage = () => {
     return (
         <div>
             <div>
-                <h1 style={{"textAlign": "center"}}>Группы товаров:</h1>
+                <h3 style={{"textAlign": "center"}}>Группы товаров</h3>
                 <GridView cardItems={[
                     ...Object.values(categoriesData.categories),
                     ...Object.values(categoriesData.uncategorizedSubcategories),
