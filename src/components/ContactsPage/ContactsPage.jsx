@@ -4,8 +4,8 @@ import {PopoutContactElements} from "../../components";
 const ContactsPage = () => {
     return (
         <div>
-            <h1>Contacts</h1>
-            <PopoutContactElements/>
+            <h3 style={{ textAlign: "center" }}>Контактная информация</h3>
+            <PopoutContactElements />
         </div>)
 }
 

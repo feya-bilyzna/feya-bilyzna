@@ -16,7 +16,7 @@ import DetailPage from './components/VisualElements/DetailPage'
 
 export const useRoutes = () => {
     return (
-        <div>
+        <>
             <NavbarMenu/>
                 <PageContainer>
                     <Switch>
@@ -50,6 +50,6 @@ export const useRoutes = () => {
                     </Switch>
                 </PageContainer>
             <FooterComponent/>
-        </div>
+        </>
     )
 }

@@ -7,7 +7,7 @@ const GridView = ({cardItems, apiPatterns, route}) => {
         <Row>
             {cardItems.map((cardItem)=>(
                 <Col
-                    className="teal darken-1"
+                    className="darken-1"
                     xl={4}
                     l={6}
                     s={12}

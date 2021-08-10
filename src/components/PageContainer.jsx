@@ -1,8 +1,8 @@
 import React from 'react';
 
-const PageContainer = ({children}) => {
+const PageContainer = ({ children }) => {
     return (
-        <div className="container">
+        <div className="container" style={{ flex: 1 }}>
             {children}
         </div>
     );
