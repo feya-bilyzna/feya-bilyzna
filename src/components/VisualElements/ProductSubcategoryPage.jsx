@@ -22,13 +22,18 @@ const ProductSubcategoryPage = ({subcategory}) => {
         variables: {categoryName: subcategory.name},
     })
 
-    if (loading) return <LoadingAnimation style={{height: "50vh"}} />
+    const pageHeader = <h3 style={{"textAlign": "center"}}>{subcategory.name}</h3>
+
+    if (loading) return <>{pageHeader}<LoadingAnimation style={{height: "50vh"}} /></>
     if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
-    
+
     return (
         <div>
             <h3 style={{"textAlign": "center"}}>{subcategory.name}</h3>
-            <GridView apiPatterns cardItems={data.categoryProducts} route = {subcategory.route}/>
+            {data.categoryProducts.length ?
+                <GridView apiPatterns cardItems={data.categoryProducts} route = {subcategory.route}/> :
+                <h6 style={{"textAlign": "center"}}>{alertsData.missingProducts}</h6>
+            }
         </div>
     )
 }
