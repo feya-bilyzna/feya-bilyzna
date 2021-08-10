@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LoadingAnimation = ({absolutePosition, style}) => {
+const LoadingAnimation = ({style}) => {
     return <div
         style={style}
         className="load-spinner-wrapper"
