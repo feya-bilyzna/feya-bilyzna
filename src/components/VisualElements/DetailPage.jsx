@@ -3,6 +3,7 @@ import {Button, Col, MediaBox, Row} from "react-materialize";
 import {useParams} from 'react-router';
 import {gql, useQuery} from "@apollo/client";
 import { LoadingAnimation } from '..';
+import { alertsData } from "../../data"
 
 
 const DetailPage = () => {
@@ -27,7 +28,7 @@ const DetailPage = () => {
     })
 
     if (loading) return <LoadingAnimation style={{height: "50vh"}} />
-    if (error) return <p>Error</p>
+    if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
 
     return (
         <Row>

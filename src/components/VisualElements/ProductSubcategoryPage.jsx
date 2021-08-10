@@ -2,6 +2,8 @@ import {gql, useQuery} from "@apollo/client";
 import {GridView} from "../index";
 import React from "react";
 import { LoadingAnimation } from '..'
+import { alertsData } from "../../data"
+
 
 const ProductSubcategoryPage = ({subcategory}) => {
     const ProductsQuery = gql`
@@ -21,7 +23,8 @@ const ProductSubcategoryPage = ({subcategory}) => {
     })
 
     if (loading) return <LoadingAnimation style={{height: "50vh"}} />
-    if (error) return <p>Error</p>
+    if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    
     return (
         <div>
             <h3 style={{"textAlign": "center"}}>{subcategory.name}</h3>
