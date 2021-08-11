@@ -7,7 +7,8 @@ import {
     FooterComponent,
     PageContainer,
     ProductCategoryPage,
-    ProductSubcategoryPage
+    ProductSubcategoryPage,
+    CartButton,
 } from './components'
 
 import {categoriesData} from './data'
@@ -18,6 +19,7 @@ export const useRoutes = () => {
     return (
         <>
             <NavbarMenu/>
+            <CartButton />
                 <PageContainer>
                     <Switch>
                         <Route path="/" exact>
@@ -43,7 +45,7 @@ export const useRoutes = () => {
                                 </Route>
                             )
                         )}
-                        <Route path="/:productId" exact>
+                        <Route path="/:productId(\d+)" exact>
                             <DetailPage/>
                         </Route>
                         <Redirect to="/"/>
