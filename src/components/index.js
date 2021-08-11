@@ -8,6 +8,7 @@ export {default as PreviewCard}  from './VisualElements/PreviewCard'
 export {default as LoadingAnimation} from './PartialElements/LoadingAnimation'
 
 export {default as NavbarMenu}       from './NavbarMenu'
+export {default as CartButton}       from './CartButton'
 export {default as PageContainer}    from './PageContainer'
 export {default as FooterComponent}  from './FooterComponent'
 
