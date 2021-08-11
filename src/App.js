@@ -1,4 +1,3 @@
-import './App.css';
 import {HashRouter} from 'react-router-dom'
 import {useRoutes} from "./routes";
 
