@@ -1,19 +1,28 @@
 import React from 'react';
 import {Footer} from "react-materialize"
+import contactsData from "../data/contactsData";
 
 const FooterComponent = () => {
     return (
         <Footer
+            style={{
+                columnCount: "4",
+                height: "150px",
+            }}
             links={
                 <ul>
-                    <li><a className="grey-text text-lighten-3" href="#!">Instagram</a></li>
-                    <li><a className="grey-text text-lighten-3" href="#!">Facebook</a></li>
-                    <li><a className="grey-text text-lighten-3" href="#!">Google maps</a></li>
+                    {contactsData.contacts.map(contact =>
+                        <li>
+                            <a
+                                className="grey-text text-lighten-3"
+                                href={contact.link}
+                                target="_blank"
+                            >
+                                {contact.name}
+                            </a>
+                        </li>)}
                 </ul>}
         >
-            <h5 className="grey-text text-lighten-4">
-                Ссылки на соц сети:
-            </h5>
         </Footer>
     );
 };
