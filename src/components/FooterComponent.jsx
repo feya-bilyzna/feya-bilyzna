@@ -5,24 +5,38 @@ import contactsData from "../data/contactsData";
 const FooterComponent = () => {
     return (
         <Footer
-            style={{
-                columnCount: "4",
-                height: "150px",
-            }}
             links={
                 <ul>
-                    {contactsData.contacts.map(contact =>
-                        <li>
-                            <a
-                                className="grey-text text-lighten-3"
-                                href={contact.link}
-                                target="_blank"
-                            >
-                                {contact.name}
-                            </a>
-                        </li>)}
+                    <li>
+                        <a
+                            className="grey-text text-lighten-3"
+                            href={contactsData.contacts[0].link}
+                            target="_blank"
+                        >
+                            {contactsData.contacts[0].name}
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            className="grey-text text-lighten-3"
+                            href={contactsData.contacts[1].link}
+                            target="_blank"
+                        >
+                            {contactsData.contacts[1].name}
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            className="grey-text text-lighten-3"
+                            href={contactsData.contacts[2].link}
+                            target="_blank"
+                        >
+                            {contactsData.contacts[2].name}
+                        </a>
+                    </li>
                 </ul>}
         >
+            <h5>Ссылки на соц сети:</h5>
         </Footer>
     );
 };

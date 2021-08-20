@@ -15,26 +15,6 @@ const contactsData = {
             description: "Мы на ",
             link: "https://g.page/bilyznaFeya?share"
         },
-        {
-            name: "Telegram",
-            description: "Нажмите чтобы перейти в нашу Telegram группу ",
-            link: ""
-        },
-        {
-            name: "Viber",
-            description: "Нажмите чтобы перейти в нашу Viber группу ",
-            link: ""
-        },
-        {
-            name: "Электронная почта",
-            description: "Нажмите чтобы написать нам эл.письмо ",
-            link: "mailto:"
-        },
-        {
-            name: "Телефонный номер",
-            description: "Нажмите чтобы позвонить нам ",
-            link: "tel:"
-        },
     ]
 }
 
