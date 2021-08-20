@@ -27,13 +27,14 @@ const ProductSubcategoryPage = ({ subcategory }) => {
     useEffect(() => {
         const handleScroll = () => {
             if (
+                data?.categoryProducts &&
                 window.innerHeight + window.scrollY >= document.body.offsetHeight &&
                 !additionalLoading
             ) {
                 setAdditionalLoading(true)
                 fetchMore({
                     variables: {
-                        page: data?.categoryProducts?.length ?
+                        page: data.categoryProducts?.length ?
                             Math.ceil(data.categoryProducts.length / 12) + 1 : 1
                     },
                 }).finally(
