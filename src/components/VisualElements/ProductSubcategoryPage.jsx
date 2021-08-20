@@ -60,7 +60,7 @@ const ProductSubcategoryPage = ({ subcategory }) => {
                 <GridView apiPatterns cardItems={data.categoryProducts} route={subcategory.route} /> :
                 <h6 style={{ "textAlign": "center" }}>{alertsData.missingProducts}</h6>
             }
-            {additionalLoading ? <LoadingAnimation style={{ marginBottom: 30 }} /> : <></>}
+            <LoadingAnimation empty={!additionalLoading} style={{ marginBottom: 30 }} />
         </div>
     )
 }
