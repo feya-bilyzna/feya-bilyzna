@@ -33,7 +33,7 @@ const ProductSubcategoryPage = ({ subcategory }) => {
                 setAdditionalLoading(true)
                 fetchMore({
                     variables: {
-                        page: data.categoryProducts?.length ?
+                        page: data?.categoryProducts?.length ?
                             Math.ceil(data.categoryProducts.length / 12) + 1 : 1
                     },
                 }).finally(
