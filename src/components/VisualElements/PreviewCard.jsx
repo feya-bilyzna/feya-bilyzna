@@ -3,8 +3,8 @@ import {Card, Icon} from "react-materialize";
 import {NavLink} from "react-router-dom";
 import ImageView from "./ImageView";
 
-const PreviewCard = ({item, image}) => {
-
+const PreviewCard = ({item, image, route}) => {
+    console.log(item.name)
     const actionsProp = item.id ? {
         actions: [<NavLink key={item.id} to={`/${item.id}`}>Подробнее</NavLink>]
     } : {}
@@ -12,7 +12,7 @@ const PreviewCard = ({item, image}) => {
         <Card
             {...actionsProp}
             closeIcon={<Icon>close</Icon>}
-            header={<ImageView route={item.route} image={image}/>}
+            header={<NavLink key={item.id} to={`/${item.id}`}><ImageView route={item.route} image={image}/></NavLink>}
             style={{
                 whiteSpace: "nowrap",
             }}

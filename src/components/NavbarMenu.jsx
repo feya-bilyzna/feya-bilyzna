@@ -14,6 +14,7 @@ const NavbarMenu = () => {
     return (
         <>
             <Navbar
+                className={"pink accent-4"}
                 brand={<NavLink className="brand-logo" to="/">Главная</NavLink>}
                 centerChildren
                 id="mobile-nav"

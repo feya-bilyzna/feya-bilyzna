@@ -5,6 +5,7 @@ import contactsData from "../data/contactsData";
 const FooterComponent = () => {
     return (
         <Footer
+            className={"pink accent-4"}
             links={
                 <ul>
                     <li>

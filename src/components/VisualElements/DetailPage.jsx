@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Col, MediaBox, Row} from "react-materialize";
+import {Button, CardPanel, Col, MediaBox, Row} from "react-materialize";
 import {useParams} from 'react-router';
 import {gql, useQuery} from "@apollo/client";
 import { LoadingAnimation } from '..';
@@ -70,124 +70,126 @@ const DetailPage = () => {
                     padding: "10%",
                 }}
             >
-                <Row>
-                    <Col
-                        className="black-text"
+                <CardPanel>
+                    <Row>
+                        <Col
+                            className="black-text"
 
-                    >
-                        Артикул
-                        <p style={{"color": "red"}}>{productId}</p>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-
-                    >
-                        Серия
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-
-                    >
-                        Тип -
-                        <h5 style={{"color": "red"}}>{data?.productById.name}</h5>
-                        Цвет -
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        Значек
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={1}
-                    >
-                        Цена
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        Условия обмена и возврата
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        Значек типа
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={1}
-                    >
-                        Цвета:
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={12}
-                    >
-                        Размеры
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={12}
-                    >
-                        Остаток
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={12}
-                    >
-                        <Button
-                            className="darken-1"
-                            node="button"
-                            flat={true}
-                            waves="red"
-                            style={{
-                                marginRight: '5px'
-                            }}
                         >
-                            Купить
-                        </Button>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        В список желаний
-                    </Col>
-                    <Col
-                        className="black-text"
-                    >
-                        Найти магазин
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        <h5 style={{"color": "red"}}>{data?.productById.description} </h5>
-                        Состав - материалы
-                    </Col>
-                </Row>
+                            Артикул
+                            <p style={{"color": "red"}}>{productId}</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+
+                        >
+                            Серия
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+
+                        >
+                            Тип -
+                            <h5 style={{"color": "red"}}>{data?.productById.name}</h5>
+                            Цвет -
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                        >
+                            Значек
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                            s={1}
+                        >
+                            Цена
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                        >
+                            Условия обмена и возврата
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                        >
+                            Значек типа
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                            s={1}
+                        >
+                            Цвета:
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                            s={12}
+                        >
+                            Размеры
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                            s={12}
+                        >
+                            Остаток
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                            s={12}
+                        >
+                            <Button
+                                className="darken-1"
+                                node="button"
+                                flat={true}
+                                waves="red"
+                                style={{
+                                    marginRight: '5px'
+                                }}
+                            >
+                                Купить
+                            </Button>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                        >
+                            В список желаний
+                        </Col>
+                        <Col
+                            className="black-text"
+                        >
+                            Найти магазин
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col
+                            className="black-text"
+                        >
+                            <h5 style={{"color": "red"}}>{data?.productById.description} </h5>
+                            Состав - материалы
+                        </Col>
+                    </Row>
+                </CardPanel>
             </Col>
         </Row>
     )
