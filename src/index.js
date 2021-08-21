@@ -5,10 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "materialize-css"
 import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client"
+import { concatPagination } from '@apollo/client/utilities';
+
+const cache = new InMemoryCache({
+    typePolicies: {
+        Query: {
+            fields: {
+                categoryProducts: concatPagination(['categoryName']),
+            },
+        },
+    },
+})
 
 const client = new ApolloClient({
     uri: 'https://feya-bilyzna.herokuapp.com/api',
-    cache: new InMemoryCache()
+    cache: cache,
 });
 
 ReactDOM.render(

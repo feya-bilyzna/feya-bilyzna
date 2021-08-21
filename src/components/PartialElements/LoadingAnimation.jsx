@@ -2,7 +2,7 @@ import React from 'react';
 import { Preloader } from 'react-materialize';
 
 
-const LoadingAnimation = ({ style }) => {
+const LoadingAnimation = ({ style, empty }) => {
     return <div style={{
         top: 0,
         width: "100%",
@@ -12,7 +12,11 @@ const LoadingAnimation = ({ style }) => {
         alignItems: "center",
         ...style,
     }}>
-        <Preloader size="big" flashing />
+        {
+            empty ?
+                <div style={{height: 64}}></div> :
+                <Preloader size="big" flashing />
+        }
     </div>
 }
 
