@@ -103,15 +103,13 @@ const DetailPage = () => {
     }
 
     const variants = data.productById.remains.filter(
-        remains => remains.remains
+        remains => remains.remains && variantIsValid(remains.variantStyle)
     ).map(remains => remains.variantStyle)
     for (let variant of variants) {
-        if (variantIsValid(variant)) {
-            for (let [name, value] of Object.entries(variant)) {
-                let { [name]: current, ...otherSelectors } = variant
-                for (let [relatedName, relatedValue] of Object.entries(otherSelectors)) {
-                    addOrCreate(name, value, relatedName, relatedValue)
-                }
+        for (let [name, value] of Object.entries(variant)) {
+            let { [name]: current, ...otherSelectors } = variant
+            for (let [relatedName, relatedValue] of Object.entries(otherSelectors)) {
+                addOrCreate(name, value, relatedName, relatedValue)
             }
         }
     }
@@ -147,14 +145,17 @@ const DetailPage = () => {
     )
 
     const appropriateRemains = data.productById.remains.filter(
-        remains => remains.remains && Object.entries(remains.variantStyle).reduce(
-            (allAppropriate, [styleName, styleValue]) =>
-                allAppropriate && (
-                    selectedOptions[styleName] === undefined ||
-                    selectedOptions[styleName] === styleValue
-                ),
-            true
-        )
+        remains =>
+            remains.remains &&
+            variantIsValid(remains.variantStyle) &&
+            Object.entries(remains.variantStyle).reduce(
+                (allAppropriate, [styleName, styleValue]) =>
+                    allAppropriate && (
+                        selectedOptions[styleName] === undefined ||
+                        selectedOptions[styleName] === styleValue
+                    ),
+                true
+            )
     )
 
     return (
