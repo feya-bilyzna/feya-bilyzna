@@ -13,16 +13,17 @@ const PopoutContactElements = () => {
                     expanded={false}
                     header={contact.name}
                     node="div"
+                    style={{background:"white"}}
                 >
                     <p>{contact.description}
                         <a
                             href={contact.link}
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             {contact.name}
                         </a>
                     </p>
-
                 </CollapsibleItem>)}
         </Collapsible>
     );

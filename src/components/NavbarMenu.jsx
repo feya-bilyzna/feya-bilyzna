@@ -15,7 +15,9 @@ const NavbarMenu = () => {
         <>
             <Navbar
                 className={"pink accent-4"}
-                brand={<NavLink className="brand-logo" to="/">Главная</NavLink>}
+                brand={<NavLink className="brand-logo" to="/"><Icon large>
+                    home
+                </Icon></NavLink>}
                 centerChildren
                 id="mobile-nav"
 

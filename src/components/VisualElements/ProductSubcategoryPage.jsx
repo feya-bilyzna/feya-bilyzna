@@ -3,7 +3,7 @@ import { GridView } from "../index";
 import React, { useEffect, useState } from "react";
 import { LoadingAnimation } from '..'
 import { alertsData } from "../../data"
-
+import {CardPanel} from "react-materialize";
 
 const ProductSubcategoryPage = ({ subcategory }) => {
     const ProductsQuery = gql`
@@ -48,17 +48,17 @@ const ProductSubcategoryPage = ({ subcategory }) => {
         }
     })
 
-    const pageHeader = <h3 style={{ "textAlign": "center" }}>{subcategory.name}</h3>
+    const pageHeader = <h3 style={{ textAlign: "center" }}>{subcategory.name}</h3>
 
     if (loading) return <>{pageHeader}<LoadingAnimation style={{ height: "50vh" }} /></>
     if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
 
     return (
         <div>
-            <h3 style={{ "textAlign": "center" }}>{subcategory.name}</h3>
+            <CardPanel style={{paddingBottom: "0.01%", paddingTop: "0%"}}>{pageHeader}</CardPanel>
             {data.categoryProducts?.length ?
                 <GridView apiPatterns cardItems={data.categoryProducts} route={subcategory.route} /> :
-                <h6 style={{ "textAlign": "center" }}>{alertsData.missingProducts}</h6>
+                <h6 style={{ textAlign: "center" }}>{alertsData.missingProducts}</h6>
             }
             <LoadingAnimation empty={!additionalLoading} style={{ marginBottom: 30 }} />
         </div>
