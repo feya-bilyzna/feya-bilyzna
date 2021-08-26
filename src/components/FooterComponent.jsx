@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {Footer} from "react-materialize"
-import contactsData from "../data/contactsData";
-import {NavLink} from "react-router-dom";
+import contactsData from "../data/contactsData"
+import {NavLink} from "react-router-dom"
 
 const FooterComponent = () => {
-    return (
-        <Footer
+    return <Footer
             className={"pink accent-4"}
-            copyrights="© Сopyright 2021 Feya bilyzna"
+            copyrights="Нижнее бельё по доступным ценам"
             moreLinks={<NavLink
-                className="grey-text text-lighten-4 right"
-                to={"/contacts"}>
-                Больше контактных данных
+                className="white-text right"
+                to={"/contacts"}
+            >
+                Больше контактов
             </NavLink>}
             links={
                 <ul>
@@ -49,7 +49,6 @@ const FooterComponent = () => {
         >
             <h5>Ссылки на соц сети:</h5>
         </Footer>
-    );
-};
+}
 
-export default FooterComponent;
+export default FooterComponent

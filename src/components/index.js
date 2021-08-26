@@ -1,16 +1,19 @@
-export {default as MainPage}     from './Main/MainPage'
+export {default as MainPage}               from './Main/MainPage'
 export {default as ContactsPage}           from './ContactsPage/ContactsPage'
 export {default as PopoutContactElements}  from './ContactsPage/PopoutContactElements'
 
-export {default as GridView}     from './VisualElements/GridView'
-export {default as PreviewCard}  from './VisualElements/PreviewCard'
+export {default as CustomPreviewCard}      from './CustomMaterialize/CustomCard'
+export {default as CustomCardTitle}        from './CustomMaterialize/CustomCardTitle'
 
-export {default as LoadingAnimation} from './PartialElements/LoadingAnimation'
+export {default as LoadingAnimation}       from './PartialElements/LoadingAnimation'
 
-export {default as NavbarMenu}       from './NavbarMenu'
-export {default as CartButton}       from './CartButton'
-export {default as PageContainer}    from './PageContainer'
-export {default as FooterComponent}  from './FooterComponent'
+export {default as NavbarMenu}             from './NavbarMenu'
+export {default as CartButton}             from './CartButton'
+export {default as PageContainer}          from './PageContainer'
+export {default as FooterComponent}        from './FooterComponent'
 
+export {default as GridView}               from './VisualElements/GridView'
 export {default as ProductSubcategoryPage} from './VisualElements/ProductSubcategoryPage'
-export {default as ProductCategoryPage} from './VisualElements/ProductCategoryPage'
+export {default as ProductCategoryPage}    from './VisualElements/ProductCategoryPage'
+export {default as DetailPage}             from './VisualElements/DetailPage'
+export {default as ShoppingCard}           from './VisualElements/ShoppingCard'

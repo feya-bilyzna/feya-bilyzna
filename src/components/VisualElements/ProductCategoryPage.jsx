@@ -1,15 +1,11 @@
-import {GridView} from "../index";
-import React from "react";
-import {CardPanel} from "react-materialize";
+import {GridView} from "../index"
+import React from "react"
 
 const ProductCategoryPage = ({category}) => {
-    return (
-        <div>
-            <CardPanel style={{height: "60px", paddingBottom: "0%", paddingTop: "0%"}}>
-                <h3 style={{textAlign: "center"}}>{category.name}</h3>
-            </CardPanel>
-            <GridView cardItems={category.subcategories}/>
-        </div>
-    )
+    return <>
+        <h3 style={{textAlign: "center"}}>{category.name}</h3>
+        <GridView cardItems={category.subcategories}/>
+    </>
 }
+
 export default ProductCategoryPage
