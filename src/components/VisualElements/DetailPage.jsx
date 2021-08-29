@@ -2,6 +2,7 @@ import React from 'react'
 import {Button, Col, MediaBox, Row} from "react-materialize";
 import {useParams} from 'react-router';
 import {gql, useQuery} from "@apollo/client";
+import { useCookies } from 'react-cookie'
 import { LoadingAnimation } from '..';
 import { alertsData } from "../../data"
 
@@ -22,6 +23,8 @@ const DetailPage = () => {
           }
         }
     `
+
+    const [cookies, setCookie] = useCookies(['cartProducts'])
 
     const {loading, error, data} = useQuery(ProductQuery, {
         variables: {id: productId},
@@ -163,6 +166,7 @@ const DetailPage = () => {
                             style={{
                                 marginRight: '5px'
                             }}
+                            onClick={() => setCookie('cartProducts', [...cookies.cartProducts || [], productId])}
                         >
                             Купить
                         </Button>
