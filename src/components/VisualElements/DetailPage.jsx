@@ -190,9 +190,9 @@ const DetailPage = () => {
                 </Row>
             </Col>
         </Row>
-        : <div style={{textAlign: "center"}}>
-            <h3>{alertsData.noSuchId}{productId}</h3>
-        </div>
+        : <h5 style={{textAlign: "center", margin: 30}}>
+            {alertsData.noSuchId}
+        </h5>
 }
 
 export default DetailPage
