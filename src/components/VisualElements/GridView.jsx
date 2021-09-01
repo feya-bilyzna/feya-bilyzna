@@ -1,6 +1,6 @@
 import React from 'react'
 import {Col, Row} from "react-materialize"
-import {CustomPreviewCard} from "../index"
+import {CustomCard} from "../index"
 
 const GridView = ({cardItems, apiPatterns, route}) => {
     return (
@@ -14,7 +14,7 @@ const GridView = ({cardItems, apiPatterns, route}) => {
                     key={index}
                     style={{margin: "0", padding: "3px"}}
                 >
-                    <CustomPreviewCard item={cardItem} route={route}
+                    <CustomCard item={cardItem} route={route}
                                        image={apiPatterns ? cardItem.images[0]?.url :
                                            cardItem.imageUrl ? cardItem.imageUrl : cardItem.name
                                        }/>

@@ -2,7 +2,7 @@ export {default as MainPage}               from './Main/MainPage'
 export {default as ContactsPage}           from './ContactsPage/ContactsPage'
 export {default as PopoutContactElements}  from './ContactsPage/PopoutContactElements'
 
-export {default as CustomPreviewCard}      from './CustomMaterialize/CustomCard'
+export {default as CustomCard}      from './CustomMaterialize/CustomCard'
 export {default as CustomCardTitle}        from './CustomMaterialize/CustomCardTitle'
 
 export {default as LoadingAnimation}       from './PartialElements/LoadingAnimation'
