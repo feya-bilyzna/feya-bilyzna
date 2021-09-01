@@ -15,6 +15,11 @@ const contactsData = {
             description: "Мы на ",
             link: "https://g.page/bilyznaFeya?share"
         },
+        {
+            name: "Адрес:",
+            description: "г. Кривой Рог Центральногородской район ул. Лермонтова Вещевой рынок ряд 1-2 место 53 ",
+            link: "https://g.page/bilyznaFeya?share"
+        },
     ]
 }
 
