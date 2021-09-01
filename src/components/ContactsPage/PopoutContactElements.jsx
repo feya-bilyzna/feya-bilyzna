@@ -7,13 +7,13 @@ const PopoutContactElements = () => {
         accordion
         popout
     >
-        {contactsData.contacts.map(contact =>
+        {contactsData.contacts.map((contact, index) =>
             <CollapsibleItem
                 expanded={false}
                 header={contact.name}
                 node="div"
                 style={{background: "white"}}
-                key={contact.link}
+                key={index}
             >
                 <p>{contact.description}
                     <a
