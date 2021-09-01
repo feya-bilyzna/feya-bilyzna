@@ -14,7 +14,7 @@ const NavbarMenu = () => {
     return <Navbar
         className={"pink accent-4"}
         brand={
-            <NavLink className="brand-logo" to="/"
+            <><NavLink className="brand-logo" to="/"
             >
                 <Row>
                     <Col
@@ -35,7 +35,10 @@ const NavbarMenu = () => {
                         Feya
                     </Col>
                 </Row>
-            </NavLink>}
+            </NavLink>
+            <NavLink to="/cart" style={{ position: "absolute", right: 20 }}>
+                <Icon>shopping_cart</Icon>
+            </NavLink></>}
         centerChildren
         id="mobile-nav"
         menuIcon={<Icon>menu</Icon>}
@@ -98,7 +101,7 @@ const NavbarMenu = () => {
             )}
         </Dropdown>
         <NavLink to="/contacts">Контакты</NavLink>
-        <NavLink to="/cart"><Icon>shopping_cart</Icon></NavLink>
+        <div style={{ marginRight: 50 }} />
     </Navbar>
 }
 
