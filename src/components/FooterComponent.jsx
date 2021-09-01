@@ -1,10 +1,18 @@
-import React from 'react';
+import React from 'react'
 import {Footer} from "react-materialize"
-import contactsData from "../data/contactsData";
+import contactsData from "../data/contactsData"
+import {NavLink} from "react-router-dom"
 
 const FooterComponent = () => {
-    return (
-        <Footer
+    return <Footer
+            className={"pink accent-4"}
+            copyrights="Нижнее бельё по доступным ценам"
+            moreLinks={<NavLink
+                className="white-text right"
+                to={"/contacts"}
+            >
+                Больше контактов
+            </NavLink>}
             links={
                 <ul>
                     <li>
@@ -12,6 +20,7 @@ const FooterComponent = () => {
                             className="grey-text text-lighten-3"
                             href={contactsData.contacts[0].link}
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             {contactsData.contacts[0].name}
                         </a>
@@ -21,6 +30,7 @@ const FooterComponent = () => {
                             className="grey-text text-lighten-3"
                             href={contactsData.contacts[1].link}
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             {contactsData.contacts[1].name}
                         </a>
@@ -30,6 +40,7 @@ const FooterComponent = () => {
                             className="grey-text text-lighten-3"
                             href={contactsData.contacts[2].link}
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             {contactsData.contacts[2].name}
                         </a>
@@ -38,7 +49,6 @@ const FooterComponent = () => {
         >
             <h5>Ссылки на соц сети:</h5>
         </Footer>
-    );
-};
+}
 
-export default FooterComponent;
+export default FooterComponent

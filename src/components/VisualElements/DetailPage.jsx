@@ -1,9 +1,9 @@
 import React from 'react'
-import {Button, Col, MediaBox, Row} from "react-materialize";
-import {useParams} from 'react-router';
-import {gql, useQuery} from "@apollo/client";
-import { LoadingAnimation } from '..';
-import { alertsData } from "../../data"
+import {Button, Col, MediaBox, Row} from "react-materialize"
+import {useParams} from 'react-router'
+import {gql, useQuery} from "@apollo/client"
+import {LoadingAnimation} from '..'
+import {alertsData} from "../../data"
 
 
 const DetailPage = () => {
@@ -27,10 +27,10 @@ const DetailPage = () => {
         variables: {id: productId},
     })
 
-    if (loading) return <LoadingAnimation style={{height: "50vh"}} />
-    if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    if (loading) return <LoadingAnimation style={{height: "50vh"}}/>
+    if (error) return <h5 style={{textAlign: "center"}}>{alertsData.serverRequestFailed}</h5>
 
-    return (
+    return data.productById !== null ?
         <Row>
             <Col
                 className="black-text"
@@ -190,7 +190,9 @@ const DetailPage = () => {
                 </Row>
             </Col>
         </Row>
-    )
+        : <h5 style={{textAlign: "center", margin: 30}}>
+            {alertsData.noSuchId}
+        </h5>
 }
 
 export default DetailPage
