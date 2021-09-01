@@ -13,24 +13,17 @@ const CustomCard = ({item, image}) => {
     }
 
     return <div className="card">
-        {!item.id ?
-            <NavLink to={item.route} style={{color: "black"}}>
-                <div className="card-image">
-                    <ImageView image={image}/>
-                </div>
-                <div className="card-content flow-text" style={customCardContentStyle}>
-                    {item.name}
-                </div>
-            </NavLink>
-            :
-            <NavLink key={item.id} to={`/${item.id}`}>
-                <div className="card-image">
-                    <ImageView route={item.route} image={image}/>
-                </div>
-                <div className="card-content flow-text" style={customCardContentStyle}>
-                    {item.vendorCode}•{item.brandName ? item.brandName : "Нет бренда"}
-                </div>
-            </NavLink>}
+        <NavLink to={item.route ? item.route : `/${item.id}`}>
+            <div className="card-image">
+                <ImageView image={image} />
+            </div>
+            <div className="card-content flow-text" style={customCardContentStyle}>
+                {(item.vendorCode || item.brandName) ?
+                    `${item.vendorCode}•${item.brandName || "Нет бренда"}` :
+                    item.name
+                }
+            </div>
+        </NavLink>
     </div>
 }
 
