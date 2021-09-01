@@ -56,8 +56,7 @@ const NavbarMenu = () => {
             </>
         }
         options={{
-            draggable: true,
-            edge: 'left',
+            draggable: false,
             inDuration: 250,
             onCloseEnd: null,
             onCloseStart: null,
