@@ -5,13 +5,13 @@ import {CustomPreviewCard} from "../index"
 const GridView = ({cardItems, apiPatterns, route}) => {
     return (
         <Row>
-            {cardItems.map((cardItem) => (
+            {cardItems.map((cardItem, index) => (
                 <Col
                     className="darken-1"
                     xl={4}
                     l={6}
                     s={6}
-                    key={cardItem.name}
+                    key={index}
                     style={{margin: "0", padding: "3px"}}
                 >
                     <CustomPreviewCard item={cardItem} route={route}
