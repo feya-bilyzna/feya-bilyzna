@@ -10,7 +10,7 @@ import {
     ProductSubcategoryPage,
     CartButton,
     DetailPage,
-    ShoppingCard,
+    ShoppingCart,
 } from './components'
 
 import {categoriesData} from './data'
@@ -48,7 +48,7 @@ export const useRoutes = () => {
                     <DetailPage/>
                 </Route>
                 <Route path="/cart" exact>
-                    <ShoppingCard/>
+                    <ShoppingCart/>
                 </Route>
                 <Redirect to="/"/>
             </Switch>

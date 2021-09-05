@@ -1,28 +1,43 @@
-import React from 'react'
-import {Button, Col, MediaBox, Row} from "react-materialize"
+import React, {useState} from 'react'
+import {Button, Col, Divider, Icon, MediaBox, Modal, Row} from "react-materialize"
 import {useParams} from 'react-router'
 import {gql, useQuery} from "@apollo/client"
 import {useCookies} from 'react-cookie'
-import {LoadingAnimation} from '..'
+import {LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal} from '..'
 import {alertsData} from "../../data"
-
+import {NavLink} from "react-router-dom"
 
 const DetailPage = () => {
 
-    const {productId} = useParams()
+    const descriptionStyle = {fontSize: 13}
+    const modalMarginBottom = {marginBottom: "90px"}
+
     const ProductQuery = gql`
-        query ProductQuery($id: Int!) {
-          productById(id: $id) {
-            description
-            name
-            images {
-              url
-              id
+    query ProductQuery($id: Int!) {
+        productById(id: $id) {
+                categories
+                description
+                id
+                images {
+                  id
+                  url
+                }
+                name
+                remains {
+                  price
+                  variantId
+                  variantName
+                  variantStyle
+                  remains
+                }
+                brandName
+                vendorCode
+              }
             }
-            id
-          }
-        }
     `
+
+    const [selectedOptions, setselectedOptions] = useState({})
+    const {productId} = useParams()
 
     const [cookies, setCookie] = useCookies(['cartProducts'])
 
@@ -33,165 +48,247 @@ const DetailPage = () => {
     if (loading) return <LoadingAnimation style={{height: "50vh"}}/>
     if (error) return <h5 style={{textAlign: "center"}}>{alertsData.serverRequestFailed}</h5>
 
-    return data.productById !== null ?
-        <Row>
-            <Col
-                className="black-text"
-                xl={6}
-                m={6}
-                s={12}
-            >
-                {Object.values(data?.productById.images).map(image =>
-                    <MediaBox
-                        key={image.id}
-                        options={{
-                            inDuration: 250,
-                            outDuration: 200
+    const allowedSelectors = new Set(['color', 'size', 'bandSize', 'cupSize'])
+    const updateSelector = (selector, value) => {
+        if (allowedSelectors.has(selector)) {
+            if (selectedOptions[selector] === value) {
+                setselectedOptions({...selectedOptions, [selector]: undefined})
+            } else setselectedOptions({...selectedOptions, [selector]: value})
+        }
+    }
 
-                        }}
-                    >
-                        <img style={{
+    const variantIsValid = variant => variant && Object.keys(variant).map(
+        value => allowedSelectors.has(value)
+    ).every(value => value)
+
+    const intersection = sets => sets.reduce(
+        (intersected, set) => new Set([...set].filter(x => intersected.has(x)))
+    )
+
+    const variantsData = {}
+    const combinedVariants = {}
+    const addOrCreate = (selector, value, relatedSelector, relatedValue) => {
+        if (variantsData[selector] === undefined)
+            variantsData[selector] = {}
+        if (variantsData[selector][value] === undefined)
+            variantsData[selector][value] = {}
+        if (variantsData[selector][value][relatedSelector] === undefined)
+            variantsData[selector][value][relatedSelector] = new Set()
+        variantsData[selector][value][relatedSelector].add(relatedValue)
+
+        if (combinedVariants[selector] === undefined)
+            combinedVariants[selector] = new Set()
+        combinedVariants[selector].add(value)
+    }
+
+    const variants = data.productById.remains.filter(
+        remains => remains.remains && variantIsValid(remains.variantStyle)
+    ).map(remains => remains.variantStyle)
+    for (let variant of variants) {
+        for (let [name, value] of Object.entries(variant)) {
+            let { [name]: current, ...otherSelectors } = variant
+
+            for (let [relatedName, relatedValue] of Object.entries(otherSelectors)) {
+                addOrCreate(name, value, relatedName, relatedValue)
+            }
+        }
+    }
+
+    const optionIsDisabled = (selector, option) => {
+        if (selectedOptions[selector] && selectedOptions[selector] !== option) return true
+        let {[selector]: current, ...related} = variantsData
+
+        return !intersection(Object.entries(related).map(
+            ([relatedSelector, relatedData]) => {
+                if (selectedOptions[relatedSelector] === undefined) return combinedVariants[selector]
+                return relatedData[selectedOptions[relatedSelector]][selector]
+            }
+        )).has(option)
+    }
+
+    const unfilteredSelectorsData = {}
+    for (let selector of Object.keys(variantsData)) {
+        unfilteredSelectorsData[selector] = [...combinedVariants[selector]].map(
+            option => {
+                return {
+                    value: option,
+                    selected: selectedOptions[selector] === option,
+                    disabled: optionIsDisabled(selector, option),
+                }
+            }
+        )
+    }
+    const selectorsData = Object.fromEntries(
+        Object.entries(unfilteredSelectorsData).filter(
+            ([selector, options]) => options.length > 1
+        )
+    )
+
+    const appropriateRemains = data.productById.remains.filter(
+        remains =>
+            remains.remains &&
+            variantIsValid(remains.variantStyle) &&
+            Object.entries(remains.variantStyle).reduce(
+                (allAppropriate, [styleName, styleValue]) =>
+                    allAppropriate && (
+                        selectedOptions[styleName] === undefined ||
+                        selectedOptions[styleName] === styleValue
+                    ),
+                true
+            )
+    )
+
+    if (!appropriateRemains.length)
+        return <>
+            <h5 style={{textAlign: "center", margin: 30}}>
+                {alertsData.invalidRemains}
+            </h5>
+            <div style={{textAlign: "center"}}>
+                <NavLink to={"/contacts"}><Button
+                    className="red"
+                    node="button"
+                >Контакты</Button></NavLink></div>
+        </>
+
+    // TODO rewrite this when we implement cart logic
+    const addToCart = () => setCookie('cartProducts',
+        [...(cookies.cartProducts || []), productId]
+    )
+
+    return data.productById !== null ?
+        <Row className={"flow-text"}>
+            <Col className="black-text" xl={6} m={6} s={12}>
+                {Object.values(data?.productById.images).map(image =>
+                    <div
+                        className="z-depth-1-half"
+                        key={image.id}
+                        style={{
                             marginTop: 15,
-                            boxShadow: "0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%)",
                             borderRadius: "2px"
-                        }}
-                             alt="Изображение товара"
-                             src={image.url}
-                             width="100%"
-                        />
-                    </MediaBox>
+                        }}>
+                        <MediaBox
+                            options={{
+                                inDuration: 250,
+                                outDuration: 200
+                            }}
+                        >
+                            <img
+                                alt="Изображение товара"
+                                src={image.url}
+                                width="100%"
+                            />
+                        </MediaBox>
+                    </div>
                 )}
             </Col>
-            <Col
-                className="white-text"
-                xl={6}
-                m={6}
-                s={12}
-                style={{
-                    position: "sticky",
-                    top: 0,
-                    padding: "10%",
-                }}
+            <Col xl={6} m={6} s={12}
+                 style={{
+                     position: "sticky",
+                     top: 0,
+                     padding: "10%",
+                 }}
             >
+                <Row style={{marginBottom: 10, marginTop: 10}}>
+                    <Col className="black-text">
+                        {data?.productById.vendorCode}
+                    </Col>
+                </Row><Divider/>
+                <Row style={{marginBottom: 10, marginTop: 10}}>
+                    <Col className="black-text">
+                        {data?.productById.brandName ? data?.productById.brandName : "Бренд не указан"}
+                    </Col>
+                </Row>
+                {variants.length > 1 ? <Row>
+                    <Col>
+                        <VariantSelectors selectorsData={selectorsData} updateSelector={updateSelector}/>
+                    </Col>
+                </Row> : <></>}
+                {appropriateRemains.length === 1 ? <div>
+                    <AdditionalInfo header="Выбранный вариант">
+                        <p style={descriptionStyle}>{appropriateRemains[0].variantName}</p>
+                        <p style={descriptionStyle}>В наличии {appropriateRemains[0].remains} шт</p>
+                    </AdditionalInfo>
+                </div> : <></>}
                 <Row>
-                    <Col
-                        className="black-text"
-
-                    >
-                        Артикул
-                        <p style={{"color": "red"}}>{productId}</p>
+                    <Col className="pink-text accent-4">
+                        <h3 style={{fontWeight: "bold"}}>{appropriateRemains[0].price} грн</h3>
                     </Col>
                 </Row>
                 <Row>
-                    <Col
-                        className="black-text"
-
-                    >
-                        Серия
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-
-                    >
-                        Тип -
-                        <h5 style={{"color": "red"}}>{data?.productById.name}</h5>
-                        Цвет -
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        Значек
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={1}
-                    >
-                        Цена
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        Условия обмена и возврата
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        Значек типа
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={1}
-                    >
-                        Цвета:
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={12}
-                    >
-                        Размеры
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={12}
-                    >
-                        Остаток
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                        s={12}
-                    >
-                        <Button
-                            className="darken-1"
-                            node="button"
-                            flat={true}
-                            waves="red"
-                            style={{
-                                marginRight: '5px'
-                            }}
-                            onClick={() => setCookie('cartProducts', [...cookies.cartProducts || [], productId])}
+                    <Col className="black-text" s={12}>
+                        <Modal style={modalMarginBottom}
+                               actions={[
+                                   <div style={{textAlign: "center"}}>
+                                       <NavLink to="/cart">
+                                           <Button
+                                               className="pink accent-4"
+                                               node="button"
+                                               flat={true}
+                                               waves="red"
+                                               style={{
+                                                   color: 'white'
+                                               }}
+                                           >
+                                               <Row>
+                                                   <Col style={{marginLeft: 39}}>
+                                                       Да
+                                                   </Col>
+                                                   <Col>
+                                                       <Icon tiny>shopping_cart</Icon>
+                                                   </Col>
+                                               </Row>
+                                           </Button>
+                                       </NavLink>
+                                       <Button
+                                           modal="close"
+                                           className="pink accent-4"
+                                           node="button"
+                                           flat={true}
+                                           waves="red"
+                                           style={{margin: 5, color: 'white'}}
+                                       >
+                                           <Row>
+                                               <Col>Продолжить</Col>
+                                           </Row>
+                                       </Button>
+                                   </div>
+                               ]}
+                               bottomSheet
+                               trigger={<Button className="red"
+                                                disabled={appropriateRemains.length > 1}
+                                                node="button"
+                                                style={{padding: 0}}
+                               >
+                                   <div style={{padding: "0 20px 0 20px"}} onClick={addToCart}>
+                                       Купить
+                                       <Icon tiny right>attach_money</Icon>
+                                   </div>
+                               </Button>}
                         >
-                            Купить
-                        </Button>
+                            <div style={{textAlign: "center"}}>
+                                <h5>Добавлено в корзину!</h5>
+                                <h6>Перейти к оформлению заказа?</h6>
+                            </div>
+                        </Modal>
                     </Col>
                 </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        В список желаний
-                    </Col>
-                    <Col
-                        className="black-text"
-                    >
-                        Найти магазин
-                    </Col>
-                </Row>
-                <Row>
-                    <Col
-                        className="black-text"
-                    >
-                        <h5 style={{"color": "red"}}>{data?.productById.description} </h5>
-                        Состав - материалы
-                    </Col>
-                </Row>
+                {<AdditionalInfo header="О товаре">
+                    {data?.productById.description ?
+                        <p style={descriptionStyle}>{data?.productById.description}</p> : <></>}
+                    <ProductInfoModal name="Доставка" iconName="local_shipping">
+                        <div style={{textAlign: "center"}}>
+                            <h6>Новой почтой по Украине - по тарифам перевозчика.</h6>
+                            <h6>Укрпочтой по Украине - по тарифам перевозчика.</h6>
+                        </div>
+                    </ProductInfoModal>
+                    <ProductInfoModal name="Оплата" iconName="local_atm">
+                        <div style={{textAlign: "center"}}>
+                            <h6>Наложенным платежом.</h6>
+                            <h6>Оплата на месте (наличные, терминал).</h6>
+                            <h6>На карту ПриватБанка.</h6>
+                        </div>
+                    </ProductInfoModal>
+                </AdditionalInfo>}
             </Col>
         </Row>
         : <h5 style={{textAlign: "center", margin: 30}}>
