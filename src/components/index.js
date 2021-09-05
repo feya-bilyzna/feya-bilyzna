@@ -6,6 +6,7 @@ export {default as GridView}     from './VisualElements/GridView'
 export {default as PreviewCard}  from './VisualElements/PreviewCard'
 
 export {default as LoadingAnimation} from './PartialElements/LoadingAnimation'
+export {default as VariantSelectors} from './PartialElements/VariantSelectors'
 
 export {default as NavbarMenu}       from './NavbarMenu'
 export {default as CartButton}       from './CartButton'

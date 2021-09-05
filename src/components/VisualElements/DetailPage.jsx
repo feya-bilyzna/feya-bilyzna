@@ -1,80 +1,60 @@
-import React from 'react'
-import {Button, CardPanel, Col, MediaBox, Row} from "react-materialize";
-import {useParams} from 'react-router';
-import {gql, useQuery} from "@apollo/client";
-import { LoadingAnimation } from '..';
-import { alertsData } from "../../data"
-import cx from 'classnames'
-
-
-const VariantSelectors = ({ selectorsData, updateSelector }) => {
-    return (
-        Object.entries(selectorsData).map(
-            ([selectorType, selectors]) =>
-                <Fragment key={selectorType}>
-                    <Row
-                        style={{ marginBottom: 10, marginTop: 10 }}
-                    >
-                        {selectors.map(selector =>
-                            <Button key={selector.value}
-                                floating
-                                style={{ margin: 3 }}
-                                disabled={selector.disabled}
-                                className={cx(
-                                    selectorType === "color" ? selector.value : "red lighten-2",
-                                    { pulse: selector.selected })
-                                }
-                                onClick={() => updateSelector(selectorType, selector.value)}
-                            >{selectorType === "color" ? "" : selector.value}</Button>
-                        )}
-                    </Row>
-                    <Divider />
-                </Fragment>
-        )
-    )
-}
-
+import React, {useState} from 'react'
+import {Button, Col, Divider, Icon, MediaBox, Modal, Row} from "react-materialize"
+import {useParams} from 'react-router'
+import {gql, useQuery} from "@apollo/client"
+import {useCookies} from 'react-cookie'
+import {LoadingAnimation, VariantSelectors} from '..'
+import {alertsData} from "../../data"
+import {NavLink} from "react-router-dom"
 
 const DetailPage = () => {
+
+    const fontSize = {fontSize: 13}
+    const buttonWidth = {width: 80}
+    const modalMarginBottom = {marginBottom: "90px"}
 
     const ProductQuery = gql`
     query ProductQuery($id: Int!) {
         productById(id: $id) {
-            categories
-            description
-            id
-            images {
-              id
-              url
+                categories
+                description
+                id
+                images {
+                  id
+                  url
+                }
+                name
+                remains {
+                  price
+                  variantId
+                  variantName
+                  variantStyle
+                  remains
+                }
+                brandName
+                vendorCode
+              }
             }
-            name
-            remains {
-              price
-              variantId
-              variantName
-              variantStyle
-              remains
-            }
-            brandName
-          }
-        }
     `
 
     const [selectedOptions, setselectedOptions] = useState({})
-    const { productId } = useParams()
-    const { loading, error, data } = useQuery(ProductQuery, {
-        variables: { id: productId },
+    const {productId} = useParams()
+
+    const [cookies, setCookie] = useCookies(['cartProducts'])
+
+    const {loading, error, data} = useQuery(ProductQuery, {
+        variables: {id: productId},
     })
 
-    if (loading) return <LoadingAnimation style={{ height: "50vh" }} />
-    if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    if (loading) return <LoadingAnimation style={{height: "50vh"}}/>
+    if (error) return <h5 style={{textAlign: "center"}}>{alertsData.serverRequestFailed}</h5>
 
     const allowedSelectors = new Set(['color', 'size', 'bandSize', 'cupSize'])
     const updateSelector = (selector, value) => {
         if (allowedSelectors.has(selector)) {
             if (selectedOptions[selector] === value) {
-                setselectedOptions({ ...selectedOptions, [selector]: undefined })
-            } else setselectedOptions({ ...selectedOptions, [selector]: value })
+                setselectedOptions({...selectedOptions, [selector]: undefined})
+            } else setselectedOptions({...selectedOptions, [selector]: value})
         }
     }
 
@@ -108,6 +88,7 @@ const DetailPage = () => {
     for (let variant of variants) {
         for (let [name, value] of Object.entries(variant)) {
             let { [name]: current, ...otherSelectors } = variant
+
             for (let [relatedName, relatedValue] of Object.entries(otherSelectors)) {
                 addOrCreate(name, value, relatedName, relatedValue)
             }
@@ -116,7 +97,7 @@ const DetailPage = () => {
 
     const optionIsDisabled = (selector, option) => {
         if (selectedOptions[selector] && selectedOptions[selector] !== option) return true
-        let { [selector]: current, ...related } = variantsData
+        let {[selector]: current, ...related} = variantsData
 
         return !intersection(Object.entries(related).map(
             ([relatedSelector, relatedData]) => {
@@ -158,20 +139,26 @@ const DetailPage = () => {
             )
     )
 
-    return (
-        <Row>
-            <Col
-                className="black-text"
-                xl={6}
-                m={6}
-                s={12}
-            >
+    if (!appropriateRemains.length)
+        return <>
+            <h5 style={{textAlign: "center", margin: 30}}>
+                {alertsData.invalidRemains}
+            </h5>
+            <div style={{textAlign: "center"}}>
+                <NavLink to={"/contacts"}><Button
+                    className="red"
+                    node="button"
+                >Контакты</Button></NavLink></div>
+        </>
+    return data.productById !== null ?
+        <Row className={"flow-text"}>
+            <Col className="black-text" xl={6} m={6} s={12}>
                 {Object.values(data?.productById.images).map(image =>
                     <div
+                        className="z-depth-1-half"
                         key={image.id}
                         style={{
                             marginTop: 15,
-                            boxShadow: "0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%)",
                             borderRadius: "2px"
                         }}>
                         <MediaBox
@@ -189,140 +176,166 @@ const DetailPage = () => {
                     </div>
                 )}
             </Col>
-            <Col
-                className="white-text"
-                xl={6}
-                m={6}
-                s={12}
-                style={{
-                    position: "sticky",
-                    top: 0,
-                    padding: "10%",
-                }}
+            <Col xl={6} m={6} s={12}
+                 style={{
+                     position: "sticky",
+                     top: 0,
+                     padding: "10%",
+                 }}
             >
-                <CardPanel>
-                    <Row>
-                        <Col
-                            className="black-text"
-
+                <Row style={{marginBottom: 10, marginTop: 10}}>
+                    <Col className="black-text">
+                        {data?.productById.vendorCode}
+                    </Col>
+                </Row><Divider/>
+                <Row style={{marginBottom: 10, marginTop: 10}}>
+                    <Col className="black-text">
+                        {data?.productById.brandName ? data?.productById.brandName : "Бренд не указан"}
+                    </Col>
+                </Row><Divider/>
+                {variants.length > 1 ? <Row>
+                    <Col>
+                        <VariantSelectors selectorsData={selectorsData} updateSelector={updateSelector}/>
+                    </Col>
+                </Row> : <></>}
+                <div className="z-depth-1" style={{padding: "0 10px 0 10px"}}>
+                    {appropriateRemains.length === 1 ? <div>
+                        <Row style={{marginBottom: 10}}>
+                            <Col className="black-text" s={12}>
+                                <h6>Выбранный вариант</h6>
+                                <p style={fontSize}>{appropriateRemains[0].variantName}</p>
+                                <p style={fontSize}>В наличии {appropriateRemains[0].remains} шт</p>
+                            </Col>
+                        </Row>
+                    </div> : <></>}
+                </div>
+                <Row>
+                    <Col className="pink-text accent-4">
+                        <h3 style={{fontWeight: "bold"}}>{appropriateRemains[0].price} грн</h3>
+                    </Col>
+                </Row>
+                <Divider style={{marginBottom: 10, marginTop: 10}}/>
+                <Row>
+                    <Col className="black-text" s={12}>
+                        <Modal style={modalMarginBottom}
+                               actions={[
+                                   <div style={{textAlign: "center"}}>
+                                       <NavLink to="/cart">
+                                           <Button
+                                               className="pink accent-4"
+                                               node="button"
+                                               flat={true}
+                                               waves="red"
+                                               style={{
+                                                   color: 'white'
+                                               }}
+                                           >
+                                               <Row>
+                                                   <Col style={{marginLeft: 39}}>
+                                                       Да
+                                                   </Col>
+                                                   <Col>
+                                                       <Icon tiny>shopping_cart</Icon>
+                                                   </Col>
+                                               </Row>
+                                           </Button>
+                                       </NavLink>
+                                       <Button
+                                           modal="close"
+                                           className="pink accent-4"
+                                           node="button"
+                                           flat={true}
+                                           waves="red"
+                                           style={{margin: 5, color: 'white'}}
+                                           onClick={() => setCookie('cartProducts',
+                                               [...cookies.cartProducts || [], productId])}
+                                       >
+                                           <Row>
+                                               <Col>Продолжить</Col>
+                                           </Row>
+                                       </Button>
+                                   </div>
+                               ]}
+                               bottomSheet
+                               id="Modal-10"
+                               trigger={<Button className="red"
+                                                disabled={appropriateRemains.length > 1}
+                                                node="button"
+                               >
+                                   <Row>
+                                       <Col style={buttonWidth}>Купить</Col>
+                                       <Col><Icon tiny>attach_money</Icon></Col>
+                                   </Row>
+                               </Button>}
                         >
-                            Артикул
-                            <p style={{"color": "red"}}>{productId}</p>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-
+                            <div style={{textAlign: "center"}}>
+                                <h5>Добавлено в корзину!</h5>
+                                <h6>Перейти к оформлению заказа?</h6>
+                            </div>
+                        </Modal>
+                    </Col>
+                </Row>
+                {data?.productById.description ? <Row style={{marginBottom: 10, marginTop: 10}}>
+                    <Col className="black-text">
+                        <p style={fontSize}>{data?.productById.description}</p>
+                    </Col>
+                </Row> : <></>}<Divider/>
+                <Row><Divider/>
+                    <Col>
+                        <Modal style={modalMarginBottom}
+                               actions={[<div style={{textAlign: "center"}}>
+                                   <Icon small>local_shipping</Icon>
+                               </div>]}
+                               bottomSheet
+                               id="Modal-10"
+                               trigger={<Button className="pink accent-4" node="button">
+                                   <Row>
+                                       <Col style={buttonWidth}>
+                                           Доставка
+                                       </Col>
+                                       <Col>
+                                           <Icon tiny>info_outline</Icon>
+                                       </Col>
+                                   </Row>
+                               </Button>}
                         >
-                            Серия
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-
+                            <div style={{textAlign: "center"}}>
+                                <h6>Новой почтой по Украине - по тарифам перевозчика.</h6>
+                                <h6>Укрпочтой по Украине - по тарифам перевозчика.</h6>
+                            </div>
+                        </Modal>
+                    </Col>
+                    <Col>
+                        <Modal style={modalMarginBottom}
+                               actions={[<div style={{textAlign: "center"}}>
+                                   <Icon>local_atm</Icon>
+                               </div>]}
+                               bottomSheet
+                               id="Modal-10"
+                               trigger={<Button className="pink accent-4" node="button">
+                                   <Row>
+                                       <Col style={buttonWidth}>
+                                           Оплата
+                                       </Col>
+                                       <Col>
+                                           <Icon tiny>info_outline</Icon>
+                                       </Col>
+                                   </Row>
+                               </Button>}
                         >
-                            Тип -
-                            <h5 style={{"color": "red"}}>{data?.productById.name}</h5>
-                            Цвет -
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                        >
-                            Значек
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                            s={1}
-                        >
-                            Цена
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                        >
-                            Условия обмена и возврата
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                        >
-                            Значек типа
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                            s={1}
-                        >
-                            Цвета:
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                            s={12}
-                        >
-                            Размеры
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                            s={12}
-                        >
-                            Остаток
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                            s={12}
-                        >
-                            <Button
-                                className="darken-1"
-                                node="button"
-                                flat={true}
-                                waves="red"
-                                style={{
-                                    marginRight: '5px'
-                                }}
-                            >
-                                Купить
-                            </Button>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                        >
-                            В список желаний
-                        </Col>
-                        <Col
-                            className="black-text"
-                        >
-                            Найти магазин
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            className="black-text"
-                        >
-                            <h5 style={{"color": "red"}}>{data?.productById.description} </h5>
-                            Состав - материалы
-                        </Col>
-                    </Row>
-                </CardPanel>
+                            <div style={{textAlign: "center"}}>
+                                <h6>Наложенным платежом.</h6>
+                                <h6>Оплата на месте (наличные, терминал).</h6>
+                                <h6>На карту ПриватБанка.</h6>
+                            </div>
+                        </Modal>
+                    </Col>
+                </Row>
             </Col>
         </Row>
-    )
+        : <h5 style={{textAlign: "center", margin: 30}}>
+            {alertsData.noSuchId}
+        </h5>
 }
 
 export default DetailPage
