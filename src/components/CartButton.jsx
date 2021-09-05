@@ -3,6 +3,7 @@ import { Button, Icon } from 'react-materialize'
 import cx from 'classnames'
 import { NavLink } from 'react-router-dom'
 import M from 'materialize-css'
+import { useCookies } from 'react-cookie'
 
 const AddedProductsIndicator = props => {
     return <div style={{
@@ -25,16 +26,15 @@ const CartButton = () => {
         )
     }, [])
 
-    // We'll probably use redux or other global storing method
-    const addedProducts = 3
+    const [cookies, , removeCookie] = useCookies(['cartProducts'])
 
     return <div style={{ position: "absolute" }}><Button
-        className={cx("blue", { pulse: addedProducts })}
+        className={cx("blue", { pulse: cookies.cartProducts?.length })}
         fab={{ direction: "top", hoverEnabled: false }}
         floating
         large
-        icon={addedProducts ? <>
-            <AddedProductsIndicator>{addedProducts}</AddedProductsIndicator>
+        icon={cookies.cartProducts?.length ? <>
+            <AddedProductsIndicator>{cookies.cartProducts?.length}</AddedProductsIndicator>
             <Icon>shopping_cart</Icon>
         </> : <Icon>shopping_cart</Icon>}
         node="button"
@@ -46,6 +46,8 @@ const CartButton = () => {
             icon={<NavLink to="/cart">{
                 <Icon>shopping_cart</Icon>
             }</NavLink>}
+            // TODO: remove this when we add a proper shopping cart
+            onClick={() => removeCookie('cartProducts')}
             node="button"
             tooltip="Оформить заказ"
             tooltipOptions={{
