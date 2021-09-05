@@ -7,6 +7,8 @@ export {default as CustomCardTitle}        from './CustomMaterialize/CustomCardT
 
 export {default as LoadingAnimation} from './PartialElements/LoadingAnimation'
 export {default as VariantSelectors} from './PartialElements/VariantSelectors'
+export {default as AdditionalInfo} from './PartialElements/AdditionalInfo'
+export {default as ProductInfoModal} from './PartialElements/ProductInfoModal'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'
@@ -17,4 +19,4 @@ export {default as GridView}               from './VisualElements/GridView'
 export {default as ProductSubcategoryPage} from './VisualElements/ProductSubcategoryPage'
 export {default as ProductCategoryPage}    from './VisualElements/ProductCategoryPage'
 export {default as DetailPage}             from './VisualElements/DetailPage'
-export {default as ShoppingCard}           from './VisualElements/ShoppingCard'
+export {default as ShoppingCart}           from './VisualElements/ShoppingCart'

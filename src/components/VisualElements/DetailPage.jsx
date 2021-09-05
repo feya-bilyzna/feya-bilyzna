@@ -3,14 +3,13 @@ import {Button, Col, Divider, Icon, MediaBox, Modal, Row} from "react-materializ
 import {useParams} from 'react-router'
 import {gql, useQuery} from "@apollo/client"
 import {useCookies} from 'react-cookie'
-import {LoadingAnimation, VariantSelectors} from '..'
+import {LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal} from '..'
 import {alertsData} from "../../data"
 import {NavLink} from "react-router-dom"
 
 const DetailPage = () => {
 
-    const fontSize = {fontSize: 13}
-    const buttonWidth = {width: 80}
+    const descriptionStyle = {fontSize: 13}
     const modalMarginBottom = {marginBottom: "90px"}
 
     const ProductQuery = gql`
@@ -150,6 +149,12 @@ const DetailPage = () => {
                     node="button"
                 >Контакты</Button></NavLink></div>
         </>
+
+    // TODO rewrite this when we implement cart logic
+    const addToCart = () => setCookie('cartProducts',
+        [...(cookies.cartProducts || []), productId]
+    )
+
     return data.productById !== null ?
         <Row className={"flow-text"}>
             <Col className="black-text" xl={6} m={6} s={12}>
@@ -192,29 +197,23 @@ const DetailPage = () => {
                     <Col className="black-text">
                         {data?.productById.brandName ? data?.productById.brandName : "Бренд не указан"}
                     </Col>
-                </Row><Divider/>
+                </Row>
                 {variants.length > 1 ? <Row>
                     <Col>
                         <VariantSelectors selectorsData={selectorsData} updateSelector={updateSelector}/>
                     </Col>
                 </Row> : <></>}
-                <div className="z-depth-1" style={{padding: "0 10px 0 10px"}}>
-                    {appropriateRemains.length === 1 ? <div>
-                        <Row style={{marginBottom: 10}}>
-                            <Col className="black-text" s={12}>
-                                <h6>Выбранный вариант</h6>
-                                <p style={fontSize}>{appropriateRemains[0].variantName}</p>
-                                <p style={fontSize}>В наличии {appropriateRemains[0].remains} шт</p>
-                            </Col>
-                        </Row>
-                    </div> : <></>}
-                </div>
+                {appropriateRemains.length === 1 ? <div>
+                    <AdditionalInfo header="Выбранный вариант">
+                        <p style={descriptionStyle}>{appropriateRemains[0].variantName}</p>
+                        <p style={descriptionStyle}>В наличии {appropriateRemains[0].remains} шт</p>
+                    </AdditionalInfo>
+                </div> : <></>}
                 <Row>
                     <Col className="pink-text accent-4">
                         <h3 style={{fontWeight: "bold"}}>{appropriateRemains[0].price} грн</h3>
                     </Col>
                 </Row>
-                <Divider style={{marginBottom: 10, marginTop: 10}}/>
                 <Row>
                     <Col className="black-text" s={12}>
                         <Modal style={modalMarginBottom}
@@ -247,8 +246,6 @@ const DetailPage = () => {
                                            flat={true}
                                            waves="red"
                                            style={{margin: 5, color: 'white'}}
-                                           onClick={() => setCookie('cartProducts',
-                                               [...cookies.cartProducts || [], productId])}
                                        >
                                            <Row>
                                                <Col>Продолжить</Col>
@@ -257,15 +254,15 @@ const DetailPage = () => {
                                    </div>
                                ]}
                                bottomSheet
-                               id="Modal-10"
                                trigger={<Button className="red"
                                                 disabled={appropriateRemains.length > 1}
                                                 node="button"
+                                                style={{padding: 0}}
                                >
-                                   <Row>
-                                       <Col style={buttonWidth}>Купить</Col>
-                                       <Col><Icon tiny>attach_money</Icon></Col>
-                                   </Row>
+                                   <div style={{padding: "0 20px 0 20px"}} onClick={addToCart}>
+                                       Купить
+                                       <Icon tiny right>attach_money</Icon>
+                                   </div>
                                </Button>}
                         >
                             <div style={{textAlign: "center"}}>
@@ -275,62 +272,23 @@ const DetailPage = () => {
                         </Modal>
                     </Col>
                 </Row>
-                {data?.productById.description ? <Row style={{marginBottom: 10, marginTop: 10}}>
-                    <Col className="black-text">
-                        <p style={fontSize}>{data?.productById.description}</p>
-                    </Col>
-                </Row> : <></>}<Divider/>
-                <Row><Divider/>
-                    <Col>
-                        <Modal style={modalMarginBottom}
-                               actions={[<div style={{textAlign: "center"}}>
-                                   <Icon small>local_shipping</Icon>
-                               </div>]}
-                               bottomSheet
-                               id="Modal-10"
-                               trigger={<Button className="pink accent-4" node="button">
-                                   <Row>
-                                       <Col style={buttonWidth}>
-                                           Доставка
-                                       </Col>
-                                       <Col>
-                                           <Icon tiny>info_outline</Icon>
-                                       </Col>
-                                   </Row>
-                               </Button>}
-                        >
-                            <div style={{textAlign: "center"}}>
-                                <h6>Новой почтой по Украине - по тарифам перевозчика.</h6>
-                                <h6>Укрпочтой по Украине - по тарифам перевозчика.</h6>
-                            </div>
-                        </Modal>
-                    </Col>
-                    <Col>
-                        <Modal style={modalMarginBottom}
-                               actions={[<div style={{textAlign: "center"}}>
-                                   <Icon>local_atm</Icon>
-                               </div>]}
-                               bottomSheet
-                               id="Modal-10"
-                               trigger={<Button className="pink accent-4" node="button">
-                                   <Row>
-                                       <Col style={buttonWidth}>
-                                           Оплата
-                                       </Col>
-                                       <Col>
-                                           <Icon tiny>info_outline</Icon>
-                                       </Col>
-                                   </Row>
-                               </Button>}
-                        >
-                            <div style={{textAlign: "center"}}>
-                                <h6>Наложенным платежом.</h6>
-                                <h6>Оплата на месте (наличные, терминал).</h6>
-                                <h6>На карту ПриватБанка.</h6>
-                            </div>
-                        </Modal>
-                    </Col>
-                </Row>
+                {<AdditionalInfo header="О товаре">
+                    {data?.productById.description ?
+                        <p style={descriptionStyle}>{data?.productById.description}</p> : <></>}
+                    <ProductInfoModal name="Доставка" iconName="local_shipping">
+                        <div style={{textAlign: "center"}}>
+                            <h6>Новой почтой по Украине - по тарифам перевозчика.</h6>
+                            <h6>Укрпочтой по Украине - по тарифам перевозчика.</h6>
+                        </div>
+                    </ProductInfoModal>
+                    <ProductInfoModal name="Оплата" iconName="local_atm">
+                        <div style={{textAlign: "center"}}>
+                            <h6>Наложенным платежом.</h6>
+                            <h6>Оплата на месте (наличные, терминал).</h6>
+                            <h6>На карту ПриватБанка.</h6>
+                        </div>
+                    </ProductInfoModal>
+                </AdditionalInfo>}
             </Col>
         </Row>
         : <h5 style={{textAlign: "center", margin: 30}}>
