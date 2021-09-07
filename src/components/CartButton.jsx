@@ -28,13 +28,17 @@ const CartButton = () => {
 
     const [cookies, , removeCookie] = useCookies(['cartProducts'])
 
+    console.log(cookies.cartProducts)
+
+    const  cartSize = Object.keys(cookies.cartProducts || {}).length
+
     return <div style={{ position: "absolute" }}><Button
-        className={cx("blue", { pulse: cookies.cartProducts?.length })}
+        className={cx("blue", { pulse: cartSize })}
         fab={{ direction: "top", hoverEnabled: false }}
         floating
         large
-        icon={cookies.cartProducts?.length ? <>
-            <AddedProductsIndicator>{cookies.cartProducts?.length}</AddedProductsIndicator>
+        icon={cartSize ? <>
+            <AddedProductsIndicator>{cartSize}</AddedProductsIndicator>
             <Icon>shopping_cart</Icon>
         </> : <Icon>shopping_cart</Icon>}
         node="button"

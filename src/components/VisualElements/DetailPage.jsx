@@ -150,9 +150,8 @@ const DetailPage = () => {
                 >Контакты</Button></NavLink></div>
         </>
 
-    // TODO rewrite this when we implement cart logic
-    const addToCart = () => setCookie('cartProducts',
-        [...(cookies.cartProducts || []), productId]
+    const addToCart = variantId => setCookie('cartProducts',
+        {...(cookies.cartProducts || {}), [variantId]: {productId, amount: 1}}
     )
 
     return data.productById !== null ?
@@ -259,7 +258,8 @@ const DetailPage = () => {
                                                 node="button"
                                                 style={{padding: 0}}
                                >
-                                   <div style={{padding: "0 20px 0 20px"}} onClick={addToCart}>
+                                   <div style={{padding: "0 20px 0 20px"}}
+                                        onClick={() => addToCart(appropriateRemains[0].variantId)}>
                                        Купить
                                        <Icon tiny right>attach_money</Icon>
                                    </div>
