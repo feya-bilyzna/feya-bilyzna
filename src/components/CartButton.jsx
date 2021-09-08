@@ -28,8 +28,6 @@ const CartButton = () => {
 
     const [cookies, , removeCookie] = useCookies(['cartProducts'])
 
-    console.log(cookies.cartProducts)
-
     const  cartSize = Object.keys(cookies.cartProducts || {}).length
 
     return <div style={{ position: "absolute" }}><Button
