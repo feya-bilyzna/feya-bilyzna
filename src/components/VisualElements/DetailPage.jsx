@@ -24,6 +24,7 @@ const DetailPage = () => {
                 }
                 name
                 remains {
+                  id
                   price
                   variantId
                   variantName
@@ -150,9 +151,15 @@ const DetailPage = () => {
                 >Контакты</Button></NavLink></div>
         </>
 
-    const addToCart = variantId => setCookie('cartProducts',
-        {...(cookies.cartProducts || {}), [variantId]: {productId, amount: 1}}
+    // const addToCart = variantId => setCookie('cartProducts',
+    //     {...(cookies.cartProducts || {}), [variantId]: {productId, amount: 1}}
+    // )
+
+    const addToCart = (remainId, variantId) => setCookie('cartProducts',
+        {...(cookies.cartProducts || {}), [remainId]: {productId, variantId, amount: 1}}
     )
+
+    console.log(cookies.cartProducts)
 
     return data.productById !== null ?
         <Row className={"flow-text"}>
@@ -259,7 +266,7 @@ const DetailPage = () => {
                                                 style={{padding: 0}}
                                >
                                    <div style={{padding: "0 20px 0 20px"}}
-                                        onClick={() => addToCart(appropriateRemains[0].variantId)}>
+                                        onClick={() => addToCart(appropriateRemains[0].id, appropriateRemains[0].variantId)}>
                                        Купить
                                        <Icon tiny right>attach_money</Icon>
                                    </div>
