@@ -151,15 +151,12 @@ const DetailPage = () => {
                 >Контакты</Button></NavLink></div>
         </>
 
-    // const addToCart = variantId => setCookie('cartProducts',
-    //     {...(cookies.cartProducts || {}), [variantId]: {productId, amount: 1}}
-    // )
-
-    const addToCart = (remainId, variantId) => setCookie('cartProducts',
-        {...(cookies.cartProducts || {}), [remainId]: {productId, variantId, amount: 1}}
+    const addToCart = (remainId, variantId, price) => setCookie('cartProducts',
+        {...(cookies.cartProducts || {}), [remainId]: {productId, variantId, amount: 1, price}}
     )
 
-    console.log(cookies.cartProducts)
+    const productAlreadyAdded =
+        appropriateRemains.length === 1 && appropriateRemains[0].id in (cookies.cartProducts || {})
 
     return data.productById !== null ?
         <Row className={"flow-text"}>
@@ -227,6 +224,7 @@ const DetailPage = () => {
                                    <div style={{textAlign: "center"}}>
                                        <NavLink to="/cart">
                                            <Button
+                                               modal="close"
                                                className="pink accent-4"
                                                node="button"
                                                flat={true}
@@ -261,14 +259,20 @@ const DetailPage = () => {
                                ]}
                                bottomSheet
                                trigger={<Button className="red"
-                                                disabled={appropriateRemains.length > 1}
+                                                disabled={appropriateRemains.length > 1
+                                                ||
+                                                appropriateRemains[0].id in (cookies.cartProducts || {})
+                                                }
                                                 node="button"
                                                 style={{padding: 0}}
                                >
                                    <div style={{padding: "0 20px 0 20px"}}
-                                        onClick={() => addToCart(appropriateRemains[0].id, appropriateRemains[0].variantId)}>
-                                       Купить
-                                       <Icon tiny right>attach_money</Icon>
+                                        onClick={() => addToCart(appropriateRemains[0].id,
+                                            appropriateRemains[0].variantId,
+                                            appropriateRemains[0].price
+                                        )}>
+                                       {productAlreadyAdded ? "Добавлено" : "Купить"}
+                                       {!productAlreadyAdded ? <Icon tiny right>attach_money</Icon> : <></>}
                                    </div>
                                </Button>}
                         >

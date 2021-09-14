@@ -48,8 +48,6 @@ const CartButton = () => {
             icon={<NavLink to="/cart">{
                 <Icon>shopping_cart</Icon>
             }</NavLink>}
-            // TODO: remove this when we add a proper shopping cart
-            onClick={() => removeCookie('cartProducts')}
             node="button"
             tooltip="Оформить заказ"
             tooltipOptions={{
