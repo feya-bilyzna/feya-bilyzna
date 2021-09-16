@@ -26,7 +26,7 @@ const CartButton = () => {
         )
     }, [])
 
-    const [cookies, , removeCookie] = useCookies(['cartProducts'])
+    const [cookies] = useCookies(['cartProducts'])
 
     const  cartSize = Object.keys(cookies.cartProducts || {}).length
 
