@@ -1,6 +1,6 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-import ImageView from "../VisualElements/ImageView"
+import {ImageView} from ".."
 
 const CustomCard = ({item, image}) => {
     const customCardContentStyle = {

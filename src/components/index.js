@@ -16,6 +16,7 @@ export {default as PageContainer}          from './PageContainer'
 export {default as FooterComponent}        from './FooterComponent'
 
 export {default as GridView}               from './VisualElements/GridView'
+export {default as ImageView}              from './VisualElements/ImageView'
 export {default as ProductSubcategoryPage} from './VisualElements/ProductSubcategoryPage'
 export {default as ProductCategoryPage}    from './VisualElements/ProductCategoryPage'
 export {default as DetailPage}             from './VisualElements/DetailPage'
