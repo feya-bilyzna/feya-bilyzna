@@ -151,7 +151,9 @@ const DetailPage = () => {
                 >Контакты</Button></NavLink></div>
         </>
 
-    const addToCart = (remainId, variantId, price) => setCookie('cartProducts',
+    const tooMuchItemsInCart = cookies.cartProducts && Object.keys(cookies.cartProducts).length >= 20
+
+    const addToCart = (remainId, variantId, price) => !tooMuchItemsInCart && setCookie('cartProducts',
         {...(cookies.cartProducts || {}), [remainId]: {productId, variantId, amount: 1, price}}
     )
 
@@ -277,7 +279,7 @@ const DetailPage = () => {
                                </Button>}
                         >
                             <div style={{textAlign: "center"}}>
-                                <h5>Добавлено в корзину!</h5>
+                                <h5>{tooMuchItemsInCart ? "Корзина переполнена!" : "Добавлено в корзину!"}</h5>
                                 <h6>Перейти к оформлению заказа?</h6>
                             </div>
                         </Modal>
