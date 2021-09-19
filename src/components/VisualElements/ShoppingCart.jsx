@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react'
-import {Button, Col, Divider, Icon, Row} from "react-materialize";
+import React, {Fragment} from 'react'
+import {Button, Col, Divider, Icon, Modal, Row, TextInput, Toast} from "react-materialize";
 import {gql, useQuery, useMutation} from "@apollo/client";
 import {useCookies} from 'react-cookie'
 import {LoadingAnimation, ImageView} from "..";
@@ -231,28 +231,93 @@ const ShoppingCart = () => {
                     justifyContent: "center",
                     alignItems: "center",
                 }}>
-                    <Button className="pink accent-4"
-                            node="button"
-                            waves="red"
-                            style={{
-                                color: 'white',
-                                overflow: "hidden",
-                                fontSize: "min(2.5vw, 14px)",
-                            }}
-                            onClick={() => ShoppingCartMutation(
-                                {
-                                    variables: {
-                                        contactInfo: "TestCustomer3",
-                                        ordersList: Object.entries(cookies.cartProducts).map(
-                                            ([remainsId, data]) => { return {
-                                                remainsId: remainsId, amount: data.amount
-                                            }}
-                                        )
+                    <Modal
+                        actions={[
+                            <Toast className="transparent"
+                                options={{
+                                    html: 'Заказ оформлен!'
+                                }}
+                            >
+                            <Button className="pink accent-4"
+                                    node="button"
+                                    waves="red"
+                                    flat modal="close"
+                                    // disabled={}
+                                    style={{
+                                        color: 'white',
+                                        overflow: "hidden",
+                                        fontSize: "min(2.5vw, 14px)",
+                                    }}
+                                    onClick={() => {
+                                            ShoppingCartMutation(
+                                                {
+                                                    variables: {
+                                                        contactInfo: document.getElementById("TextInput-73").value,
+                                                        ordersList: Object.entries(cookies.cartProducts).map(
+                                                            ([remainsId, data]) => {
+                                                                return {
+                                                                    remainsId: remainsId, amount: data.amount
+                                                                }
+                                                            }
+                                                        )
+                                                    }
+
+                                                })
+                                            removeCookie('cartProducts')
+                                        }
                                     }
-                                })}
+                            >
+                                Оформить заказ
+                            </Button>
+                            </Toast>,
+                            <Toast className="transparent"
+                                options={{
+                                    html: 'Заказ не оформлен!'
+                                }}
+                            >
+                                <Button className="pink accent-4" style={{
+                                    color: 'white',
+                                    overflow: "hidden",
+                                    fontSize: "min(2.5vw, 14px)",
+                                }} flat modal="close" node="button" waves="green">Закрыть</Button>
+                            </Toast>
+                        ]}
+                        bottomSheet={false}
+                        fixedFooter
+                        header="Оформление заказа"
+                        id="Modal-12"
+                        open={false}
+                        options={{
+                            dismissible: true,
+                            endingTop: '10%',
+                            inDuration: 250,
+                            onCloseEnd: null,
+                            onCloseStart: null,
+                            onOpenEnd: null,
+                            onOpenStart: null,
+                            opacity: 0.5,
+                            outDuration: 250,
+                            preventScrolling: true,
+                            startingTop: '4%'
+                        }}
+                        trigger={<Button className="pink accent-4"
+                                         node="button"
+                                         waves="red"
+                                         style={{
+                                             color: 'white',
+                                             overflow: "hidden",
+                                             fontSize: "min(2.5vw, 14px)",
+                                         }}
+                        >
+                            Оформить заказ
+                        </Button>}
                     >
-                        Оформить заказ
-                    </Button>
+                        Получатель заказа
+                        <TextInput
+                            id="TextInput-73"
+                            label="Введите ваш номер телефона для связи"
+                        />
+                    </Modal>
                 </div>
             </Col>
         </Row>
