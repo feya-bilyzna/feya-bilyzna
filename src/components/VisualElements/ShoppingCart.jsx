@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react'
 import {Button, Col, Divider, Icon, Row} from "react-materialize";
-import {gql, useQuery} from "@apollo/client";
+import {gql, useQuery, useMutation} from "@apollo/client";
 import {useCookies} from 'react-cookie'
 import {LoadingAnimation, ImageView} from "..";
 import {alertsData} from "../../data";
 import {NavLink} from "react-router-dom";
-
 
 const CartCell = ({size, children, bold}) => {
     return <Col s={size} m={size} l={size} xl={size} style={{
@@ -16,7 +15,6 @@ const CartCell = ({size, children, bold}) => {
         fontSize: "min(2.5vw, 14px)",
     }}>{children}</Col>
 }
-
 
 const ShoppingCart = () => {
     const ShoppingCartQuery = gql`
@@ -36,7 +34,16 @@ const ShoppingCart = () => {
         }
     }`
 
+    const Shopping_Cart_Mutation = gql`
+    mutation ShoppingCartMutation($contactInfo: String!, $ordersList: [OrderItem]!){
+        __typename
+            makeOrder(contactInfo: $contactInfo, ordersList: $ordersList) {
+        result
+      }
+    }`
+
     const [cookies, setCookie, removeCookie] = useCookies(['cartProducts'])
+    const [ShoppingCartMutation, {dataMutation, loadingMutation, errorMutation}] = useMutation(Shopping_Cart_Mutation)
 
     const deleteOrder = (remainsId) => {
         if (!window.confirm("Вы уверены, что хотите убрать данный товар из корзины?")) return
@@ -219,7 +226,7 @@ const ShoppingCart = () => {
                 </NavLink>
             </Col>
             <Col s={6} m={6} l={6} xl={6}>
-                <NavLink to={'/checkout'} style={{
+                <div style={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -231,13 +238,24 @@ const ShoppingCart = () => {
                                 color: 'white',
                                 overflow: "hidden",
                                 fontSize: "min(2.5vw, 14px)",
-                            }}>
+                            }}
+                            onClick={() => ShoppingCartMutation(
+                                {
+                                    variables: {
+                                        contactInfo: "TestCustomer3",
+                                        ordersList: Object.entries(cookies.cartProducts).map(
+                                            ([remainsId, data]) => { return {
+                                                remainsId: remainsId, amount: data.amount
+                                            }}
+                                        )
+                                    }
+                                })}
+                    >
                         Оформить заказ
                     </Button>
-                </NavLink>
+                </div>
             </Col>
         </Row>
-        
     </>
 }
 
