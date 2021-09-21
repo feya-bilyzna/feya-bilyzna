@@ -17,7 +17,7 @@ const MainPage = () => {
                     }}
             >
                 <Slide image={<img alt=""
-                                   src="https://bn1301files.storage.live.com/y4m8Q0kqJ2QMriyzuVYquFknyF9CcLsT6p2-J7XCiKZP1cSWimF8j6pZyD85zQsc_ZE-pSLltNRG8rh9iVjHEIb71R26p63OzwwtgcRouAD7nnQuu81MkvoeJaQg7CT5yYm0WKXUWXkKPS7TcUdEdvusot8Q4xdB27u0NCyxx40BnUzzaTfWPsgXP5oVI7PyARj?width=660&height=377&cropmode=none"/>}>
+                                   src="https://bn1301files.storage.live.com/y4mIyFICCQ_K6jj7K0BHd_C4_TZ3IXM7gh3nctLnvFRjvovSWun-WKv4tDzy7SD0awK7z7ajgpyFssdRMFJx6GK3QcWDjAc3siuENmK1UTs8xwjbkxWZdAI-qo8a3vYx1xAXFivZIoUuJFYryhY4IjZQsbp6zLZLnuOKXfTUCgLacNqJZ5dXVaAgB10HUdblF-Y?width=1400&height=800&cropmode=none"/>}>
                     <Caption placement="right">
                         <h1>
                             Роскошь
