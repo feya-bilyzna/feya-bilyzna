@@ -4,11 +4,15 @@ export {default as PopoutContactElements}  from './ContactsPage/PopoutContactEle
 
 export {default as CustomCard}      from './CustomMaterialize/CustomCard'
 export {default as CustomCardTitle}        from './CustomMaterialize/CustomCardTitle'
+export {default as CustomIcon}        from './CustomMaterialize/CustomIcon'
 
 export {default as LoadingAnimation} from './PartialElements/LoadingAnimation'
 export {default as VariantSelectors} from './PartialElements/VariantSelectors'
 export {default as AdditionalInfo} from './PartialElements/AdditionalInfo'
 export {default as ProductInfoModal} from './PartialElements/ProductInfoModal'
+export {default as CartCell} from './PartialElements/ShoppingCart/CartCell'
+export {default as Order} from './PartialElements/ShoppingCart/Order'
+export {default as Checkout} from './PartialElements/ShoppingCart/Checkout'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'

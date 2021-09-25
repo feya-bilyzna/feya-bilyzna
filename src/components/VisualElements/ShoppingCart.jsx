@@ -1,33 +1,10 @@
 import React, {Fragment} from 'react'
-import {
-    Button,
-    Col,
-    Collapsible,
-    CollapsibleItem,
-    Divider,
-    Icon,
-    Modal,
-    Row,
-    TextInput,
-    Toast
-} from "react-materialize";
+import {Button, Col, Divider, Modal, Row} from "react-materialize";
 import {gql, useQuery, useMutation} from "@apollo/client";
 import {useCookies} from 'react-cookie'
-import {LoadingAnimation, ImageView} from "..";
-import {alertsData} from "../../data";
+import {LoadingAnimation, ImageView, CustomIcon, CartCell, Order, Checkout} from "..";
+import {alertsData, cartAndOrderLimits} from "../../data";
 import {NavLink} from "react-router-dom";
-import M from "materialize-css"
-import contactsData from "../../data/contactsData";
-
-const CartCell = ({size, children, bold}) => {
-    return <Col s={size} m={size} l={size} xl={size} style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontWeight: bold ? "bold" : "normal",
-        fontSize: "min(2.5vw, 14px)",
-    }}>{children}</Col>
-}
 
 const ShoppingCart = () => {
     const ShoppingCartQuery = gql`
@@ -97,14 +74,6 @@ const ShoppingCart = () => {
     })
 
     const cartHeader = <h3 style={{textAlign: "center"}}>Корзина</h3>
-    const cartOrder = <>
-        <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-        }}><Icon small>arrow_drop_down</Icon></div>
-        <h6 style={{textAlign: "center"}}>У вас есть необработанный заказ</h6>
-    </>
 
     if (cookies.cartProducts === undefined) return <>
         {cartHeader}
@@ -113,19 +82,19 @@ const ShoppingCart = () => {
                 <NavLink to={'/'}>
                     <Button
                         className="pink accent-4"
-                        node="button"
-                        waves="red"
+                        node="button" waves="red"
                         style={{
                             color: 'white',
                             overflow: "hidden",
                             fontSize: "min(2.5vw, 14px)",
                         }}
                     >
-                        <Icon left>arrow_back</Icon>
+                        <CustomIcon left>arrow_back</CustomIcon>
                         К покупкам
                     </Button>
                 </NavLink>
             </Row>
+            {!loading ? <Order data={data.orderByContactinfo}/> : <></>}
         </div>
     </>
 
@@ -157,36 +126,46 @@ const ShoppingCart = () => {
                 return {
                     remainsId: remainsId, amount: data.amount
                 }
-            }
-            )
-        )
-
+            }))
         let foo = new Map();
         for (const tag of uniqRemainIds) {
             foo.set(tag.remainsId, tag);
         }
         let final = [...foo.values()]
-
         return final
     }
-
     const remainsIdsArr = getUniqRemainIds()
+    const tooMuchItemsInCartorOrder = cookies.cartProducts &&
+        data.orderByContactinfo.positions &&
+            Object.keys(cookies.cartProducts).length +
+        Object.values(data.orderByContactinfo.positions).length >=
+        cartAndOrderLimits
+
+    const alertTooMuchItemsInCartorOrder = tooMuchItemsInCartorOrder ?
+        <>
+            <div style={{marginLeft: "auto",
+            marginRight: "auto",
+            width: "4em"}}>
+            <CustomIcon medium >warning</CustomIcon></div>
+            <p className={"amber lighten-2 z-depth-5"}
+               style={{textAlign: "center", margin: 25}}
+            >{alertsData.orderIsFull}</p>
+        </> : <></>
 
     return <>
         {cartHeader}
+        {alertTooMuchItemsInCartorOrder}
         <Row style={{display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5}}>
             <CartCell size={2}>
-                <Button
-                    small
+                <Button small
                     tooltip="Очистить корзину"
                     tooltipOptions={{
                         position: 'top'
                     }}
                     className="red"
                     floating
-                    icon={<Icon>delete_sweep</Icon>}
-                    node="button"
-                    waves="light"
+                    icon={<CustomIcon>delete_sweep</CustomIcon>}
+                    node="button" waves="light"
                     onClick={() => window.confirm(
                         "Вы уверены, что хотите очистить корзину от всех товаров?"
                     ) && removeCookie('cartProducts')}
@@ -214,23 +193,20 @@ const ShoppingCart = () => {
             return <Fragment key={index}>
                 <Row style={{display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5}}>
                     <CartCell size={2}>
-                        <Button
-                            small
+                        <Button small
                             tooltip="Удалить из корзины"
                             tooltipOptions={{
                                 position: 'top'
                             }}
-                            className="red"
-                            floating
-                            icon={<Icon>delete_forever</Icon>}
-                            node="button"
-                            waves="light"
+                            className="red" floating
+                            icon={<CustomIcon>delete_forever</CustomIcon>}
+                            node="button" waves="light"
                             onClick={() => deleteOrder(remainsId)}
                         />
                     </CartCell>
                     <CartCell size={3}>
                         <NavLink to={`/${productData.id}`} style={{width: "100%"}}>
-                            <ImageView image={productData.images[0]?.url} />
+                            <ImageView image={productData.images[0]?.url}/>
                         </NavLink>
                     </CartCell>
                     <CartCell size={2}>{remainsData.variantName}</CartCell>
@@ -240,15 +216,13 @@ const ShoppingCart = () => {
                                 waves="light"
                                 onClick={() => changeOrderAmount(-1)}
                                 disabled={purchaseData.amount <= 1}
-                                small
-                                floating
-                                style={{
-                                    width: 18,
-                                    height: 18,
-                                    lineHeight: "18px",
-                                    color: "white",
-                                    margin: 5,
-                                }}
+                                small floating style={{
+                            width: 18,
+                            height: 18,
+                            lineHeight: "18px",
+                            color: "white",
+                            margin: 5,
+                        }}
                         >-</Button>
                         {purchaseData.amount}
                         <Button flat node="button"
@@ -256,15 +230,13 @@ const ShoppingCart = () => {
                                 waves="light"
                                 onClick={() => changeOrderAmount(1)}
                                 disabled={purchaseData.amount >= remainsData.remains}
-                                small
-                                floating
-                                style={{
-                                    width: 18,
-                                    height: 18,
-                                    lineHeight: "18px",
-                                    color: "white",
-                                    margin: 5,
-                                }}
+                                small floating style={{
+                            width: 18,
+                            height: 18,
+                            lineHeight: "18px",
+                            color: "white",
+                            margin: 5,
+                        }}
                         >+</Button>
                     </CartCell>
                     <CartCell size={2} bold>{remainsData.price * purchaseData.amount} грн</CartCell>
@@ -272,40 +244,6 @@ const ShoppingCart = () => {
                 <Divider/>
             </Fragment>
         })}
-
-        {data.orderByContactinfo != null ? <Collapsible
-            accordion
-            popout
-        >
-            <CollapsibleItem
-                expanded={false}
-                header={cartOrder}
-                node="div"
-                style={{background: "white"}}
-            >
-                {Object.values(data.orderByContactinfo.positions).map((orderProduct, index) => <Fragment
-                        key={index}>
-                        <Row style={{display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5}}>
-                            <CartCell size={2}>
-                                {index + 1}
-                            </CartCell>
-                            <CartCell size={3}>
-                                <NavLink to={`/${orderProduct.product.id}`} style={{width: "100%"}}>
-                                    <ImageView image={orderProduct.product.images[0]?.url}/>
-                                </NavLink>
-                            </CartCell>
-                            <CartCell size={2}>{orderProduct.productremains.variantName}</CartCell>
-                            <CartCell size={3}>
-                                {orderProduct.amount}
-                            </CartCell>
-                            <CartCell size={2} bold>{orderProduct.productremains.price} грн</CartCell>
-                        </Row>
-                        <Divider/>
-                    </Fragment>
-                )}
-            </CollapsibleItem>
-        </Collapsible> : <></>}
-
         <Row style={{textAlign: "right", marginTop: 10, paddingRight: "3rem"}}><b
             className="flow-text">Итого: {fullPrice} грн</b></Row>
         <Row>
@@ -317,15 +255,14 @@ const ShoppingCart = () => {
                 }}>
                     <Button
                         className="pink accent-4"
-                        node="button"
-                        waves="red"
+                        node="button" waves="red"
                         style={{
                             color: 'white',
                             overflow: "hidden",
                             fontSize: "min(2.5vw, 14px)",
                         }}
                     >
-                        <Icon left>arrow_back</Icon>
+                        <CustomIcon left>arrow_back</CustomIcon>
                         К покупкам
                     </Button>
                 </NavLink>
@@ -337,11 +274,9 @@ const ShoppingCart = () => {
                     alignItems: "center",
                 }}>
                     <Modal
-                        actions={[]}
-                        bottomSheet={false}
+                        actions={[]} bottomSheet={false}
                         header="Оформление заказа"
-                        id="Modal-12"
-                        open={false}
+                        id="Modal-12" open={false}
                         options={{
                             dismissible: true,
                             endingTop: '10%',
@@ -356,8 +291,8 @@ const ShoppingCart = () => {
                             startingTop: '4%'
                         }}
                         trigger={<Button className="pink accent-4"
-                                         node="button"
-                                         waves="red"
+                                         node="button" waves="red"
+                                         disabled={tooMuchItemsInCartorOrder}
                                          style={{
                                              color: 'white',
                                              overflow: "hidden",
@@ -367,63 +302,16 @@ const ShoppingCart = () => {
                             Оформить заказ
                         </Button>}
                     >
-                        Получатель заказа
-                        <TextInput id="userNameInput"
-                                   label="Введите ваш номер телефона или имя"
-                        />
-                        <TextInput id="TextInput-74"
-                                   label="ФИО"
-                        />
-                        <TextInput id="TextInput-75"
-                                   label="Город"
-                        />
-                        <TextInput id="TextInput-76"
-                                   label="Отделение НП"
-                        />
-                        <Toast className="transparent"
-                               options={{
-                                   html: 'Заказ оформлен!'
-                               }}
-                        >
-                            <Button className="pink accent-4"
-                                    node="button"
-                                    waves="red"
-                                    flat modal="close"
-                                    style={{
-                                        color: 'white',
-                                        overflow: "hidden",
-                                        fontSize: "min(2.5vw, 14px)",
-                                    }}
-                                    onClick={() => {
-                                        ShoppingCartMutation(
-                                            {
-                                                variables: {
-                                                    contactInfo: document.getElementById("userNameInput").value,
-                                                    ordersList: remainsIdsArr
-                                                }
-                                            })
-                                        removeCookie('cartProducts')
-                                    }
-                                    }
-                            >
-                                Подтвердить заказ
-                            </Button>
-                        </Toast>
-                        <Toast className="transparent"
-                               options={{
-                                   html: 'Заказ не оформлен!'
-                               }}
-                        >
-                            <Button className="pink accent-4" style={{
-                                color: 'white',
-                                overflow: "hidden",
-                                fontSize: "min(2.5vw, 14px)",
-                            }} flat modal="close" node="button" waves="green">Отмена</Button>
-                        </Toast>
+                        <Checkout ShoppingCartMutation={ShoppingCartMutation}
+                                  remainsIdsArr={remainsIdsArr}
+                                  removeCookie={removeCookie}
+                        ></Checkout>
                     </Modal>
                 </div>
             </Col>
         </Row>
+        {alertTooMuchItemsInCartorOrder}
+        {!loading ? <Order data={data.orderByContactinfo}/> : <></>}
     </>
 }
 

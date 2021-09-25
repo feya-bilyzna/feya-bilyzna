@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import { Button, Icon } from 'react-materialize'
+import { Button } from 'react-materialize'
 import cx from 'classnames'
 import { NavLink } from 'react-router-dom'
 import M from 'materialize-css'
 import { useCookies } from 'react-cookie'
+import {CustomIcon} from "./index";
 
 const AddedProductsIndicator = props => {
     return <div style={{
@@ -37,8 +38,8 @@ const CartButton = () => {
         large
         icon={cartSize ? <>
             <AddedProductsIndicator>{cartSize}</AddedProductsIndicator>
-            <Icon>shopping_cart</Icon>
-        </> : <Icon>shopping_cart</Icon>}
+            <CustomIcon >shopping_cart</CustomIcon>
+        </> : <CustomIcon className={"notranslate"}>shopping_cart</CustomIcon>}
         node="button"
 
     >
@@ -46,7 +47,7 @@ const CartButton = () => {
             className="blue"
             floating
             icon={<NavLink to="/cart">{
-                <Icon>shopping_cart</Icon>
+                <CustomIcon className={"notranslate"}>shopping_cart</CustomIcon>
             }</NavLink>}
             node="button"
             tooltip="Оформить заказ"
@@ -58,10 +59,10 @@ const CartButton = () => {
             className="green"
             floating
             icon={<NavLink to="/search">{
-                <Icon>search</Icon>
+                <CustomIcon className={"notranslate"}>favorite_border</CustomIcon>
             }</NavLink>}
             node="button"
-            tooltip="Искать товар"
+            tooltip="Список желаний"
             tooltipOptions={{
                 position: 'left'
             }}
@@ -70,7 +71,7 @@ const CartButton = () => {
             className="yellow darken-1"
             floating
             icon={<NavLink to="/login">{
-                <Icon>login</Icon>
+                <CustomIcon className={"notranslate"}>login</CustomIcon>
             }</NavLink>}
             node="button"
             tooltip="Указать контактные данные"

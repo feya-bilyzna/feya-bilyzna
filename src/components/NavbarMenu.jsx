@@ -1,8 +1,9 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-import {Col, Dropdown, Icon, Navbar, Row} from "react-materialize"
+import {Col, Dropdown, Navbar, Row} from "react-materialize"
 import PropTypes from "prop-types"
 import {categoriesData} from "../data"
+import {CustomIcon} from "./index";
 
 Navbar.propTypes = {
     ...Navbar.propTypes,
@@ -24,24 +25,25 @@ const NavbarMenu = () => {
                         xl={6}
                         style={{display: "flex", justifyContent: "center"}}
                     >
-                        <Icon large style={{margin: 0}}>home</Icon>
+                        <CustomIcon large style={{margin: 0}}>home</CustomIcon>
                     </Col>
                     <Col
                         s={12}
                         m={6}
                         l={6}
                         xl={6}
+                        className="notranslate"
                     >
                         Feya
                     </Col>
                 </Row>
             </NavLink>
             <NavLink to="/cart" style={{ position: "absolute", right: 20 }}>
-                <Icon>shopping_cart</Icon>
+                <CustomIcon>shopping_cart</CustomIcon>
             </NavLink></>}
         centerChildren
         id="mobile-nav"
-        menuIcon={<Icon>menu</Icon>}
+        menuIcon={<CustomIcon>menu</CustomIcon>}
         alignLinks='right sidenav-close'
         sidenav={
             <>
