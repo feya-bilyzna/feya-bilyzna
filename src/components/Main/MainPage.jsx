@@ -1,8 +1,8 @@
 import React from 'react'
 import {categoriesData, sliderData} from '../../data'
 import {GridView} from "../index"
-import {Caption, Icon, Slide, Slider} from "react-materialize";
-import contactsData from "../../data/contactsData";
+import {Caption, Icon, Slide, Slider} from "react-materialize"
+import contactsData from "../../data/contactsData"
 
 const MainPage = () => {
     return <>
@@ -16,58 +16,24 @@ const MainPage = () => {
                         interval: 6000
                     }}
             >
-                <Slide image={<img alt="Изображение"
-                                   src={sliderData.links[0].link}/>}>
-                    <Caption placement="right">
+                {sliderData.data.map(slide=><Slide
+                    image={<img alt="Изображение"
+                               src={slide.link}/>}>
+                    <Caption placement={slide.side}>
                         <h1>
-                            Роскошь
+                            {slide.headingText}
                         </h1>
                         <h6 className="light grey-text text-lighten-3">
-                            Уважайте себя. Балуйте себя. Любите себя
+                            {slide.textBelow}
                         </h6>
                     </Caption>
-                </Slide>
-                <Slide image={<img alt="Изображение"
-                                   src={sliderData.links[1].link}/>}>
-                    <Caption placement="left">
-                        <h2>
-                            Удобство
-                        </h2>
-                        <h5>
-                            Ощутите полную свободу.
-                        </h5>
-                        <h6>Нижнее бельё было создано именно для вас</h6>
-                    </Caption>
-                </Slide>
-                <Slide image={<img alt="Изображение"
-                                   src={sliderData.links[2].link}/>}>
-                    <Caption style={{background: "radial-gradient(white, transparent)"}}
-                        placement="center" className="light black-text text-lighten-3">
-                        <h3>
-                            Большой выбор
-                        </h3>
-                        <h5>
-                            Трусики, бюстгальтеры и многое другое.
-                        </h5>
-                    </Caption>
-                </Slide>
-                <Slide image={<img alt="Изображение"
-                                   src={sliderData.links[3].link}/>}>
-                    <Caption placement="left">
-                        <h3>
-                            Доступные цены
-                        </h3>
-                        <h5 className="light grey-text text-lighten-3">
-                            на все категории товаров
-                        </h5>
-                    </Caption>
-                </Slide>
+                </Slide>)}
                 <Slide image={<a
                     href={contactsData.contacts[0].link}
                     target="_blank"
                     rel="noopener noreferrer">
                     <img alt="Изображение"
-                         src={sliderData.links[4].link}/>
+                         src={sliderData.instagramSlider[0].link}/>
                 </a>}>
                     <a
                         href={contactsData.contacts[0].link}
@@ -77,7 +43,7 @@ const MainPage = () => {
                             <h4
                             >Наш {contactsData.contacts[0].name}</h4>
                             <img style={{width: 50}}
-                                 src={sliderData.links[5].link}
+                                 src={sliderData.instagramSlider[1].link}
                                  alt="Изображение"/>
                         </Caption>
                     </a>

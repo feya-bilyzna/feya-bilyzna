@@ -12,7 +12,6 @@ Navbar.propTypes = {
 const NavbarMenu = () => {
 
     return <Navbar
-        style={{overflow: "hidden"}}
         className={"pink accent-4"}
         brand={
             <><NavLink className="brand-logo" to="/"
@@ -27,14 +26,17 @@ const NavbarMenu = () => {
                     >
                         <Icon large style={{margin: 0}}>home</Icon>
                     </Col>
-                    <Col
-                        s={12}
-                        m={6}
-                        l={6}
-                        xl={6}
-                    >
-                        Feya
-                    </Col>
+                    <div style={{overflow: "hidden"}}>
+                        <Col style={{paddingRight: 25}}
+                            s={12}
+                            m={6}
+                            l={6}
+                            xl={6}
+                        >
+                            Feya
+                        </Col>
+                    </div>
+
                 </Row>
             </NavLink>
             <NavLink to="/cart" style={{ position: "absolute", right: 20 }}>
