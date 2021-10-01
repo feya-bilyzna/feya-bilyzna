@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { NavLink } from 'react-router-dom'
 import M from 'materialize-css'
 import { useCookies } from 'react-cookie'
-import {CustomIcon} from "./index";
+import {CustomIcon, LoginButton} from "./index";
 
 const AddedProductsIndicator = props => {
     return <div style={{
@@ -67,18 +67,7 @@ const CartButton = () => {
                 position: 'left'
             }}
         />
-        <Button
-            className="yellow darken-1"
-            floating
-            icon={<NavLink to="/login">{
-                <CustomIcon className={"notranslate"}>login</CustomIcon>
-            }</NavLink>}
-            node="button"
-            tooltip="Указать контактные данные"
-            tooltipOptions={{
-                position: 'left'
-            }}
-        />
+        <LoginButton cardButton={true}/>
     </Button></div>
 }
 

@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom"
 import {Col, Dropdown, Navbar, Row} from "react-materialize"
 import PropTypes from "prop-types"
 import {categoriesData} from "../data"
-import {CustomIcon} from "./index";
+import {CustomIcon, LoginButton} from "./index";
 
 Navbar.propTypes = {
     ...Navbar.propTypes,
@@ -47,6 +47,7 @@ const NavbarMenu = () => {
         alignLinks='right sidenav-close'
         sidenav={
             <>
+                <li><LoginButton sideNav={true}/></li>
                 {Object.values(categoriesData.categories).map(categoryData =>
                     <li key={categoryData.route}>
                         <NavLink to={categoryData.route}>{categoryData.name}</NavLink>
@@ -103,6 +104,7 @@ const NavbarMenu = () => {
             )}
         </Dropdown>
         <NavLink to="/contacts">Контакты</NavLink>
+        <LoginButton cardButton={false}/>
         <div style={{ marginRight: 50 }} />
     </Navbar>
 }

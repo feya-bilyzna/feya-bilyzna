@@ -25,3 +25,7 @@ export {default as ProductSubcategoryPage} from './VisualElements/ProductSubcate
 export {default as ProductCategoryPage}    from './VisualElements/ProductCategoryPage'
 export {default as DetailPage}             from './VisualElements/DetailPage'
 export {default as ShoppingCart}           from './VisualElements/ShoppingCart'
+
+export {default as PersonalCabinet}        from  './PersonalCabinet/PersonalCabinet'
+export {default as LoginButton}            from  './PersonalCabinet/LoginButton'
+export {default as RegisterForm}           from  './PersonalCabinet/RegisterForm'

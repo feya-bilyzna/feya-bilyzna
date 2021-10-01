@@ -11,11 +11,14 @@ import {
     CartButton,
     DetailPage,
     ShoppingCart,
+    PersonalCabinet,
 } from './components'
 
 import {categoriesData} from './data'
+import {useCookies} from "react-cookie";
 
 export const useRoutes = () => {
+    const [cookies] = useCookies(['user'])
     return <>
         <NavbarMenu/>
         <CartButton/>
@@ -50,6 +53,9 @@ export const useRoutes = () => {
                 <Route path="/cart" exact>
                     <ShoppingCart/>
                 </Route>
+                {cookies.user !== undefined?<Route path="/login" exact>
+                    <PersonalCabinet/>
+                </Route>:<></>}
                 <Redirect to="/"/>
             </Switch>
         </PageContainer>
