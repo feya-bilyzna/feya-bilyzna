@@ -3,12 +3,11 @@ import {NavLink} from "react-router-dom"
 import {CustomIcon} from "../index"
 import {Button, Col, Modal, Row} from "react-materialize"
 import {useCookies} from 'react-cookie'
-import RegisterForm from "./RegisterForm";
+import RegisterForm from "./RegisterForm"
 
 const LoginButton = ({cardButton, sideNav}) => {
 
     const [cookies] = useCookies(['user'])
-    console.log("cookies.user", cookies.user)
 
     return cookies.user !== undefined
         ?
@@ -20,7 +19,7 @@ const LoginButton = ({cardButton, sideNav}) => {
                     <CustomIcon className={"notranslate"}>person</CustomIcon>
                 }</NavLink>}
                 node="button"
-                tooltip="Указать контактные данные"
+                tooltip="Личный кабинет"
                 tooltipOptions={{
                     position: 'left'
                 }}

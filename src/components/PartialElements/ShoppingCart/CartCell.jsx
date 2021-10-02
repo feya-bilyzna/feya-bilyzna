@@ -1,5 +1,5 @@
-import React from 'react';
-import {Col} from "react-materialize";
+import React from 'react'
+import {Col} from "react-materialize"
 
 const CartCell = ({size, children, bold}) => {
     return <Col s={size} m={size} l={size} xl={size} style={{
@@ -11,4 +11,4 @@ const CartCell = ({size, children, bold}) => {
     }}>{children}</Col>
 }
 
-export default CartCell;
+export default CartCell

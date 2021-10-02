@@ -1,12 +1,12 @@
-import React, {Fragment} from 'react';
-import {Collapsible, CollapsibleItem, Divider, Row} from "react-materialize";
-import {CartCell, CustomIcon, ImageView} from "../../index";
-import {NavLink} from "react-router-dom";
+import React, {Fragment} from 'react'
+import {Collapsible, CollapsibleItem, Divider, Row} from "react-materialize"
+import {CartCell, CustomIcon, ImageView} from "../../index"
+import {NavLink} from "react-router-dom"
 
 const Order = ({data}) => {
-    const fullPrice = Object.values(data.positions || {}).reduce(
+    const fullPrice = data !==null ? Object.values(data.positions || {}).reduce(
         (totalPrice, orderPosition) => totalPrice + orderPosition.productremains.price * orderPosition.amount, 0
-    )
+    ): 0
 
     const cartOrder = <>
         <div style={{
@@ -14,7 +14,9 @@ const Order = ({data}) => {
             justifyContent: "center",
             alignItems: "center",
         }}><CustomIcon small>arrow_drop_down</CustomIcon></div>
-        <h6 style={{textAlign: "center"}}>У вас есть необработанный заказ</h6>
+        <h6 style={{textAlign: "center"}}>
+            {data!==null?"У вас есть необработанный заказ":"У вас нет необработанного заказа"}
+        </h6>
     </>
 
     return <Collapsible
@@ -28,7 +30,7 @@ const Order = ({data}) => {
             node="div"
             style={{background: "white"}}
         >
-            {Object.values(data.positions).map((orderProduct, index) => <Fragment
+            {data!==null ? Object.values(data.positions).map((orderProduct, index) => <Fragment
                     key={index}>
                     <Row style={{display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5}}>
                         <CartCell size={2}>
@@ -46,12 +48,12 @@ const Order = ({data}) => {
                         <CartCell size={2} bold>{orderProduct.productremains.price} грн</CartCell>
                     </Row>
                     <Divider/>
-                {index===data.positions.length-1? <Row style={{textAlign: "right", marginTop: 10, paddingRight: "3rem"}}><b
-                    className="flow-text">Итого: {fullPrice} грн</b></Row>:<></>}
+                    {index===data.positions.length-1? <Row style={{textAlign: "right", marginTop: 10, paddingRight: "3rem"}}><b
+                        className="flow-text">Итого: {fullPrice} грн</b></Row>:<></>}
                 </Fragment>
-            )}
+            ):<></>}
         </CollapsibleItem>
     </Collapsible>
 }
 
-export default Order;
+export default Order

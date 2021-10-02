@@ -1,14 +1,16 @@
 import React, {Fragment} from 'react'
-import {Button, Col, Divider, Modal, Row} from "react-materialize";
-import {gql, useQuery, useMutation} from "@apollo/client";
+import {Button, Col, Divider, Modal, Row} from "react-materialize"
+import {gql, useQuery, useMutation} from "@apollo/client"
 import {useCookies} from 'react-cookie'
-import {LoadingAnimation, ImageView, CustomIcon, CartCell, Order, Checkout} from "..";
-import {alertsData, cartAndOrderLimits} from "../../data";
-import {NavLink} from "react-router-dom";
+import {LoadingAnimation, ImageView, CustomIcon, CartCell, Order, Checkout} from ".."
+import {alertsData, cartAndOrderLimits} from "../../data"
+import {NavLink} from "react-router-dom"
 
 const ShoppingCart = () => {
-    const ShoppingCartQuery = gql`
-    query ShoppingCartQuery($ids: [Int]!) {
+    const [cookies, setCookie, removeCookie] = useCookies(['cartProducts', 'user'])
+    const ShoppingCartQuery = cookies.user ?
+        gql`
+    query ShoppingCartQuery($ids: [Int]!, $contactInfo: String!) {
         productsByIds(ids: $ids) {
             id
             images {
@@ -22,7 +24,7 @@ const ShoppingCart = () => {
                 remains
             }
         }
-        orderByContactinfo(contactInfo: "admin") {
+        orderByContactinfo(contactInfo: $contactInfo) {
                         processed
             positions {
               amount
@@ -40,6 +42,23 @@ const ShoppingCart = () => {
             }
           }
     }`
+        :
+        gql`
+    query ShoppingCartQuery($ids: [Int]!) {
+        productsByIds(ids: $ids) {
+            id
+            images {
+                url
+            }
+            remains {
+                id
+                price
+                variantId
+                variantName
+                remains
+            }
+        }
+    }`
 
     const Shopping_Cart_Mutation = gql`
     mutation ShoppingCartMutation($contactInfo: String!, $ordersList: [OrderItem]!){
@@ -49,11 +68,7 @@ const ShoppingCart = () => {
       }
     }`
 
-    const [cookies, setCookie, removeCookie] = useCookies(['cartProducts'])
-
     const [ShoppingCartMutation, {dataMutation, loadingMutation, errorMutation}] = useMutation(Shopping_Cart_Mutation)
-
-    const userName = "admin"
 
     const deleteOrder = (remainsId) => {
         if (!window.confirm("Вы уверены, что хотите убрать данный товар из корзины?")) return
@@ -65,11 +80,11 @@ const ShoppingCart = () => {
             removeCookie('cartProducts')
     }
 
-    const {loading, error, data} = useQuery(ShoppingCartQuery, {
+    const {loading, error, data, refetch} = useQuery(ShoppingCartQuery, {
         variables: {
             ids: cookies.cartProducts ?
                 Object.values(cookies.cartProducts).map(variantData => variantData.productId) : [],
-            contactInfo: userName
+            contactInfo: cookies.user ? cookies.user : ""
         },
     })
 
@@ -94,7 +109,8 @@ const ShoppingCart = () => {
                     </Button>
                 </NavLink>
             </Row>
-            {!loading ? <Order data={data.orderByContactinfo}/> : <></>}
+            {!loading && cookies.user && data.orderByContactinfo !== null ?
+                <Order data={data.orderByContactinfo}/> : <></>}
         </div>
     </>
 
@@ -114,39 +130,59 @@ const ShoppingCart = () => {
     const products = Object.fromEntries(data.productsByIds.map(product => [product.id, product]))
 
     const getUniqRemainIds = () => {
-        const uniqRemainIds = (Object.values(data.orderByContactinfo.positions).map(
-            orderProduct => {
-                return {
-                    remainsId: orderProduct.productremains.id,
-                    amount: orderProduct.amount
+        const uniqRemainIds = cookies.user && data.orderByContactinfo !== null ?
+            (Object.values(data.orderByContactinfo.positions).map(
+                orderProduct => {
+                    return {
+                        remainsId: orderProduct.productremains.id,
+                        amount: orderProduct.amount
+                    }
                 }
-            }
-        )).concat(Object.entries(cookies.cartProducts).map(
-            ([remainsId, data]) => {
-                return {
-                    remainsId: remainsId, amount: data.amount
-                }
-            }))
+            )).concat(Object.entries(cookies.cartProducts).map(
+                ([remainsId, data]) => {
+                    return {
+                        remainsId: remainsId, amount: data.amount
+                    }
+                })) : Object.entries(cookies.cartProducts).map(
+                ([remainsId, data]) => {
+                    return {
+                        remainsId: remainsId, amount: data.amount
+                    }
+                })
         let foo = new Map();
+
         for (const tag of uniqRemainIds) {
             foo.set(tag.remainsId, tag);
         }
         let final = [...foo.values()]
         return final
     }
-    const remainsIdsArr = getUniqRemainIds()
-    const tooMuchItemsInCartorOrder = cookies.cartProducts &&
+
+    const remainsIdsArr = data.orderByContactinfo !== null ? getUniqRemainIds() : Object.entries(cookies.cartProducts).map(
+        ([remainsId, data]) => {
+            return {
+                remainsId: remainsId, amount: data.amount
+            }
+        })
+
+    const tooMuchItemsInCartorOrder = cookies.user &&
+    data.orderByContactinfo !== null ?
+        cookies.cartProducts &&
         data.orderByContactinfo.positions &&
-            Object.keys(cookies.cartProducts).length +
+        Object.keys(cookies.cartProducts).length +
         Object.values(data.orderByContactinfo.positions).length >=
         cartAndOrderLimits
+        :
+        false
 
     const alertTooMuchItemsInCartorOrder = tooMuchItemsInCartorOrder ?
         <>
-            <div style={{marginLeft: "auto",
-            marginRight: "auto",
-            width: "4em"}}>
-            <CustomIcon medium >warning</CustomIcon></div>
+            <div style={{
+                marginLeft: "auto",
+                marginRight: "auto",
+                width: "4em"
+            }}>
+                <CustomIcon medium>warning</CustomIcon></div>
             <p className={"amber lighten-2 z-depth-5"}
                style={{textAlign: "center", margin: 25}}
             >{alertsData.orderIsFull}</p>
@@ -158,17 +194,17 @@ const ShoppingCart = () => {
         <Row style={{display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5}}>
             <CartCell size={2}>
                 <Button small
-                    tooltip="Очистить корзину"
-                    tooltipOptions={{
-                        position: 'top'
-                    }}
-                    className="red"
-                    floating
-                    icon={<CustomIcon>delete_sweep</CustomIcon>}
-                    node="button" waves="light"
-                    onClick={() => window.confirm(
-                        "Вы уверены, что хотите очистить корзину от всех товаров?"
-                    ) && removeCookie('cartProducts')}
+                        tooltip="Очистить корзину"
+                        tooltipOptions={{
+                            position: 'top'
+                        }}
+                        className="red"
+                        floating
+                        icon={<CustomIcon>delete_sweep</CustomIcon>}
+                        node="button" waves="light"
+                        onClick={() => window.confirm(
+                            "Вы уверены, что хотите очистить корзину от всех товаров?"
+                        ) && removeCookie('cartProducts')}
                 />
             </CartCell>
             <CartCell size={3} bold>Товар</CartCell>
@@ -194,14 +230,14 @@ const ShoppingCart = () => {
                 <Row style={{display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5}}>
                     <CartCell size={2}>
                         <Button small
-                            tooltip="Удалить из корзины"
-                            tooltipOptions={{
-                                position: 'top'
-                            }}
-                            className="red" floating
-                            icon={<CustomIcon>delete_forever</CustomIcon>}
-                            node="button" waves="light"
-                            onClick={() => deleteOrder(remainsId)}
+                                tooltip="Удалить из корзины"
+                                tooltipOptions={{
+                                    position: 'top'
+                                }}
+                                className="red" floating
+                                icon={<CustomIcon>delete_forever</CustomIcon>}
+                                node="button" waves="light"
+                                onClick={() => deleteOrder(remainsId)}
                         />
                     </CartCell>
                     <CartCell size={3}>
@@ -305,13 +341,16 @@ const ShoppingCart = () => {
                         <Checkout ShoppingCartMutation={ShoppingCartMutation}
                                   remainsIdsArr={remainsIdsArr}
                                   removeCookie={removeCookie}
+                                  refetch={refetch}
+                                  data={data}
                         ></Checkout>
                     </Modal>
                 </div>
             </Col>
         </Row>
         {alertTooMuchItemsInCartorOrder}
-        {!loading ? <Order data={data.orderByContactinfo}/> : <></>}
+        {!loading && cookies.user && data.orderByContactinfo !== null ?
+            <Order data={data.orderByContactinfo}/> : <></>}
     </>
 }
 
