@@ -1,5 +1,5 @@
 const sliderData = {
-    data: [
+    basicSlides: [
         {
             link: "https://bn1301files.storage.live.com/y4mIyFICCQ_K6jj7K0BHd_C4_TZ3IXM7gh3nctLnvFRjvovSWun-WKv4tDzy7SD0awK7z7ajgpyFssdRMFJx6GK3QcWDjAc3siuENmK1UTs8xwjbkxWZdAI-qo8a3vYx1xAXFivZIoUuJFYryhY4IjZQsbp6zLZLnuOKXfTUCgLacNqJZ5dXVaAgB10HUdblF-Y?width=1400&height=800&cropmode=none",
             side:"right",
@@ -13,8 +13,8 @@ const sliderData = {
             textBelow: "Ощутите полную свободу.",
         },
         {
-            side:"center",
-            link: "https://bn1301files.storage.live.com/y4m8abZ9U_g7OiiVFOABVk8G7b5yfgdTF80HUDPZJn5xlGS-YNqmToHQMyhEL4W2z6fiqNUPP7aOXeMTB_b0KPd2_pa0bmUbmP1aXvao161wz44Fm2xH5CG6hrSvxa8CjGKRINP2NTFc1wH01mWGOaNyddJfveWQAariYEZfk8-9lSbvlKJhQOTsTpXtwqIKdYL?width=519&height=320&cropmode=none",
+            side:"left",
+            link: "https://bn1301files.storage.live.com/y4mYbpA6CA1FLnh0zYQlVVowYpbfOw03QJJq5CoLqPCaK0cjQ76YNP2zphgbb70IyWMKhyu6aAmEa1v7_DDPx2VqWxW3JYbbtbFAEwVwn4wMd8NQ5TWNUvKWsDCsXA4jKVuH5xdFsY1xbSPieNrP_gMOjbf7nSRWHoa4bK91umB2k7oFCjVcqWmQ8fhZzwlI2JI?width=1920&height=1080&cropmode=none",
             headingText: "Большой выбор",
             textBelow: "Трусики, бюстгальтеры и многое другое.",
         },
@@ -25,18 +25,10 @@ const sliderData = {
             textBelow: "на все категории товаров",
         },
     ],
-    instagramSlider: [
-        {
-            link: "https://bn1301files.storage.live.com/y4mR_b-XmnB1K0HDq1dZC4-aTtLPiC7omlOGSOAEGcOxWnjNLF2kPmKVe3Wa-yUNBbaG3km4ce5CogaF8gOd5PmPzmG0IPFwpG8oiviYPVWUvlSjqu_FI3V-p8ydW9OMA4Hgx_90Q4NzAEcoQ5YwnOLu3YilFMhLxKuVU9yApqTbxSpuguQSDXmae4NxF0lsQg1?width=600&height=295&cropmode=none",
-            headingText: "",
-            textBelow: "",
-        },
-        {
-            link: "https://bn1301files.storage.live.com/y4mkzYESjT2dZEaAr3HcXVuYf21_DCeMiCgdBKc5YQ9KAN7P3GKKW4RWR6g5fe7rm8bL5y1gjXoQLaJxGzlVa_XCT15zhpuhEAEqKaMnhmaF0qT75aP4-oNOUuDmcXc29zPOsPOCxIaihZVQIT4EzRXGAB7CVpY2Sm2LPCkIvksqI800d05lyTOtzLltT4yDpb_?width=256&height=256&cropmode=none",
-            headingText: "",
-            textBelow: "",
-        },
-    ]
+    instagramSlider: {
+        link: "https://bn1301files.storage.live.com/y4mR_b-XmnB1K0HDq1dZC4-aTtLPiC7omlOGSOAEGcOxWnjNLF2kPmKVe3Wa-yUNBbaG3km4ce5CogaF8gOd5PmPzmG0IPFwpG8oiviYPVWUvlSjqu_FI3V-p8ydW9OMA4Hgx_90Q4NzAEcoQ5YwnOLu3YilFMhLxKuVU9yApqTbxSpuguQSDXmae4NxF0lsQg1?width=600&height=295&cropmode=none",
+        iconLink: "https://bn1301files.storage.live.com/y4mkzYESjT2dZEaAr3HcXVuYf21_DCeMiCgdBKc5YQ9KAN7P3GKKW4RWR6g5fe7rm8bL5y1gjXoQLaJxGzlVa_XCT15zhpuhEAEqKaMnhmaF0qT75aP4-oNOUuDmcXc29zPOsPOCxIaihZVQIT4EzRXGAB7CVpY2Sm2LPCkIvksqI800d05lyTOtzLltT4yDpb_?width=256&height=256&cropmode=none",
+    },
 }
 
 export default sliderData
