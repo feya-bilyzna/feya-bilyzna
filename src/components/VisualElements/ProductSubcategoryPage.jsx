@@ -6,7 +6,7 @@ import {alertsData} from "../../data"
 
 const ProductSubcategoryPage = ({subcategory}) => {
     const ProductsQuery = gql`
-        query ProductsQuery($categoryName: String!, $page: Int!) {
+        query ProductsQuery($categoryName: [String]!, $page: Int!) {
              categoryProducts(categoryName: $categoryName, page: $page) {
                 id
                 images {
