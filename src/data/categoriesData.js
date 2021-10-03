@@ -145,7 +145,7 @@ const categoriesData = {
         bras: {
             name: 'Бюстгальтеры',
             route: '/bras',
-            imageUrl: 'https://bn1301files.storage.live.com/y4mbwlH5TjafsCHeZV9R9kbrINvQ5zbbzyghMNgOSqciAjsgq-g5YLim-iGSA61WRWDAznKL8tKeSv5-Ag3b54NBezHnxqZP3RhjuHaxWLTcBx8zUkXvWMcCorber_IPgyuCI2viS-kPl75OfAKDiwmVAfTx0IXCUZcn2YrcabdCWdBxGanuX7rShoyyMLYWbQ4?width=512&height=512&cropmode=none',
+            imageUrl: 'https://bn1301files.storage.live.com/y4mFleOB3cpgYwcrOK_1kzu9ETv_NFHkQidCUmFEsYteEk8Tv3IvQfuyoUmf-vcMeh3jXW0ossUR2kSPBAh9qaMp_bXyPeITh1qvEQ0V7VYaQn3fYPwuC_O29W4sNCmVos9hayyfAFsii7yoYxrSPualr1efligqonvXzgJkqTtoJ6xPgDQiJLztowzKcYlML8M?width=660&height=599&cropmode=none',
             subcategories: [
                 {
                     name: 'С поролоном',
@@ -187,22 +187,22 @@ const categoriesData = {
         knickers: {
             name: 'Трусики',
             route: '/knickers',
-            imageUrl: 'https://bn1301files.storage.live.com/y4mk4t9ffS76lc68GFVL88DNKddyXVQyNwRGgFuZet_QbxGXUNS5fuZhHp0y0BrS-8jCmK2kOZS4htwxDjh3Ib5YnNVEZdFbjpUEDag84v1yjv6dm2AO5_ClZtNxKfT5nsvryEKe_PdlHsuoeFqDtkP1fJeqNuXf9wApACTF38_1H_VI3R9WT8XrpbZzuxGO5U5?width=512&height=512&cropmode=none',
+            imageUrl: 'https://bn1301files.storage.live.com/y4m8cBK3gqpgrVXucdheNtz_woglhja9jfUmV7kNVMQ9UXIQYdHCOyNGnPD5vf5tDIRdN3eNlEjo2Sq-3FKxFAzNpsfFru7bs3Q-RKzmY1NzlnPKXviZMUZkGQizXoLdZZZbro_8qDkbdpUzb1THSde5_95wD-mRmEPWvZPjDWWjgpo8eKkt4r0Ao0ex-qp-kTs?width=660&height=660&cropmode=none',
             subcategories: [
                 {
                     name: 'Бикини',
                     route: '/knickers/bikini',
-                    imageUrl: 'https://bn1301files.storage.live.com/y4mzw0GHMRYqNl7Aw_uemFrleaE1rwDnYQv-uFy7ruTEOBWXbzVRMU3jUp3zVHC4I_dv7V3Gw2XgdghkSdeycaceduUi_z3GHafHWibmzAxScK5jlc2NeTAGE21ET_GfNMZT1o3t3nP_uvsBAgh7kjC7VpIl3qVQot3oqqKmCaFGaqwy6Bi8qP-lUvhT8pnibnA?width=512&height=512&cropmode=none',
+                    imageUrl: 'https://bn1301files.storage.live.com/y4mVZL8UBnKNJSWL5SADtO23VyyaiOnDmPQfpjWB5so0tFSEXhwOCIIMtQ2JTErvnRWXe5nyzP18lUAbjQVCdg2wCbzZO3nZ7MDt_1Oli0jnxM6MPZi_-3r9dPpGB4pYE1v-X-Q3USj3m2qjMwx_LgDexPtppJGAWPbZVjIm9o884yi04SjzIoKKxUHdMX-Nqg2?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Безшовные',
                     route: '/knickers/bodyshort',
-                    imageUrl: 'https://bn1301files.storage.live.com/y4m06akFuHEusoY1pf30kzd8GXFNMjXoeiowMe1Od-VNHRrR3D2tpI6cNayY83VjeXVhJRc1mQ4c9M7IVYd1NLRHT9-va-QyiLniGWggxRfst1hCEYPfZkWtgxAbj5vpSjeWUYieFmsMV89qZXYY4Fx-jHGCVMPgrgy5BtTjgWIWP41T-sFGPCiP37SQGxSguen?width=512&height=512&cropmode=none',
+                    imageUrl: 'https://bn1301files.storage.live.com/y4mYudnLA663uTfRbvgx8rM3FlcNnVSyfv1DnS4F3SzF3h8nfJsA-bVJ-7-I7g2cM-50uzljHqtk3I4pxvIMDEB2SNC_t8Vyg14D5MOBtNHHYWpz12Wrm0Wi0Hozl-kWpuwglXZJEytM9b4fyZWa4wpae0rP4CnRmBVhMPub5J5iCE3rw7E2V7V5-wyzhkKAusE?width=652&height=652&cropmode=none',
                 },
                 {
                     name: 'Бразильяны',
                     route: '/knickers/brazilian',
-                    imageUrl: 'https://bn1301files.storage.live.com/y4mOPCVIMcxlU3B_yd5Mb4XQ83bz2ezIhwsZNhDJwoAkQdEYwNAzOV8sXWK_AZ8TGnTQhQ1SzpaGrv_JEi_5XeoJ8KtPMVAQXbLBjLDmXQoDj5AaocXEOTTDdlBfEPxJ2JGMfzw-CRlJvCq4dri7O7LfpvVE2q0EqRvnEKrOwAHEaRCRMmDV_nZcWguhzp_urN4?width=512&height=512&cropmode=none',
+                    imageUrl: 'https://bn1301files.storage.live.com/y4m6jmwfYC-vON2eY0-n4NZkLxhT0axo6v58A1hLcjrweqrLXFakmtn2L9eqO--WFJS336LdJPafpOK7_fr3HqIw7A2jT6YfLHfqbyqqQH30qpAmxOWCi_bRWugGH6IzQwwKOrUSeMTOI9f9EHbaB-Dr5Qn5r_1XsFgj38BZd472NeMgiwK5iO4uh7VisziRNGN?width=512&height=512&cropmode=none',
                 },
                 {
                     name: 'Норма, Слипы',
@@ -238,7 +238,7 @@ const categoriesData = {
         shapewear: {
             name: 'Корректирующее',
             route: '/bikini',
-            imageUrl: 'https://bn1301files.storage.live.com/y4mJVPQJrQWhwR7yUq-5_17fJJ5J-kQgJYmrXLYWVZ8PuRPM8K1d3ZR35GLNF8RZDzro0HY4qJr53YauFBM-hHj1f-vo_axFgCt00j0ReLzYZaXCeF817hKzqj7LShHTcLwN8tR3UbEH0wS_7QySe2_mjJMhH5oyrma9rMg38hReGHVABz7zhO6wNgSrtmS-syF?width=512&height=512&cropmode=none',
+            imageUrl: 'https://bn1301files.storage.live.com/y4mV8BmA4dF2wOm0JwRRn0Ob_rlhSnnVFDlFFANSv7b0Wqh8Wdvt5GgZM-hPQdblUC8SrsOwouo0Ay7FuyyWmgdfy9dbJdhGAoFBAXwaLC2_awWc_lo_eFUZ3mN3T4eL5iOOaZOMD44VCiM4SIieLcfYaH4GBmV21ct2D0Lpr4rnOyIbfdeN9_nxg_n-MVI35Hq?width=518&height=518&cropmode=none',
         },
         sportsBra: {
             name: 'Топики',
@@ -250,10 +250,20 @@ const categoriesData = {
             route: '/underwear-set',
             imageUrl: 'https://bn1301files.storage.live.com/y4mLRI7Uak5tFZo8aD6CH2YeA32-y6w0H1jx-mcj6CKuEkwn21UBMxwNTHFFAxwWuAmGrF2IQ_qIvxtW_Yd-1pt0upEBpM1haFYTya7K46sw-KWLHGIKcqkODSRU61fWkJ-q8exZx4O99c1zL3V97zxGOkFFDLyDYMWKFyYzhZXZyWQx1ByWeKojancpMtHjaNB?width=660&height=660&cropmode=none',
         },
+        swimwear: {
+            name: 'Купальники',
+            route: '/swimwear',
+            imageUrl: 'https://bn1301files.storage.live.com/y4mnbpQHkfGaQkk4H7OZqMBtjgIzdTaGfuQcBP-bt2mNRmBHC5JoXzbVTO-lTYaSD7wJ6-rJbrjulgNUjijGDMTX1MT7K5qJhytdYBMsPfgjzM453v2vRNQ7w5GhQFLBfvZ3XFBT0U_r-4nyNOgg5IDP3FHwPAAqMcV3Mw7nfb82YJWRbtf0gtbcUDoAh6tB_Lh?width=660&height=660&cropmode=none',
+        },
         accessories: {
             name: 'Аксессуары',
             route: '/accessories',
             imageUrl: 'https://bn1301files.storage.live.com/y4mabTZFBiT-k7p0XPaCBhBFTVd7Jr3OwcgGmVoFw0BXlw0CJUL5mtTPoXj-ME_PyS6zD9C1CYMGgSddaMNAyHOmubxMkvu8MGPYtt1OKoZSixNnX5UP569xtGSwdqByoFE6pEMtclxyNf7QmQLA5j-WA0pzdYv1PoxUWv3vT8H_FEiwJY9ZR7EAET7K2PV4njI?width=660&height=660&cropmode=none',
+        },
+        other: {
+            name: 'Разное',
+            route: '/other',
+            imageUrl: 'https://bn1301files.storage.live.com/y4mcO7B_h1N1WdCZrwchGrNzuJKgHIoRbSiO1w6uRTz5hoPePjglyD6QRxR4jaNvGlJ3yrO3KPDxiepppdfuswUSjJGlOxPIWs9ifq2HlCRVpLkjLXJ8qfngZkdT2WmL9vo19fnRCpz4kuuAhtZYejc_St9ioU3LmBwsf16DE8uMzcYbS-XbWvxCYXjcOLpx_Do?width=660&height=660&cropmode=none',
         },
         sale: {
             name: 'Распродажа',

@@ -18,31 +18,31 @@ const FooterComponent = () => {
                     <li>
                         <a
                             className="grey-text text-lighten-3"
-                            href={contactsData.contacts[0].link}
+                            href={contactsData.instagramLink}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {contactsData.contacts[0].name}
+                            {contactsData.instagram}
                         </a>
                     </li>
                     <li>
                         <a
                             className="grey-text text-lighten-3"
-                            href={contactsData.contacts[1].link}
+                            href={contactsData.facebookLink}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {contactsData.contacts[1].name}
+                            {contactsData.facebook}
                         </a>
                     </li>
                     <li>
                         <a
                             className="grey-text text-lighten-3"
-                            href={contactsData.contacts[2].link}
+                            href={contactsData.googleMapsLink}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {contactsData.contacts[2].name}
+                            {contactsData.googleMaps}
                         </a>
                     </li>
                 </ul>}
