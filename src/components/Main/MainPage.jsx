@@ -16,7 +16,8 @@ const MainPage = () => {
                         interval: 6000
                     }}
             >
-                {sliderData.basicSlides.map(slide=><Slide
+                {sliderData.basicSlides.map((slide, index)=><Slide
+                    key={index}
                     image={<img alt="Изображение"
                                src={slide.link}/>}>
                     <Caption placement={slide.side}>

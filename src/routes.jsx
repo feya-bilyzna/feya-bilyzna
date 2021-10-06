@@ -11,7 +11,7 @@ import {
     CartButton,
     DetailPage,
     ShoppingCart,
-    PersonalCabinet,
+    PersonalDetails,
 } from './components'
 
 import {categoriesData} from './data'
@@ -54,7 +54,7 @@ export const useRoutes = () => {
                     <ShoppingCart/>
                 </Route>
                 {cookies.user !== undefined?<Route path="/login" exact>
-                    <PersonalCabinet/>
+                    <PersonalDetails/>
                 </Route>:<></>}
                 <Redirect to="/"/>
             </Switch>

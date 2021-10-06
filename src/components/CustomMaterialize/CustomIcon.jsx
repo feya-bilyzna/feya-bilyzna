@@ -6,4 +6,4 @@ const CustomIcon = ({children, className,...props}) => {
    return <Icon className={cx("notranslate", className)} { ...props}>{children}</Icon>
 };
 
-export default CustomIcon;
+export default CustomIcon
