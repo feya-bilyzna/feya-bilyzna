@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://feya-bilyzna.github.io",
   "dependencies": {
+    "@n8tb1t/use-scroll-position": "^1.0.35",
+    "styled-components": "^4.3.2",
     "@apollo/client": "^3.4.5",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
