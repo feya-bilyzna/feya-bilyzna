@@ -1,5 +1,5 @@
-import React, { useState, useRef, useMemo, Fragment } from 'react'
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+import React, {useState, useRef, useMemo, Fragment} from 'react'
+import {useScrollPosition} from '@n8tb1t/use-scroll-position'
 import {NavLink} from "react-router-dom"
 import {Col, Dropdown, Icon, Navbar, Row} from "react-materialize"
 import PropTypes from "prop-types"
@@ -14,12 +14,13 @@ Navbar.propTypes = {
 
 const NavbarMenu = () => {
     const [cookies] = useCookies(['cartProducts'])
+
     const cartSize = Object.keys(cookies.cartProducts || {}).length
 
     const [hideOnScroll, setHideOnScroll] = useState(true)
 
     useScrollPosition(
-        ({ prevPos, currPos }) => {
+        ({prevPos, currPos}) => {
             const isShow = currPos.y > prevPos.y
             if (isShow !== hideOnScroll) setHideOnScroll(isShow)
         },
@@ -29,48 +30,56 @@ const NavbarMenu = () => {
         300
     )
 
-    return useMemo(()=>(
+    return useMemo(() => (
         <NavbarSticky show={hideOnScroll}>
             <Navbar
                 className={"pink accent-4 z-depth-2"}
                 style={{
                     position: "fixed",
                     top: 0,
-                    zIndex: 3}}
+                    zIndex: 3
+                }}
                 brand={
-                    <><NavLink className="brand-logo" to="/"
-                    >
-                        <Row>
-                            <Col
-                                s={12}
-                                m={6}
-                                l={6}
-                                xl={6}
-                                style={{display: "flex", justifyContent: "center"}}
-                            >
-                                <Icon large style={{margin: 0}}>home</Icon>
-                            </Col>
-                            <div style={{overflow: "hidden"}}>
-                                <Col style={{paddingRight: 25}}
-                                     s={12}
-                                     m={6}
-                                     l={6}
-                                     xl={6}
+                    <>
+                        <ul><NavLink className="brand-logo" to="/"
+                        >
+                            <Row style={{marginBottom: 0, marginRight: 20}}>
+                                <Col
+                                    s={12}
+                                    m={6}
+                                    l={6}
+                                    xl={6}
+                                    style={{display: "flex", justifyContent: "center"}}
                                 >
-                                    Feya
+                                    <Icon large style={{margin: 0}}>home</Icon>
                                 </Col>
-                            </div>
-                        </Row>
-                    </NavLink>
-                        <NavLink to="/cart"
-                                 style={{position: "absolute", right: 0, padding: "0 13px 0 13px"}}>
+                                <div style={{overflow: "hidden"}}>
+                                    <Col style={{paddingRight: 25}}
+                                         s={12}
+                                         m={6}
+                                         l={6}
+                                         xl={6}
+                                    >
+                                        Feya
+                                    </Col>
+                                </div>
+                            </Row>
+                        </NavLink>
+                        </ul>
+                        <ul><NavLink to="/cart" style={{
+                            position: "absolute",
+                            right: 0,
+                            padding: "0 13px 0 13px"
+                        }}>
                             <Icon>shopping_cart</Icon>
                             {cartSize > 0 ? <span
                                 style={{color: "white", position: "absolute", top: -10, left: 34,}}
                             >
                         {cartSize}
                 </span> : <></>}
-                        </NavLink></>}
+                        </NavLink></ul>
+                    </>
+                }
                 centerChildren
                 id="mobile-nav"
                 menuIcon={<Icon>menu</Icon>}
@@ -142,7 +151,7 @@ const NavbarMenu = () => {
                 <div style={{marginRight: 50}}/>
             </Navbar>
         </NavbarSticky>
-    ),[hideOnScroll])
+    ), [hideOnScroll])
 }
 
 export default NavbarMenu
