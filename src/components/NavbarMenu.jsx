@@ -151,7 +151,7 @@ const NavbarMenu = () => {
                 <div style={{marginRight: 50}}/>
             </Navbar>
         </NavbarSticky>
-    ), [hideOnScroll])
+    ), [hideOnScroll, cartSize])
 }
 
 export default NavbarMenu

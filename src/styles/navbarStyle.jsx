@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const NavbarSticky = styled.nav`
-  height: 60px;
+  height: 55px;
 
   position: fixed;
   top: 0;
