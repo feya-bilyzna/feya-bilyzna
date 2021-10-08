@@ -7,12 +7,12 @@ const CustomCard = ({item, image}) => {
         whiteSpace: "nowrap",
         overflow: "hidden",
         textOverflow: "ellipsis",
-        padding: "2% 0 3% 0",
         textAlign: "center",
         color: "black",
+        padding: "2% 0px 3%",
     }
 
-    return <div className="card">
+    return <div className="card hoverable" style={{margin: ".5rem 0 .1rem 0"}}>
         <NavLink to={item.route ? item.route : `/${item.id}`}>
             <div className="card-image">
                 <ImageView image={image} />

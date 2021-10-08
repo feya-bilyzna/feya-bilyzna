@@ -7,12 +7,12 @@ const GridView = ({cardItems, apiPatterns, route}) => {
         <Row>
             {cardItems.map((cardItem, index) => (
                 <Col
-                    className="darken-1"
+                    className="darken-1 z-depth-0"
                     xl={4}
                     l={6}
                     s={6}
                     key={index}
-                    style={{margin: "0", padding: "3px"}}
+                    style={{padding: "0 3px 0 3px", marginTop: 0}}
                 >
                     <CustomCard
                         item={cardItem}
