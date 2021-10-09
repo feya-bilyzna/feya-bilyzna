@@ -76,15 +76,13 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
         combinedProducts.push({remainsId: remainsId, amount: orderData.amount})
     }
 
-    if (data?.orderByContactinfo?.positions) {
+    if (data?.orderByContactinfo?.positions && cookies.cartProducts !== undefined) {
         for (const position of data?.orderByContactinfo?.positions) {
             if (!(parseInt(position.productremains.id) in cookies.cartProducts))
                 combinedProducts.push({remainsId: position.productremains.id, amount: position.amount})
         }
     }
 
-    console.log(combinedProducts)
-    console.log(cookies.cartProducts)
     const cartOverflow = combinedProducts.length > cartAndOrderLimits
 
     return <>
