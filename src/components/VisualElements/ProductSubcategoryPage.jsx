@@ -14,6 +14,9 @@ const ProductSubcategoryPage = ({subcategory}) => {
                 }
                 brandName
                 vendorCode
+                remains {
+                    price
+               }
              }
         }
     `
