@@ -1,10 +1,20 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
 import {Col, Dropdown, Navbar, Row} from "react-materialize"
+import PropTypes from "prop-types"
 import {categoriesData} from "../data"
 import {CustomIcon, LoginButton} from "./index";
+import {useCookies} from "react-cookie";
+
+Navbar.propTypes = {
+    ...Navbar.propTypes,
+    alignLinks: PropTypes.oneOf(['right sidenav-close']),
+}
 
 const NavbarMenu = () => {
+    const [cookies] = useCookies(['cartProducts'])
+    const cartSize = Object.keys(cookies.cartProducts || {}).length
+
     return <Navbar
         className={"pink accent-4"}
         brand={
@@ -40,6 +50,11 @@ const NavbarMenu = () => {
                     padding: "0 13px 0 13px"
                 }}>
                     <CustomIcon>shopping_cart</CustomIcon>
+                    {cartSize > 0 ? <span
+                        style={{color: "white", position: "absolute", top: -10, left: 34,}}
+                    >
+                        {cartSize}
+                </span> : <></>}
                 </NavLink></ul>
             </>
         }
@@ -51,8 +66,7 @@ const NavbarMenu = () => {
             <>
                 <NavLink to="/">
                     <div className="background">
-                        <img style={{width: "100%"}} alt="Логотип"
-                             src="https://bn1301files.storage.live.com/y4moe3hVn4paJgAFL1jDAEl3VyJrCawq4hIPSPdmDwHMpMKqa85lvHgqVnezDlNAICbnSeMxOK1eMR2As3uVkDEi8IfzhphnGhcdOqSE_ecGzisHPFLus1GgFdzzwej_e-yTbWHfAucXe7Qfo1mj9SPjYALn8vYrSWUWBbAeHIQ8UugG-6QoXAuWPrB6y9NT4aa?width=256&height=256&cropmode=none"/>
+                        <img style={{width: "100%"}} alt="Логотип" src="https://bn1301files.storage.live.com/y4moe3hVn4paJgAFL1jDAEl3VyJrCawq4hIPSPdmDwHMpMKqa85lvHgqVnezDlNAICbnSeMxOK1eMR2As3uVkDEi8IfzhphnGhcdOqSE_ecGzisHPFLus1GgFdzzwej_e-yTbWHfAucXe7Qfo1mj9SPjYALn8vYrSWUWBbAeHIQ8UugG-6QoXAuWPrB6y9NT4aa?width=256&height=256&cropmode=none"/>
                     </div>
                 </NavLink>
                 <li><LoginButton sideNav={true}/></li>
@@ -113,7 +127,7 @@ const NavbarMenu = () => {
         </Dropdown>
         <NavLink to="/contacts">Контакты</NavLink>
         <LoginButton cardButton={false}/>
-        <div style={{marginRight: 50}}/>
+        <div style={{ marginRight: 50 }} />
     </Navbar>
 }
 
