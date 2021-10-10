@@ -1,8 +1,9 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-import {Col, Dropdown, Icon, Navbar, Row} from "react-materialize"
+import {Col, Dropdown, Navbar, Row} from "react-materialize"
 import PropTypes from "prop-types"
 import {categoriesData} from "../data"
+import {CustomIcon, LoginButton} from "./index";
 
 Navbar.propTypes = {
     ...Navbar.propTypes,
@@ -24,7 +25,7 @@ const NavbarMenu = () => {
                         xl={6}
                         style={{display: "flex", justifyContent: "center"}}
                     >
-                        <Icon large style={{margin: 0}}>home</Icon>
+                        <CustomIcon large style={{margin: 0}}>home</CustomIcon>
                     </Col>
                     <div style={{overflow: "hidden"}}>
                         <Col style={{paddingRight: 25}}
@@ -40,11 +41,11 @@ const NavbarMenu = () => {
                 </Row>
             </NavLink>
             <NavLink to="/cart" style={{ position: "absolute", right: 20 }}>
-                <Icon>shopping_cart</Icon>
+                <CustomIcon>shopping_cart</CustomIcon>
             </NavLink></>}
         centerChildren
         id="mobile-nav"
-        menuIcon={<Icon>menu</Icon>}
+        menuIcon={<CustomIcon>menu</CustomIcon>}
         alignLinks='right sidenav-close'
         sidenav={
             <>
@@ -53,6 +54,7 @@ const NavbarMenu = () => {
                         <img style={{width: "100%"}} alt="Логотип" src="https://bn1301files.storage.live.com/y4moe3hVn4paJgAFL1jDAEl3VyJrCawq4hIPSPdmDwHMpMKqa85lvHgqVnezDlNAICbnSeMxOK1eMR2As3uVkDEi8IfzhphnGhcdOqSE_ecGzisHPFLus1GgFdzzwej_e-yTbWHfAucXe7Qfo1mj9SPjYALn8vYrSWUWBbAeHIQ8UugG-6QoXAuWPrB6y9NT4aa?width=256&height=256&cropmode=none"/>
                     </div>
                 </NavLink>
+                <li><LoginButton sideNav={true}/></li>
                 {Object.values(categoriesData.categories).map(categoryData =>
                     <li key={categoryData.route}>
                         <NavLink to={categoryData.route}>{categoryData.name}</NavLink>
@@ -109,6 +111,7 @@ const NavbarMenu = () => {
             )}
         </Dropdown>
         <NavLink to="/contacts">Контакты</NavLink>
+        <LoginButton cardButton={false}/>
         <div style={{ marginRight: 50 }} />
     </Navbar>
 }

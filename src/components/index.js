@@ -4,6 +4,7 @@ export {default as PopoutContactElements}  from './ContactsPage/PopoutContactEle
 
 export {default as CustomCard}      from './CustomMaterialize/CustomCard'
 export {default as CustomCardTitle}        from './CustomMaterialize/CustomCardTitle'
+export {default as CustomIcon}        from './CustomMaterialize/CustomIcon'
 
 export {default as LoadingAnimation} from './PartialElements/LoadingAnimation'
 export {default as VariantSelectors} from './PartialElements/VariantSelectors'
@@ -21,3 +22,7 @@ export {default as ProductSubcategoryPage} from './VisualElements/ProductSubcate
 export {default as ProductCategoryPage}    from './VisualElements/ProductCategoryPage'
 export {default as DetailPage}             from './VisualElements/DetailPage'
 export {default as ShoppingCart}           from './VisualElements/ShoppingCart'
+
+export {default as PersonalDetails}        from  './PersonalDetails/PersonalDetails'
+export {default as LoginButton}            from  './PersonalDetails/LoginButton'
+export {default as RegisterForm}           from  './PersonalDetails/RegisterForm'

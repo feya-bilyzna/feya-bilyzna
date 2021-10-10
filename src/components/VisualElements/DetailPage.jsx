@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import {Button, Col, Divider, Icon, MediaBox, Modal, Row} from "react-materialize"
+import {Button, Col, Divider, MediaBox, Modal, Row} from "react-materialize"
 import {useParams} from 'react-router'
 import {gql, useQuery} from "@apollo/client"
 import {useCookies} from 'react-cookie'
-import {LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal} from '..'
-import {alertsData} from "../../data"
+import {LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon} from '..'
+import {alertsData, cartAndOrderLimits} from "../../data"
 import {NavLink} from "react-router-dom"
 
 const DetailPage = () => {
@@ -151,7 +151,7 @@ const DetailPage = () => {
                 >Контакты</Button></NavLink></div>
         </>
 
-    const tooMuchItemsInCart = cookies.cartProducts && Object.keys(cookies.cartProducts).length >= 20
+    const tooMuchItemsInCart = cookies.cartProducts && Object.keys(cookies.cartProducts).length >= cartAndOrderLimits
 
     const addToCart = (remainId, variantId, price) => !tooMuchItemsInCart && setCookie('cartProducts',
         {...(cookies.cartProducts || {}), [remainId]: {productId, variantId, amount: 1, price}}
@@ -240,7 +240,7 @@ const DetailPage = () => {
                                                        Да
                                                    </Col>
                                                    <Col>
-                                                       <Icon tiny>shopping_cart</Icon>
+                                                       <CustomIcon tiny>shopping_cart</CustomIcon>
                                                    </Col>
                                                </Row>
                                            </Button>
@@ -274,12 +274,12 @@ const DetailPage = () => {
                                             appropriateRemains[0].price
                                         )}>
                                        {productAlreadyAdded ? "Добавлено" : "Купить"}
-                                       {!productAlreadyAdded ? <Icon tiny right>attach_money</Icon> : <></>}
+                                       {!productAlreadyAdded ? <CustomIcon tiny right>attach_money</CustomIcon> : <></>}
                                    </div>
                                </Button>}
                         >
                             <div style={{textAlign: "center"}}>
-                                <h5>{tooMuchItemsInCart ? "Корзина переполнена!" : "Добавлено в корзину!"}</h5>
+                                <h5>{tooMuchItemsInCart ? alertsData.cartIsFull : "Добавлено в корзину!"}</h5>
                                 <h6>Перейти к оформлению заказа?</h6>
                             </div>
                         </Modal>
