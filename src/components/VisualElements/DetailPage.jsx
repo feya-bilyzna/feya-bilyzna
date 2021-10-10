@@ -3,12 +3,11 @@ import {Button, Col, Divider, MediaBox, Modal, Row} from "react-materialize"
 import {useParams} from 'react-router'
 import {gql, useQuery} from "@apollo/client"
 import {useCookies} from 'react-cookie'
-import {LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon} from '..'
+import {LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, SizeTable} from '..'
 import {alertsData, cartAndOrderLimits} from "../../data"
 import {NavLink} from "react-router-dom"
 
 const DetailPage = () => {
-
     const descriptionStyle = {fontSize: 13}
     const modalMarginBottom = {marginBottom: "90px"}
 
@@ -160,6 +159,10 @@ const DetailPage = () => {
     const productAlreadyAdded =
         appropriateRemains.length === 1 && appropriateRemains[0].id in (cookies.cartProducts || {})
 
+    if(!loading){
+        console.log(Object.values(data?.productById.categories))
+    }
+
     return data.productById !== null ?
         <Row className={"flow-text"}>
             <Col className="black-text" xl={6} m={6} s={12}>
@@ -299,6 +302,11 @@ const DetailPage = () => {
                             <h6>Наложенным платежом.</h6>
                             <h6>Оплата на месте (наличные, терминал).</h6>
                             <h6>На карту ПриватБанка.</h6>
+                        </div>
+                    </ProductInfoModal>
+                    <ProductInfoModal name="Таблица размеров" iconName="table_rows">
+                        <div style={{textAlign: "center"}}>
+                            <SizeTable cayegory={Object.values(data?.productById.categories)}/>
                         </div>
                     </ProductInfoModal>
                 </AdditionalInfo>}
