@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {NavLink} from "react-router-dom"
-import {ImageView} from ".."
+import {ImageView, Price} from ".."
 import {Button, Icon} from "react-materialize";
 
 const CustomCard = ({item, image}) => {
@@ -38,9 +38,7 @@ const CustomCard = ({item, image}) => {
                     `${item.vendorCode}•${item.brandName || "Нет бренда"}` :
                     item.name
                 }
-                {item.remains ? <div
-                    className="pink-text accent-4"
-                >{item.remains[0].price ? `${item.remains[0].price} грн` : "Нет цены"}</div> : <></>}
+                <Price remains={item.remains}/>
             </div>
         </NavLink>
     </div>
