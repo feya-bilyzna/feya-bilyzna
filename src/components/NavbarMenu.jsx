@@ -15,7 +15,7 @@ const NavbarMenu = () => {
     const [cookies] = useCookies(['cartProducts'])
     const cartSize = Object.keys(cookies.cartProducts || {}).length
 
-    return <Navbar
+    return <Navbar style={{zIndex: 3}}
         className={"pink accent-4"}
         brand={
             <>
