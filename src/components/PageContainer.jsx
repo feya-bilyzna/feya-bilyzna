@@ -6,10 +6,10 @@ const PageContainer = ({children}) => {
     return <div
         className={cx(s.container, "z-depth-1")}
         style={{
-        flex: 1,
-        backgroundColor: "white",
-        zIndex: 1
-    }}
+            flex: 1,
+            backgroundColor: "white",
+            zIndex: 1
+        }}
     >
         {children}
     </div>
