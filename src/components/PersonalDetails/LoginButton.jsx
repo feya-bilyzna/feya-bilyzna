@@ -106,7 +106,7 @@ const LoginButton = ({cardButton, sideNav}) => {
                     : <Button
                         className={cx(styles.login, "z-depth-0")}
                         style={{
-                            marginTop: 15,
+                            height: "100%",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
