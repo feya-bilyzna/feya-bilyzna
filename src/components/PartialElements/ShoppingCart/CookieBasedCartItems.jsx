@@ -60,12 +60,12 @@ const CookieBasedCartItems = ({products}) => {
                     <CartCell size={3}>
                         <ChangeAmountButton
                             disabled={purchaseData.amount <= 1}
-                            onClickFunc={() => changeOrderAmount(-1)}
+                            onClickFunc={() => changeOrderAmount(-1, remainsId)}
                         >-</ChangeAmountButton>
                         {purchaseData.amount}
                         <ChangeAmountButton
                             disabled={purchaseData.amount >= remainsData.remains}
-                            onClickFunc={() => changeOrderAmount(1)}
+                            onClickFunc={() => changeOrderAmount(1, remainsId)}
                         >+</ChangeAmountButton>
                     </CartCell>
                     <CartCell size={2} bold>{remainsData.price * purchaseData.amount} грн</CartCell>
