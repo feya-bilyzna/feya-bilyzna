@@ -5,6 +5,8 @@ import PropTypes from "prop-types"
 import {categoriesData} from "../data"
 import {CustomIcon, LoginButton} from "./index";
 import {useCookies} from "react-cookie";
+import styles from "../css/navbar.module.css"
+import cx from "classnames";
 
 Navbar.propTypes = {
     ...Navbar.propTypes,
@@ -19,7 +21,7 @@ const NavbarMenu = () => {
         className={"pink accent-4"}
         brand={
             <>
-                <ul><NavLink className="brand-logo" to="/"
+                <NavLink className={cx("brand-logo", styles.navElement)} to="/"
                 >
                     <Row style={{marginBottom: 0, marginRight: 20}}>
                         <Col
@@ -43,8 +45,7 @@ const NavbarMenu = () => {
                         </div>
                     </Row>
                 </NavLink>
-                </ul>
-                <ul><NavLink to="/cart" style={{
+                <NavLink className={styles.navElement} to="/cart" style={{
                     position: "absolute",
                     right: 0,
                     padding: "0 13px 0 13px"
@@ -55,7 +56,7 @@ const NavbarMenu = () => {
                     >
                         {cartSize}
                 </span> : <></>}
-                </NavLink></ul>
+                </NavLink>
             </>
         }
         centerChildren
