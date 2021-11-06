@@ -4,7 +4,7 @@ import { ImageView, Price } from ".."
 import { Button, Icon } from "react-materialize";
 import M from 'materialize-css'
 
-const CustomCard = ({ item, image }) => {
+const CustomCard = ({ item, image, isSubcategory }) => {
     const customCardContentStyle = {
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -15,11 +15,10 @@ const CustomCard = ({ item, image }) => {
     }
 
     const [isFavorite, setIsFavorite] = useState(false)
-    console.log(item)
 
     return <div className="card hoverable" style={{ margin: ".5rem 0 .1rem 0" }}>
         {
-            item.remains ?
+            isSubcategory ?
                 <Button style={{ bottom: 5, right: 5, }}
                     className="green hoverable halfway-fab waves-effect waves-light"
                     floating
@@ -47,7 +46,7 @@ const CustomCard = ({ item, image }) => {
                     `${item.vendorCode}•${item.brandName || "Нет бренда"}` :
                     item.name
                 }
-                <Price item={item} />
+                {isSubcategory ? <Price item={item} /> : <></>}
             </div>
         </NavLink>
     </div>

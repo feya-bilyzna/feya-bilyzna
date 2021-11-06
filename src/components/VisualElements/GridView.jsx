@@ -2,7 +2,7 @@ import React from 'react'
 import {Col, Row} from "react-materialize"
 import {CustomCard} from ".."
 
-const GridView = ({cardItems, apiPatterns, route}) => {
+const GridView = ({cardItems, isSubcategory , route}) => {
     return (
         <Row>
             {cardItems.map((cardItem, index) => (
@@ -15,9 +15,10 @@ const GridView = ({cardItems, apiPatterns, route}) => {
                     style={{padding: "0 3px 0 3px", marginTop: 0}}
                 >
                     <CustomCard
+                        isSubcategory  = {isSubcategory }
                         item={cardItem}
                         route={route}
-                        image={apiPatterns ?
+                        image={isSubcategory  ?
                             cardItem.images[0]?.url :
                             cardItem.imageUrl ? cardItem.imageUrl : cardItem.name
                         } />
