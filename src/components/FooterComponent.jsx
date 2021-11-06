@@ -5,6 +5,7 @@ import {NavLink} from "react-router-dom"
 
 const FooterComponent = () => {
     return <Footer
+            style={{zIndex: 3}}
             className={"pink accent-4"}
             copyrights="Нижнее бельё по доступным ценам"
             moreLinks={<NavLink

@@ -14,6 +14,9 @@ const ProductSubcategoryPage = ({subcategory}) => {
                 }
                 brandName
                 vendorCode
+                remains {
+                    price
+               }
              }
         }
     `
@@ -57,7 +60,7 @@ const ProductSubcategoryPage = ({subcategory}) => {
     return <>
         {pageHeader}
         {data.categoryProducts?.length ?
-            <GridView apiPatterns cardItems={data.categoryProducts} route={subcategory.route}/> :
+            <GridView isSubcategory cardItems={data.categoryProducts} route={subcategory.route}/> :
             <h6 style={{textAlign: "center"}}>{alertsData.missingProducts}</h6>
         }
         <LoadingAnimation empty={!additionalLoading} style={{marginBottom: 30}}/>
