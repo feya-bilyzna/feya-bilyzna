@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
-import {NavLink} from "react-router-dom"
-import {ImageView, Price} from ".."
-import {Button, Icon} from "react-materialize";
+import React, { useState } from 'react'
+import { NavLink } from "react-router-dom"
+import { ImageView, Price } from ".."
+import { Button, Icon } from "react-materialize";
+import M from 'materialize-css'
 
-const CustomCard = ({item, image}) => {
+const CustomCard = ({ item, image }) => {
     const customCardContentStyle = {
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -14,23 +15,31 @@ const CustomCard = ({item, image}) => {
     }
 
     const [isFavorite, setIsFavorite] = useState(false)
+    console.log(item)
 
-    return <div className="card hoverable" style={{margin: ".5rem 0 .1rem 0"}}>
-        {item.remains ?
-            <Button style={{bottom: 5, right: 5,}}
+    return <div className="card hoverable" style={{ margin: ".5rem 0 .1rem 0" }}>
+        {
+            item.remains ?
+                <Button style={{ bottom: 5, right: 5, }}
                     className="green hoverable halfway-fab waves-effect waves-light"
                     floating
                     icon={<Icon>{isFavorite ? "favorite" : "favorite_border"}</Icon>}
                     node="button"
-                    tooltip="Добавить в избранное"
+                    tooltip={!isFavorite ? "Добавить в избранное" : "Убрать из избранного"}
                     tooltipOptions={{
                         position: 'bottom'
                     }}
-                    onClick={() => setIsFavorite(!isFavorite)}
-            /> : <></>}
+                    onClick={() => {
+                        setIsFavorite(!isFavorite)
+                        M.toast({ html: !isFavorite ? "Добавлено в избранное" : "Убрано из избранного" })
+                    }}
+                />
+                :
+                <></>
+        }
         <NavLink to={item.route ? item.route : `/${item.id}`}>
             <div className="card-image">
-                <ImageView image={image}/>
+                <ImageView image={image} />
             </div>
 
             <div className="card-content flow-text" style={customCardContentStyle}>
@@ -38,7 +47,7 @@ const CustomCard = ({item, image}) => {
                     `${item.vendorCode}•${item.brandName || "Нет бренда"}` :
                     item.name
                 }
-                <Price remains={item.remains}/>
+                <Price item={item} />
             </div>
         </NavLink>
     </div>
