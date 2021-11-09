@@ -1,10 +1,9 @@
-import {gql, useQuery} from "@apollo/client"
-import {GridView} from "../index"
-import React, {useEffect, useState} from "react"
-import {LoadingAnimation} from '..'
-import {alertsData} from "../../data"
+import { gql, useQuery } from "@apollo/client"
+import React, { useEffect, useState } from "react"
+import { LoadingAnimation, FilterSortWraper, GridView } from '..'
+import { alertsData } from "../../data"
 
-const ProductSubcategoryPage = ({subcategory}) => {
+const ProductSubcategoryPage = ({ subcategory }) => {
     const ProductsQuery = gql`
         query ProductsQuery($categoryName: [String]!, $page: Int!) {
              categoryProducts(categoryName: $categoryName, page: $page) {
@@ -21,8 +20,8 @@ const ProductSubcategoryPage = ({subcategory}) => {
         }
     `
 
-    const {loading, error, data, fetchMore} = useQuery(ProductsQuery, {
-        variables: {categoryName: subcategory.name, page: 1},
+    const { loading, error, data, fetchMore } = useQuery(ProductsQuery, {
+        variables: { categoryName: subcategory.name, page: 1 },
     })
     const [additionalLoading, setAdditionalLoading] = useState(false)
 
@@ -46,24 +45,25 @@ const ProductSubcategoryPage = ({subcategory}) => {
                 )
             }
         }
-        window.addEventListener("scroll", handleScroll, {passive: true});
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => {
             window.removeEventListener("scroll", handleScroll);
         }
     })
 
-    const pageHeader = <h3 style={{textAlign: "center"}}>{subcategory.name}</h3>
+    const pageHeader = <h3 style={{ textAlign: "center" }}>{subcategory.name}</h3>
 
-    if (loading) return <>{pageHeader}<LoadingAnimation style={{height: "50vh"}}/></>
-    if (error) return <h5 style={{textAlign: "center"}}>{alertsData.serverRequestFailed}</h5>
+    if (loading) return <>{pageHeader}<LoadingAnimation style={{ height: "50vh" }} /></>
+    if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
 
     return <>
         {pageHeader}
+        <FilterSortWraper></FilterSortWraper>
         {data.categoryProducts?.length ?
-            <GridView isSubcategory cardItems={data.categoryProducts} route={subcategory.route}/> :
-            <h6 style={{textAlign: "center"}}>{alertsData.missingProducts}</h6>
+            <GridView isSubcategory cardItems={data.categoryProducts} route={subcategory.route} /> :
+            <h6 style={{ textAlign: "center" }}>{alertsData.missingProducts}</h6>
         }
-        <LoadingAnimation empty={!additionalLoading} style={{marginBottom: 30}}/>
+        <LoadingAnimation empty={!additionalLoading} style={{ marginBottom: 30 }} />
     </>
 }
 
