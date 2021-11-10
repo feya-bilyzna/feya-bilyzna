@@ -1,22 +1,26 @@
 import { Select } from "react-materialize"
 import React from "react"
 import { filterSortData } from "../../../data"
+import styles from "../../../css.module/colorFilter.module.css"
 
 const ColorFilter = () => {
     return <Select
         label="Фильтр по цвету"
         id="colors"
-        multiple
     >
-        <option
-            value=""
-            disabled
-        >
-            Все цвета
-        </option>
-        {filterSortData.filters.colors.map((color, index) => <option key={index} value={index} style={{ background: { color } }}>
-            {color}
-        </option>)}
+            <option
+                value=""
+            >
+                Все цвета
+            </option>
+            {filterSortData.filters.colors.map((data, index) => <option
+                key={index}
+                value={index}
+                data-icon={data.link}
+            >
+                {data.color}
+            </option>)}
+    
     </Select>
 }
 

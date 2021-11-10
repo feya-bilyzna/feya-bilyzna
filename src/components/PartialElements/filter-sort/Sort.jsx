@@ -10,7 +10,8 @@ const Sort = () => {
     >
         {filterSortData.sorts.map((sort, index) => <option
             key={index}
-            value={index}>
+            value={index}
+            >
                 {sort}
         </option>)}
     </Select>

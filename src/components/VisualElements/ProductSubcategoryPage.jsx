@@ -3,10 +3,15 @@ import React, { useEffect, useState } from "react"
 import { LoadingAnimation, FilterSortWraper, GridView } from '..'
 import { alertsData } from "../../data"
 
+//color: "black" ,cupSize: "A", bandSize: "70"
+//variantStyles: {}, 
+//orderBy: CHEAPEST
+//orderBy: EXPENSIVE
+
 const ProductSubcategoryPage = ({ subcategory }) => {
     const ProductsQuery = gql`
-        query ProductsQuery($categoryName: [String]!, $page: Int!) {
-             categoryProducts(categoryName: $categoryName, page: $page) {
+        query ProductsQuery($categoryName: [String]!, $page: Int!, $variantStyles: GenericScalar, $orderBy: ProductOrderBy) {
+             categoryProducts(categoryName: $categoryName, page: $page, variantStyles: $variantStyles, orderBy: $orderBy) {
                 id
                 images {
                   url
@@ -21,7 +26,7 @@ const ProductSubcategoryPage = ({ subcategory }) => {
     `
 
     const { loading, error, data, fetchMore } = useQuery(ProductsQuery, {
-        variables: { categoryName: subcategory.name, page: 1 },
+        variables: { categoryName: subcategory.name, page: 1, variantStyles: {},  orderBy: undefined},
     })
     const [additionalLoading, setAdditionalLoading] = useState(false)
 
@@ -58,7 +63,7 @@ const ProductSubcategoryPage = ({ subcategory }) => {
 
     return <>
         {pageHeader}
-        <FilterSortWraper></FilterSortWraper>
+        <FilterSortWraper/>
         {data.categoryProducts?.length ?
             <GridView isSubcategory cardItems={data.categoryProducts} route={subcategory.route} /> :
             <h6 style={{ textAlign: "center" }}>{alertsData.missingProducts}</h6>

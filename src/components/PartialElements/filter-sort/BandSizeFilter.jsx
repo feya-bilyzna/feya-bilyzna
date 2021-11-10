@@ -6,10 +6,8 @@ const BandSizeFilter = () => {
     return <Select
         label="Фильтр по обхвату"
         id="bandSizes"
-        multiple
     >
         <option
-            disabled
             value=""
         >
             Все обхваты

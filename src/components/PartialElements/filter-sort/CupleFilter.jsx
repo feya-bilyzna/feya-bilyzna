@@ -6,10 +6,8 @@ const CupleFilter = () => {
     return <Select
         label="Фильтр по чашке"
         id="cupleSizes"
-        multiple
     >
         <option
-            disabled
             value=""
         >
             Все чашки
