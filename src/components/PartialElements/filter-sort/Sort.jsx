@@ -1,20 +1,23 @@
 import React from "react"
-import { Select } from "react-materialize"
-import {filterSortData} from "../../../data"
+import { Col, Select } from "react-materialize"
+import { filterSortData } from "../../../data"
 
-const Sort = () => {
-    return <Select
-        id="sorts"
-        label="Сортировка"
-        value="0"
-    >
-        {filterSortData.sorts.map((sort, index) => <option
-            key={index}
-            value={index}
+const Sort = ({ onChange, options, label }) => {
+    return <Col xl={3} l={3} m={6} s={12}>
+        <Select
+            id="sorts"
+            label={label}
+            value="0"
+            onChange={onChange}
+        >
+            {options.map((option, index) => <option
+                key={index}
+                value={option.value}
             >
-                {sort}
-        </option>)}
-    </Select>
+                {option.label}
+            </option>)}
+        </Select>
+    </Col>
 }
 
 export default Sort

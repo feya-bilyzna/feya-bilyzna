@@ -12,11 +12,8 @@ export {default as AdditionalInfo}         from './PartialElements/AdditionalInf
 export {default as ProductInfoModal}       from './PartialElements/ProductInfoModal'
 export {default as Price}                  from './PartialElements/Price'
 
-export {default as FilterSortWraper}       from './PartialElements/filter-sort/FilterSortWraper'
 export {default as Sort}                   from './PartialElements/filter-sort/Sort'
-export {default as CupleFilter}            from './PartialElements/filter-sort/CupleFilter'
-export {default as BandSizeFilter}         from './PartialElements/filter-sort/BandSizeFilter'
-export {default as ColorFilter}            from './PartialElements/filter-sort/ColorFilter'
+export {default as ProductFilter}         from './PartialElements/filter-sort/ProductFilter'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'

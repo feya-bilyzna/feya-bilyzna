@@ -144,6 +144,7 @@ const categoriesData = {
         },
         bras: {
             name: 'Бюстгальтеры',
+            filters: ['bandSize', 'cupSize'],       
             route: '/bras',
             imageUrl: 'https://bn1301files.storage.live.com/y4mFleOB3cpgYwcrOK_1kzu9ETv_NFHkQidCUmFEsYteEk8Tv3IvQfuyoUmf-vcMeh3jXW0ossUR2kSPBAh9qaMp_bXyPeITh1qvEQ0V7VYaQn3fYPwuC_O29W4sNCmVos9hayyfAFsii7yoYxrSPualr1efligqonvXzgJkqTtoJ6xPgDQiJLztowzKcYlML8M?width=660&height=599&cropmode=none',
             subcategories: [
@@ -186,6 +187,7 @@ const categoriesData = {
         },
         knickers: {
             name: 'Трусики',
+            filters: ['size'],  
             route: '/knickers',
             imageUrl: 'https://bn1301files.storage.live.com/y4m8cBK3gqpgrVXucdheNtz_woglhja9jfUmV7kNVMQ9UXIQYdHCOyNGnPD5vf5tDIRdN3eNlEjo2Sq-3FKxFAzNpsfFru7bs3Q-RKzmY1NzlnPKXviZMUZkGQizXoLdZZZbro_8qDkbdpUzb1THSde5_95wD-mRmEPWvZPjDWWjgpo8eKkt4r0Ao0ex-qp-kTs?width=660&height=660&cropmode=none',
             subcategories: [
