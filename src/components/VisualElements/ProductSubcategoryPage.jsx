@@ -28,76 +28,24 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
         }
     `
     const [priceSorter, setPriceSorter] = useState()
-    const [colorFilter, setColorFilter] = useState()
 
-    const [knickersFilter, setKnickersFilter] = useState()
+    const [colorFilter, setColorFilter] = useState()
 
     const [cupleFilter, setCupleFilter] = useState()
     const [bandSizeFilter, setBandSizeFilter] = useState()
 
-    let variantStylesSelects = {}
+    const [knickersFilter, setKnickersFilter] = useState()
 
-    
-
-    if (subcategory.route.indexOf("bras") > 0) {
-        if (colorFilter && cupleFilter && bandSizeFilter) {
-            console.log("выбраны цвет, чашка и обхват")
-            variantStylesSelects = { color: colorFilter, cupSize: cupleFilter, bandSize: bandSizeFilter }
-        }
-        else if (colorFilter && cupleFilter && !bandSizeFilter) {
-            console.log("выбраны цвет и чашка")
-            variantStylesSelects = { color: colorFilter, cupSize: cupleFilter }
-        }
-        else if (colorFilter && !cupleFilter && bandSizeFilter) {
-            console.log("выбраны цвет и обхват")
-            variantStylesSelects = { color: colorFilter, bandSize: bandSizeFilter }
-        }
-        else if (!colorFilter && cupleFilter && bandSizeFilter) {
-            console.log("выбраны чашка и обхват")
-            variantStylesSelects = { cupSize: cupleFilter, bandSize: bandSizeFilter }
-        }
-        else if (!colorFilter && !cupleFilter && bandSizeFilter) {
-            console.log("выбраны обхват")
-            variantStylesSelects = { bandSize: bandSizeFilter }
-        }
-        else if (!colorFilter && cupleFilter && !bandSizeFilter) {
-            console.log("выбраны чашка")
-            variantStylesSelects = { cupSize: cupleFilter }
-        }
-        else if (colorFilter && !cupleFilter && !bandSizeFilter) {
-            console.log("выбраны цвет")
-            variantStylesSelects = { color: colorFilter }
-        }
-        else if (!colorFilter && !cupleFilter && !bandSizeFilter) {
-            console.log("Ничего не выбрано выбрано")
-            variantStylesSelects = {}
-        }
-    }
-    else {
-        if (!colorFilter && !knickersFilter) {
-            console.log("Ничего не выбрано выбрано")
-            variantStylesSelects = {}
-        }
-        else if (!colorFilter && knickersFilter) {
-            console.log("Выбраны размер трусов")
-            variantStylesSelects = { size: knickersFilter }
-        }
-        else if (colorFilter && knickersFilter) {
-            console.log("Выбраны размер трусов и цвет")
-            variantStylesSelects = { color: colorFilter, size: knickersFilter }
-        }
-        else if (colorFilter && !knickersFilter) {
-            console.log("Выбран цвет")
-            variantStylesSelects = { color: colorFilter }
-        }
-    }
-
-    console.log(variantStylesSelects)
 
     const queryVariables = {
         categoryName: subcategory.name,
         page: 1,
-        variantStyles: variantStylesSelects,
+        variantStyles: {
+            color: colorFilter || undefined,
+            cupSize: cupleFilter || undefined,
+            bandSize: bandSizeFilter || undefined,
+            size: knickersFilter || undefined
+        },
         orderBy: priceSorter || undefined
     }
 
@@ -137,6 +85,8 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
     if (loading) return <>{pageHeader}<LoadingAnimation style={{ height: "50vh" }} /></>
     if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
 
+    console.log(queryVariables.variantStyles)
+
     return <>
         {pageHeader}
         <Collapsible style={{ margin: "0 3px 0 3px" }} accordion>
@@ -163,44 +113,46 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                         onChange={(event) => {
                             setColorFilter(event.target.value)
                             refetch(
-                                { ...queryVariables, variantStyles: { color: event.target.value, ...queryVariables.variantStyles } || undefined }
+                                { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, color: event.target.value || undefined } }
                             )
                         }}
                     />
                     {
-                        subcategory.route.indexOf("bras") > 0 ?
-                            <>
-                                <ProductFilter
-                                    filterOptions={filterSortData.filters.cupSizes}
-                                    label={filterSortData.filters.cupSizesLabel}
-                                    onChange={(event) => {
-                                        setCupleFilter(event.target.value)
-                                        refetch(
-                                            { ...queryVariables, variantStyles: { cupSize: event.target.value, ...queryVariables.variantStyles } || undefined }
-                                        )
-                                    }}
-                                />
-                                <ProductFilter
-                                    filterOptions={filterSortData.filters.bandSizes}
-                                    label={filterSortData.filters.bandSizesLabel}
-                                    onChange={(event) => {
-                                        setBandSizeFilter(event.target.value)
-                                        refetch(
-                                            { ...queryVariables, variantStyles: { bandSize: event.target.value, ...queryVariables.variantStyles } || undefined }
-                                        )
-                                    }}
-                                />
-                            </> : <></>
+                        (filters || []).includes("cupSize") ?
+                            <ProductFilter
+                                filterOptions={filterSortData.filters.cupSizes}
+                                label={filterSortData.filters.cupSizesLabel}
+                                onChange={(event) => {
+                                    setCupleFilter(event.target.value)
+                                    refetch(
+                                        { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, cupSize: event.target.value || undefined } }
+                                    )
+                                }}
+                            />
+                            : <></>
                     }
                     {
-                        subcategory.route.indexOf("knickers") > 0 ?
+                        (filters || []).includes("bandSize") ?
+                            <ProductFilter
+                                filterOptions={filterSortData.filters.bandSizes}
+                                label={filterSortData.filters.bandSizesLabel}
+                                onChange={(event) => {
+                                    setBandSizeFilter(event.target.value)
+                                    refetch(
+                                        { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, bandSize: event.target.value || undefined } }
+                                    )
+                                }} />
+                            : <></>
+                    }
+                    {
+                        (filters || []).includes("size") ?
                             <ProductFilter
                                 filterOptions={filterSortData.filters.knickersSizes}
                                 label={filterSortData.filters.knickersSizesLabel}
                                 onChange={(event) => {
                                     setKnickersFilter(event.target.value)
                                     refetch(
-                                        { ...queryVariables, variantStyles: { size: event.target.value, ...queryVariables.variantStyles } || undefined }
+                                        { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, size: event.target.value || undefined } }
                                     )
                                 }}
                             /> : <></>
