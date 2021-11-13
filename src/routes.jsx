@@ -43,9 +43,7 @@ export const useRoutes = () => {
                 {Object.values(categoriesData.categories).map(categoryData =>
                     categoryData.subcategories.map(subcategoryData =>
                         <Route key={subcategoryData.route} path={subcategoryData.route} exact>
-                            {/* <ProductSubcategoryPage subcategory={subcategoryData} filters={categoryData.categories}/> */}
                             <ProductSubcategoryPage subcategory={subcategoryData} filters={categoryData.filters}/>
-                            {/* {console.log(categoriesData.categories)} */}
                         </Route>
                     )
                 )}

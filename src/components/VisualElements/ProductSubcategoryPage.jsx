@@ -4,12 +4,7 @@ import { Collapsible, CollapsibleItem, Icon, Row } from "react-materialize"
 import { LoadingAnimation, GridView, Sort, ProductFilter } from '..'
 import { alertsData } from "../../data"
 import { filterSortData, categoriesData } from "../../data"
-import styles from "../../css.module/colorFilter.module.css"
-
-//color: "black" ,cupSize: "A", bandSize: "70"
-//variantStyles: {}, 
-//orderBy: CHEAPEST
-//orderBy: EXPENSIVE
+import styles from "../../css.module/FilterSort.module.css"
 
 const ProductSubcategoryPage = ({ subcategory, filters }) => {
     const ProductsQuery = gql`
@@ -85,8 +80,6 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
     if (loading) return <>{pageHeader}<LoadingAnimation style={{ height: "50vh" }} /></>
     if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
 
-    console.log(queryVariables.variantStyles)
-
     return <>
         {pageHeader}
         <Collapsible style={{ margin: "0 3px 0 3px" }} accordion>
@@ -97,7 +90,7 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                 icon={<Icon>keyboard_arrow_down</Icon>}
                 node="div"
             >
-                <Row>
+                <Row style={{marginBottom: 0}}>
                     <Sort
                         options={filterSortData.sorters.price}
                         label={filterSortData.sorters.priceLabel}
