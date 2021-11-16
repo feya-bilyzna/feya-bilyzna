@@ -10,6 +10,7 @@ const filterSortData = {
     filters: {
         cupSizesLabel: "Выбрать чашку",
         cupSizes: [
+            { value: "", label: "Всё" },
             { value: "A", label: "" },
             { value: "B", label: "" },
             { value: "C", label: "" },
@@ -19,6 +20,7 @@ const filterSortData = {
         ],
         bandSizesLabel: "Выбрать обхват",
         bandSizes: [
+            { value: "", label: "Всё" },
             { value: "70", label: "" },
             { value: "75", label: "" },
             { value: "80", label: "" },
@@ -30,6 +32,7 @@ const filterSortData = {
         ],
         knickersSizesLabel: "Выбрать размер",
         knickersSizes: [
+            { value: "", label: "Всё" },
             { value: "L", label: "" },
             { value: "XL", label: "" },
             { value: "2XL", label: "" },
@@ -42,6 +45,7 @@ const filterSortData = {
         ],
         colorsLabel: "Выбрать цвет",
         colors: [
+            { value: "", label: "Всё", link: "" },
             { value: "red", label: "", link: "https://bn1301files.storage.live.com/y4mFs0PlgEsWEnfHoH6nLfKIZnU6_0g2KuxfXHbgdx-lp4Es3P9BKDlOVfp6q1HnQOemKooE-9tGoON38KJqQy4GXGPVTTYXQvN05y6w1-FO8w19RaeD-EVY-N4Tx9hO9RXnzNzpTWr4qIxu73iyUZ7nrN7cFK3w5IvfK-cbmydztb0NcNgGoz-nbHeyDFvJ49R?width=40&height=40&cropmode=none" },
             { value: "pink", label: "", link: "https://bn1301files.storage.live.com/y4m-4s2lGepQ9LuXGdPvTm-m-yoTbeJy-oa9WGF2ZSOR9kIaNnX8GDGy4YSOuLatzfMDnl23_F2zH51njLRwQv_pwy7hKbIEfanQl8YqOW91m-zXCvF_Djk_7ldeQan8gyrKR65ACi0zaD2qc5QmebiPNvztWKz66Hl6fUaakK1HpVYS5gCIrycU0C_Xv5BuAGP?width=40&height=40&cropmode=none" },
             { value: "purple", label: "", link: "https://bn1301files.storage.live.com/y4mbRd52ELWoQkzAH2w8aAYoq3ctDZkA_Fc-Rd0FY8i2UpUsBN445iif5TKRbqq-SR-3Sr5a9TVYqq981EDIqRMN_Y-8XXzP-MILxeRMW0ISgD87URAtMANyjLVi0o_bvFB9KtASbT4GbzZelqd3rr04WkhuZUdDTuauzI2xwDPPpBonlPJLlVqD87S5R7fBcvA?width=40&height=40&cropmode=none" },

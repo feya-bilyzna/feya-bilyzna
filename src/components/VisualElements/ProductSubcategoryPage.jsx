@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client"
 import React, { useEffect, useState } from "react"
 import { Collapsible, CollapsibleItem, Icon, Row } from "react-materialize"
-import { LoadingAnimation, GridView, Sort, ProductFilter } from '..'
+import { LoadingAnimation, GridView, SelectorSpecificProducts } from '..'
 import { alertsData } from "../../data"
 import { filterSortData, categoriesData } from "../../data"
 import styles from "../../css.module/FilterSort.module.css"
@@ -90,8 +90,8 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                 icon={<Icon>keyboard_arrow_down</Icon>}
                 node="div"
             >
-                <Row style={{marginBottom: 0}}>
-                    <Sort
+                <Row style={{ marginBottom: 0 }}>
+                    <SelectorSpecificProducts
                         options={filterSortData.sorters.price}
                         label={filterSortData.sorters.priceLabel}
                         onChange={(event) => {
@@ -100,8 +100,9 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                                 { ...queryVariables, orderBy: event.target.value || undefined }
                             )
                         }} />
-                    <ProductFilter
-                        filterOptions={filterSortData.filters.colors}
+                    <SelectorSpecificProducts
+                        filter
+                        options={filterSortData.filters.colors}
                         label={filterSortData.filters.colorsLabel}
                         onChange={(event) => {
                             setColorFilter(event.target.value)
@@ -112,8 +113,9 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                     />
                     {
                         (filters || []).includes("cupSize") ?
-                            <ProductFilter
-                                filterOptions={filterSortData.filters.cupSizes}
+                            <SelectorSpecificProducts
+                                filter
+                                options={filterSortData.filters.cupSizes}
                                 label={filterSortData.filters.cupSizesLabel}
                                 onChange={(event) => {
                                     setCupleFilter(event.target.value)
@@ -126,8 +128,9 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                     }
                     {
                         (filters || []).includes("bandSize") ?
-                            <ProductFilter
-                                filterOptions={filterSortData.filters.bandSizes}
+                            <SelectorSpecificProducts
+                                filter
+                                options={filterSortData.filters.bandSizes}
                                 label={filterSortData.filters.bandSizesLabel}
                                 onChange={(event) => {
                                     setBandSizeFilter(event.target.value)
@@ -139,8 +142,8 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                     }
                     {
                         (filters || []).includes("size") ?
-                            <ProductFilter
-                                filterOptions={filterSortData.filters.knickersSizes}
+                            <SelectorSpecificProducts
+                                options={filterSortData.filters.knickersSizes}
                                 label={filterSortData.filters.knickersSizesLabel}
                                 onChange={(event) => {
                                     setKnickersFilter(event.target.value)

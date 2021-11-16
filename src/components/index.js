@@ -12,8 +12,7 @@ export {default as AdditionalInfo}         from './PartialElements/AdditionalInf
 export {default as ProductInfoModal}       from './PartialElements/ProductInfoModal'
 export {default as Price}                  from './PartialElements/Price'
 
-export {default as Sort}                   from './PartialElements/filter-sort/Sort'
-export {default as ProductFilter}         from './PartialElements/filter-sort/ProductFilter'
+export {default as SelectorSpecificProducts} from './PartialElements/SelectorSpecificProducts'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'

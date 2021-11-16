@@ -1,22 +1,21 @@
 import React from "react"
 import { Col, Select } from "react-materialize"
 
-const Sort = ({ onChange, options, label }) => {
+const SelectorSpecificProducts = ({onChange, options, label, filter}) => {
     return <Col xl={3} l={6} m={6} s={12}>
         <Select
-            id="sorts"
             label={label}
-            value="0"
             onChange={onChange}
         >
             {options.map((option, index) => <option
                 key={index}
                 value={option.value}
+                data-icon={option.link || undefined}
             >
-                {option.label}
+                {option.label || option.value}
             </option>)}
         </Select>
     </Col>
 }
 
-export default Sort
+export default SelectorSpecificProducts
