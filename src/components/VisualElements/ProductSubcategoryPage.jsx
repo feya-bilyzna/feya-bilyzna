@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import { Collapsible, CollapsibleItem, Icon, Row } from "react-materialize"
 import { LoadingAnimation, GridView, SelectorSpecificProducts } from '..'
 import { alertsData } from "../../data"
-import { filterSortData, categoriesData } from "../../data"
+import { filterSortData } from "../../data"
 import styles from "../../css.module/FilterSort.module.css"
 
 const ProductSubcategoryPage = ({ subcategory, filters }) => {
@@ -22,27 +22,18 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
              }
         }
     `
-    const [priceSorter, setPriceSorter] = useState()
 
-    const [colorFilter, setColorFilter] = useState()
-
-    const [cupleFilter, setCupleFilter] = useState()
-    const [bandSizeFilter, setBandSizeFilter] = useState()
-
-    const [knickersFilter, setKnickersFilter] = useState()
-
-
-    const queryVariables = {
+    const [queryVariables, setQueryVariables] = useState({
         categoryName: subcategory.name,
         page: 1,
         variantStyles: {
-            color: colorFilter || undefined,
-            cupSize: cupleFilter || undefined,
-            bandSize: bandSizeFilter || undefined,
-            size: knickersFilter || undefined
+            color: undefined,
+            cupSize: undefined,
+            bandSize: undefined,
+            size: undefined
         },
-        orderBy: priceSorter || undefined
-    }
+        orderBy: undefined
+    })
 
     const { loading, error, data, fetchMore, refetch } = useQuery(ProductsQuery, {
         variables: queryVariables,
@@ -95,20 +86,19 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                         options={filterSortData.sorters.price}
                         label={filterSortData.sorters.priceLabel}
                         onChange={(event) => {
-                            setPriceSorter(event.target.value)
-                            refetch(
-                                { ...queryVariables, orderBy: event.target.value || undefined }
-                            )
+                            const newFilters = { ...queryVariables, orderBy: event.target.value || undefined }
+                            console.log(newFilters)
+                            setQueryVariables(newFilters)
+                            refetch(newFilters)
                         }} />
                     <SelectorSpecificProducts
                         filter
                         options={filterSortData.filters.colors}
                         label={filterSortData.filters.colorsLabel}
                         onChange={(event) => {
-                            setColorFilter(event.target.value)
-                            refetch(
-                                { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, color: event.target.value || undefined } }
-                            )
+                            const newFilters = { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, color: event.target.value || undefined } }
+                            setQueryVariables(newFilters)
+                            refetch(newFilters)
                         }}
                     />
                     {
@@ -118,10 +108,9 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                                 options={filterSortData.filters.cupSizes}
                                 label={filterSortData.filters.cupSizesLabel}
                                 onChange={(event) => {
-                                    setCupleFilter(event.target.value)
-                                    refetch(
-                                        { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, cupSize: event.target.value || undefined } }
-                                    )
+                                    const newFilters = { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, cupSize: event.target.value || undefined } }
+                                    setQueryVariables(newFilters)
+                                    refetch(newFilters)
                                 }}
                             />
                             : <></>
@@ -133,10 +122,9 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                                 options={filterSortData.filters.bandSizes}
                                 label={filterSortData.filters.bandSizesLabel}
                                 onChange={(event) => {
-                                    setBandSizeFilter(event.target.value)
-                                    refetch(
-                                        { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, bandSize: event.target.value || undefined } }
-                                    )
+                                    const newFilters = { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, bandSize: event.target.value || undefined } }
+                                    setQueryVariables(newFilters)
+                                    refetch(newFilters)
                                 }} />
                             : <></>
                     }
@@ -146,10 +134,9 @@ const ProductSubcategoryPage = ({ subcategory, filters }) => {
                                 options={filterSortData.filters.knickersSizes}
                                 label={filterSortData.filters.knickersSizesLabel}
                                 onChange={(event) => {
-                                    setKnickersFilter(event.target.value)
-                                    refetch(
-                                        { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, size: event.target.value || undefined } }
-                                    )
+                                    const newFilters = { ...queryVariables, variantStyles: { ...queryVariables.variantStyles, size: event.target.value || undefined } }
+                                    setQueryVariables(newFilters)
+                                    refetch(newFilters)
                                 }}
                             /> : <></>
                     }
