@@ -1,0 +1,9 @@
+:global(.breadcrumb:before){
+    color: #c51162;
+}
+:global(.breadcrumb){
+    color: #c51162;
+}
+:global(.breadcrumb:last-child){
+    color: #c51162;
+}

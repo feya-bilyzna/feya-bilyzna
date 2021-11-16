@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import { categoriesData } from "../data"
 import { CustomIcon, LoginButton } from "./index";
 import { useCookies } from "react-cookie";
-import styles from "../css/navbar.module.css"
+import styles from "../css.module/navbar.module.css"
 import cx from "classnames";
 
 Navbar.propTypes = {
