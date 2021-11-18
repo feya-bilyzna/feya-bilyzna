@@ -11,6 +11,7 @@ export {default as VariantSelectors} from './PartialElements/VariantSelectors'
 export {default as AdditionalInfo} from './PartialElements/AdditionalInfo'
 export {default as ProductInfoModal} from './PartialElements/ProductInfoModal'
 export {default as Price} from './PartialElements/Price'
+export {default as GoBackButton} from './PartialElements/GoBackButton'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'

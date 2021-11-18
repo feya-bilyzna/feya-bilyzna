@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { Breadcrumb, Button, Col, Divider, MediaBox, Modal, Row } from "react-materialize"
+import { Button, Col, Divider, MediaBox, Modal, Row } from "react-materialize"
 import { useParams } from 'react-router'
 import { gql, useQuery } from "@apollo/client"
 import { useCookies } from 'react-cookie'
-import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon } from '..'
+import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, GoBackButton } from '..'
 import { alertsData, cartAndOrderLimits } from "../../data/index"
 import { NavLink } from "react-router-dom"
-import styles from "../../css.module/Breadcrumbs.module.css"
 
 const DetailPage = () => {
 
@@ -167,20 +166,7 @@ const DetailPage = () => {
 
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
-            <Breadcrumb 
-                className="white z-depth-0"
-                cols={12}
-            >
-                <a href="#">
-                    Главная
-                </a>
-                <a href="http://localhost:3000/#/bras">
-                    Two
-                </a>
-                <a href="http://localhost:3000/#/bras">
-                     "Three1"
-                </a>
-            </Breadcrumb>
+            <GoBackButton styles={{marginTop: 15}}/>
             {Object.values(data?.productById.images).map(image =>
                 <div
                     className="z-depth-1-half"
@@ -223,7 +209,7 @@ const DetailPage = () => {
             </Row>
             {variants.length > 1 ? <Row>
                 <Col>
-                    {appropriateRemains.length > 1 ?  <AdditionalInfo header="Выберите цвет и размер"/> : <></>}
+                    {appropriateRemains.length > 1 ? <AdditionalInfo header="Выберите цвет и размер" /> : <></>}
                     <VariantSelectors selectorsData={selectorsData} updateSelector={updateSelector} />
                 </Col>
             </Row> : <></>}
