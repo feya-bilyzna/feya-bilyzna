@@ -12,7 +12,7 @@ export {default as AdditionalInfo}         from './PartialElements/AdditionalInf
 export {default as ProductInfoModal}       from './PartialElements/ProductInfoModal'
 export {default as Price}                  from './PartialElements/Price'
 
-export {default as SelectorSpecificProducts} from './PartialElements/SelectorSpecificProducts'
+export {default as ProductOptionSelect} from './PartialElements/ProductOptionSelect'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'

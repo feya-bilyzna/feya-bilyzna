@@ -1,7 +1,7 @@
 import React from "react"
 import { Col, Select } from "react-materialize"
 
-const SelectorSpecificProducts = ({onChange, options, label, filter}) => {
+const ProductOptionSelect = ({ onChange, options, label, filter }) => {
     return <Col xl={3} l={6} m={6} s={12}>
         <Select
             label={label}
@@ -10,7 +10,7 @@ const SelectorSpecificProducts = ({onChange, options, label, filter}) => {
             {options.map((option, index) => <option
                 key={index}
                 value={option.value}
-                data-icon={option.link || undefined}
+                data-icon={option.link}
             >
                 {option.label || option.value}
             </option>)}
@@ -18,4 +18,4 @@ const SelectorSpecificProducts = ({onChange, options, label, filter}) => {
     </Col>
 }
 
-export default SelectorSpecificProducts
+export default ProductOptionSelect
