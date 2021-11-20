@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Button, Col, Divider, MediaBox, Modal, Row } from "react-materialize"
 import { useParams } from 'react-router'
 import { gql, useQuery } from "@apollo/client"
 import { useCookies } from 'react-cookie'
-import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, GoBackButton } from '..'
-import { alertsData, cartAndOrderLimits } from "../../data/index"
+import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon } from '..'
+import { alertsData, cartAndOrderLimits, categoriesData } from "../../data/index"
 import { NavLink } from "react-router-dom"
 
 const DetailPage = () => {
@@ -166,7 +166,41 @@ const DetailPage = () => {
 
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
-            <GoBackButton styles={{marginTop: 15}}/>
+            {Object.values(categoriesData.categories).map(category =>
+                Object.values(category.subcategories).map(subcategory =>
+                    data?.productById.categories.map(productCategoryName => <Fragment key={subcategory.route}>
+                        {
+                            productCategoryName === subcategory.name ?
+                                <NavLink to={subcategory.route}>
+                                    <Button className="pink accent-4"
+                                    style={{marginTop: 13, marginRight: 13}}
+                                    >
+                                        <CustomIcon left>
+                                            arrow_back_ios
+                                        </CustomIcon>{subcategory.name}</Button>
+                                </NavLink> :
+                                <></>
+                        }
+                    </Fragment>
+                    )
+                )
+            )}
+            {Object.values(categoriesData.uncategorizedSubcategories).map(uncategorizedSubcategory =>
+                data?.productById.categories.map(productCategoryName => <Fragment key={uncategorizedSubcategory.route}>
+                    {
+                        productCategoryName === uncategorizedSubcategory.name ?
+                            <NavLink to={uncategorizedSubcategory.route}>
+                                <Button className="pink accent-4"
+                                style={{marginTop: 13, marginRight: 13}}
+                                >
+                                    <CustomIcon left>
+                                        arrow_back_ios
+                                    </CustomIcon>{uncategorizedSubcategory.name}</Button>
+                            </NavLink> :
+                            <></>
+                    }
+                </Fragment>)
+            )}
             {Object.values(data?.productById.images).map(image =>
                 <div
                     className="z-depth-1-half"
