@@ -8,8 +8,12 @@ const VariantSelectors = ({selectorsData, updateSelector}) => {
             ([selectorType, selectors]) =>
                 <Fragment key={selectorType}>
                     <Row
-                        style={{marginBottom: 10, marginTop: 10}}
+                        style={{marginBottom: 10, marginLeft: 0}}
                     >
+                        {selectorType === "color"?     <h6>Выберите цвет:</h6>: <></>}
+                        {selectorType === "cupSize"?   <h6>Выберите чашку:</h6>: <></>}
+                        {selectorType === "bandSize"?  <h6>Выберите обхват:</h6>: <></>}
+                        {selectorType === "size"?      <h6>Выберите размер:</h6>: <></>}
                         {selectors.map(selector =>
                             <Button key={selector.value}
                                     floating

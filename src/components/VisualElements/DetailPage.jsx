@@ -164,25 +164,17 @@ const DetailPage = () => {
     const productAlreadyAdded =
         appropriateRemains.length === 1 && appropriateRemains[0].id in (cookies.cartProducts || {})
 
-    // Много лишнего кода и ненужной вложенности.
-    // Предлагаю переписать следуюшим образом:
-
-    // Написать функцию, которая будет принимать аргументом список категорий товара и возвращать список вида [{name: 'Название категории', route: 'Маршрут категории'}].
-    // По результатам этой функции написать гораздо более простой map, не делающий ничего кроме рендера кнопок.
-
-
-
     const categoriesNameRoutList = (categories) => {
         const list = []
         Object.values(categoriesData.categories).map(category =>
             Object.values(category.subcategories).map(subcategory =>
-                data?.productById.categories.map(productCategoryName => {
+                data?.productById.categories.forEach(productCategoryName => {
                     if (productCategoryName === subcategory.name) list.push({ name: subcategory.name, route: subcategory.route })
                 })
             )
         )
         Object.values(categoriesData.uncategorizedSubcategories).map(uncategorizedSubcategory =>
-            data?.productById.categories.map(productCategoryName => {
+            data?.productById.categories.forEach(productCategoryName => {
                 if (productCategoryName === uncategorizedSubcategory.name) list.push({ name: uncategorizedSubcategory.name, route: uncategorizedSubcategory.route })
             })
         )
@@ -247,7 +239,6 @@ const DetailPage = () => {
             </Row><Divider />
             {variants.length > 1 ? <Row>
                 <Col>
-                    {appropriateRemains.length > 1 ? <h6>Выберите цвет и размер:</h6> : <></>}
                     <VariantSelectors selectorsData={selectorsData} updateSelector={updateSelector} />
                 </Col>
             </Row> : <></>}
