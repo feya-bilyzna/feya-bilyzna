@@ -164,43 +164,47 @@ const DetailPage = () => {
     const productAlreadyAdded =
         appropriateRemains.length === 1 && appropriateRemains[0].id in (cookies.cartProducts || {})
 
+    // Много лишнего кода и ненужной вложенности.
+    // Предлагаю переписать следуюшим образом:
+
+    // Написать функцию, которая будет принимать аргументом список категорий товара и возвращать список вида [{name: 'Название категории', route: 'Маршрут категории'}].
+    // По результатам этой функции написать гораздо более простой map, не делающий ничего кроме рендера кнопок.
+
+
+
+    const categoriesNameRoutList = (categories) => {
+        const list = []
+        Object.values(categoriesData.categories).map(category =>
+            Object.values(category.subcategories).map(subcategory =>
+                data?.productById.categories.map(productCategoryName => {
+                    if (productCategoryName === subcategory.name) list.push({ name: subcategory.name, route: subcategory.route })
+                })
+            )
+        )
+        Object.values(categoriesData.uncategorizedSubcategories).map(uncategorizedSubcategory =>
+            data?.productById.categories.map(productCategoryName => {
+                if (productCategoryName === uncategorizedSubcategory.name) list.push({ name: uncategorizedSubcategory.name, route: uncategorizedSubcategory.route })
+            })
+        )
+        return list
+    }
+
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
-            {Object.values(categoriesData.categories).map(category =>
-                Object.values(category.subcategories).map(subcategory =>
-                    data?.productById.categories.map(productCategoryName => <Fragment key={subcategory.route}>
-                        {
-                            productCategoryName === subcategory.name ?
-                                <NavLink to={subcategory.route}>
-                                    <Button className="pink accent-4"
-                                    style={{marginTop: 13, marginRight: 13}}
-                                    >
-                                        <CustomIcon left>
-                                            arrow_back_ios
-                                        </CustomIcon>{subcategory.name}</Button>
-                                </NavLink> :
-                                <></>
-                        }
-                    </Fragment>
-                    )
-                )
-            )}
-            {Object.values(categoriesData.uncategorizedSubcategories).map(uncategorizedSubcategory =>
-                data?.productById.categories.map(productCategoryName => <Fragment key={uncategorizedSubcategory.route}>
+            {
+                categoriesNameRoutList(data?.productById.categories).map(productCategoryData => <Fragment key={productCategoryData.route}>
                     {
-                        productCategoryName === uncategorizedSubcategory.name ?
-                            <NavLink to={uncategorizedSubcategory.route}>
-                                <Button className="pink accent-4"
-                                style={{marginTop: 13, marginRight: 13}}
-                                >
-                                    <CustomIcon left>
-                                        arrow_back_ios
-                                    </CustomIcon>{uncategorizedSubcategory.name}</Button>
-                            </NavLink> :
-                            <></>
+                        <NavLink to={productCategoryData.route}>
+                            <Button className="pink accent-4"
+                                style={{ marginTop: 13, marginRight: 13 }}
+                            >
+                                <CustomIcon left>
+                                    arrow_back_ios
+                                </CustomIcon>{productCategoryData.name}</Button>
+                        </NavLink>
                     }
                 </Fragment>)
-            )}
+            }
             {Object.values(data?.productById.images).map(image =>
                 <div
                     className="z-depth-1-half"
