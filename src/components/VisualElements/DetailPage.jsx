@@ -244,10 +244,10 @@ const DetailPage = () => {
                 <Col className="black-text">
                     {data?.productById.brandName ? data?.productById.brandName : "Бренд не указан"}
                 </Col>
-            </Row>
+            </Row><Divider />
             {variants.length > 1 ? <Row>
                 <Col>
-                    {appropriateRemains.length > 1 ? <AdditionalInfo header="Выберите цвет и размер" /> : <></>}
+                    {appropriateRemains.length > 1 ? <h6>Выберите цвет и размер:</h6> : <></>}
                     <VariantSelectors selectorsData={selectorsData} updateSelector={updateSelector} />
                 </Col>
             </Row> : <></>}

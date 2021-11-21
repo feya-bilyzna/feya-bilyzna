@@ -114,7 +114,7 @@ const NavbarMenu = () => {
             }}
 
             trigger={<a style={{ display: "flex" }} href="#!">
-                <CustomIcon>arrow_drop_down</CustomIcon>
+                <CustomIcon style={{marginRight: 20}}>arrow_drop_down</CustomIcon>
                 Все товары
             </a>}
         >
@@ -130,7 +130,7 @@ const NavbarMenu = () => {
             )}
         </Dropdown>
         <NavLink style={{ display: "flex" }} to="/contacts">
-            <CustomIcon>phone_in_talk</CustomIcon>
+            <CustomIcon style={{marginRight: 20}}>phone_in_talk</CustomIcon>
             Контакты
         </NavLink>
         <LoginButton cardButton={false} />
