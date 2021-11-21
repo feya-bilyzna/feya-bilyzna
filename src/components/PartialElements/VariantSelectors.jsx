@@ -16,7 +16,7 @@ const VariantSelectors = ({selectorsData, updateSelector}) => {
                                     style={{margin: 3}}
                                     disabled={selector.disabled}
                                     className={cx(
-                                        selectorType === "color" ? selector.value : "red lighten-2",
+                                        selectorType === "color" ? selector.value : "pink accent-4",
                                         {pulse: selector.selected})
                                     }
                                     onClick={() => updateSelector(selectorType, selector.value)}
