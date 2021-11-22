@@ -164,35 +164,33 @@ const DetailPage = () => {
     const productAlreadyAdded =
         appropriateRemains.length === 1 && appropriateRemains[0].id in (cookies.cartProducts || {})
 
-    const categoriesNameRoutList = (categories) => {
-        const list = []
-        Object.values(categoriesData.categories).map(category =>
-            Object.values(category.subcategories).map(subcategory =>
-                data?.productById.categories.forEach(productCategoryName => {
-                    if (productCategoryName === subcategory.name) list.push({ name: subcategory.name, route: subcategory.route })
-                })
-            )
-        )
-        Object.values(categoriesData.uncategorizedSubcategories).map(uncategorizedSubcategory =>
+    const findParentCategories = (categories) => {
+        const foundParentCategoriesList = []
+        const setSearchedParentCategories = new Set()
+
+        Object.values(categoriesData.uncategorizedSubcategories).map(uncategorizedSubcategory => setSearchedParentCategories.add(uncategorizedSubcategory))
+        Object.values(categoriesData.categories).map(category => Object.values(category.subcategories).map(subcategory => setSearchedParentCategories.add(subcategory)))
+
+        setSearchedParentCategories.forEach(parentCategory =>
             data?.productById.categories.forEach(productCategoryName => {
-                if (productCategoryName === uncategorizedSubcategory.name) list.push({ name: uncategorizedSubcategory.name, route: uncategorizedSubcategory.route })
+                if (productCategoryName === parentCategory.name) foundParentCategoriesList.push(parentCategory)
             })
         )
-        return list
+        return foundParentCategoriesList
     }
 
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
             {
-                categoriesNameRoutList(data?.productById.categories).map(productCategoryData => <Fragment key={productCategoryData.route}>
+                findParentCategories(data?.productById.categories).map(({ route, name }) => <Fragment key={route}>
                     {
-                        <NavLink to={productCategoryData.route}>
+                        <NavLink to={route}>
                             <Button className="pink accent-4"
                                 style={{ marginTop: 13, marginRight: 13 }}
                             >
                                 <CustomIcon left>
                                     arrow_back_ios
-                                </CustomIcon>{productCategoryData.name}</Button>
+                                </CustomIcon>{name}</Button>
                         </NavLink>
                     }
                 </Fragment>)

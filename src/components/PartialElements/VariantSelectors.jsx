@@ -10,10 +10,12 @@ const VariantSelectors = ({selectorsData, updateSelector}) => {
                     <Row
                         style={{marginBottom: 10, marginLeft: 0}}
                     >
-                        {selectorType === "color"?     <h6>Выберите цвет:</h6>: <></>}
-                        {selectorType === "cupSize"?   <h6>Выберите чашку:</h6>: <></>}
-                        {selectorType === "bandSize"?  <h6>Выберите обхват:</h6>: <></>}
-                        {selectorType === "size"?      <h6>Выберите размер:</h6>: <></>}
+                        <h6>Выберите {{
+                            "color": "цвет",
+                            "cupSize": "чашку",
+                            "bandSize": "обхват",
+                            "size": "размер",
+                        }[selectorType] || "значение"}:</h6>
                         {selectors.map(selector =>
                             <Button key={selector.value}
                                     floating
