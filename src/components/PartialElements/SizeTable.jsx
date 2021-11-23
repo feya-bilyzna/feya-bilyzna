@@ -2,10 +2,11 @@ import React from 'react'
 import {sizeTableData} from "../../data";
 
 const SizeTable = ({cayegory}) => {
+    console.log(cayegory)
     return <>
         <table>
             <tbody>
-            {sizeTableData.knickers.map(
+            {sizeTableData.bras.map(
                 (row, index)=><tr
                     key={index}>{row.map(
                 (col, index)=><td
