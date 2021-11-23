@@ -237,7 +237,7 @@ const categoriesData = {
     uncategorizedSubcategories: {
         shapewear: {
             name: 'Корректирующее',
-            route: '/bikini',
+            route: '/shapewear',
             imageUrl: 'https://bn1301files.storage.live.com/y4mV8BmA4dF2wOm0JwRRn0Ob_rlhSnnVFDlFFANSv7b0Wqh8Wdvt5GgZM-hPQdblUC8SrsOwouo0Ay7FuyyWmgdfy9dbJdhGAoFBAXwaLC2_awWc_lo_eFUZ3mN3T4eL5iOOaZOMD44VCiM4SIieLcfYaH4GBmV21ct2D0Lpr4rnOyIbfdeN9_nxg_n-MVI35Hq?width=518&height=518&cropmode=none',
         },
         sportsBra: {

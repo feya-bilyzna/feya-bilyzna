@@ -1,12 +1,11 @@
 import React from 'react'
-import {sizeTableData} from "../../data";
 
-const SizeTable = ({cayegory}) => {
-    console.log(cayegory)
+const SizeTable = ({table}) => {
+
     return <>
         <table>
             <tbody>
-            {sizeTableData.bras.map(
+            {table.map(
                 (row, index)=><tr
                     key={index}>{row.map(
                 (col, index)=><td
