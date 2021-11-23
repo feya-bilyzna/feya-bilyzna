@@ -4,6 +4,9 @@ import {Col, Dropdown, Navbar, Row} from "react-materialize"
 import PropTypes from "prop-types"
 import {categoriesData} from "../data"
 import {CustomIcon, LoginButton} from "./index";
+import {useCookies} from "react-cookie";
+import styles from "../css/navbar.module.css"
+import cx from "classnames";
 
 Navbar.propTypes = {
     ...Navbar.propTypes,
@@ -11,38 +14,51 @@ Navbar.propTypes = {
 }
 
 const NavbarMenu = () => {
+    const [cookies] = useCookies(['cartProducts'])
+    const cartSize = Object.keys(cookies.cartProducts || {}).length
 
-    return <Navbar
+    return <Navbar style={{zIndex: 3}}
         className={"pink accent-4"}
         brand={
-            <><NavLink className="brand-logo" to="/"
-            >
-                <Row>
-                    <Col
-                        s={12}
-                        m={6}
-                        l={6}
-                        xl={6}
-                        style={{display: "flex", justifyContent: "center"}}
-                    >
-                        <CustomIcon large style={{margin: 0}}>home</CustomIcon>
-                    </Col>
-                    <div style={{overflow: "hidden"}}>
-                        <Col style={{paddingRight: 25}}
+            <>
+                <NavLink className={cx("brand-logo", styles.navElement)} to="/"
+                >
+                    <Row style={{marginBottom: 0, marginRight: 20}}>
+                        <Col
                             s={12}
                             m={6}
                             l={6}
                             xl={6}
+                            style={{display: "flex", justifyContent: "center"}}
                         >
-                            Feya
+                            <CustomIcon large style={{margin: 0}}>home</CustomIcon>
                         </Col>
-                    </div>
-
-                </Row>
-            </NavLink>
-            <NavLink to="/cart" style={{ position: "absolute", right: 20 }}>
-                <CustomIcon>shopping_cart</CustomIcon>
-            </NavLink></>}
+                        <div style={{overflow: "hidden"}}>
+                            <Col style={{paddingRight: 25}}
+                                 s={12}
+                                 m={6}
+                                 l={6}
+                                 xl={6}
+                            >
+                                Feya
+                            </Col>
+                        </div>
+                    </Row>
+                </NavLink>
+                <NavLink className={styles.navElement} to="/cart" style={{
+                    position: "absolute",
+                    right: 0,
+                    padding: "0 13px 0 13px"
+                }}>
+                    <CustomIcon>shopping_cart</CustomIcon>
+                    {cartSize > 0 ? <span
+                        style={{color: "white", position: "absolute", top: -10, left: 34,}}
+                    >
+                        {cartSize}
+                </span> : <></>}
+                </NavLink>
+            </>
+        }
         centerChildren
         id="mobile-nav"
         menuIcon={<CustomIcon>menu</CustomIcon>}

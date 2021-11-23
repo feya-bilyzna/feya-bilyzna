@@ -4,6 +4,8 @@ import {CustomIcon} from "../index"
 import {Button, Col, Modal, Row} from "react-materialize"
 import {useCookies} from 'react-cookie'
 import RegisterForm from "./RegisterForm"
+import styles from "../../css/login.module.css"
+import cx from "classnames";
 
 const LoginButton = ({cardButton, sideNav}) => {
 
@@ -66,7 +68,7 @@ const LoginButton = ({cardButton, sideNav}) => {
                     }}
                 />}
             >
-                <RegisterForm/>
+                <RegisterForm />
             </Modal>
             :
             <Modal
@@ -102,14 +104,14 @@ const LoginButton = ({cardButton, sideNav}) => {
                             </Row>
                         </NavLink>
                     : <Button
-                        className="pink accent-4 z-depth-0"
+                        className={cx(styles.login, "z-depth-0")}
                         style={{
-                            marginTop: 15,
+                            height: "100%",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
                         }}><CustomIcon
-                        className={"notranslate"}
+                        className="notranslate"
                     >
                         login
                     </CustomIcon></Button>}
