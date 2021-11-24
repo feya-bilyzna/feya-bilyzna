@@ -166,16 +166,17 @@ const DetailPage = () => {
 
     const findParentCategories = (categories) => {
         const foundParentCategoriesList = []
-        const setSearchedParentCategories = new Set()
+        const setSearchedParentCategories = new Set(categories.map(category => category))
 
-        Object.values(categoriesData.uncategorizedSubcategories).map(uncategorizedSubcategory => setSearchedParentCategories.add(uncategorizedSubcategory))
-        Object.values(categoriesData.categories).map(category => Object.values(category.subcategories).map(subcategory => setSearchedParentCategories.add(subcategory)))
-
-        setSearchedParentCategories.forEach(parentCategory =>
-            data?.productById.categories.forEach(productCategoryName => {
-                if (productCategoryName === parentCategory.name) foundParentCategoriesList.push(parentCategory)
-            })
-        )
+        Object.values(categoriesData.uncategorizedSubcategories).forEach(uncategorizedSubcategory => {
+            if (setSearchedParentCategories.has(uncategorizedSubcategory.name))
+                foundParentCategoriesList.push(uncategorizedSubcategory)
+        })
+        Object.values(categoriesData.categories).forEach(category =>
+            Object.values(category.subcategories).forEach(subcategory => {
+                if (setSearchedParentCategories.has(subcategory.name))
+                    foundParentCategoriesList.push(subcategory)
+            }))
         return foundParentCategoriesList
     }
 
