@@ -3,8 +3,8 @@ import { Button, Col, Divider, MediaBox, Modal, Row } from "react-materialize"
 import { useParams } from 'react-router'
 import { gql, useQuery } from "@apollo/client"
 import { useCookies } from 'react-cookie'
-import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon } from '..'
-import { alertsData, cartAndOrderLimits, categoriesData } from "../../data/index"
+import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, SizeTable } from '..'
+import { alertsData, cartAndOrderLimits, categoriesData, sizeTableData } from "../../data/index"
 import { NavLink } from "react-router-dom"
 
 const DetailPage = () => {
@@ -164,23 +164,24 @@ const DetailPage = () => {
     const productAlreadyAdded =
         appropriateRemains.length === 1 && appropriateRemains[0].id in (cookies.cartProducts || {})
 
-    const findParentCategories = (categories) => {
-        const productCategories = new Set(categories)
-        const categoryIsValid = category => productCategories.has(category.name)
-        return [
-            ...Object.values(categoriesData.uncategorizedSubcategories).filter(categoryIsValid),
-            ...Object.values(categoriesData.categories).reduce(
-                (categoryArray, category) => categoryArray.concat(
-                    Object.values(category.subcategories).filter(categoryIsValid)
-                ), []
-            ),
-        ]
-    }
+
+    const productCategories = new Set(data?.productById.categories)
+    const categoryIsValid = category => productCategories.has(category.name)
+    const parentCategories = [
+        ...Object.values(categoriesData.uncategorizedSubcategories).filter(categoryIsValid),
+        ...Object.values(categoriesData.categories).reduce(
+            (categoryArray, category) => categoryArray.concat(
+                Object.values(category.subcategories).filter(categoryIsValid)
+            ), []
+        ),
+    ]
+
+    const sizeTable = sizeTableData[parentCategories.find(category => category.sizeTable)?.sizeTable]
 
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
             {
-                findParentCategories(data?.productById.categories).map(({ route, name }) => <Fragment key={route}>
+                parentCategories.map(({ route, name }) => <Fragment key={route}>
                     {
                         <NavLink to={route}>
                             <Button className="pink accent-4"
@@ -331,6 +332,15 @@ const DetailPage = () => {
                         <h6>На карту ПриватБанка.</h6>
                     </div>
                 </ProductInfoModal>
+                {
+                    sizeTable ?
+                        <ProductInfoModal name="Таблица размеров" iconName="table_rows">
+                            <div style={{ textAlign: "center" }}>
+                                <SizeTable table={sizeTable} />
+                            </div>
+                        </ProductInfoModal> :
+                        <></>
+                }
             </AdditionalInfo>}
         </Col>
     </Row>
