@@ -164,23 +164,24 @@ const DetailPage = () => {
     const productAlreadyAdded =
         appropriateRemains.length === 1 && appropriateRemains[0].id in (cookies.cartProducts || {})
 
-    const findParentCategories = (categories) => {
-        const productCategories = new Set(categories)
-        const categoryIsValid = category => productCategories.has(category.name)
-        return [
-            ...Object.values(categoriesData.uncategorizedSubcategories).filter(categoryIsValid),
-            ...Object.values(categoriesData.categories).reduce(
-                (categoryArray, category) => categoryArray.concat(
-                    Object.values(category.subcategories).filter(categoryIsValid)
-                ), []
-            ),
-        ]
-    }
+
+    const productCategories = new Set(data?.productById.categories)
+    const categoryIsValid = category => productCategories.has(category.name)
+    const parentCategories = [
+        ...Object.values(categoriesData.uncategorizedSubcategories).filter(categoryIsValid),
+        ...Object.values(categoriesData.categories).reduce(
+            (categoryArray, category) => categoryArray.concat(
+                Object.values(category.subcategories).filter(categoryIsValid)
+            ), []
+        ),
+    ]
+
+    const sizeTable = sizeTableData[parentCategories.find(category => category.sizeTable)?.sizeTable]
 
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
             {
-                findParentCategories(data?.productById.categories).map(({ route, name }) => <Fragment key={route}>
+                parentCategories.map(({ route, name }) => <Fragment key={route}>
                     {
                         <NavLink to={route}>
                             <Button className="pink accent-4"
@@ -332,17 +333,14 @@ const DetailPage = () => {
                     </div>
                 </ProductInfoModal>
                 {
-                    findParentCategories(data?.productById.categories).map(cat => cat.route.indexOf('bras') === 1 || cat.route.indexOf('knickers') === 1 || cat.route.indexOf('shapewear') === 1  ?
+                    sizeTable ?
                         <ProductInfoModal name="Таблица размеров" iconName="table_rows">
                             <div style={{ textAlign: "center" }}>
-                                {findParentCategories(data?.productById.categories).map(cat => cat.route.indexOf('bras') === 1 ?
-                                    <SizeTable table={sizeTableData.bras} /> :
-                                    <SizeTable table={sizeTableData.knickers} />
-                                )}
+                                <SizeTable table={sizeTable} />
                             </div>
                         </ProductInfoModal> :
                         <></>
-                    )}
+                }
             </AdditionalInfo>}
         </Col>
     </Row>

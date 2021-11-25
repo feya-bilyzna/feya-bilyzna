@@ -150,36 +150,43 @@ const categoriesData = {
                 {
                     name: 'С поролоном',
                     route: '/bras/foam',
+                    sizeTable: "bras",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mL8WRZc9YEFJN1eh65fd7J08dD1axYwEwrF4jDOVy2VjxstfjsTItdyRGkKZXpbdPblT7N6oaFvWXBPfovHuq_fUywO1kVmi-7TymsVGy9uGPT2kzQcoZd56M5KkCbu_7lpqv_lv5JTBJBhYDSgmPdEIPg3hW78yUwCVXw5etzXRL6VrdJp354jZbTdBbr39C?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Пуш-ап',
                     route: '/bras/push-up',
+                    sizeTable: "bras",
                     imageUrl: 'https://bn1301files.storage.live.com/y4meGtNDJum0YZ7nVgpYDsUCpisnK9tU-iHZo073WO6QkM2nX-fZMxej0pS8VqboYg_ebYRtJm_tToBFKssbmWNeKGD5UDyiE2Cl4oJ6sCijYUyZooqzJKfYU08q7itel1R0Egmz056rmWnG51Z4wZ887eExP4Tlcq4AvwrGJmml1azMiBnUNw8Uab-ISQJF3WH?width=512&height=512&cropmode=none',
                 },
                 {
                     name: 'Полупоролон',
                     route: '/bras/thin-foam',
+                    sizeTable: "bras",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mijsiqrUbtjQh78IwBhqY8WDFRw1x-2cNEzYX1Dk05qRKKd5Cl3bv-DbnMVBf4ah9nSgIg5jK7dbVGGj48ZMCZsE06Pl1Qb9ofY82lPsG6iPrz77IUltCCPxCb0oTmbHZZKT7VA0GsyXT2iUuoQn8mUlIS2RAUEVfxRPWMi6nsjZbq7v9H06E2VFSfbXOhRUr?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Без косточек',
                     route: '/bras/bralette',
+                    sizeTable: "bras",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mV4IhnbidFOvQ9bP4szVMirrnbMi0gqNZA2ZigCoOV_-TvJ9L5jK_4DJvAIY2aDeq82WzpnqagwKnMxqOo3xIBG3ySYzwYMqzY3KU2-lavjqabQhKIs6FpYZXuC40Lhc0xsqazug-yfVLfoayz9Zmfz0zYjswMAVAFXQcQ7lZY2Sp5vrUgaCZuItgpef3qODG?width=512&height=512&cropmode=none',
                 },
                 {
                     name: 'Без поролона',
                     route: '/bras/no-foam',
+                    sizeTable: "bras",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mfh2wBHcJZd28b5VqXDhkoRiTrivWqVcaycDX7wzPqzVPGcy3sGOVxPBW-CXZ28YzC7OAwygl8s48UOFlWe6iA-la82i-T_ejxkDbB9Cs0TwymsVTCM61r4mLTH80qy25UGuefIdjiN2HiC8aaaPBpwHmICPqDu4LmCBO2GaKveL8olk7rPX23E1uENntsV_z?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Для кормления',
                     route: '/bras/nursing',
+                    sizeTable: "bras",
                     imageUrl: 'https://bn1301files.storage.live.com/y4m-X7h5Axa2pfQ-hzCQKHIzgqQaDM48EUsTZ0YueHv6IzREWzQhwXwoApzrjETHShGD2lbX69tUQH7ud2HjVShEsEHvKCBM80btl5mieEiAGwTyNP2D9IYnM070SQ-Zpkp9Z1LPXkA_J7MaUxpm1ye0OURgSbBvCuPzs3hIneoLZcp8WeDp30RWFabTdwdUplH?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Бюстье',
                     route: '/bras/bustier',
+                    sizeTable: "bras",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mOXDCSyNL2Cgk8bjgdDiX05sPYYvdae0UN7Odz_Syykl2f_S3dlJlvdboEUs1bNuA0XUFWfutLzJKrk7Vq7Ua4wPTzp5ylrLBDArOi-YvwuEAq3KI6dTVAeDwCQ2_Qtg-A9gVnZW1HOiFrbdUuSnb_08mKJXISM9M5imTA1xW5dCMtLyfcz2Yy5kja-rR111u?width=660&height=660&cropmode=none',
                 },
             ]
@@ -192,40 +199,48 @@ const categoriesData = {
                 {
                     name: 'Бикини',
                     route: '/knickers/bikini',
+                    sizeTable: "knickers",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mVZL8UBnKNJSWL5SADtO23VyyaiOnDmPQfpjWB5so0tFSEXhwOCIIMtQ2JTErvnRWXe5nyzP18lUAbjQVCdg2wCbzZO3nZ7MDt_1Oli0jnxM6MPZi_-3r9dPpGB4pYE1v-X-Q3USj3m2qjMwx_LgDexPtppJGAWPbZVjIm9o884yi04SjzIoKKxUHdMX-Nqg2?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Безшовные',
                     route: '/knickers/bodyshort',
+                    sizeTable: "knickers",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mYudnLA663uTfRbvgx8rM3FlcNnVSyfv1DnS4F3SzF3h8nfJsA-bVJ-7-I7g2cM-50uzljHqtk3I4pxvIMDEB2SNC_t8Vyg14D5MOBtNHHYWpz12Wrm0Wi0Hozl-kWpuwglXZJEytM9b4fyZWa4wpae0rP4CnRmBVhMPub5J5iCE3rw7E2V7V5-wyzhkKAusE?width=652&height=652&cropmode=none',
                 },
                 {
                     name: 'Бразильяны',
                     route: '/knickers/brazilian',
+                    sizeTable: "knickers",
                     imageUrl: 'https://bn1301files.storage.live.com/y4m6jmwfYC-vON2eY0-n4NZkLxhT0axo6v58A1hLcjrweqrLXFakmtn2L9eqO--WFJS336LdJPafpOK7_fr3HqIw7A2jT6YfLHfqbyqqQH30qpAmxOWCi_bRWugGH6IzQwwKOrUSeMTOI9f9EHbaB-Dr5Qn5r_1XsFgj38BZd472NeMgiwK5iO4uh7VisziRNGN?width=512&height=512&cropmode=none',
                 },
                 {
                     name: 'Норма, Слипы',
                     route: '/knickers/brief',
+                    sizeTable: "knickers",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mqVaVWI8MVRd5jNeQfNS1kCSMeVz-x_4sgzeg08IPjrdM_pG6eemXONOeKvHR4-jD5CEg5uzFrUJ96-tN47uvwJ2CP0Ic6yF83WRuh6R2P-DoDji4Im-9IJxQ1A5e-JRiDy85dkD1h_WKMmBSHDA5foWjX3fOAjNKOX-4f5-0vcWlhA1mUfimngoWBmcpPxE-?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Стринги',
                     route: '/knickers/g-string',
+                    sizeTable: "knickers",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mNqe25WmKu_9S8hm3nbjkJ0vqnUjhZQasBATJdnBnAp_JLa3he3Em54b7sCRVTdERYKLMU9haUUC-Wd7UHPQciXnhD4gf0hKOJ0BFCteMpSZIifM-sgXynT9IXP5NpXjjcS-sITf28GRRCHt-s0c9Bxc0Jt7nlM8l4IgflxSHsVF_z0V7lrqE3d4NfmKzGvab?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Батальные',
+                    sizeTable: "knickers",
                     route: '/knickers/hipster',
                     imageUrl: 'https://bn1301files.storage.live.com/y4m_WSDir5a3dSR-5nRPd8DHcbIS7SzQcC3HXMA5If35G2Wbh6t-CyGwV9v8035pUaDRkONwQLx4j7C7a270mXiEpS5ile1abhD3inkMOzvO2DgyZ3oktHZrHzOJhQeiez56ypyu8KGI8lltV5Vn6fRJrnPI3IHGYuIoA-od6uNcHKGo1YvZu6GpQen6X4DwEE4?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Шорты',
+                    sizeTable: "knickers",
                     route: '/knickers/shorts',
                     imageUrl: "https://bn1301files.storage.live.com/y4m8vmf6YmHBzDhGpo6_u1IaIQmaQBUSYzrlOAHwIQ7nXjSNRHl9Hm_0ODJJkas5YVj6xbtuzTz-GaHyxsPZ9GTLEmhb9obZCCgeP9NYBUiNAUeIQYo6cvD0FkhDkjCrB2PgemsNw_7UxHE0_-PkIpoYs5qK2BaN60SYlVp-dV3zq09QYBk-uZy02K2J3Yjg5vh?width=638&height=638&cropmode=none"
                 },
                 {
                     name: "Панталоны",
+                    sizeTable: "knickers",
                     route: "/knickers/trousers",
                     imageUrl: "https://bn1301files.storage.live.com/y4mOCVLbcZg05tpLc5JQZqLy6q-9fYXn7HqqXn8QZazGsEMkm2BouRhfvqozkocPVdqnsKaiFIOo0KLFuEgRCsDpwBW_trDp7XBBCw8ePJng60P9QilENKFGb5wAu_Jdr2lwx0k3TtPpXaqGlNyaTRAig5GlePphMYC4LFRU2NWeFXiOous_e0GDkGLo9MlWh92?width=559&height=559&cropmode=none"
                 }
@@ -238,6 +253,7 @@ const categoriesData = {
         shapewear: {
             name: 'Корректирующее',
             route: '/shapewear',
+            sizeTable: "knickers",
             imageUrl: 'https://bn1301files.storage.live.com/y4mV8BmA4dF2wOm0JwRRn0Ob_rlhSnnVFDlFFANSv7b0Wqh8Wdvt5GgZM-hPQdblUC8SrsOwouo0Ay7FuyyWmgdfy9dbJdhGAoFBAXwaLC2_awWc_lo_eFUZ3mN3T4eL5iOOaZOMD44VCiM4SIieLcfYaH4GBmV21ct2D0Lpr4rnOyIbfdeN9_nxg_n-MVI35Hq?width=518&height=518&cropmode=none',
         },
         sportsBra: {
