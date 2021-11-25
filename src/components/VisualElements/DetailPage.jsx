@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Button, Col, Divider, MediaBox, Modal, Row } from "react-materialize"
 import { useParams } from 'react-router'
 import { gql, useQuery } from "@apollo/client"
@@ -8,6 +8,7 @@ import { alertsData, cartAndOrderLimits, categoriesData, sizeTableData } from ".
 import { NavLink } from "react-router-dom"
 
 const DetailPage = () => {
+
     const descriptionStyle = { fontSize: 13 }
     const modalMarginBottom = { marginBottom: "90px" }
 
@@ -163,24 +164,35 @@ const DetailPage = () => {
     const productAlreadyAdded =
         appropriateRemains.length === 1 && appropriateRemains[0].id in (cookies.cartProducts || {})
 
-
     const findParentCategories = (categories) => {
-        const foundParentCategoriesList = []
-        const setSearchedParentCategories = new Set()
-
-        Object.values(categoriesData.uncategorizedSubcategories).map(uncategorizedSubcategory => setSearchedParentCategories.add(uncategorizedSubcategory))
-        Object.values(categoriesData.categories).map(category => Object.values(category.subcategories).map(subcategory => setSearchedParentCategories.add(subcategory)))
-
-        setSearchedParentCategories.forEach(parentCategory =>
-            data?.productById.categories.forEach(productCategoryName => {
-                if (productCategoryName === parentCategory.name) foundParentCategoriesList.push(parentCategory)
-            })
-        )
-        return foundParentCategoriesList
+        const productCategories = new Set(categories)
+        const categoryIsValid = category => productCategories.has(category.name)
+        return [
+            ...Object.values(categoriesData.uncategorizedSubcategories).filter(categoryIsValid),
+            ...Object.values(categoriesData.categories).reduce(
+                (categoryArray, category) => categoryArray.concat(
+                    Object.values(category.subcategories).filter(categoryIsValid)
+                ), []
+            ),
+        ]
     }
 
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
+            {
+                findParentCategories(data?.productById.categories).map(({ route, name }) => <Fragment key={route}>
+                    {
+                        <NavLink to={route}>
+                            <Button className="pink accent-4"
+                                style={{ marginTop: 13, marginRight: 13 }}
+                            >
+                                <CustomIcon left>
+                                    arrow_back_ios
+                                </CustomIcon>{name}</Button>
+                        </NavLink>
+                    }
+                </Fragment>)
+            }
             {Object.values(data?.productById.images).map(image =>
                 <div
                     className="z-depth-1-half"
@@ -220,7 +232,7 @@ const DetailPage = () => {
                 <Col className="black-text">
                     {data?.productById.brandName ? data?.productById.brandName : "Бренд не указан"}
                 </Col>
-            </Row>
+            </Row><Divider />
             {variants.length > 1 ? <Row>
                 <Col>
                     <VariantSelectors selectorsData={selectorsData} updateSelector={updateSelector} />

@@ -4,7 +4,7 @@ import {CustomIcon} from "../index"
 import {Button, Col, Modal, Row} from "react-materialize"
 import {useCookies} from 'react-cookie'
 import RegisterForm from "./RegisterForm"
-import styles from "../../css/login.module.css"
+import styles from "../../css.module/login.module.css"
 import cx from "classnames";
 
 const LoginButton = ({cardButton, sideNav}) => {
