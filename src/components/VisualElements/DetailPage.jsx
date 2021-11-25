@@ -165,19 +165,16 @@ const DetailPage = () => {
         appropriateRemains.length === 1 && appropriateRemains[0].id in (cookies.cartProducts || {})
 
     const findParentCategories = (categories) => {
-        const foundParentCategoriesList = []
-        const setSearchedParentCategories = new Set(categories.map(category => category))
-
-        Object.values(categoriesData.uncategorizedSubcategories).forEach(uncategorizedSubcategory => {
-            if (setSearchedParentCategories.has(uncategorizedSubcategory.name))
-                foundParentCategoriesList.push(uncategorizedSubcategory)
-        })
-        Object.values(categoriesData.categories).forEach(category =>
-            Object.values(category.subcategories).forEach(subcategory => {
-                if (setSearchedParentCategories.has(subcategory.name))
-                    foundParentCategoriesList.push(subcategory)
-            }))
-        return foundParentCategoriesList
+        const productCategories = new Set(categories)
+        const categoryIsValid = category => productCategories.has(category.name)
+        return [
+            ...Object.values(categoriesData.uncategorizedSubcategories).filter(categoryIsValid),
+            ...Object.values(categoriesData.categories).reduce(
+                (categoryArray, category) => categoryArray.concat(
+                    Object.values(category.subcategories).filter(categoryIsValid)
+                ), []
+            ),
+        ]
     }
 
     return <Row className={"flow-text"}>
