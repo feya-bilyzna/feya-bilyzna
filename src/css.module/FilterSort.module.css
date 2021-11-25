@@ -2,9 +2,6 @@
     max-height: 300px;
 }
 
-/* :global(.collapsible-body) {
-    padding: 10px 0 0 0;
-    border-bottom: 0;
-} */
-
-.warning{}
+.paddingTop{
+    padding-top: 1px;
+}

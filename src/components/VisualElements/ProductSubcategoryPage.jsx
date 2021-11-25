@@ -75,7 +75,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
 
     return <>
         {pageHeader}
-        <Collapsible className={styles.warning} style={{ margin: "0 3px 0 3px" }} accordion>
+        <Collapsible className={styles.paddingTop} style={{ margin: "0 3px 0 3px" }} accordion>
             <CollapsibleItem
                 className={"flow-text"}
                 expanded={false}
