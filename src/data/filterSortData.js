@@ -53,7 +53,7 @@ const filterSortData = {
             { value: "indigo", label: "Темно-Синий" },
             { value: "blue", label: "Синий" },
             { value: "light-blue", label: "Голубой" },
-            { value: "cyan", label: "" },
+            { value: "cyan", label: "Зелёно-Голубой" },
             { value: "teal", label: "Бирюзовый" },
             { value: "green", label: "Зелёный" },
             { value: "light-green", label: "Светло-Зелёный" },
