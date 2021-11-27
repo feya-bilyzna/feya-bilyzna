@@ -1,0 +1,7 @@
+:global(.select-dropdown) {
+    max-height: 300px;
+}
+
+.paddingTop{
+    padding-top: 1px;
+}
