@@ -117,6 +117,9 @@ const DetailPage = () => {
             return data
         }, {}
     )
+    Object.values(selectorsData).forEach(options => options.sort(
+        (option1, option2) => option1.value > option2.value ? 1 : -1
+    ))
 
     if (!appropriateRemains.length)
         return <>
