@@ -66,73 +66,17 @@ const DetailPage = () => {
         value => allowedSelectors.has(value)
     ).every(value => value)
 
-    const intersection = sets => sets.reduce(
-        (intersected, set) => new Set([...set].filter(x => intersected.has(x)))
-    )
-
-    const variantsData = {}
-    const combinedVariants = {}
-    const addOrCreate = (selector, value, relatedSelector, relatedValue) => {
-        if (variantsData[selector] === undefined)
-            variantsData[selector] = {}
-        if (variantsData[selector][value] === undefined)
-            variantsData[selector][value] = {}
-        if (variantsData[selector][value][relatedSelector] === undefined)
-            variantsData[selector][value][relatedSelector] = new Set()
-        variantsData[selector][value][relatedSelector].add(relatedValue)
-
-        if (combinedVariants[selector] === undefined)
-            combinedVariants[selector] = new Set()
-        combinedVariants[selector].add(value)
-    }
-
-    const variants = data.productById.remains.filter(
-        remains => remains.remains && variantIsValid(remains.variantStyle)
-    ).map(remains => remains.variantStyle)
-    for (let variant of variants) {
-        for (let [name, value] of Object.entries(variant)) {
-            let { [name]: current, ...otherSelectors } = variant
-
-            for (let [relatedName, relatedValue] of Object.entries(otherSelectors)) {
-                addOrCreate(name, value, relatedName, relatedValue)
-            }
-        }
-    }
-
-    const optionIsDisabled = (selector, option) => {
-        if (selectedOptions[selector] && selectedOptions[selector] !== option) return true
-        let { [selector]: current, ...related } = variantsData
-
-        return !intersection(Object.entries(related).map(
-            ([relatedSelector, relatedData]) => {
-                if (selectedOptions[relatedSelector] === undefined) return combinedVariants[selector]
-                return relatedData[selectedOptions[relatedSelector]][selector]
-            }
-        )).has(option)
-    }
-
-    const unfilteredSelectorsData = {}
-    for (let selector of Object.keys(variantsData)) {
-        unfilteredSelectorsData[selector] = [...combinedVariants[selector]].map(
-            option => {
-                return {
-                    value: option,
-                    selected: selectedOptions[selector] === option,
-                    disabled: optionIsDisabled(selector, option),
-                }
-            }
-        )
-    }
-    const selectorsData = Object.fromEntries(
-        Object.entries(unfilteredSelectorsData).filter(
-            ([selector, options]) => options.length > 1
-        )
-    )
-
-    const appropriateRemains = data.productById.remains.filter(
+    const validRemains = data.productById.remains.filter(
         remains =>
+            // Atleast 1 piece available
             remains.remains &&
-            variantIsValid(remains.variantStyle) &&
+            // Only has allowed selectors
+            variantIsValid(remains.variantStyle)
+    )
+
+    const appropriateRemains = validRemains.filter(
+        remains =>
+            // Conflicting variant is not yet selected
             Object.entries(remains.variantStyle).reduce(
                 (allAppropriate, [styleName, styleValue]) =>
                     allAppropriate && (
@@ -141,6 +85,37 @@ const DetailPage = () => {
                     ),
                 true
             )
+    )
+
+    const appropriateOptions = appropriateRemains.reduce(
+        (data, remains) => {
+            Object.entries(remains.variantStyle).forEach(([styleName, styleValue]) => {
+                if (!data[styleName]) data[styleName] = new Set()
+                data[styleName].add(styleValue)
+            })
+            return data
+        }, {}
+    )
+
+    const encounteredOptions = {}
+    const selectorsData = validRemains.reduce(
+        (data, remains) => {
+            Object.entries(remains.variantStyle).forEach(([styleName, styleValue]) => {
+                if (!data[styleName]) {
+                    data[styleName] = []
+                    encounteredOptions[styleName] = new Set()
+                }
+                if (!encounteredOptions[styleName].has(styleValue)) {
+                    data[styleName].push({
+                        value: styleValue,
+                        selected: selectedOptions[styleName] === styleValue,
+                        disabled: !appropriateOptions[styleName].has(styleValue),
+                    })
+                    encounteredOptions[styleName].add(styleValue)
+                }
+            })
+            return data
+        }, {}
     )
 
     if (!appropriateRemains.length)
@@ -234,7 +209,7 @@ const DetailPage = () => {
                     {data?.productById.brandName ? data?.productById.brandName : "Бренд не указан"}
                 </Col>
             </Row><Divider />
-            {variants.length > 1 ? <Row>
+            {validRemains.length > 1 ? <Row>
                 <Col>
                     <VariantSelectors selectorsData={selectorsData} updateSelector={updateSelector} />
                 </Col>
