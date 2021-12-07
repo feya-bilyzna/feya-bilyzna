@@ -118,6 +118,14 @@ const DetailPage = () => {
         }, {}
     )
 
+    Object.values(selectorsData).forEach(options => options.sort(
+        (option1, option2) => {
+            const sortOption1 = parseInt(option1.value) || option1.value
+            const sortOption2 = parseInt(option2.value) || option2.value
+            return sortOption1 > sortOption2 ? 1 : -1
+        }
+    ))
+
     if (!appropriateRemains.length)
         return <>
             <h5 style={{ textAlign: "center", margin: 30 }}>
