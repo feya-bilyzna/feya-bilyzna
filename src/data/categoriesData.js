@@ -162,9 +162,15 @@ const categoriesData = {
                 },
                 {
                     name: 'Полупоролон',
-                    route: '/bras/thin-foam',
+                    route: '/bras/semi-foam',
                     sizeTable: "bras",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mijsiqrUbtjQh78IwBhqY8WDFRw1x-2cNEzYX1Dk05qRKKd5Cl3bv-DbnMVBf4ah9nSgIg5jK7dbVGGj48ZMCZsE06Pl1Qb9ofY82lPsG6iPrz77IUltCCPxCb0oTmbHZZKT7VA0GsyXT2iUuoQn8mUlIS2RAUEVfxRPWMi6nsjZbq7v9H06E2VFSfbXOhRUr?width=660&height=660&cropmode=none',
+                },
+                {
+                    name: 'Тонкий поролон',
+                    route: '/bras/thin-foam',
+                    sizeTable: "bras",
+                    imageUrl: 'https://bnz05pap002files.storage.live.com/y4mhmE24RZY6zDZXX_EGq3NpzokCqe7WHBjgONk7cM7cyxrpkuIn9pikPbnPzYSLkIkOOi6c7oY2451l9bdJ3N4QtBUQt46dCKjsawcx0xAMj69uqrgGt0_UtZ_h3cEQZ2xbMmAKn90ucl8ZQbiAtPl8nSzkhDImjxZjGvNUEZUG6JC-_Ulu_HUmJgpF7CPgJNN?width=660&height=660&cropmode=none',
                 },
                 {
                     name: 'Без косточек',
