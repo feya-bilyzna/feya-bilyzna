@@ -40,7 +40,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
         const handleScroll = () => {
             if (
                 data?.categoryProducts &&
-                window.innerHeight + window.scrollY >= document.body.offsetHeight &&
+                window.innerHeight + window.scrollY >= document.body.offsetHeight-10 &&
                 !additionalLoading
             ) {
                 setAdditionalLoading(true)
