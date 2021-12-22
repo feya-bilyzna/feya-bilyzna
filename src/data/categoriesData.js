@@ -101,6 +101,11 @@ const categoriesData = {
                     imageUrl: 'https://bn1301files.storage.live.com/y4mZD6buPR8EKOV17NMF_1ubfnejDRONzZODu1AbXoU5KKem_vrY4epzcMv2C3trZK63V0qg7vq33UdZJK_x5iV1eDYMA8qAqtvmuqphOXm_LDyjS6hn18FzliEfHgQp5JWeWhrfvuVQjyX2pK1L2mdlz3KmEJt63ieyJDGo6e_P9rLOWcMBOWPuy0HwrjFNAPf?width=512&height=512&cropmode=none',
                 },
                 {
+                    name: 'Lavivas',
+                    route: '/brands/lavivas',
+                    imageUrl: 'https://bnz05pap002files.storage.live.com/y4mGxV-W3CsGUMoH3TVV90_Td3KXax53eSFWEcd0TF7t0xvhMIsIbSBC5ZHuAnz4fdoqskxG3yDRQNqnbQVTOTPe9DL8l6mmtAUkmmA19nVfIBylF7hJ3i0Q0agwUIltrJ0Gi67-krYA4R_UUtSAqti2jpU8dW6VIvdY8jy4rZ4gqYCM02ysvoSCz8xHQfsy4DH?width=500&height=500&cropmode=none',
+                },
+                {
                     name: 'Lavolle',
                     route: '/brands/lavolle',
                     imageUrl: 'https://bn1301files.storage.live.com/y4m2pcQRffyIRllFk3h8gnXXxmqUZfbsIcRanYuhQEu63I_1YLNkDNogOmqnW1mlDpTPVgEB992c61UCJ8Shpab1SzVcpKStp5ug5ZykN75Pv5t_CPWtj-eRuWzZIWSzWPNh_7cSr-AEY2W-gYf02a3FXqkhQp-I35F8CEtI_BROun_mj1UWDmjVOAjRMlRj7Sj?width=512&height=512&cropmode=none',
@@ -124,6 +129,11 @@ const categoriesData = {
                     name: 'Milavitsa',
                     route: '/brands/milavitsa',
                     imageUrl: 'https://bn1301files.storage.live.com/y4mTLm62KTNS8FoAqtkAefoZIpghBm7S4Pf-IR4sgH1RcRAA_CGLXgKNnlGIlPiNhHlspwNeZHiBfC9MRcA_aln9IEed45O1s8t_nCEnVZmsWXAeAWvq-3rLLyY2Fk_YDVEmxAWiGzPtcdw0hp6KvApnu2rd2rOmz7pgCnmY2EGnCEvNZJA4SWHPFdcQ8CjYbxo?width=512&height=512&cropmode=none',
+                },
+                {
+                    name: 'Porlloma',
+                    route: '/brands/porlloma',
+                    imageUrl: 'https://bnz05pap002files.storage.live.com/y4mUvb_Hl7eOzMStq_vkfTxSEivFjQnHgHwNOlXuDvtpVf-ggApyhIVIdENam5FOvPgQzFscn94_u-_n8wXhfor6DP8rcdTgfcbLZvDacDEh06Y7ITJGGwMtNb0jNgYua-OU3Yi1tE1ILoEnUq4F3v3C3piRiL3sYo7N3SPZ16R1LHFbo1CojSSLAlXt1Qxia_d?width=512&height=512&cropmode=none',
                 },
                 {
                     name: 'Weiyesi',
