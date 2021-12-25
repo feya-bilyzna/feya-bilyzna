@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom"
 
 const DetailPage = () => {
 
-    const descriptionStyle = { fontSize: 13 }
+    const descriptionStyle = { fontSize: 13, marginBottom: 15 }
     const modalMarginBottom = { marginBottom: "90px" }
 
     const ProductQuery = gql`
@@ -204,7 +204,7 @@ const DetailPage = () => {
             style={{
                 position: "sticky",
                 top: 0,
-                padding: "10%",
+                padding: "0.5% 3% 0",
             }}
         >
             <Row style={{ marginBottom: 10, marginTop: 10 }}>
@@ -230,7 +230,7 @@ const DetailPage = () => {
             </div> : <></>}
             <Row>
                 <Col className="pink-text accent-4">
-                    <h3 style={{ fontWeight: "bold" }}>{appropriateRemains[0].price} грн</h3>
+                    <h3 style={{ fontWeight: "bold", margin: 0 }}>{appropriateRemains[0].price} грн</h3>
                 </Col>
             </Row>
             <Row>
