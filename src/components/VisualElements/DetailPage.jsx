@@ -6,9 +6,11 @@ import { useCookies } from 'react-cookie'
 import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, SizeTable } from '..'
 import { alertsData, cartAndOrderLimits, categoriesData, sizeTableData } from "../../data/index"
 import { NavLink } from "react-router-dom"
+import {useTranslation} from "react-i18next"
 
 const DetailPage = () => {
 
+    const {t} = useTranslation()
     const descriptionStyle = { fontSize: 13 }
     const modalMarginBottom = { marginBottom: "90px" }
 
@@ -172,7 +174,7 @@ const DetailPage = () => {
                             >
                                 <CustomIcon left>
                                     arrow_back_ios
-                                </CustomIcon>{name}</Button>
+                                </CustomIcon>{t(name)}</Button>
                         </NavLink>
                     }
                 </Fragment>)
@@ -214,7 +216,7 @@ const DetailPage = () => {
             </Row><Divider />
             <Row style={{ marginBottom: 10, marginTop: 10 }}>
                 <Col className="black-text">
-                    {data?.productById.brandName ? data?.productById.brandName : "Бренд не указан"}
+                    {data?.productById.brandName ? data?.productById.brandName : t("Бренд не указан")}
                 </Col>
             </Row><Divider />
             {validRemains.length > 1 ? <Row>
@@ -223,9 +225,9 @@ const DetailPage = () => {
                 </Col>
             </Row> : <></>}
             {appropriateRemains.length === 1 ? <div>
-                <AdditionalInfo header="Выбранный вариант">
+                <AdditionalInfo header={t("Выбранный вариант")}>
                     <p style={descriptionStyle}>{appropriateRemains[0].variantName}</p>
-                    <p style={descriptionStyle}>В наличии {appropriateRemains[0].remains} шт</p>
+                    <p style={descriptionStyle}>{t("В наличии")} {appropriateRemains[0].remains} шт</p>
                 </AdditionalInfo>
             </div> : <></>}
             <Row>
@@ -287,28 +289,28 @@ const DetailPage = () => {
                                     appropriateRemains[0].variantId,
                                     appropriateRemains[0].price
                                 )}>
-                                {productAlreadyAdded ? "Добавлено" : "Купить"}
+                                {productAlreadyAdded ? t("Добавлено") : t("Купить")}
                                 {!productAlreadyAdded ? <CustomIcon tiny right>attach_money</CustomIcon> : <></>}
                             </div>
                         </Button>}
                     >
                         <div style={{ textAlign: "center" }}>
-                            <h5>{tooMuchItemsInCart ? alertsData.cartIsFull : "Добавлено в корзину!"}</h5>
-                            <h6>Перейти к оформлению заказа?</h6>
+                            <h5>{tooMuchItemsInCart ? alertsData.cartIsFull : t("Добавлено в корзину!")}</h5>
+                            <h6>{t("Перейти к оформлению заказа?")}</h6>
                         </div>
                     </Modal>
                 </Col>
             </Row>
-            {<AdditionalInfo header="О товаре">
+            {<AdditionalInfo header={t("О товаре")}>
                 {data?.productById.description ?
                     <p style={descriptionStyle}>{data?.productById.description}</p> : <></>}
-                <ProductInfoModal name="Доставка" iconName="local_shipping">
+                <ProductInfoModal name={t("Доставка")} iconName="local_shipping">
                     <div style={{ textAlign: "center" }}>
                         <h6>Новой почтой по Украине - по тарифам перевозчика.</h6>
                         <h6>Укрпочтой по Украине - по тарифам перевозчика.</h6>
                     </div>
                 </ProductInfoModal>
-                <ProductInfoModal name="Оплата" iconName="local_atm">
+                <ProductInfoModal name={t("Оплата")} iconName="local_atm">
                     <div style={{ textAlign: "center" }}>
                         <h6>Наложенным платежом.</h6>
                         <h6>Оплата на месте (наличные, терминал).</h6>
@@ -317,7 +319,7 @@ const DetailPage = () => {
                 </ProductInfoModal>
                 {
                     sizeTable ?
-                        <ProductInfoModal name="Таблица размеров" iconName="table_rows">
+                        <ProductInfoModal name={t("Таблица размеров")} iconName="table_rows">
                             <div style={{ textAlign: "center" }}>
                                 <SizeTable table={sizeTable} />
                             </div>

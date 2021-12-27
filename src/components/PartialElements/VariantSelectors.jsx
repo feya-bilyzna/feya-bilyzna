@@ -1,8 +1,10 @@
 import React, {Fragment} from 'react'
 import {Button, Divider, Row} from "react-materialize"
 import cx from "classnames"
+import {useTranslation} from "react-i18next"
 
 const VariantSelectors = ({selectorsData, updateSelector}) => {
+    const {t} = useTranslation()
     return (
         Object.entries(selectorsData).map(
             ([selectorType, selectors]) =>
@@ -10,10 +12,10 @@ const VariantSelectors = ({selectorsData, updateSelector}) => {
                     <Row
                         style={{marginBottom: 10, marginLeft: 0}}
                     >
-                        <h6>Выберите {{
-                            "color": "цвет",
-                            "cupSize": "чашку",
-                            "bandSize": "обхват",
+                        <h6> {t("Выберите")} {{
+                            "color": t("цвет"),
+                            "cupSize": t("чашку"),
+                            "bandSize": t("обхват"),
                             "size": "размер",
                         }[selectorType] || "значение"}:</h6>
                         {selectors.map(selector =>
