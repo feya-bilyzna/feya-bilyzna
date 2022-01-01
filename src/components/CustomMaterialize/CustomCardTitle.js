@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import cx from 'classnames'
-import {LoadingAnimation} from '..'
+import { LoadingAnimation } from '..'
 
-const CustomCardTitle = ({image, reveal, waves, children, page, ...props}) => {
+const CustomCardTitle = ({ image, reveal, waves, children, page, ...props }) => {
     const classes = cx({
         'card-image': true,
         'waves-effect': waves,
@@ -19,9 +19,9 @@ const CustomCardTitle = ({image, reveal, waves, children, page, ...props}) => {
             position: "relative",
             display: 'block',
         }}>
-            {imageLoaded ? <></> : <LoadingAnimation style={{position: "absolute"}}/>}
+            {imageLoaded ? <></> : <LoadingAnimation style={{ position: "absolute" }} />}
             <img
-                className={cx({activator: reveal})}
+                className={cx({ activator: reveal })}
                 src={image}
                 alt="Изображение"
                 style={{
