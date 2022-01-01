@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom"
 
 const DetailPage = () => {
 
-    const descriptionStyle = { fontSize: 13, marginBottom: 15 }
+    const descriptionStyle = { fontSize: 13, marginBottom: 10 }
     const modalMarginBottom = { marginBottom: "90px" }
 
     const ProductQuery = gql`
@@ -301,7 +301,12 @@ const DetailPage = () => {
             </Row>
             {<AdditionalInfo header="О товаре">
                 {data?.productById.description ?
-                    <p style={descriptionStyle}>{data?.productById.description}</p> : <></>}
+                    <div style={descriptionStyle}>{
+                        data?.productById.description.split('⚡').map(sentence =>
+                            <p style={{ marginBottom: 0, marginTop: 0 }}>
+                                {sentence}
+                            </p>)
+                    }</div> : <></>}
                 <ProductInfoModal name="Доставка" iconName="local_shipping">
                     <div style={{ textAlign: "center" }}>
                         <h6>Новой почтой по Украине - по тарифам перевозчика.</h6>
