@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { NavLink } from "react-router-dom"
-import { ImageView, Price } from ".."
+import { ImageView, Price, Sale } from ".."
 import { Button, Icon } from "react-materialize";
 import M from 'materialize-css'
+import { categoriesData } from '../../data';
 
 const CustomCard = ({ item, image, isSubcategory }) => {
     const customCardContentStyle = {
@@ -40,20 +41,7 @@ const CustomCard = ({ item, image, isSubcategory }) => {
             <div className="card-image">
                 <ImageView image={image} />
             </div>
-            {isSubcategory && item.categories.find(item => item === "Распродажа") ?
-                <div style={{
-                    position: "absolute",
-                    top: "1%",
-                    right: "2%",
-                    background: "red",
-                    color: "white",
-                    padding: "10px 8px",
-                    borderRadius: "50%"
-                }}
-                >
-                    Sale
-                </div>
-                : <></>}
+            {isSubcategory && item.categories.includes(categoriesData.uncategorizedSubcategories.sale.name) ? <Sale/> : <></>}
             <div className="card-content flow-text" style={customCardContentStyle}>
                 {(item.vendorCode || item.brandName) ?
                     `${item.vendorCode}•${item.brandName || "Нет бренда"}` :

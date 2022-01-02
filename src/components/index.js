@@ -13,6 +13,7 @@ export {default as AdditionalInfo}         from './PartialElements/AdditionalInf
 export {default as ProductInfoModal}       from './PartialElements/ProductInfoModal'
 export {default as SizeTable}              from './PartialElements/SizeTable'
 export {default as Price}                  from './PartialElements/Price'
+export {default as Sale}                   from './PartialElements/Sale'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'
