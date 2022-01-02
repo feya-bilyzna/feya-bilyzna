@@ -14,8 +14,6 @@ const CustomCard = ({ item, image, isSubcategory }) => {
         padding: "2% 0px 3%",
     }
 
-
-
     const [isFavorite, setIsFavorite] = useState(false)
 
     return <div className="card hoverable" style={{ margin: ".5rem 0 .1rem 0" }}>
@@ -42,7 +40,7 @@ const CustomCard = ({ item, image, isSubcategory }) => {
             <div className="card-image">
                 <ImageView image={image} />
             </div>
-            {isSubcategory ? item.categories.find(() => "Распродажа") === "Распродажа" ?
+            {isSubcategory && item.categories.find(item => item === "Распродажа") ?
                 <div style={{
                     position: "absolute",
                     top: "1%",
@@ -55,7 +53,7 @@ const CustomCard = ({ item, image, isSubcategory }) => {
                 >
                     Sale
                 </div>
-                : <></> : <></>}
+                : <></>}
             <div className="card-content flow-text" style={customCardContentStyle}>
                 {(item.vendorCode || item.brandName) ?
                     `${item.vendorCode}•${item.brandName || "Нет бренда"}` :
