@@ -36,6 +36,11 @@ const categoriesData = {
                     imageUrl: 'https://bn1301files.storage.live.com/y4mUH-uz3aLgEtKb4ayeQJve9lpXNlucCppMzQbJdg1zMzkgXHsUIUWTkBLZmHGnKh9KU1ewPI7EjQ7MadbUFIi5irxLPKVOelykeVMjvgQnXExFWrHFG8bgV1Fg1lcjfeDzjP5OBfJj0KX6XbKLTRzzJ4hm54IIr0ImpHJ2lfoZJB4e00m5KSOF7gPUXK3ym9W?width=512&height=512&cropmode=none',
                 },
                 {
+                    name: 'Acousma',
+                    route: '/brands/acousma',
+                    imageUrl: 'https://bnz05pap002files.storage.live.com/y4mLXb1PGxZZAjM06itAAJPmS1VoSEIC-A3Ca0OTy3scla-01O_qhZgep86LahLLhouOLDwMMNcmcM3UkPOkswC5kwR0MwUzuYW4ttb-aolIdL0j2NhPymtPa4wdDBwqfbGS7Rrhs-6J5tMvY0tTzlWwwPl04QIOoJmaA7KCj3isMgPy5D9Mme7a_InIKIerXlh?width=512&height=512&cropmode=none',
+                },
+                {
                     name: 'Anttifu',
                     route: '/brands/anttifu',
                     imageUrl: 'https://bn1301files.storage.live.com/y4mFjRmBLo6-ucyA_8AHF2PDp--QhTyn8S_MVOMQtq3Ix49FFo0KBQOxsiyCNnzA7iP-rl8rjRKKs2vaQgUjPPHHZgTUqY9a0rGACK40hH-uvAo02dN0cY7lrAYbuPe-Q1iRCG7TmMyjXWDKnLbUvX0D9zG7nUTRS-oTpZI_F9dImxYqcTNy8Z7jUnNkROdwSft?width=466&height=466&cropmode=none',
@@ -54,6 +59,11 @@ const categoriesData = {
                     name: 'Biweier',
                     route: '/brands/biweier',
                     imageUrl: 'https://bn1301files.storage.live.com/y4mTfqCnJ1FkLs0FXvsgsMSyCs_MG2Jojx2io-RfcU2yFMvkgSkwOjcmQ4JrNHmRoyBUgbcgADdS4oT9vuBP8IcPzUWuJWDtNIHmeEjW_lWpldANYGnoNmpTZJxjqM1lq8RdfIsNR7XRQDP_uQ8gQblQi3vLveckF8kw3iV5yXhjWWwJTVg-SkwT2G3Dmwn7tcu?width=512&height=512&cropmode=none',
+                },
+                {
+                    name: 'Blue Rose',
+                    route: '/brands/blue-rose',
+                    imageUrl: 'https://bnz05pap002files.storage.live.com/y4mYLKPY7SGZvc0yLLiQpmI18Uqm0UMIWqFeyBVRoM0T8VYushhhOGasbw6b6gDCde3UfbfodJR7kER9rRhINImm_AUqWFnj12hIaBlvECwX6Fe1XyWzhj3_F6VsU51yCb-sDtS_6DcdyzqWqkv6wnv3o47QcoV3sO2z3KE1j4X76P1rSMaQwDGZeTNspPrzmLV?width=512&height=512&cropmode=none',
                 },
                 {
                     name: 'Calvin Klein',
@@ -119,6 +129,11 @@ const categoriesData = {
                     name: 'LuLoLa',
                     route: '/brands/lulola',
                     imageUrl: 'https://bn1301files.storage.live.com/y4mgX42FDQ4qWVJsNAclJBgduYQt1XDgTP-ynysERtf7E5DELrbfMjVeMj-C-DICSVJ0aDPfCQ0NgmSTUs3VHhTgos3pHZFVw9TPMx4URFoiymIwBjH53pKOCHDz02FFPTemQRvUVEM63dFptxoGIkwFxjmFUTYJOAAUwM82C2FQDauRsaRWvTRQcZGOcqkqK5Q?width=512&height=512&cropmode=none',
+                },
+                {
+                    name: 'Masdana',
+                    route: '/brands/masdana',
+                    imageUrl: 'https://bnz05pap002files.storage.live.com/y4mfCE9qDbAzWCBa_8TSn8ETz356MPJ8Rhr5yIStWN4UGC1z1iqDWAWfEN593ENyGI_85ViOg5dtvlXyrhKM3D6PW64KcoliCWVHUOIJpjULfM4PomZ0X9iDY1aLZ13p_gXqEAblBoE0tNL3DEmRhA4hr1ipr9qksRbMxJRGdY7kjS3iQzMiJScqNu3-3wvH61o?width=512&height=512&cropmode=none',
                 },
                 {
                     name: 'Milasi',
@@ -292,7 +307,7 @@ const categoriesData = {
         accessories: {
             name: 'Аксессуары',
             route: '/accessories',
-            imageUrl: 'https://bn1301files.storage.live.com/y4mabTZFBiT-k7p0XPaCBhBFTVd7Jr3OwcgGmVoFw0BXlw0CJUL5mtTPoXj-ME_PyS6zD9C1CYMGgSddaMNAyHOmubxMkvu8MGPYtt1OKoZSixNnX5UP569xtGSwdqByoFE6pEMtclxyNf7QmQLA5j-WA0pzdYv1PoxUWv3vT8H_FEiwJY9ZR7EAET7K2PV4njI?width=660&height=660&cropmode=none',
+            imageUrl: 'https://bnz05pap002files.storage.live.com/y4mOPb6iyZ0z334L3vYSPKIDJWs8hz4BwB6xqS1LqxdRBPwyfLex9efCTLOa7MuDs2Q5vCcwjlppGHWoEx2gBn43wWGDWgz-duKoGRO9JqEU3xeJ2dIKPSVEOYaREE6nx7SDm5VSmC2X4s8u75ZNDQimuECHD-pFriL4i7Y98hsGVixuAsp4v3qbVGM3Ii-sSvZ?width=782&height=782&cropmode=none',
         },
         other: {
             name: 'Разное',
@@ -302,7 +317,7 @@ const categoriesData = {
         sale: {
             name: 'Распродажа',
             route: '/sale',
-            imageUrl: 'https://bn1301files.storage.live.com/y4m7PC75YC4VGSLy2RFG2MCyN0-5PFbZBAQ5opro8XGZmpi4UA8SGnF1tiea7suajjskVuVTDhi4AZg-OfATlUqgMKBKYK1rldAzZRTjYQvHe3ISwb-zjpSG3UnzgctTfK_W-cABd7SW-83b8mk0A6fEXfwgDvuup8NV9bTqhmwmDkwSNsr_FBYyo47ID5efqA4?width=512&height=512&cropmode=none',
+            imageUrl: 'https://bnz05pap002files.storage.live.com/y4m66VjO6IxvdK3O9DSnN53i2pc7yqx1B7bEdIiCanUn7f4CyZcEZFI8vOf2O7uEyD129d8ZXZl29m-wLajL0JzfENgCsPCRY0TxbxSvgeJCnvOcZigvt7BGIb7-OnFGnaHlm84eoRGA7ZkY1vDvC7bNa3I-1cDGCLZNIuZKs4ddGBwVzhAxHDZ6KcF81Mlw720?width=567&height=569&cropmode=none',
         },
     }
 }
