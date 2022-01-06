@@ -304,6 +304,11 @@ const categoriesData = {
             route: '/swimwear',
             imageUrl: 'https://bn1301files.storage.live.com/y4mnbpQHkfGaQkk4H7OZqMBtjgIzdTaGfuQcBP-bt2mNRmBHC5JoXzbVTO-lTYaSD7wJ6-rJbrjulgNUjijGDMTX1MT7K5qJhytdYBMsPfgjzM453v2vRNQ7w5GhQFLBfvZ3XFBT0U_r-4nyNOgg5IDP3FHwPAAqMcV3Mw7nfb82YJWRbtf0gtbcUDoAh6tB_Lh?width=660&height=660&cropmode=none',
         },
+        wedding: {
+            name: 'Свадебное',
+            route: '/wedding',
+            imageUrl: 'https://bnz05pap002files.storage.live.com/y4m2CRkfVibrWH3ypqB__QnSqfN93HVCx7X5WvajbzSnBxqo97VsSfeEyjWieRHNLvp-XnbEO9KqGuHacLSgqg4tdpWZsshBguHEypWf6x5G5OnnMBfkNiOBheHcEHai41dPsyXyikNkZnyxbjQwf_Kpnt9VP3uhrcMbUDt5cigX5B2KXhLLO2ZbnhqEpR79zJR?width=1000&height=1000&cropmode=none',
+        },
         accessories: {
             name: 'Аксессуары',
             route: '/accessories',
