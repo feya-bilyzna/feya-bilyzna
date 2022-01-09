@@ -81,8 +81,8 @@ const categoriesData = {
                     imageUrl: 'https://bn1301files.storage.live.com/y4mFi_L5XsIRoBOXxuA93LkfcKxpx1D3dxWvxpbEBEU6C16oM258TYZEDCL_lLeAXibZHES_1Djlflw_FFOmnUwXw082lN2yzV6ylV29Rr2L_MHXC1vinTNMffKf4pAzHhwFTAFrsHQgKSy_LtUGWRp03DHhqe3CN9SQ0BLwWywGQn-PBdDHKTSlzL5YviDB13X?width=593&height=593&cropmode=none',
                 },
                 {
-                    name: 'Donofen',
-                    route: '/brands/donofen',
+                    name: 'Donafen',
+                    route: '/brands/donafen',
                     imageUrl: 'https://bn1301files.storage.live.com/y4m9rF-INAfCQ0mvr-p-li5ZoRXmgJ39K12Fc6GgB8rGrhDB6BhUs50PEAfBSi8iWzgpI1ru3xrNyVjAR4uvacM_Igj6wUjjsU_VezqFzBjSbUO9LPckpyAGr98dBAFMqPrxC67mX07ws__vrU7oJqrdo1O8cEMcBjfA1quLvH-TSL9vGl6SRlY20ZriCiVM-bO?width=512&height=512&cropmode=none',
                 },
                 {
