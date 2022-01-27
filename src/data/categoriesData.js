@@ -266,29 +266,21 @@ const categoriesData = {
                     imageUrl: 'https://bn1301files.storage.live.com/y4m_WSDir5a3dSR-5nRPd8DHcbIS7SzQcC3HXMA5If35G2Wbh6t-CyGwV9v8035pUaDRkONwQLx4j7C7a270mXiEpS5ile1abhD3inkMOzvO2DgyZ3oktHZrHzOJhQeiez56ypyu8KGI8lltV5Vn6fRJrnPI3IHGYuIoA-od6uNcHKGo1YvZu6GpQen6X4DwEE4?width=660&height=660&cropmode=none',
                 },
                 {
-                    name: 'Шорты',
+                    name: 'Шорты/Панталоны',
                     sizeTable: "knickers",
-                    route: '/knickers/shorts',
-                    imageUrl: "https://bn1301files.storage.live.com/y4m8vmf6YmHBzDhGpo6_u1IaIQmaQBUSYzrlOAHwIQ7nXjSNRHl9Hm_0ODJJkas5YVj6xbtuzTz-GaHyxsPZ9GTLEmhb9obZCCgeP9NYBUiNAUeIQYo6cvD0FkhDkjCrB2PgemsNw_7UxHE0_-PkIpoYs5qK2BaN60SYlVp-dV3zq09QYBk-uZy02K2J3Yjg5vh?width=638&height=638&cropmode=none"
+                    route: '/knickers/shorts-trousers',
+                    imageUrl: "https://am3pap001files.storage.live.com/y4mxi5AfqWPi6_Z1u0vuP-UkqEmCoAYjxj4KtwiIS4ZT6REACoqD299WImMM858Z-32pUz_c-c5bq1Zf-bgKnWiRhgPaH4H6KokRvLihxk8nFVwPHTSubs0mYIPQjXLmtBzPLBpMqewvCOLXAe9DsUKjCywTsywjD4ay4S0iEDA4VIV0uDCMf7ViZS5jlpSTMiR?width=720&height=720&cropmode=none"
                 },
                 {
-                    name: "Панталоны",
+                    name: 'Корректирующее',
                     sizeTable: "knickers",
-                    route: "/knickers/trousers",
-                    imageUrl: "https://bn1301files.storage.live.com/y4mOCVLbcZg05tpLc5JQZqLy6q-9fYXn7HqqXn8QZazGsEMkm2BouRhfvqozkocPVdqnsKaiFIOo0KLFuEgRCsDpwBW_trDp7XBBCw8ePJng60P9QilENKFGb5wAu_Jdr2lwx0k3TtPpXaqGlNyaTRAig5GlePphMYC4LFRU2NWeFXiOous_e0GDkGLo9MlWh92?width=559&height=559&cropmode=none"
-                }
-
-
+                    route: '/knickers/shapewear',
+                    imageUrl: 'https://bn1301files.storage.live.com/y4mV8BmA4dF2wOm0JwRRn0Ob_rlhSnnVFDlFFANSv7b0Wqh8Wdvt5GgZM-hPQdblUC8SrsOwouo0Ay7FuyyWmgdfy9dbJdhGAoFBAXwaLC2_awWc_lo_eFUZ3mN3T4eL5iOOaZOMD44VCiM4SIieLcfYaH4GBmV21ct2D0Lpr4rnOyIbfdeN9_nxg_n-MVI35Hq?width=518&height=518&cropmode=none',
+                },
             ]
         },
     },
     uncategorizedSubcategories: {
-        shapewear: {
-            name: 'Корректирующее',
-            route: '/shapewear',
-            sizeTable: "knickers",
-            imageUrl: 'https://bn1301files.storage.live.com/y4mV8BmA4dF2wOm0JwRRn0Ob_rlhSnnVFDlFFANSv7b0Wqh8Wdvt5GgZM-hPQdblUC8SrsOwouo0Ay7FuyyWmgdfy9dbJdhGAoFBAXwaLC2_awWc_lo_eFUZ3mN3T4eL5iOOaZOMD44VCiM4SIieLcfYaH4GBmV21ct2D0Lpr4rnOyIbfdeN9_nxg_n-MVI35Hq?width=518&height=518&cropmode=none',
-        },
         sportsBra: {
             name: 'Топики',
             route: '/sports-bra',
