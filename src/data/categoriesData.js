@@ -91,6 +91,11 @@ const categoriesData = {
                     imageUrl: 'https://bn1301files.storage.live.com/y4mmOz1i8HCPVFHU16p1XzYJRMB4BXuNSqTlzj9sUsqZN1pc0TMBUj7-Lr3uceTHWGkjOlhh71I6_z7JOjfK6j0JxEHKgFL7cNc9T8oanIhuhTgmgGSUO5-VFvjl395ucooPqWTSU-_Bt4O-d4Q53vUBZ-Sef6Y3YXsdCP8g-B5fkyT0gYl8E1IGJxl1lCBr6fD?width=512&height=512&cropmode=none',
                 },
                 {
+                    name: 'FUBA.vi',
+                    route: '/brands/fuba-vi',
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4m4scvaWsfYR2Pqvc1ZdJaTs492BRW7ooGZDfSTc9qjivn7zw_tN51GJp4JGiQ2geiwDFP1O30s_lWnjb4q6mb5buDyv97tVqu0y2jvpM5UUqFUvSWi9IvetOTX7IjNeY5yKEVv0a9YBMxTQoqnMWqxA0gfriSEWSfzkfyuOxp8HGeTeNt1kgEN1UG9r-DU-mR?width=512&height=512&cropmode=none',
+                },
+                {
                     name: 'Guo. L.Y',
                     route: '/brands/guo-l-y',
                     imageUrl: 'https://bn1301files.storage.live.com/y4mXofmOE_PC6GLzYEeSdvAcN-ofWlDUFnQge93NB1JwOi8M6EF08yq2sB2mLK-8zr926j6M0vOYYiCFxonJaMbqdAMafJVhHFfJWd7NTe1swaWSYrgZoMvbM_0OpxTvs_jt7IXJvR-dI_Qt42TNw_lMsqekxxFHbqKAtDh2GQUn4bb9pW-NArYajrBVc_y0MCU?width=512&height=512&cropmode=none',
@@ -99,6 +104,11 @@ const categoriesData = {
                     name: 'HY',
                     route: '/brands/hy',
                     imageUrl: 'https://bn1301files.storage.live.com/y4makd4QzIRLSF2LFU8aEg1PugPPHVsv9nvT9SYTsUmoUAlMG_nZSxHfDUheoy3a39vi9BGlmGb4-ESV6lsa-MzKEmWtr_LO-dtbPh_J0z1zGg9fWYk4rEQCFMaWKMTefa7oFnwoxMFHiwAk009ZnxP0a60TLMexL5n03xAcZ0HQbqxOb3rOw-xUtb09g3WjnaU?width=512&height=512&cropmode=none',
+                },
+                {
+                    name: 'Indena',
+                    route: '/brands/indena ',
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mSRnEkKiJEcEyPXUhbe_L7q5W9vfoW2ztoCF7ftl0cAfOmHGs7CwnPewa1DjX9vWHgK_zSSZAFT_At_lNjH20UQ0AxWS02eCyyScuoWjDnyw2es2tGnVBONZfNEtCLp4N_kkSoh3DfNvB-RCuGhc86jpzLg-xhQXeIcfEomci9Yh3jSk2hUUxqtZvNhImLX5Q?width=512&height=512&cropmode=none',
                 },
                 {
                     name: 'Kable',
@@ -144,6 +154,11 @@ const categoriesData = {
                     name: 'Milavitsa',
                     route: '/brands/milavitsa',
                     imageUrl: 'https://bn1301files.storage.live.com/y4mTLm62KTNS8FoAqtkAefoZIpghBm7S4Pf-IR4sgH1RcRAA_CGLXgKNnlGIlPiNhHlspwNeZHiBfC9MRcA_aln9IEed45O1s8t_nCEnVZmsWXAeAWvq-3rLLyY2Fk_YDVEmxAWiGzPtcdw0hp6KvApnu2rd2rOmz7pgCnmY2EGnCEvNZJA4SWHPFdcQ8CjYbxo?width=512&height=512&cropmode=none',
+                },
+                {
+                    name: 'Nadizi',
+                    route: '/brands/nadizi',
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mzLsdOY1adGZ_sWEeY7ycM2w_Oq_R4XG4IgkWVQeEm-vXyccIAs6p_PiLWhMUWRPTZWIL8yaCDGCZiGM38nZvRHRkU49QgsKitZr7iaApCOnRnqtK1ofrM-FT7QCZjE7PiqgkSsQmGLueeuN9cOMr1LQUVYxQ5TBi3YIgSbMzmujejJh7NN1MDE1YExymfHYJ?width=512&height=512&cropmode=none',
                 },
                 {
                     name: 'Porlloma',
@@ -236,7 +251,7 @@ const categoriesData = {
                     imageUrl: 'https://bn1301files.storage.live.com/y4mVZL8UBnKNJSWL5SADtO23VyyaiOnDmPQfpjWB5so0tFSEXhwOCIIMtQ2JTErvnRWXe5nyzP18lUAbjQVCdg2wCbzZO3nZ7MDt_1Oli0jnxM6MPZi_-3r9dPpGB4pYE1v-X-Q3USj3m2qjMwx_LgDexPtppJGAWPbZVjIm9o884yi04SjzIoKKxUHdMX-Nqg2?width=660&height=660&cropmode=none',
                 },
                 {
-                    name: 'Безшовные',
+                    name: 'Бесшовные',
                     route: '/knickers/bodyshort',
                     sizeTable: "knickers",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mYudnLA663uTfRbvgx8rM3FlcNnVSyfv1DnS4F3SzF3h8nfJsA-bVJ-7-I7g2cM-50uzljHqtk3I4pxvIMDEB2SNC_t8Vyg14D5MOBtNHHYWpz12Wrm0Wi0Hozl-kWpuwglXZJEytM9b4fyZWa4wpae0rP4CnRmBVhMPub5J5iCE3rw7E2V7V5-wyzhkKAusE?width=652&height=652&cropmode=none',
@@ -279,6 +294,59 @@ const categoriesData = {
                 },
             ]
         },
+        erotic: {
+            name: 'Эротичекое',
+            route: '/erotic',
+            imageUrl: 'https://ams03pap001files.storage.live.com/y4m6_JrH3QwV_mKP2Tfu8itUH-aNxQvR7zANKRUmNs_MBYloEF5yb1tMB4AU09tsJJjgOkBUaAlYdiHovptqghEcC6KmIBDYydTTaSqDEfuzo17nrAsnqs2Du46kPD4qcdcbW8dzUZFayJfafm0ALipv9yb2nW--kV8v64f85zqCSbRxTAEAxH6U71uSc9CKF__?width=1000&height=1000&cropmode=none',
+            subcategories: [
+                {
+                    name: 'Пеньюары',
+                    route: '/erotic/peignoir',
+                    sizeTable: "peignoir",
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mc8-nXkdP91uzkN0hRYmXAWr_xVolmWQY61zhNG_BqRZ5PnhVlAtAfgQ3dV99ZB5zLvOczJVGASQHSod2U54dXobitZrP-MCMprhKshHzJBX5DetkSFob_26T1TFVTp-fcepAA1fONKXDWLLDC4ro6Y7nwpsZG8u7b5cyRFQNiZkmxSxJC-EXkJq9cpAOlCrd?width=1000&height=1000&cropmode=none',
+                },
+                {
+                    name: 'Пояса',
+                    route: '/erotic/belts',
+                    sizeTable: "belts",
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mFhZ4nfL5yDssLfUkt3mqMaY_UrvFWOL--19yik1Yq7cjrb7VHBd0Xu6nmZy2c_LifjWcc2DurzNq5G7H_6tWyJ9BN6eC7GNr7UcqzKEWbdibLgLjc6QsHmaTzcE-U0lR56tZsu68-uACyt-9DhsBE1xic-oGGbkHMVTxVaoatmYpWbWPk04noL-4_4sl0sei?width=1000&height=1000&cropmode=none',
+                },
+                {
+                    name: 'Маски',
+                    route: '/erotic/masks',
+                    sizeTable: "masks",
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mJkICxEiyaFcSPPZlN-eiSw2H1gEuc16_64Y6q8Bj5PxUA1YoxGJvxpqkcMHZvhL6D0thJfOAhA3jyyQuJWUfB69VqATTcuiDiqqUTSwrjh_A0Izh0nxs2noNFk37aptLTWJRGVBfBGsdOCL1E70Q9F11qeVMiMxWKIiLvk2xeMVsIpSNymR2cMcjfqXAS8YH?width=697&height=697&cropmode=none',
+                },
+                {
+                    name: 'Бралье',
+                    route: '/erotic/braille',
+                    sizeTable: "braille",
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mEOojNWkvyzIc0kvNQQJb4zH1D0gaegMX3SKEM6A48xgrim86WyL2JVUcNfeIFyJ55i6HwNoxnm5cOcWrdkf4emhEOTGquloGo7H9X8RFqD9yY7HiugwsLEmgI-7gwfg-pWX4iQKaH-3n29j3R7zvCfLAUkCBLOIC-_6CINvIZxEct3p49mVXn-vqXMZ87L2S?width=1000&height=1000&cropmode=none',
+                },
+            ]
+        },
+        swimwear: {
+            name: 'Пляж',
+            route: '/beach',
+            imageUrl: 'https://ams03pap001files.storage.live.com/y4moFmypVV6ED-GVLq0BY5M9BVLZI7EcHsrbG9aKg6fdKqUBroI6rdaaKqDtBdf-q06OttPo6W9DERAmhpaL70dV5FalbWaTUtnS2-VdY8uDRlviHNG2AmFu4KCZURhVuj8H2vZnsnvDDZ_nFCfcL7khhB6rbc3ycNC2vRuWKhg4yxO903UyeCreqBnYblpMWwS?width=1000&height=1000&cropmode=none',
+            subcategories: [
+                {
+                    name: 'Женское',
+                    route: '/beach/feminine',
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4moFmypVV6ED-GVLq0BY5M9BVLZI7EcHsrbG9aKg6fdKqUBroI6rdaaKqDtBdf-q06OttPo6W9DERAmhpaL70dV5FalbWaTUtnS2-VdY8uDRlviHNG2AmFu4KCZURhVuj8H2vZnsnvDDZ_nFCfcL7khhB6rbc3ycNC2vRuWKhg4yxO903UyeCreqBnYblpMWwS?width=1000&height=1000&cropmode=none'
+                },
+                {
+                    name: 'Детское',
+                    route: '/beach/baby',
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mYgDG0aXPtFiu2WJ1QJUVG8cGgu4EbrsGrTQEk6wOUG4_d-2M2ZFHUrTQvWo8igmzLSOmD1b1iIA6tuqL8Zs4UOC9oPYvubXvQgA6phz-t_7viex42ClVEOI6lKPP7qULt7jMSs_aag7vOtA9HY68HsVS_X3W3a6LzekO4uDz-hSoUYX-2j72xRCldPOV2QmW?width=1000&height=1000&cropmode=none'
+                },
+                {
+                    name: 'Мужское',
+                    route: '/beach/male',
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4ms3uZbH2gMJ4QkHn6MZzLllW0P2iomD0XYz0PrHUOtKfBYEfV9Txo1PaWOIJBLTx5P02k4pfKPgJeRtwVZsoWzDvEbpfQ1ELfelLvPnpTBjoX7nGUy4BXt9J7lvNfbARdtPd-2rFdzSe_9a_0cGaXSU7MjNjd36qJIaKijrk4wFWXujJ-31gwXpOPYffqMIxe?width=1000&height=1000&cropmode=none'
+                },
+            ]
+        },
     },
     uncategorizedSubcategories: {
         sportsBra: {
@@ -291,10 +359,15 @@ const categoriesData = {
             route: '/underwear-set',
             imageUrl: 'https://bn1301files.storage.live.com/y4mLRI7Uak5tFZo8aD6CH2YeA32-y6w0H1jx-mcj6CKuEkwn21UBMxwNTHFFAxwWuAmGrF2IQ_qIvxtW_Yd-1pt0upEBpM1haFYTya7K46sw-KWLHGIKcqkODSRU61fWkJ-q8exZx4O99c1zL3V97zxGOkFFDLyDYMWKFyYzhZXZyWQx1ByWeKojancpMtHjaNB?width=660&height=660&cropmode=none',
         },
-        swimwear: {
-            name: 'Купальники',
-            route: '/swimwear',
-            imageUrl: 'https://bn1301files.storage.live.com/y4mnbpQHkfGaQkk4H7OZqMBtjgIzdTaGfuQcBP-bt2mNRmBHC5JoXzbVTO-lTYaSD7wJ6-rJbrjulgNUjijGDMTX1MT7K5qJhytdYBMsPfgjzM453v2vRNQ7w5GhQFLBfvZ3XFBT0U_r-4nyNOgg5IDP3FHwPAAqMcV3Mw7nfb82YJWRbtf0gtbcUDoAh6tB_Lh?width=660&height=660&cropmode=none',
+        male: {
+            name: 'Мужское',
+            route: '/male',
+            imageUrl: 'https://ams03pap001files.storage.live.com/y4mpHMHy-IYbKbLSMg9jNwAcCf_MIFkF3WWSZypF_9zpyu7wq0FjZD2TSinpcsEQCQKC0DlNB-w02dSXY1_0-TGk1l448taKiEm8F7Ll7-soIV-e6urQFsmW7L8OxvLT5pVBTkMlOIdRodEdpVcTSjPrNDs0RJSJMSgGelyX079CWKtdAjWZZ9zpW_LSoFgFFWA?width=1000&height=1000&cropmode=none',
+        },
+        teenager: {
+            name: 'Подростковое',
+            route: '/teenager',
+            imageUrl: 'https://ams03pap001files.storage.live.com/y4mC83giKsLjxRzdg5a32ULLYu7--dEC-Mo_MY1NRGTST_XNQdot0jwE4cCUWpSX_aljyseg0RY9OUS60LPLNzB09tW91dkAz2T8bxHgdZl6kMvVyvrOYeKCZNctVFRaMRIups42pgD1o7t7SFLQ2thKuVqJT6QRlpiazoNXX5qDpuyPS2PVn5ftaaSAvqhOFNO?width=390&height=357&cropmode=none',
         },
         wedding: {
             name: 'Свадебное',
