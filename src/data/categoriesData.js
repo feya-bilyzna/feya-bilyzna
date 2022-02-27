@@ -315,13 +315,13 @@ const categoriesData = {
                     name: 'Маски',
                     route: '/erotic/masks',
                     sizeTable: "masks",
-                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mrAvkTaY30g5RfOLkJ-83hm2ncrMtIjsokXImL_-tUTYnkoORTU6OQ_Bqh8PYh2q3jI76kKYzUw3e-_IwnsYK5MjjLCH5WRHgMpQ-OI0y_8cxqO_J1RuxsCdAOvP3E7ecDrjgU5bsJ4Cfi9nvFqHA51DuNO9qCNbNISH4WHtl75uY15ZeA6BwLvNYNRO04HVk?width=697&height=697&cropmode=none',
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mJkICxEiyaFcSPPZlN-eiSw2H1gEuc16_64Y6q8Bj5PxUA1YoxGJvxpqkcMHZvhL6D0thJfOAhA3jyyQuJWUfB69VqATTcuiDiqqUTSwrjh_A0Izh0nxs2noNFk37aptLTWJRGVBfBGsdOCL1E70Q9F11qeVMiMxWKIiLvk2xeMVsIpSNymR2cMcjfqXAS8YH?width=697&height=697&cropmode=none',
                 },
                 {
                     name: 'Бралье',
                     route: '/erotic/braille',
                     sizeTable: "braille",
-                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mrAvkTaY30g5RfOLkJ-83hm2ncrMtIjsokXImL_-tUTYnkoORTU6OQ_Bqh8PYh2q3jI76kKYzUw3e-_IwnsYK5MjjLCH5WRHgMpQ-OI0y_8cxqO_J1RuxsCdAOvP3E7ecDrjgU5bsJ4Cfi9nvFqHA51DuNO9qCNbNISH4WHtl75uY15ZeA6BwLvNYNRO04HVk?width=697&height=697&cropmode=none',
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4mEOojNWkvyzIc0kvNQQJb4zH1D0gaegMX3SKEM6A48xgrim86WyL2JVUcNfeIFyJ55i6HwNoxnm5cOcWrdkf4emhEOTGquloGo7H9X8RFqD9yY7HiugwsLEmgI-7gwfg-pWX4iQKaH-3n29j3R7zvCfLAUkCBLOIC-_6CINvIZxEct3p49mVXn-vqXMZ87L2S?width=1000&height=1000&cropmode=none',
                 },
             ]
         },
