@@ -166,6 +166,11 @@ const categoriesData = {
                     imageUrl: 'https://bnz05pap002files.storage.live.com/y4mUvb_Hl7eOzMStq_vkfTxSEivFjQnHgHwNOlXuDvtpVf-ggApyhIVIdENam5FOvPgQzFscn94_u-_n8wXhfor6DP8rcdTgfcbLZvDacDEh06Y7ITJGGwMtNb0jNgYua-OU3Yi1tE1ILoEnUq4F3v3C3piRiL3sYo7N3SPZ16R1LHFbo1CojSSLAlXt1Qxia_d?width=512&height=512&cropmode=none',
                 },
                 {
+                    name: 'S·Kaifei',
+                    route: '/brands/skaifei',
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4m4OtPk1qpgpISDGk5YT_UBCPc9SLD9iJ-C-1Tkal77vVtYu5wGPeafoe8QGsQtpWXSC8IHa38fhMtnvxPsqghtkEoOVcWEMU_Y9w2iqzIsBg-d0DxwTIvVfKODzqBHt_ZkX-mzYWjgvODPmfxjnUWZWJ7pe7hafJ-0AMKreT_lpo1lLemNAQPyKgOW1hvhfry?width=512&height=512&cropmode=none',
+                },
+                {
                     name: 'Weiyesi',
                     route: '/brands/weiyesi',
                     imageUrl: 'https://bn1301files.storage.live.com/y4mckVwNCzTuTV_YFbtEBvR1okQiR1Ol2Z2YhSUkXMLHNVfQavmLMdEH0q-taW9T_1LnIzqPpN2UED4_XoakLvcyjBted0gUJ74ffNZpkAL4aM_mcwzAjyBJLMitMk7EShP0Z53TuBBJRDi-vAXwkqRfsE4QKWzX9XvL1WVkhU03WSnpTrlEcQzoZDFa9pZeOK8?width=512&height=512&cropmode=none',
