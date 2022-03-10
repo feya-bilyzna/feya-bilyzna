@@ -17,6 +17,8 @@ const filterSortData = {
             { value: "D", label: "" },
             { value: "E", label: "" },
             { value: "F", label: "" },
+            { value: "G", label: "" },
+            { value: "H", label: "" },
         ],
         bandSizesLabel: "Выбрать обхват",
         bandSizes: [
@@ -29,6 +31,7 @@ const filterSortData = {
             { value: "95", label: "" },
             { value: "100", label: "" },
             { value: "105", label: "" },
+            { value: "110", label: "" },
         ],
         knickersSizesLabel: "Выбрать размер",
         knickersSizes: [

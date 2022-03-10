@@ -6,12 +6,12 @@ import { useCookies } from 'react-cookie'
 import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, SizeTable } from '..'
 import { alertsData, cartAndOrderLimits, categoriesData, sizeTableData } from "../../data/index"
 import { NavLink } from "react-router-dom"
-import {useTranslation} from "react-i18next"
+import { useTranslation } from "react-i18next"
 
 const DetailPage = () => {
 
-    const {t} = useTranslation()
-    const descriptionStyle = { fontSize: 13 }
+    const { t } = useTranslation()
+    const descriptionStyle = { fontSize: 13, marginBottom: 10 }
     const modalMarginBottom = { marginBottom: "90px" }
 
     const ProductQuery = gql`
@@ -206,7 +206,7 @@ const DetailPage = () => {
             style={{
                 position: "sticky",
                 top: 0,
-                padding: "10%",
+                padding: "0.5% 3% 0",
             }}
         >
             <Row style={{ marginBottom: 10, marginTop: 10 }}>
@@ -232,7 +232,7 @@ const DetailPage = () => {
             </div> : <></>}
             <Row>
                 <Col className="pink-text accent-4">
-                    <h3 style={{ fontWeight: "bold" }}>{appropriateRemains[0].price} грн</h3>
+                    <h3 style={{ fontWeight: "bold", margin: 0 }}>{appropriateRemains[0].price} грн</h3>
                 </Col>
             </Row>
             <Row>
@@ -303,7 +303,12 @@ const DetailPage = () => {
             </Row>
             {<AdditionalInfo header={t("О товаре")}>
                 {data?.productById.description ?
-                    <p style={descriptionStyle}>{data?.productById.description}</p> : <></>}
+                    <div style={descriptionStyle}>{
+                        data?.productById.description.split('⚡').map(sentence =>
+                            <p style={{ marginBottom: 0, marginTop: 0 }}>
+                                {sentence}
+                            </p>)
+                    }</div> : <></>}
                 <ProductInfoModal name={t("Доставка")} iconName="local_shipping">
                     <div style={{ textAlign: "center" }}>
                         <h6>Новой почтой по Украине - по тарифам перевозчика.</h6>

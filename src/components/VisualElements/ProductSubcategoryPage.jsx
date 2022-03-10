@@ -15,6 +15,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
                   url
                 }
                 brandName
+                categories
                 vendorCode
                 remains {
                     price
