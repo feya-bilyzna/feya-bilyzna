@@ -5,8 +5,10 @@ import { LoadingAnimation, GridView, ProductOptionSelect } from '..'
 import { alertsData } from "../../data"
 import { filterSortData } from "../../data"
 import styles from "../../css.module/FilterSort.module.css"
+import { useTranslation } from "react-i18next"
 
 const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
+    const { t } = useTranslation()
     const ProductsQuery = gql`
         query ProductsQuery($categoryName: [String]!, $page: Int!, $variantStyles: GenericScalar, $orderBy: ProductOrderBy) {
              categoryProducts(categoryName: $categoryName, page: $page, variantStyles: $variantStyles, orderBy: $orderBy) {
@@ -63,7 +65,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
         }
     })
 
-    const pageHeader = <h3 style={{ textAlign: "center" }}>{subcategory.name}</h3>
+    const pageHeader = <h3 style={{ textAlign: "center" }}>{t(subcategory.name)}</h3>
 
     if (loading) return <>{pageHeader}<LoadingAnimation style={{ height: "50vh" }} /></>
     if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
@@ -80,13 +82,13 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
             <CollapsibleItem
                 className={"flow-text"}
                 expanded={false}
-                header="Фильтрация и сортировка"
+                header={t("Фильтрация и сортировка")}
                 icon={<Icon>keyboard_arrow_down</Icon>}
             >
                 <Row style={{ marginBottom: 0 }}>
                     <ProductOptionSelect
                         options={filterSortData.sorters.price}
-                        label={filterSortData.sorters.priceLabel}
+                        label={t(filterSortData.sorters.priceLabel)}
                         onChange={(event) => {
                             setOrderBy(event.target.value || undefined)
                             refetch({ orderBy: event.target.value || undefined })
@@ -94,7 +96,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
                     <ProductOptionSelect
                         filter
                         options={filterSortData.filters.colors}
-                        label={filterSortData.filters.colorsLabel}
+                        label={t(filterSortData.filters.colorsLabel)}
                         onChange={(event) => updateFilters("color", event.target.value)}
                     />
                     {
@@ -102,7 +104,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
                             <ProductOptionSelect
                                 filter
                                 options={filterSortData.filters.cupSizes}
-                                label={filterSortData.filters.cupSizesLabel}
+                                label={t(filterSortData.filters.cupSizesLabel)}
                                 onChange={(event) => updateFilters("cupSize", event.target.value)}
                             />
                             : <></>
@@ -112,7 +114,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
                             <ProductOptionSelect
                                 filter
                                 options={filterSortData.filters.bandSizes}
-                                label={filterSortData.filters.bandSizesLabel}
+                                label={t(filterSortData.filters.bandSizesLabel)}
                                 onChange={(event) => updateFilters("bandSize", event.target.value)} />
                             : <></>
                     }
@@ -120,7 +122,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
                         (parentFilters || []).includes("size") ?
                             <ProductOptionSelect
                                 options={filterSortData.filters.knickersSizes}
-                                label={filterSortData.filters.knickersSizesLabel}
+                                label={t(filterSortData.filters.knickersSizesLabel)}
                                 onChange={(event) => updateFilters("size", event.target.value)}
                             /> : <></>
                     }
@@ -129,7 +131,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
         </Collapsible>
         {data.categoryProducts?.length ?
             <GridView isSubcategory cardItems={data.categoryProducts} route={subcategory.route} /> :
-            <h6 style={{ textAlign: "center" }}>{alertsData.missingProducts}</h6>
+            <h6 style={{ textAlign: "center" }}>{t(alertsData.missingProducts)}</h6>
         }
         <LoadingAnimation empty={!additionalLoading} style={{ marginBottom: 30 }} />
     </>

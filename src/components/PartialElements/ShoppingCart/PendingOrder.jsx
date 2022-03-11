@@ -8,9 +8,10 @@ import {
 import {ImageView, CustomIcon} from "../.."
 import { CartCell } from '.'
 import {NavLink} from "react-router-dom"
-
+import { useTranslation } from "react-i18next"
 
 const PendingOrder = ({orderItems}) => {
+    const { t } = useTranslation()
     const fullPrice = orderItems.reduce(
         (totalPrice, orderPosition) => totalPrice + orderPosition.productremains.price * orderPosition.amount, 0
     )
@@ -22,7 +23,7 @@ const PendingOrder = ({orderItems}) => {
                 <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                     <CustomIcon small>arrow_drop_down</CustomIcon>
                 </div>
-                <h6 style={{textAlign: "center"}}>У вас есть необработанный заказ</h6>
+                <h6 style={{textAlign: "center"}}>{t("У вас есть необработанный заказ")}</h6>
             </>}
             node="div"
             style={{background: "white"}}
@@ -48,7 +49,7 @@ const PendingOrder = ({orderItems}) => {
                 </Fragment>
             )}
             <Row style={{textAlign: "right", marginTop: 10, paddingRight: "3rem"}}>
-                <b className="flow-text">Итого: {fullPrice} грн</b>
+                <b className="flow-text">{t("Итого")}: {fullPrice} грн</b>
             </Row>
         </CollapsibleItem>
     </Collapsible>

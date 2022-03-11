@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import M from 'materialize-css'
 import { useCookies } from 'react-cookie'
 import {CustomIcon, LoginButton} from "./index";
+import { useTranslation } from "react-i18next"
 
 const AddedProductsIndicator = props => {
     return <div style={{
@@ -19,6 +20,7 @@ const AddedProductsIndicator = props => {
 }
 
 const CartButton = () => {
+    const { t } = useTranslation()
     // This is a crutch. For more info, see https://github.com/react-materialize/react-materialize/issues/1136
     useEffect(() => {
         M.FloatingActionButton.init(
@@ -50,7 +52,7 @@ const CartButton = () => {
                 <CustomIcon className={"notranslate"}>shopping_cart</CustomIcon>
             }</NavLink>}
             node="button"
-            tooltip="Оформить заказ"
+            tooltip={t("Оформить заказ")}
             tooltipOptions={{
                 position: 'left'
             }}
@@ -62,7 +64,7 @@ const CartButton = () => {
                 <CustomIcon className={"notranslate"}>favorite_border</CustomIcon>
             }</NavLink>}
             node="button"
-            tooltip="Список желаний"
+            tooltip={t("Список желаний")}
             tooltipOptions={{
                 position: 'left'
             }}

@@ -32,10 +32,10 @@ const MainPage = () => {
                         src={slide.link} />}>
                     <Caption placement={slide.side}>
                         <h1>
-                            {slide.headingText}
+                            {t(slide.headingText)}
                         </h1>
                         <h6 className="light grey-text text-lighten-3">
-                            {slide.textBelow}
+                            {t(slide.textBelow)}
                         </h6>
                     </Caption>
                 </Slide>)}

@@ -7,6 +7,7 @@ import { CustomIcon, LoginButton } from "./index";
 import { useCookies } from "react-cookie";
 import styles from "../css.module/navbar.module.css"
 import cx from "classnames";
+import { useTranslation } from "react-i18next"
 
 Navbar.propTypes = {
     ...Navbar.propTypes,
@@ -14,6 +15,7 @@ Navbar.propTypes = {
 }
 
 const NavbarMenu = () => {
+    const { t } = useTranslation()
     const [cookies] = useCookies(['cartProducts'])
     const cartSize = Object.keys(cookies.cartProducts || {}).length
 
@@ -73,15 +75,15 @@ const NavbarMenu = () => {
                 <li><LoginButton sideNav={true} /></li>
                 {Object.values(categoriesData.categories).map(categoryData =>
                     <li key={categoryData.route}>
-                        <NavLink to={categoryData.route}>{categoryData.name}</NavLink>
+                        <NavLink to={categoryData.route}>{t(categoryData.name)}</NavLink>
                     </li>
                 )}
                 {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
                     <li key={subcategoryData.route}>
-                        <NavLink to={subcategoryData.route}>{subcategoryData.name}</NavLink>
+                        <NavLink to={subcategoryData.route}>{t(subcategoryData.name)}</NavLink>
                     </li>
                 )}
-                <li><NavLink to="/contacts">Контакты</NavLink></li>
+                <li><NavLink to="/contacts">{t("Контакты")}</NavLink></li>
             </>
         }
         options={{
@@ -115,23 +117,23 @@ const NavbarMenu = () => {
 
             trigger={<a style={{ display: "flex" }} href="#!">
                 <CustomIcon style={{marginRight: 20}}>arrow_drop_down</CustomIcon>
-                Все товары
+                {t("Все товары")}
             </a>}
         >
             {Object.values(categoriesData.categories).map(categoryData =>
                 <NavLink key={categoryData.route} to={categoryData.route}>
-                    {categoryData.name}
+                    {t(categoryData.name)}
                 </NavLink>
             )}
             {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
                 <NavLink key={subcategoryData.route} to={subcategoryData.route}>
-                    {subcategoryData.name}
+                    {t(subcategoryData.name)}
                 </NavLink>
             )}
         </Dropdown>
         <NavLink style={{ display: "flex" }} to="/contacts">
             <CustomIcon style={{marginRight: 20}}>phone_in_talk</CustomIcon>
-            Контакты
+            {t("Контакты")}
         </NavLink>
         <LoginButton cardButton={false} />
         <div style={{ marginRight: 50 }} />

@@ -49,10 +49,10 @@ const DetailPage = () => {
     })
 
     if (loading) return <LoadingAnimation style={{ height: "50vh" }} />
-    if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    if (error) return <h5 style={{ textAlign: "center" }}>{t(alertsData.serverRequestFailed)}</h5>
     if (data.productById === null)
         return <h5 style={{ textAlign: "center", margin: 30 }}>
-            {alertsData.noSuchId}
+            {t(alertsData.noSuchId)}
         </h5>
 
     const allowedSelectors = new Set(['color', 'size', 'bandSize', 'cupSize'])
@@ -131,7 +131,7 @@ const DetailPage = () => {
     if (!appropriateRemains.length)
         return <>
             <h5 style={{ textAlign: "center", margin: 30 }}>
-                {alertsData.invalidRemains}
+                {t(alertsData.invalidRemains)}
             </h5>
             <div style={{ textAlign: "center" }}>
                 <NavLink to={"/contacts"}><Button
@@ -295,7 +295,7 @@ const DetailPage = () => {
                         </Button>}
                     >
                         <div style={{ textAlign: "center" }}>
-                            <h5>{tooMuchItemsInCart ? alertsData.cartIsFull : t("Добавлено в корзину!")}</h5>
+                            <h5>{tooMuchItemsInCart ? t(alertsData.cartIsFull) : t("Добавлено в корзину!")}</h5>
                             <h6>{t("Перейти к оформлению заказа?")}</h6>
                         </div>
                     </Modal>

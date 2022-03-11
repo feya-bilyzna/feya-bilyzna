@@ -47,7 +47,7 @@ const CustomCard = ({ item, image, isSubcategory }) => {
             {isSubcategory && item.categories.includes(categoriesData.uncategorizedSubcategories.sale.name) ? <Sale/> : <></>}
             <div className="card-content flow-text" style={customCardContentStyle}>
                 {(item.vendorCode || item.brandName) ?
-                    `${item.vendorCode}•${item.brandName || "Нет бренда"}` :
+                    `${item.vendorCode}•${item.brandName || t("Нет бренда")}` :
                     t(item.name)
                 }
                 {isSubcategory ? <Price item={item} /> : <></>}

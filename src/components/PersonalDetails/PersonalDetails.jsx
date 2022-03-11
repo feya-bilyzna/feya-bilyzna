@@ -2,21 +2,22 @@ import React from 'react'
 import {useCookies} from "react-cookie"
 import { Button, Table } from 'react-materialize'
 import {NavLink} from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 const PersonalDetails = () => {
-
+    const { t } = useTranslation()
     const [cookies, , removeCookie] = useCookies(['cartProducts', 'user'])
 
     return <div style={{textAlign: "center"}}>
-        <h3>Личный кабинет</h3>
+        <h3>{t("Личный кабинет")}</h3>
         <Table style={{margin: "auto", width: "90%"}}>
             <tbody><tr>
-                <td>Введенные контактные данные</td>
+                <td>{t("Введенные контактные данные")}</td>
                 <td>{cookies.user}</td>
             </tr></tbody>
         </Table>
         <NavLink to="/" onClick={event => {
-            if (!window.confirm("Вы уверены, что хотите выйти? Содержимое корзины будет удалено.")) {
+            if (!window.confirm(t("Вы уверены, что хотите выйти? Содержимое корзины будет удалено."))) {
                 event.preventDefault()
                 return
             }
@@ -30,7 +31,7 @@ const PersonalDetails = () => {
                 overflow: "hidden",
                 fontSize: "min(2.5vw, 14px)",
                 marginTop: 20,
-            }}>Выйти</Button>
+            }}>{t("Выйти")}</Button>
         </NavLink>
     </div>
 }

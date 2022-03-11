@@ -2,8 +2,10 @@ import React from 'react'
 import {Button} from "react-materialize"
 import {CustomIcon} from "../.."
 import {NavLink} from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 const CartExitButton = ({style}) => {
+    const { t } = useTranslation()
     return <NavLink to={'/'} style={style}>
         <Button
             className="pink accent-4"
@@ -15,7 +17,7 @@ const CartExitButton = ({style}) => {
             }}
         >
             <CustomIcon left>arrow_back</CustomIcon>
-            К покупкам
+            {t("К покупкам")}
         </Button>
     </NavLink>
 }
