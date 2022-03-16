@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from "react-router-dom"
 import { Col, Dropdown, Navbar, Row } from "react-materialize"
 import PropTypes from "prop-types"
@@ -15,14 +15,27 @@ Navbar.propTypes = {
 }
 
 const NavbarMenu = () => {
-    const { t } = useTranslation()
-    const [cookies] = useCookies(['cartProducts'])
+    const [cookies, setCookie] = useCookies(['language', 'cartProducts'])
+    const { t, i18n } = useTranslation()
+
+    useEffect(() => {
+        changeLanguage(cookies.language)
+    }, [])
+
+    const changeLanguage = (lang) => {
+        setCookie('language', lang)
+        i18n.changeLanguage(lang)
+    }
+
     const cartSize = Object.keys(cookies.cartProducts || {}).length
 
     return <Navbar style={{ zIndex: 3 }}
+
         className={"pink accent-4"}
         brand={
             <>
+                <button onClick={() => changeLanguage("ru")}>ru</button>
+                <button onClick={() => changeLanguage("ua")}>ua</button>
                 <NavLink className={cx("brand-logo", styles.navElement)} to="/"
                 >
                     <Row style={{ marginBottom: 0, marginRight: 20 }}>
@@ -116,7 +129,7 @@ const NavbarMenu = () => {
             }}
 
             trigger={<a style={{ display: "flex" }} href="#!">
-                <CustomIcon style={{marginRight: 20}}>arrow_drop_down</CustomIcon>
+                <CustomIcon style={{ marginRight: 20 }}>arrow_drop_down</CustomIcon>
                 {t("Все товары")}
             </a>}
         >
@@ -132,7 +145,7 @@ const NavbarMenu = () => {
             )}
         </Dropdown>
         <NavLink style={{ display: "flex" }} to="/contacts">
-            <CustomIcon style={{marginRight: 20}}>phone_in_talk</CustomIcon>
+            <CustomIcon style={{ marginRight: 20 }}>phone_in_talk</CustomIcon>
             {t("Контакты")}
         </NavLink>
         <LoginButton cardButton={false} />

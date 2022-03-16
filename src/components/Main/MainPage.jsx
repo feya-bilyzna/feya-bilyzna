@@ -6,15 +6,8 @@ import contactsData from "../../data/contactsData"
 import {useTranslation} from "react-i18next"
 
 const MainPage = () => {
-    const {t, i18n} = useTranslation()
-
-    const changeLanguage = (language) => {
-        i18n.changeLanguage(language)
-    }
-
+    const {t} = useTranslation()
     return <>
-        <button onClick={()=>changeLanguage("ru")}>ru</button>
-        <button onClick={()=>changeLanguage("ua")}>ua</button>
         <h3 style={{ "textAlign": "center", margin: 30 }}>{t("Группы товаров")}</h3>
         <div style={{ margin: "0 3px 30px 3px" }}>
             <Slider className="z-depth-1"

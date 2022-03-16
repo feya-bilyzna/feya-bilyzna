@@ -289,7 +289,7 @@ const DetailPage = () => {
                                     appropriateRemains[0].variantId,
                                     appropriateRemains[0].price
                                 )}>
-                                {productAlreadyAdded ? t("Добавлено") : t("Купить")}
+                                {t(productAlreadyAdded ? "Добавлено" : "Купить")}
                                 {!productAlreadyAdded ? <CustomIcon tiny right>attach_money</CustomIcon> : <></>}
                             </div>
                         </Button>}
