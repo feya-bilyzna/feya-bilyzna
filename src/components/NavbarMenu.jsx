@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { NavLink } from "react-router-dom"
 import { Col, Dropdown, Navbar, Row } from "react-materialize"
 import PropTypes from "prop-types"
 import { categoriesData } from "../data"
-import { CustomIcon, LoginButton } from "./index";
+import { CustomIcon, LoginButton, LanguageSelector } from "./index";
 import { useCookies } from "react-cookie";
 import styles from "../css.module/navbar.module.css"
 import cx from "classnames";
@@ -15,17 +15,8 @@ Navbar.propTypes = {
 }
 
 const NavbarMenu = () => {
-    const [cookies, setCookie] = useCookies(['language', 'cartProducts'])
-    const { t, i18n } = useTranslation()
-
-    useEffect(() => {
-        changeLanguage(cookies.language)
-    }, [])
-
-    const changeLanguage = (lang) => {
-        setCookie('language', lang)
-        i18n.changeLanguage(lang)
-    }
+    const [cookies] = useCookies(['cartProducts'])
+    const { t } = useTranslation()
 
     const cartSize = Object.keys(cookies.cartProducts || {}).length
 
@@ -34,8 +25,6 @@ const NavbarMenu = () => {
         className={"pink accent-4"}
         brand={
             <>
-                <button onClick={() => changeLanguage("ru")}>ru</button>
-                <button onClick={() => changeLanguage("ua")}>ua</button>
                 <NavLink className={cx("brand-logo", styles.navElement)} to="/"
                 >
                     <Row style={{ marginBottom: 0, marginRight: 20 }}>
@@ -60,6 +49,7 @@ const NavbarMenu = () => {
                         </div>
                     </Row>
                 </NavLink>
+
                 <NavLink className={styles.navElement} to="/cart" style={{
                     position: "absolute",
                     right: 0,
@@ -127,7 +117,6 @@ const NavbarMenu = () => {
                 onOpenStart: null,
                 outDuration: 250,
             }}
-
             trigger={<a style={{ display: "flex" }} href="#!">
                 <CustomIcon style={{ marginRight: 20 }}>arrow_drop_down</CustomIcon>
                 {t("Все товары")}
@@ -148,6 +137,7 @@ const NavbarMenu = () => {
             <CustomIcon style={{ marginRight: 20 }}>phone_in_talk</CustomIcon>
             {t("Контакты")}
         </NavLink>
+        <LanguageSelector/>
         <LoginButton cardButton={false} />
         <div style={{ marginRight: 50 }} />
     </Navbar>

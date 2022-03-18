@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { NavLink } from 'react-router-dom'
 import M from 'materialize-css'
 import { useCookies } from 'react-cookie'
-import {CustomIcon, LoginButton} from "./index";
+import {CustomIcon, LoginButton, LanguageSelector} from "./index";
 import { useTranslation } from "react-i18next"
 
 const AddedProductsIndicator = props => {
@@ -69,6 +69,7 @@ const CartButton = () => {
                 position: 'left'
             }}
         />
+        <LanguageSelector/>
         <LoginButton cardButton={true}/>
     </Button></div>
 }
