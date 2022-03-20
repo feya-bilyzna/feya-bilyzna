@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App';
@@ -26,9 +26,7 @@ const client = new ApolloClient({
 ReactDOM.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <Suspense fallback={<div>Loading...</div>}>
-                <App/>
-            </Suspense>
+            <App/>
         </ApolloProvider>
     </React.StrictMode>,
     document.getElementById('root')

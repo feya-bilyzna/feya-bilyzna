@@ -37,7 +37,7 @@ const NavbarMenu = () => {
                         >
                             <CustomIcon large style={{ margin: 0 }}>home</CustomIcon>
                         </Col>
-                        <div style={{ overflow: "hidden" }}>
+                        <div className='notranslate' style={{ overflow: "hidden" }}>
                             <Col style={{ paddingRight: 25 }}
                                 s={12}
                                 m={6}

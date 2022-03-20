@@ -16,7 +16,7 @@ const VariantSelectors = ({selectorsData, updateSelector}) => {
                             "color": t("цвет"),
                             "cupSize": t("чашку"),
                             "bandSize": t("обхват"),
-                            "size": "размер",
+                            "size": t("размер"),
                         }[selectorType] || "значение"}:</h6>
                         {selectors.map(selector =>
                             <Button key={selector.value}
