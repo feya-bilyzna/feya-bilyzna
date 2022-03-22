@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom"
 import { Col, Dropdown, Navbar, Row } from "react-materialize"
 import PropTypes from "prop-types"
 import { categoriesData } from "../data"
-import { CustomIcon, LoginButton } from "./index";
+import { CustomIcon, LoginButton, LanguageSelector } from "./index";
 import { useCookies } from "react-cookie";
 import styles from "../css.module/navbar.module.css"
 import cx from "classnames";
+import { useTranslation } from "react-i18next"
 
 Navbar.propTypes = {
     ...Navbar.propTypes,
@@ -15,9 +16,12 @@ Navbar.propTypes = {
 
 const NavbarMenu = () => {
     const [cookies] = useCookies(['cartProducts'])
+    const { t } = useTranslation()
+
     const cartSize = Object.keys(cookies.cartProducts || {}).length
 
     return <Navbar style={{ zIndex: 3 }}
+
         className={"pink accent-4"}
         brand={
             <>
@@ -33,7 +37,7 @@ const NavbarMenu = () => {
                         >
                             <CustomIcon large style={{ margin: 0 }}>home</CustomIcon>
                         </Col>
-                        <div style={{ overflow: "hidden" }}>
+                        <div className='notranslate' style={{ overflow: "hidden" }}>
                             <Col style={{ paddingRight: 25 }}
                                 s={12}
                                 m={6}
@@ -45,6 +49,7 @@ const NavbarMenu = () => {
                         </div>
                     </Row>
                 </NavLink>
+
                 <NavLink className={styles.navElement} to="/cart" style={{
                     position: "absolute",
                     right: 0,
@@ -73,15 +78,15 @@ const NavbarMenu = () => {
                 <li><LoginButton sideNav={true} /></li>
                 {Object.values(categoriesData.categories).map(categoryData =>
                     <li key={categoryData.route}>
-                        <NavLink to={categoryData.route}>{categoryData.name}</NavLink>
+                        <NavLink to={categoryData.route}>{t(categoryData.name)}</NavLink>
                     </li>
                 )}
                 {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
                     <li key={subcategoryData.route}>
-                        <NavLink to={subcategoryData.route}>{subcategoryData.name}</NavLink>
+                        <NavLink to={subcategoryData.route}>{t(subcategoryData.name)}</NavLink>
                     </li>
                 )}
-                <li><NavLink to="/contacts">Контакты</NavLink></li>
+                <li><NavLink to="/contacts">{t("Контакты")}</NavLink></li>
             </>
         }
         options={{
@@ -112,27 +117,27 @@ const NavbarMenu = () => {
                 onOpenStart: null,
                 outDuration: 250,
             }}
-
             trigger={<a style={{ display: "flex" }} href="#!">
-                <CustomIcon style={{marginRight: 20}}>arrow_drop_down</CustomIcon>
-                Все товары
+                <CustomIcon style={{ marginRight: 20 }}>arrow_drop_down</CustomIcon>
+                {t("Все товары")}
             </a>}
         >
             {Object.values(categoriesData.categories).map(categoryData =>
                 <NavLink key={categoryData.route} to={categoryData.route}>
-                    {categoryData.name}
+                    {t(categoryData.name)}
                 </NavLink>
             )}
             {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
                 <NavLink key={subcategoryData.route} to={subcategoryData.route}>
-                    {subcategoryData.name}
+                    {t(subcategoryData.name)}
                 </NavLink>
             )}
         </Dropdown>
         <NavLink style={{ display: "flex" }} to="/contacts">
-            <CustomIcon style={{marginRight: 20}}>phone_in_talk</CustomIcon>
-            Контакты
+            <CustomIcon style={{ marginRight: 20 }}>phone_in_talk</CustomIcon>
+            {t("Контакты")}
         </NavLink>
+        <LanguageSelector/>
         <LoginButton cardButton={false} />
         <div style={{ marginRight: 50 }} />
     </Navbar>

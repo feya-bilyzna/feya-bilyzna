@@ -1,0 +1,17 @@
+.ua {
+    width: 35px;
+    border-radius: 50%;
+    background: linear-gradient( 
+        rgb(0, 153, 255) 50%,
+        rgb(251, 255, 0) 50%
+    );
+}
+.ru {
+    width: 35px;
+    border-radius: 50%;
+    background: linear-gradient( 
+        rgb(255, 0, 0) 33.3%, 
+        rgb(17, 0, 255) 33.3% 66.6%, 
+        rgb(255, 255, 255) 33.3%
+    );
+}

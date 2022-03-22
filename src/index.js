@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App';
@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals'
 import "materialize-css"
 import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client"
 import { concatPagination } from '@apollo/client/utilities'
+import './i18n'
 
 const cache = new InMemoryCache({
     typePolicies: {
@@ -25,7 +26,9 @@ const client = new ApolloClient({
 ReactDOM.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <App/>
+            <Suspense fallback={null}>
+                <App/>
+            </Suspense>
         </ApolloProvider>
     </React.StrictMode>,
     document.getElementById('root')

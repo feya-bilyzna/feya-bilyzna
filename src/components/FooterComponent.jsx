@@ -2,17 +2,19 @@ import React from 'react'
 import {Footer} from "react-materialize"
 import contactsData from "../data/contactsData"
 import {NavLink} from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 const FooterComponent = () => {
+    const { t } = useTranslation()
     return <Footer
             style={{zIndex: 3}}
             className={"pink accent-4"}
-            copyrights="Нижнее бельё по доступным ценам"
+            copyrights={t("Нижнее бельё по доступным ценам")}
             moreLinks={<NavLink
                 className="white-text right"
                 to={"/contacts"}
             >
-                Больше контактов
+                {t("Больше контактов")}
             </NavLink>}
             links={
                 <ul>
@@ -48,7 +50,7 @@ const FooterComponent = () => {
                     </li>
                 </ul>}
         >
-            <h5>Ссылки на соц сети:</h5>
+            <h5>{t("Ссылки на соц сети")}:</h5>
         </Footer>
 }
 

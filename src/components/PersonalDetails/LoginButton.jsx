@@ -6,9 +6,10 @@ import {useCookies} from 'react-cookie'
 import RegisterForm from "./RegisterForm"
 import styles from "../../css.module/login.module.css"
 import cx from "classnames";
+import { useTranslation } from "react-i18next"
 
 const LoginButton = ({cardButton, sideNav}) => {
-
+    const { t } = useTranslation()
     const [cookies] = useCookies(['user'])
 
     return cookies.user !== undefined
@@ -21,13 +22,13 @@ const LoginButton = ({cardButton, sideNav}) => {
                     <CustomIcon className={"notranslate"}>person</CustomIcon>
                 }</NavLink>}
                 node="button"
-                tooltip="Личный кабинет"
+                tooltip={t("Личный кабинет")}
                 tooltipOptions={{
                     position: 'left'
                 }}
             />
             : sideNav ? <NavLink to="/login">{
-                <Row style={{marginBottom: 0}}><Col style={{padding: 0}}>Личный кабинет</Col>
+                <Row style={{marginBottom: 0}}><Col style={{padding: 0}}>{t("Личный кабинет")}</Col>
                     <Col>
                         <CustomIcon  tiny right
                             style={{paddingTop: 17.5, marginLeft: 0}}
@@ -42,7 +43,7 @@ const LoginButton = ({cardButton, sideNav}) => {
         cardButton ?
             <Modal
                 actions={[]} bottomSheet={false}
-                header="Войти"
+                header={t("Войти")}
                 id="Modal-12" open={false}
                 options={{
                     dismissible: true,
@@ -62,7 +63,7 @@ const LoginButton = ({cardButton, sideNav}) => {
                     floating
                     icon={<CustomIcon className={"notranslate"}>login</CustomIcon>}
                     node="button"
-                    tooltip="Указать контактные данные"
+                    tooltip={t("Указать контактные данные")}
                     tooltipOptions={{
                         position: 'left'
                     }}
@@ -73,7 +74,7 @@ const LoginButton = ({cardButton, sideNav}) => {
             :
             <Modal
                 actions={[]} bottomSheet={false}
-                header="Войти"
+                header={t("Войти")}
                 id="Modal-12" open={false}
                 options={{
                     dismissible: true,
@@ -96,7 +97,7 @@ const LoginButton = ({cardButton, sideNav}) => {
                                  }}
                         >
                             <Row style={{marginBottom: 0}}>
-                                <Col style={{padding: 0}}>Войти</Col>
+                                <Col style={{padding: 0}}>{t("Войти")}</Col>
                                 <Col><CustomIcon
                                     tiny right className={"notranslate"}
                                     style={{paddingTop: 17.5, marginLeft: 0}}
