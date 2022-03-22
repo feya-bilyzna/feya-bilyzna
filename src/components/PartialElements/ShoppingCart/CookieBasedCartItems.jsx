@@ -8,14 +8,15 @@ import {useCookies} from 'react-cookie'
 import {ImageView, CustomIcon} from "../.."
 import {CartCell, ChangeAmountButton} from '.'
 import {NavLink} from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 const CookieBasedCartItems = ({products}) => {
-
+    const { t } = useTranslation()
     const [cookies, setCookie, removeCookie] = useCookies(['cartProducts'])
     if (!cookies.cartProducts) return <></>
 
     const deleteCartItem = (remainsId) => {
-        if (!window.confirm("Вы уверены, что хотите убрать данный товар из корзины?")) return
+        if (!window.confirm(t("Вы уверены, что хотите убрать данный товар из корзины?"))) return
         const {[remainsId]: deleted, ...otherProducts} = cookies.cartProducts
 
         if (Object.keys(otherProducts).length)
@@ -41,7 +42,7 @@ const CookieBasedCartItems = ({products}) => {
                 <Row style={{display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5}}>
                     <CartCell size={2}>
                         <Button small
-                                tooltip="Удалить из корзины"
+                                tooltip={t("Удалить из корзины")}
                                 tooltipOptions={{
                                     position: 'top'
                                 }}

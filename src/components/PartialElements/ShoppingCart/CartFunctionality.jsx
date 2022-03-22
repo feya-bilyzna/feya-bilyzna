@@ -11,10 +11,10 @@ import {RegisterForm} from "../.."
 import { PendingOrder, CartExitButton, OrderOverflowAlert } from '.'
 import {cartAndOrderLimits} from "../../../data"
 import M from 'materialize-css'
-
+import { useTranslation } from "react-i18next"
 
 const CartFunctionality = ({emptyCart, orderPrice}) => {
-
+    const { t } = useTranslation()
     const ORDER_BY_CONTACT_INFO = gql`
     query OrderQuery($contactInfo: String!) {
         orderByContactinfo(contactInfo: $contactInfo) {
@@ -57,7 +57,7 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
         {
             onCompleted: () => {
                 removeCookie('cartProducts')
-                M.toast({html: 'Заказ оформлен!'})
+                M.toast({html: t('Заказ оформлен!')})
                 refetch()
             },
             onError: () => {M.toast({html: 'Произошла ошибка.'})},
@@ -94,7 +94,7 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
                 <div style={centerStyle}>
                     <Modal
                         bottomSheet={false}
-                        header="Оформление заказа"
+                        header={t("Оформление заказа")}
                         actions={<Row>
                             <Col>
                                 <Button 
@@ -114,7 +114,7 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
                                                     ordersList: combinedProducts,
                                                 }
                                             })
-                                }}>Подтвердить</Button>
+                                }}>{t("Подтвердить")}</Button>
                             </Col>
                             <Col>
                                 <Button
@@ -124,7 +124,7 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
                                     modal="close"
                                     node="button"
                                     waves="green"
-                                >Отмена</Button>
+                                >{t("Отмена")}</Button>
                             </Col>
                         </Row>}
                         trigger={<Button
@@ -133,15 +133,15 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
                             waves="red"
                             disabled={cartOverflow}
                             style={textStyle}
-                        >Оформить заказ</Button>}
+                        >{t("Оформить заказ")}</Button>}
                     >
                         {cookies.user ?
                             <>
-                                <h6>Указанные контактные данные</h6>
+                                <h6>{t("Укажите контактные данные")}</h6>
                                 <p>{cookies.user}</p>
                             </> :
                             <>
-                                <h6>Укажите контактные данные</h6>
+                                <h6>{t("Укажите контактные данные")}</h6>
                                 <RegisterForm onValueChange={setUsernameInput}/>
                             </>
                         }

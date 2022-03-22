@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"
 import { ImageView, Price, Sale } from ".."
 import { Button, Icon } from "react-materialize";
 import M from 'materialize-css'
+import {useTranslation} from "react-i18next"
 import { categoriesData } from '../../data';
 
 const CustomCard = ({ item, image, isSubcategory }) => {
@@ -16,6 +17,8 @@ const CustomCard = ({ item, image, isSubcategory }) => {
     }
 
     const [isFavorite, setIsFavorite] = useState(false)
+
+    const {t} = useTranslation()
 
     return <div className="card hoverable" style={{ margin: ".5rem 0 .1rem 0" }}>
         {
@@ -44,8 +47,8 @@ const CustomCard = ({ item, image, isSubcategory }) => {
             {isSubcategory && item.categories.includes(categoriesData.uncategorizedSubcategories.sale.name) ? <Sale/> : <></>}
             <div className="card-content flow-text" style={customCardContentStyle}>
                 {(item.vendorCode || item.brandName) ?
-                    `${item.vendorCode}•${item.brandName || "Нет бренда"}` :
-                    item.name
+                    `${item.vendorCode}•${item.brandName || t("Нет бренда")}` :
+                    t(item.name)
                 }
                 {isSubcategory ? <Price item={item} /> : <></>}
             </div>

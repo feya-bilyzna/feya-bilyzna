@@ -1,7 +1,8 @@
 import React from 'react'
+import { useTranslation } from "react-i18next"
 
 const SizeTable = ({ table }) => {
-
+    const { t } = useTranslation()
     return <>
         <table>
             <tbody>
@@ -12,7 +13,7 @@ const SizeTable = ({ table }) => {
                                 (col, index) => <td
                                     style={!index ? { fontWeight: "bold" } : { textAlign: "center" }}
                                     key={index}
-                                >{col}</td>)
+                                >{t(col)}</td>)
                         }
                     </tr>)}
             </tbody>

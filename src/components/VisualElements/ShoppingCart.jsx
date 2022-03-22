@@ -14,8 +14,10 @@ import {
     CookieBasedCartItems,
 } from '../PartialElements/ShoppingCart'
 import {alertsData} from "../../data"
+import { useTranslation } from "react-i18next"
 
 const ShoppingCart = () => {
+    const { t } = useTranslation()
     const SHOPPING_CART_QUERY = gql`
     query ShoppingCartQuery($ids: [Int]!) {
         productsByIds(ids: $ids) {
@@ -44,7 +46,7 @@ const ShoppingCart = () => {
         },
     })
 
-    const cartHeader = <h3 style={{textAlign: "center"}}>Корзина</h3>
+    const cartHeader = <h3 style={{textAlign: "center"}}>{t("Корзина")}</h3>
 
     if (cookies.cartProducts === undefined) return <>
         {cartHeader}
@@ -72,7 +74,7 @@ const ShoppingCart = () => {
         <Row style={{display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5}}>
             <CartCell size={2}>
                 <Button small
-                        tooltip="Очистить корзину"
+                        tooltip={t("Очистить корзину")}
                         tooltipOptions={{
                             position: 'top'
                         }}
@@ -81,20 +83,20 @@ const ShoppingCart = () => {
                         icon={<CustomIcon>delete_sweep</CustomIcon>}
                         node="button" waves="light"
                         onClick={() => window.confirm(
-                            "Вы уверены, что хотите очистить корзину от всех товаров?"
+                            t("Вы уверены, что хотите очистить корзину от всех товаров?")
                         ) && removeCookie('cartProducts')}
                 />
             </CartCell>
-            <CartCell size={3} bold>Товар</CartCell>
-            <CartCell size={2} bold>Вариант</CartCell>
-            <CartCell size={3} bold>Количество</CartCell>
-            <CartCell size={2} bold>Цена</CartCell>
+            <CartCell size={3} bold>{t("Товар")}</CartCell>
+            <CartCell size={2} bold>{t("Вариант")}</CartCell>
+            <CartCell size={3} bold>{t("Количество")}</CartCell>
+            <CartCell size={2} bold>{t("Цена")}</CartCell>
         </Row>
         <Divider/>
 
         <CookieBasedCartItems products={products}/>
         <Row style={{textAlign: "right", marginTop: 10, paddingRight: "3rem"}}>
-            <b className="flow-text">Итого: {fullPrice} грн</b>
+            <b className="flow-text">{t("Итого")}: {fullPrice} грн</b>
         </Row>
         <CartFunctionality orderPrice={fullPrice} />
     </>

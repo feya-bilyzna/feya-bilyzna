@@ -1,8 +1,10 @@
 import React from 'react';
 import {Collapsible, CollapsibleItem} from "react-materialize";
 import contactsData from "../../data/contactsData"
+import { useTranslation } from "react-i18next"
 
 const PopoutContactElements = () => {
+    const { t } = useTranslation()
     return <Collapsible
         accordion
         popout
@@ -15,7 +17,7 @@ const PopoutContactElements = () => {
                 style={{background: "white"}}
                 key={index}
             >
-                <p>{contact.description}
+                <p>{t(contact.description)}
                     <a
                         href={contact.link}
                         target="_blank"

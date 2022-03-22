@@ -3,10 +3,12 @@ import { categoriesData, sliderData } from '../../data'
 import { GridView } from "../index"
 import { Caption, Slide, Slider } from "react-materialize"
 import contactsData from "../../data/contactsData"
+import {useTranslation} from "react-i18next"
 
 const MainPage = () => {
+    const {t} = useTranslation()
     return <>
-        <h3 style={{ "textAlign": "center", margin: 30 }}>Группы товаров</h3>
+        <h3 style={{ "textAlign": "center", margin: 30 }}>{t("Группы товаров")}</h3>
         <div style={{ margin: "0 3px 30px 3px" }}>
             <Slider className="z-depth-1"
                 options={{
@@ -23,10 +25,10 @@ const MainPage = () => {
                         src={slide.link} />}>
                     <Caption placement={slide.side}>
                         <h1>
-                            {slide.headingText}
+                            {t(slide.headingText)}
                         </h1>
                         <h6 className="light grey-text text-lighten-3">
-                            {slide.textBelow}
+                            {t(slide.textBelow)}
                         </h6>
                     </Caption>
                 </Slide>)}
