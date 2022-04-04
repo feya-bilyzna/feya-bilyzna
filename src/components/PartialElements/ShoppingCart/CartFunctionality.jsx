@@ -7,8 +7,8 @@ import {
 } from "react-materialize"
 import {gql, useQuery, useMutation} from "@apollo/client"
 import {useCookies} from 'react-cookie'
-import {RegisterForm} from "../.."
-import { PendingOrder, CartExitButton, OrderOverflowAlert } from '.'
+import {ExitButton, RegisterForm} from "../.."
+import { PendingOrder, OrderOverflowAlert } from '.'
 import {cartAndOrderLimits} from "../../../data"
 import M from 'materialize-css'
 import { useTranslation } from "react-i18next"
@@ -88,7 +88,7 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
     return <>
         <Row>
             <Col s={6} m={6} l={6} xl={6}>
-                <CartExitButton style={centerStyle}/>
+                <ExitButton style={centerStyle}/>
             </Col>
             <Col s={6} m={6} l={6} xl={6}>
                 <div style={centerStyle}>
