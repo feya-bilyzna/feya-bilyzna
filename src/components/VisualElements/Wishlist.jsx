@@ -5,7 +5,6 @@ import { gql, useQuery } from "@apollo/client"
 import { useTranslation } from "react-i18next"
 import { alertsData } from "../../data"
 import GridView from './GridView'
-import { CartFunctionality, EmptyCart } from '../PartialElements/ShoppingCart'
 import { Button, Icon } from 'react-materialize'
 import EmptyWishlist from '../PartialElements/EmptyWishlist'
 
@@ -30,8 +29,6 @@ const Wishlist = () => {
     const { t } = useTranslation()
     const [cookies, , removeCookie] = useCookies(['wishlist'])
 
-    const cartHeader = <h3 style={{ textAlign: "center" }}>{t("Корзина")}</h3>
-
     const { loading, error, data } = useQuery(SHOPPING_CART_QUERY, {
         variables: {
             ids: cookies.wishlist ?
@@ -39,25 +36,28 @@ const Wishlist = () => {
         },
     })
 
+    const wishlistHeader = <h4 className='notranslate' style={{ "textAlign": "center", margin: 30 }}>{t("Список желаний")}</h4>
+
     if (loading) return <>
-        {cartHeader}
+        {wishlistHeader}
         <LoadingAnimation style={{ height: "50vh" }} />
     </>
 
     if (error) return <>
-        {cartHeader}
+        {wishlistHeader}
         <h5 className='notranslate' style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
     </>
 
-    if (cookies.wishlist === undefined) return <>
-        <h3 className='notranslate' style={{ "textAlign": "center", margin: 30 }}>{t("Список желаний")}</h3>
-        <EmptyWishlist/>
-        </>
+    if (cookies.wishlist === undefined || cookies.wishlist.length === 0) return <>
+        {wishlistHeader}
+        <EmptyWishlist />
+    </>
 
     return <>
-        <h3 className='notranslate' style={{ "textAlign": "center", margin: 30 }}>{t("Список желаний")}
-            <Button style={{ left: 15 }}
-                className={"green hoverable waves-effect waves-light"}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+            {wishlistHeader}
+            <Button style={{ left: -20, bottom: -30 }}
+                className={"green hoverable waves-effect waves-light "}
                 floating
                 icon={<Icon>delete_sweep</Icon>}
                 node="button"
@@ -68,7 +68,7 @@ const Wishlist = () => {
                 onClick={() => window.confirm(
                     t("Вы уверены, что хотите очистить список желаний от всех товаров?")
                 ) && removeCookie('wishlist')} />
-        </h3>
+        </div>
         <GridView className='notranslate' isSubcategory cardItems={data.productsByIds.map(product => product)} />
     </>
 }
