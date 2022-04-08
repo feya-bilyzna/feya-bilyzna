@@ -60,7 +60,7 @@ const CartButton = () => {
         <Button
             className="green"
             floating
-            icon={<NavLink to="/search">{
+            icon={<NavLink to="/wishlist">{
                 <CustomIcon className={"notranslate"}>favorite_border</CustomIcon>
             }</NavLink>}
             node="button"

@@ -7,6 +7,7 @@ import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, C
 import { alertsData, cartAndOrderLimits, categoriesData, sizeTableData } from "../../data/index"
 import { NavLink } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import WishlistButton from '../PartialElements/WishlistButton'
 
 const DetailPage = () => {
 
@@ -42,7 +43,7 @@ const DetailPage = () => {
     const [selectedOptions, setselectedOptions] = useState({})
     const { productId } = useParams()
 
-    const [cookies, setCookie] = useCookies(['cartProducts'])
+    const [cookies, setCookie] = useCookies(['cartProducts', 'wishlist'])
 
     const { loading, error, data } = useQuery(ProductQuery, {
         variables: { id: productId },
@@ -163,6 +164,8 @@ const DetailPage = () => {
 
     const sizeTable = sizeTableData[parentCategories.find(category => category.sizeTable)?.sizeTable]
 
+    const wishlist = new Set(Object.values(cookies.wishlist || []))
+
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
             {
@@ -236,7 +239,7 @@ const DetailPage = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className="black-text" s={12}>
+                <Col className="black-text" s={6}>
                     <Modal style={modalMarginBottom}
                         actions={[
                             <div style={{ textAlign: "center" }}>
@@ -300,12 +303,15 @@ const DetailPage = () => {
                         </div>
                     </Modal>
                 </Col>
+                <Col className="black-text" s={6}>
+                    <WishlistButton id={productId} wishlist={wishlist} />
+                </Col>
             </Row>
             {<AdditionalInfo header={t("О товаре")}>
                 {data?.productById.description ?
                     <div style={descriptionStyle}>{
                         data?.productById.description.split('⚡').map(sentence =>
-                            <p style={{ marginBottom: 0, marginTop: 0 }}>
+                            <p key={sentence} style={{ marginBottom: 0, marginTop: 0 }}>
                                 {sentence}
                             </p>)
                     }</div> : <></>}
