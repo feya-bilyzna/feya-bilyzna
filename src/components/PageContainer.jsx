@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../css.module/PageContainer.module.css'
 import cx from "classnames";
 
-const PageContainer = ({children}) => {
+const PageContainer = ({ children }) => {
     return <div
         className={cx(styles.container, "z-depth-1")}
         style={{

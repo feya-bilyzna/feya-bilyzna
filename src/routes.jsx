@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect, Route, Switch} from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import {
     NavbarMenu,
     MainPage,
@@ -15,55 +15,55 @@ import {
     Wishlist,
 } from './components'
 
-import {categoriesData} from './data'
-import {useCookies} from "react-cookie";
+import { categoriesData } from './data'
+import { useCookies } from "react-cookie";
 
 export const useRoutes = () => {
     const [cookies] = useCookies(['user', 'wishlist'])
 
     return <>
-        <NavbarMenu/>
-        <CartButton/>
+        <NavbarMenu />
+        <CartButton />
         <PageContainer>
             <Switch>
                 <Route path="/" exact>
-                    <MainPage/>
+                    <MainPage />
                 </Route>
                 <Route path="/contacts" exact>
-                    <ContactsPage/>
+                    <ContactsPage />
                 </Route>
                 {Object.values(categoriesData.categories).map(categoryData =>
                     <Route key={categoryData.route} path={categoryData.route} exact>
-                        <ProductCategoryPage category={categoryData}/>
+                        <ProductCategoryPage category={categoryData} />
                     </Route>
                 )}
                 {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
                     <Route key={subcategoryData.route} path={subcategoryData.route} exact>
-                        <ProductSubcategoryPage subcategory={subcategoryData}/>
+                        <ProductSubcategoryPage subcategory={subcategoryData} />
                     </Route>
                 )}
                 {Object.values(categoriesData.categories).map(categoryData =>
                     categoryData.subcategories.map(subcategoryData =>
                         <Route key={subcategoryData.route} path={subcategoryData.route} exact>
-                            <ProductSubcategoryPage subcategory={subcategoryData} parentFilters={categoryData.filters}/>
+                            <ProductSubcategoryPage subcategory={subcategoryData} parentFilters={categoryData.filters} />
                         </Route>
                     )
                 )}
                 <Route path="/:productId(\d+)" exact>
-                    <DetailPage/>
+                    <DetailPage />
                 </Route>
                 <Route path="/cart" exact>
-                    <ShoppingCart/>
+                    <ShoppingCart />
                 </Route>
                 <Route path="/wishlist" exact>
-                    <Wishlist/>
+                    <Wishlist />
                 </Route>
                 {cookies.user !== undefined ? <Route path="/login" exact>
-                    <PersonalDetails/>
-                </Route>:<></>}
-                <Redirect to="/"/>
+                    <PersonalDetails />
+                </Route> : <></>}
+                <Redirect to="/" />
             </Switch>
         </PageContainer>
-        <FooterComponent/>
+        <FooterComponent />
     </>
 }

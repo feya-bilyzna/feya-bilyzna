@@ -1,6 +1,6 @@
 import React from 'react'
-import {CustomIcon} from "../.."
-import {alertsData} from "../../../data"
+import { CustomIcon } from "../.."
+import { alertsData } from "../../../data"
 import { useTranslation } from "react-i18next"
 
 const OrderOverflowAlert = () => {

@@ -1,16 +1,16 @@
 import React from 'react'
-import {useCookies} from "react-cookie"
+import { useCookies } from "react-cookie"
 import { Button, Table } from 'react-materialize'
-import {NavLink} from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 
 const PersonalDetails = () => {
     const { t } = useTranslation()
     const [cookies, , removeCookie] = useCookies(['cartProducts', 'user'])
 
-    return <div style={{textAlign: "center"}}>
+    return <div style={{ textAlign: "center" }}>
         <h3>{t("Личный кабинет")}</h3>
-        <Table style={{margin: "auto", width: "90%"}}>
+        <Table style={{ margin: "auto", width: "90%" }}>
             <tbody><tr>
                 <td>{t("Введенные контактные данные")}</td>
                 <td>{cookies.user}</td>

@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { NavLink } from 'react-router-dom'
 import M from 'materialize-css'
 import { useCookies } from 'react-cookie'
-import {CustomIcon, LoginButton, LanguageSelector} from "./index";
+import { CustomIcon, LoginButton, LanguageSelector } from "./index";
 import { useTranslation } from "react-i18next"
 
 const AddedProductsIndicator = props => {
@@ -24,14 +24,14 @@ const CartButton = () => {
     // This is a crutch. For more info, see https://github.com/react-materialize/react-materialize/issues/1136
     useEffect(() => {
         M.FloatingActionButton.init(
-            document.querySelectorAll('.fixed-action-btn'), 
+            document.querySelectorAll('.fixed-action-btn'),
             { direction: "top", hoverEnabled: false }
         )
     }, [])
 
     const [cookies] = useCookies(['cartProducts'])
 
-    const  cartSize = Object.keys(cookies.cartProducts || {}).length
+    const cartSize = Object.keys(cookies.cartProducts || {}).length
 
     return <div style={{ position: "absolute" }}><Button
         className={cx("blue", { pulse: cartSize })}
@@ -69,8 +69,8 @@ const CartButton = () => {
                 position: 'left'
             }}
         />
-        <LanguageSelector/>
-        <LoginButton cardButton={true}/>
+        <LanguageSelector />
+        <LoginButton cardButton={true} />
     </Button></div>
 }
 
