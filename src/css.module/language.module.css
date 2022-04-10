@@ -1,5 +1,5 @@
 .ua {
-    width: 35px;
+    width: 40px;
     border-radius: 50%;
     background: linear-gradient( 
         rgb(0, 153, 255) 50%,
@@ -7,7 +7,7 @@
     );
 }
 .ru {
-    width: 35px;
+    width: 40px;
     border-radius: 50%;
     background: linear-gradient( 
         rgb(255, 0, 0) 33.3%, 
