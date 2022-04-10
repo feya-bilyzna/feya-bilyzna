@@ -12,6 +12,8 @@ const LanguageSelector = () => {
         tooltip={i18n.language === "ua" ? "Змінити мову" : "Изменить язык"}
         onClick={() => i18n.changeLanguage(i18n.language === "ua" ? "ru" : "ua")}
         tooltipOptions={{ position: 'left' }}
+        floating
+        node="button"
     />
 }
 
