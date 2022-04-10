@@ -137,7 +137,7 @@ const NavbarMenu = () => {
             <CustomIcon style={{ marginRight: 20 }}>phone_in_talk</CustomIcon>
             {t("Контакты")}
         </NavLink>
-        <LanguageSelector/>
+        <LanguageSelector />
         <LoginButton cardButton={false} />
         <div style={{ marginRight: 50 }} />
     </Navbar>

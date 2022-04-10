@@ -1,5 +1,5 @@
 import React from 'react';
-import {Collapsible, CollapsibleItem} from "react-materialize";
+import { Collapsible, CollapsibleItem } from "react-materialize";
 import contactsData from "../../data/contactsData"
 import { useTranslation } from "react-i18next"
 
@@ -14,7 +14,7 @@ const PopoutContactElements = () => {
                 expanded={false}
                 header={contact.name}
                 node="div"
-                style={{background: "white"}}
+                style={{ background: "white" }}
                 key={index}
             >
                 <p>{t(contact.description)}

@@ -14,7 +14,7 @@ const LoadingAnimation = ({ style, empty }) => {
     }}>
         {
             empty ?
-                <div style={{height: 64}}></div> :
+                <div style={{ height: 64 }}></div> :
                 <Preloader size="big" flashing />
         }
     </div>

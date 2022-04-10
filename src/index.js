@@ -4,7 +4,7 @@ import './index.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals'
 import "materialize-css"
-import {ApolloClient, ApolloProvider, InMemoryCache,} from "@apollo/client"
+import { ApolloClient, ApolloProvider, InMemoryCache, } from "@apollo/client"
 import { concatPagination } from '@apollo/client/utilities'
 import './i18n'
 
@@ -27,7 +27,7 @@ ReactDOM.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
             <Suspense fallback={null}>
-                <App/>
+                <App />
             </Suspense>
         </ApolloProvider>
     </React.StrictMode>,

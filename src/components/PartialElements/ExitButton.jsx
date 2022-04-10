@@ -1,10 +1,10 @@
 import React from 'react'
-import {Button} from "react-materialize"
-import {CustomIcon} from ".."
-import {NavLink} from "react-router-dom"
+import { Button } from "react-materialize"
+import { CustomIcon } from ".."
+import { NavLink } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 
-const ExitButton = ({style}) => {
+const ExitButton = ({ style }) => {
     const { t } = useTranslation()
     return <NavLink to={'/'} style={style}>
         <Button

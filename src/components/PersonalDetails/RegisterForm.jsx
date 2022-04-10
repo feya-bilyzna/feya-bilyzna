@@ -1,12 +1,12 @@
-import React, {useState} from 'react'
-import {Button, TextInput} from "react-materialize"
-import {useCookies} from "react-cookie"
+import React, { useState } from 'react'
+import { Button, TextInput } from "react-materialize"
+import { useCookies } from "react-cookie"
 import { useTranslation } from "react-i18next"
 
-const RegisterForm = ({onValueChange}) => {
+const RegisterForm = ({ onValueChange }) => {
     const { t } = useTranslation()
     const [inputUserName, setInputUserName] = useState("")
-    const [,setCookie] = useCookies(['user'])
+    const [, setCookie] = useCookies(['user'])
 
     return <>
         <TextInput
@@ -20,7 +20,7 @@ const RegisterForm = ({onValueChange}) => {
         {onValueChange ? <></> : <Button
             node="button" waves="red" flat modal="close"
             disabled={!inputUserName}
-            onClick={()=>setCookie('user', inputUserName)}>{t("Подтвердить ввод")}
+            onClick={() => setCookie('user', inputUserName)}>{t("Подтвердить ввод")}
         </Button>}
     </>
 }
