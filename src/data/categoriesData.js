@@ -336,17 +336,17 @@ const categoriesData = {
             imageUrl: 'https://ams03pap001files.storage.live.com/y4moFmypVV6ED-GVLq0BY5M9BVLZI7EcHsrbG9aKg6fdKqUBroI6rdaaKqDtBdf-q06OttPo6W9DERAmhpaL70dV5FalbWaTUtnS2-VdY8uDRlviHNG2AmFu4KCZURhVuj8H2vZnsnvDDZ_nFCfcL7khhB6rbc3ycNC2vRuWKhg4yxO903UyeCreqBnYblpMWwS?width=1000&height=1000&cropmode=none',
             subcategories: [
                 {
-                    name: 'Женское',
+                    name: 'Женское (Пляж)',
                     route: '/beach/feminine',
-                    imageUrl: 'https://ams03pap001files.storage.live.com/y4moFmypVV6ED-GVLq0BY5M9BVLZI7EcHsrbG9aKg6fdKqUBroI6rdaaKqDtBdf-q06OttPo6W9DERAmhpaL70dV5FalbWaTUtnS2-VdY8uDRlviHNG2AmFu4KCZURhVuj8H2vZnsnvDDZ_nFCfcL7khhB6rbc3ycNC2vRuWKhg4yxO903UyeCreqBnYblpMWwS?width=1000&height=1000&cropmode=none'
+                    imageUrl: 'https://ams03pap001files.storage.live.com/y4msMIkmbBx-QzTbgeQb_aOrTysokYCZWV7Km9EZsZGaQqmEL4gvuVW3STDigQdAtuQVBwEq7SInFaDmS587mTIqFtDQUpj7e4SKeVXcpgKxoBQ5WjgNfm-jcab5WiBkaAsBlVkBxu_WHQDYv2XXjjQb9lYPyddihgMDq6-70Z1iBXtGgMH54zPkeDINHhax4UN?width=954&height=954&cropmode=none'
                 },
                 {
-                    name: 'Детское',
+                    name: 'Детское (Пляж)',
                     route: '/beach/baby',
                     imageUrl: 'https://ams03pap001files.storage.live.com/y4mYgDG0aXPtFiu2WJ1QJUVG8cGgu4EbrsGrTQEk6wOUG4_d-2M2ZFHUrTQvWo8igmzLSOmD1b1iIA6tuqL8Zs4UOC9oPYvubXvQgA6phz-t_7viex42ClVEOI6lKPP7qULt7jMSs_aag7vOtA9HY68HsVS_X3W3a6LzekO4uDz-hSoUYX-2j72xRCldPOV2QmW?width=1000&height=1000&cropmode=none'
                 },
                 {
-                    name: 'Мужское',
+                    name: 'Мужское (Пляж)',
                     route: '/beach/male',
                     imageUrl: 'https://ams03pap001files.storage.live.com/y4ms3uZbH2gMJ4QkHn6MZzLllW0P2iomD0XYz0PrHUOtKfBYEfV9Txo1PaWOIJBLTx5P02k4pfKPgJeRtwVZsoWzDvEbpfQ1ELfelLvPnpTBjoX7nGUy4BXt9J7lvNfbARdtPd-2rFdzSe_9a_0cGaXSU7MjNjd36qJIaKijrk4wFWXujJ-31gwXpOPYffqMIxe?width=1000&height=1000&cropmode=none'
                 },
