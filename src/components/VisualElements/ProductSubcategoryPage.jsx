@@ -20,7 +20,8 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
                 categories
                 vendorCode
                 remains {
-                    price
+                    price,
+                    remains
                }
              }
         }
