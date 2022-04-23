@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { NavLink } from "react-router-dom"
-import { Col, Dropdown, Navbar, Row } from "react-materialize"
+import { Col, Divider, Dropdown, Navbar, Row } from "react-materialize"
 import PropTypes from "prop-types"
 import { categoriesData } from "../data"
 import { CustomIcon, LoginButton, LanguageSelector } from "./index";
@@ -19,6 +19,8 @@ const NavbarMenu = () => {
     const { t } = useTranslation()
 
     const cartSize = Object.keys(cookies.cartProducts || {}).length
+
+    const divider = { margin: 0, border: "solid", borderWidth: "0.01em", borderColor: "rgb(224,224,224)" }
 
     return <Navbar style={{ zIndex: 3 }}
 
@@ -49,7 +51,6 @@ const NavbarMenu = () => {
                         </div>
                     </Row>
                 </NavLink>
-
                 <NavLink className={styles.navElement} to="/cart" style={{
                     position: "absolute",
                     right: 0,
@@ -69,25 +70,28 @@ const NavbarMenu = () => {
         menuIcon={<CustomIcon>menu</CustomIcon>}
         alignLinks='right sidenav-close'
         sidenav={
-            <>
+            <div className='pink accent-4'>
                 <NavLink to="/">
                     <div className="background">
                         <img style={{ width: "100%" }} alt="Логотип" src="https://bn1301files.storage.live.com/y4moe3hVn4paJgAFL1jDAEl3VyJrCawq4hIPSPdmDwHMpMKqa85lvHgqVnezDlNAICbnSeMxOK1eMR2As3uVkDEi8IfzhphnGhcdOqSE_ecGzisHPFLus1GgFdzzwej_e-yTbWHfAucXe7Qfo1mj9SPjYALn8vYrSWUWBbAeHIQ8UugG-6QoXAuWPrB6y9NT4aa?width=256&height=256&cropmode=none" />
                     </div>
                 </NavLink>
-                <li><LoginButton sideNav={true} /></li>
+                <li className="" style={{ padding: 0, margin: 0 }}><LoginButton sideNav={true} /></li>
+                <hr style={divider} />
                 {Object.values(categoriesData.categories).map(categoryData =>
                     <li key={categoryData.route}>
-                        <NavLink to={categoryData.route}>{t(categoryData.name)}</NavLink>
+                        <NavLink className="white-text" to={categoryData.route}>{t(categoryData.name)}</NavLink>
+                        <hr style={divider} />
                     </li>
                 )}
                 {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
                     <li key={subcategoryData.route}>
-                        <NavLink to={subcategoryData.route}>{t(subcategoryData.name)}</NavLink>
+                        <NavLink className='white-text' to={subcategoryData.route}>{t(subcategoryData.name)}</NavLink>
+                        <hr style={divider} />
                     </li>
                 )}
-                <li><NavLink to="/contacts">{t("Контакты")}</NavLink></li>
-            </>
+                <li><NavLink className='white-text' to="/contacts">{t("Контакты")}</NavLink></li>
+            </div>
         }
         options={{
             draggable: false,
@@ -123,14 +127,22 @@ const NavbarMenu = () => {
             </a>}
         >
             {Object.values(categoriesData.categories).map(categoryData =>
-                <NavLink key={categoryData.route} to={categoryData.route}>
-                    {t(categoryData.name)}
-                </NavLink>
+                <Fragment key={categoryData.route}>
+                    <NavLink className="pink accent-4 white-text"
+                        to={categoryData.route}>
+                        {t(categoryData.name)}
+                    </NavLink>
+                    <Divider />
+                </Fragment>
             )}
             {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
-                <NavLink key={subcategoryData.route} to={subcategoryData.route}>
-                    {t(subcategoryData.name)}
-                </NavLink>
+                <Fragment key={subcategoryData.route}>
+                    <NavLink className="pink accent-4 white-text"
+                        to={subcategoryData.route}>
+                        {t(subcategoryData.name)}
+                    </NavLink>
+                    <Divider />
+                </Fragment>
             )}
         </Dropdown>
         <NavLink style={{ display: "flex" }} to="/contacts">

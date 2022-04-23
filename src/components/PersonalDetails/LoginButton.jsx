@@ -27,15 +27,7 @@ const LoginButton = ({ cardButton, sideNav }) => {
                     position: 'left'
                 }}
             />
-            : sideNav ? <NavLink to="/login">{
-                <Row style={{ marginBottom: 0 }}><Col style={{ padding: 0 }}>{t("Личный кабинет")}</Col>
-                    <Col>
-                        <CustomIcon tiny right
-                            style={{ paddingTop: 17.5, marginLeft: 0 }}
-                            className={"notranslate"}>person</CustomIcon>
-                    </Col>
-                </Row>
-            }</NavLink>
+            : sideNav ? <NavLink className='white-text' to="/login">{t("Личный кабинет")}</NavLink>
                 : <NavLink to="/login">{
                     <CustomIcon className={"notranslate"}>person</CustomIcon>
                 }</NavLink>
@@ -90,19 +82,10 @@ const LoginButton = ({ cardButton, sideNav }) => {
                     startingTop: '4%'
                 }}
                 trigger={sideNav ?
-                    <NavLink to={""}
-                        className="flow-text white z-depth-0"
-                        style={{
-                            color: "rgba(0,0,0,0.87)",
-                        }}
+                    <NavLink className='white-text' to={""}
+                        style={{ margin: 0 }}
                     >
-                        <Row style={{ marginBottom: 0 }}>
-                            <Col style={{ padding: 0 }}>{t("Войти")}</Col>
-                            <Col><CustomIcon
-                                tiny right className={"notranslate"}
-                                style={{ paddingTop: 17.5, marginLeft: 0 }}
-                            >login</CustomIcon></Col>
-                        </Row>
+                        {t("Войти")}
                     </NavLink>
                     : <Button
                         className={cx(styles.login, "z-depth-0")}
