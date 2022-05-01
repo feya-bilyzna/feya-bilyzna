@@ -19,7 +19,8 @@ const SHOPPING_CART_QUERY = gql`
             categories
             vendorCode
             remains {
-                price
+                price,
+                remains
            }
          }
     }
