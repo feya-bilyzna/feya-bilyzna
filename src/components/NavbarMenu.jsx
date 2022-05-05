@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { NavLink } from "react-router-dom"
-import { Col, Divider, Dropdown, Navbar, Row } from "react-materialize"
+import { Col, Dropdown, Navbar, Row } from "react-materialize"
 import PropTypes from "prop-types"
 import { categoriesData } from "../data"
 import { CustomIcon, LoginButton, LanguageSelector } from "./index";
 import { useCookies } from "react-cookie";
 import styles from "../css.module/navbar.module.css"
+import dropDownStyle from "../css.module/dropDown.module.css"
 import cx from "classnames";
 import { useTranslation } from "react-i18next"
 
@@ -127,22 +128,16 @@ const NavbarMenu = () => {
             </a>}
         >
             {Object.values(categoriesData.categories).map(categoryData =>
-                <Fragment key={categoryData.route}>
-                    <NavLink className="pink accent-4 white-text"
-                        to={categoryData.route}>
-                        {t(categoryData.name)}
-                    </NavLink>
-                    <Divider />
-                </Fragment>
+                <NavLink key={categoryData.name} className={cx(dropDownStyle.dropDown, "white-text")}
+                    to={categoryData.route}>
+                    •{t(categoryData.name)}
+                </NavLink>
             )}
             {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
-                <Fragment key={subcategoryData.route}>
-                    <NavLink className="pink accent-4 white-text"
-                        to={subcategoryData.route}>
-                        {t(subcategoryData.name)}
-                    </NavLink>
-                    <Divider />
-                </Fragment>
+                <NavLink key={subcategoryData.name} className={cx(dropDownStyle.dropDown, "white-text")}
+                    to={subcategoryData.route}>
+                    •{t(subcategoryData.name)}
+                </NavLink>
             )}
         </Dropdown>
         <NavLink style={{ display: "flex" }} to="/contacts">
