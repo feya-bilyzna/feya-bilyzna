@@ -49,7 +49,7 @@ const PendingOrder = ({ orderItems }) => {
                 </Fragment>
             )}
             <Row style={{ textAlign: "right", marginTop: 10, paddingRight: "3rem" }}>
-                <b className="flow-text">{t("Итого")}: {fullPrice} грн</b>
+                <b className="flow-text">{t("Итого")}: {fullPrice} {t("грн")}</b>
             </Row>
         </CollapsibleItem>
     </Collapsible>

@@ -18,13 +18,16 @@ const PopoutContactElements = () => {
                 key={index}
             >
                 <p>{t(contact.description)}
-                    <a
-                        href={contact.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {contact.name}
-                    </a>
+                    {
+                        contact.name !== "Адрес:" ? 
+                        <a
+                            href={contact.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {contact.name}
+                        </a> : <></>
+                    }
                 </p>
             </CollapsibleItem>)}
     </Collapsible>
