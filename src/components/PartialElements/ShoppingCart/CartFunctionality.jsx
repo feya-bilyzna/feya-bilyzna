@@ -145,7 +145,7 @@ const CartFunctionality = ({ emptyCart, orderPrice }) => {
                                 <RegisterForm onValueChange={setUsernameInput} />
                             </>
                         }
-                        <h5><b>{orderPrice}</b> грн</h5>
+                        <h5><b>{orderPrice}</b> {t("грн")}</h5>
                     </Modal>
                 </div>
             </Col>

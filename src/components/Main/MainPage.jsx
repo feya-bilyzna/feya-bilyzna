@@ -21,7 +21,7 @@ const MainPage = () => {
             >
                 {sliderData.basicSlides.map((slide, index) => <Slide
                     key={index}
-                    image={<img alt="Изображение"
+                    image={<img alt={t("Изображение")}
                         src={slide.link} />}>
                     <Caption placement={slide.side}>
                         <h1>
@@ -36,7 +36,7 @@ const MainPage = () => {
                     href={contactsData.instagramLink}
                     target="_blank"
                     rel="noopener noreferrer">
-                    <img alt="Изображение"
+                    <img alt={t("Изображение")}
                         src={sliderData.instagramSlider.link} />
                 </a>}>
                     <a
@@ -48,7 +48,7 @@ const MainPage = () => {
                             >Наш {contactsData.instagram}</h4>
                             <img style={{ width: 50 }}
                                 src={sliderData.instagramSlider.iconLink}
-                                alt="Изображение" />
+                                alt={t("Изображение")} />
                         </Caption>
                     </a>
                 </Slide>

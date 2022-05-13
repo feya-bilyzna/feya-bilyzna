@@ -1,7 +1,9 @@
 import React from 'react'
+import { useTranslation } from "react-i18next"
 
 const Price = ({ item }) => {
-    const noPrice = "Нет цены"
+    const { t } = useTranslation()
+    const noPrice = t("Нет цены")
 
     const remains = item.remains ? item.remains : []
 
@@ -11,7 +13,7 @@ const Price = ({ item }) => {
         if (remain.price > maxPrice) maxPrice = remain.price
     }
     const displayedPrice = !remains.length ? noPrice :
-        minPrice === maxPrice ? `${minPrice} грн` : `от ${minPrice} до ${maxPrice} грн`
+        minPrice === maxPrice ? `${minPrice} ${t("грн")}` : `${t("от")} ${minPrice} ${t("до")} ${maxPrice} ${t("грн")}`
 
     return <>
         <div className="pink-text accent-4">

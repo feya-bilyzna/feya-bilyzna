@@ -69,7 +69,7 @@ const CookieBasedCartItems = ({ products }) => {
                             onClickFunc={() => changeOrderAmount(1, remainsId)}
                         >+</ChangeAmountButton>
                     </CartCell>
-                    <CartCell size={2} bold>{remainsData.price * purchaseData.amount} грн</CartCell>
+                    <CartCell size={2} bold>{remainsData.price * purchaseData.amount} {t("грн")}</CartCell>
                 </Row>
                 <Divider />
             </Fragment>

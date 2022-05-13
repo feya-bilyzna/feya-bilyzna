@@ -138,7 +138,7 @@ const DetailPage = () => {
                 <NavLink to={"/contacts"}><Button
                     className="red"
                     node="button"
-                >Контакты</Button></NavLink></div>
+                >{t("Контакты")}</Button></NavLink></div>
         </>
 
     const tooMuchItemsInCart = cookies.cartProducts && Object.keys(cookies.cartProducts).length >= cartAndOrderLimits
@@ -197,7 +197,7 @@ const DetailPage = () => {
                         }}
                     >
                         <img
-                            alt="Изображение товара"
+                            alt={t("Изображение")}
                             src={image.url}
                             width="100%"
                         />
@@ -230,12 +230,12 @@ const DetailPage = () => {
             {appropriateRemains.length === 1 ? <div>
                 <AdditionalInfo header={t("Выбранный вариант")}>
                     <p style={descriptionStyle}>{appropriateRemains[0].variantName}</p>
-                    <p style={descriptionStyle}>{t("В наличии")} {appropriateRemains[0].remains} шт</p>
+                    <p style={descriptionStyle}>{t("В наличии")} {appropriateRemains[0].remains} {t("шт")}</p>
                 </AdditionalInfo>
             </div> : <></>}
             <Row>
                 <Col className="pink-text accent-4">
-                    <h3 style={{ fontWeight: "bold", margin: 0 }}>{appropriateRemains[0].price} грн</h3>
+                    <h3 style={{ fontWeight: "bold", margin: 0 }}>{appropriateRemains[0].price} {t("грн")}</h3>
                 </Col>
             </Row>
             <Row>

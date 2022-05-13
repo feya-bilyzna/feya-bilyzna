@@ -9,7 +9,7 @@ const FooterComponent = () => {
     return <Footer
         style={{ zIndex: 3 }}
         className={"pink accent-4"}
-        copyrights={t("Нижнее бельё по доступным ценам")}
+        copyrights={t("Нижнее белье по доступным ценам")}
         moreLinks={<NavLink
             className="white-text right"
             to={"/contacts"}
