@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from "react-router-dom"
 import { CustomIcon } from "../index"
-import { Button, Col, Modal, Row } from "react-materialize"
+import { Button, Modal } from "react-materialize"
 import { useCookies } from 'react-cookie'
 import RegisterForm from "./RegisterForm"
 import styles from "../../css.module/login.module.css"
