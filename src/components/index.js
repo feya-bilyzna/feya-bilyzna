@@ -18,7 +18,7 @@ export {default as LanguageSelector}       from './PartialElements/LanguageSelec
 export {default as WishlistButton}         from './PartialElements/WishlistButton'
 export {default as EmptyWishlist}          from './PartialElements/EmptyWishlist'
 export {default as ExitButton}             from './PartialElements/ExitButton'
-export {default as CopyLink}             from './PartialElements/CopyLink'
+export {default as CopyLinkButton}         from './PartialElements/CopyLinkButton'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'

@@ -1,19 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTranslation } from "react-i18next"
 import { Button } from 'react-materialize'
-import { CustomIcon } from "./../index"
+import { CustomIcon } from "../index"
 import M from 'materialize-css'
 
-const CopyLink = () => {
+const CopyLinkButton = () => {
     const { t } = useTranslation()
 
-    const copy = () => {
-        const el = document.createElement('input')
-        el.value = window.location.href
-        document.body.appendChild(el)
-        el.select()
-        document.execCommand('copy')
-        document.body.removeChild(el)
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(window.location.href)
         M.toast({ html: t('Ссылка скопирована!') })
     }
 
@@ -27,9 +22,9 @@ const CopyLink = () => {
             tooltipOptions={{
                 position: 'left'
             }}
-            onClick={copy}
+            onClick={copyToClipboard}
         />
     </>
 }
 
-export default CopyLink
+export default CopyLinkButton
