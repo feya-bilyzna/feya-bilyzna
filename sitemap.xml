@@ -133,4 +133,8 @@
     <url>
         <loc>https://feya-bilyzna.github.io/#/beach/male</loc>
     </url>
+    <url>
+        <loc>https://feya-bilyzna.github.io/#/contacts</loc>
+        <priority>0.6</priority>
+    </url>
 </urlset>
