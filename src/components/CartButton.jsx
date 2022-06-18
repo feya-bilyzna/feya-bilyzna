@@ -33,6 +33,8 @@ const CartButton = () => {
 
     const cartSize = Object.keys(cookies.cartProducts || {}).length
 
+    const disabledTextSelectionStyle={userSelect: "none", webUserSelect: "none" }
+
     return <div style={{ position: "absolute" }}><Button
         className={cx("blue", { pulse: cartSize })}
         fab={{ direction: "top", hoverEnabled: false }}
@@ -40,8 +42,8 @@ const CartButton = () => {
         large
         icon={cartSize ? <>
             <AddedProductsIndicator>{cartSize}</AddedProductsIndicator>
-            <CustomIcon >shopping_cart</CustomIcon>
-        </> : <CustomIcon className={"notranslate"}>shopping_cart</CustomIcon>}
+            <CustomIcon style={disabledTextSelectionStyle}>shopping_cart</CustomIcon>
+        </> : <CustomIcon style={disabledTextSelectionStyle} className={"notranslate"}>shopping_cart</CustomIcon>}
         node="button"
 
     >
