@@ -27,9 +27,7 @@ const CartFunctionality = ({ emptyCart, orderPrice }) => {
                     price
                 }
                 product {
-                    images {
-                        url
-                    }
+                    images
                     id
                 }
             }

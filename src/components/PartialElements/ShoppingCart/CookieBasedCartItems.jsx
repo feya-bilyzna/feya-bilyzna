@@ -54,7 +54,7 @@ const CookieBasedCartItems = ({ products }) => {
                     </CartCell>
                     <CartCell size={3}>
                         <NavLink to={`/${productData.id}`} style={{ width: "100%" }}>
-                            <ImageView image={productData.images[0]?.url} />
+                            <ImageView image={productData.images[0]} />
                         </NavLink>
                     </CartCell>
                     <CartCell size={2}>{remainsData.variantName}</CartCell>

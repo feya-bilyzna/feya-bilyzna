@@ -22,9 +22,7 @@ const ShoppingCart = () => {
     query ShoppingCartQuery($ids: [Int]!) {
         productsByIds(ids: $ids) {
             id
-            images {
-                url
-            }
+            images
             remains {
                 id
                 price

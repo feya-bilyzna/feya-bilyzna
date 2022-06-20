@@ -13,9 +13,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
         query ProductsQuery($categoryName: [String]!, $page: Int!, $variantStyles: GenericScalar, $orderBy: ProductOrderBy) {
              categoryProducts(categoryName: $categoryName, page: $page, variantStyles: $variantStyles, orderBy: $orderBy) {
                 id
-                images {
-                  url
-                }
+                images
                 brandName
                 categories
                 vendorCode

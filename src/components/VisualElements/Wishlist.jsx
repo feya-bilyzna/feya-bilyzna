@@ -12,9 +12,7 @@ const SHOPPING_CART_QUERY = gql`
     query ShoppingCartQuery($ids: [Int]!) {
         productsByIds(ids: $ids) {
             id
-            images {
-              url
-            }
+            images
             brandName
             categories
             vendorCode
