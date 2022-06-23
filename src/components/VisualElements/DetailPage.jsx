@@ -21,10 +21,7 @@ const DetailPage = () => {
                 categories
                 description
                 id
-                images {
-                  id
-                  url
-                }
+                images
                 name
                 remains {
                   id
@@ -182,10 +179,10 @@ const DetailPage = () => {
                     }
                 </Fragment>)
             }
-            {Object.values(data?.productById.images).map(image =>
+            {Object.values(data?.productById.images).map((image, index) =>
                 <div
                     className="z-depth-1-half"
-                    key={image.id}
+                    key={index}
                     style={{
                         marginTop: 15,
                         borderRadius: "2px"
@@ -198,7 +195,7 @@ const DetailPage = () => {
                     >
                         <img
                             alt={t("Изображение")}
-                            src={image.url}
+                            src={image}
                             width="100%"
                         />
                     </MediaBox>

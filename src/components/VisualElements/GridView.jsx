@@ -19,7 +19,7 @@ const GridView = ({ cardItems, isSubcategory, route }) => {
                         item={cardItem}
                         route={route}
                         image={isSubcategory ?
-                            cardItem.images[0]?.url :
+                            cardItem.images[0] :
                             cardItem.imageUrl ? cardItem.imageUrl : cardItem.name
                         } />
                 </Col>

@@ -36,7 +36,7 @@ const PendingOrder = ({ orderItems }) => {
                         </CartCell>
                         <CartCell size={3}>
                             <NavLink to={`/${orderProduct.product.id}`} style={{ width: "100%" }}>
-                                <ImageView image={orderProduct.product.images[0]?.url} />
+                                <ImageView image={orderProduct.product.images[0]} />
                             </NavLink>
                         </CartCell>
                         <CartCell size={2}>{orderProduct.productremains.variantName}</CartCell>
