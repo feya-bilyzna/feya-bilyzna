@@ -11,7 +11,7 @@ import WishlistButton from '../PartialElements/WishlistButton'
 
 const DetailPage = () => {
 
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
     const descriptionStyle = { fontSize: 13, marginBottom: 10 }
     const modalMarginBottom = { marginBottom: "90px" }
 
@@ -19,7 +19,8 @@ const DetailPage = () => {
     query ProductQuery($id: Int!) {
         productById(id: $id) {
                 categories
-                description
+                descriptionRu
+                descriptionUk
                 id
                 images
                 name
@@ -27,7 +28,8 @@ const DetailPage = () => {
                   id
                   price
                   variantId
-                  variantName
+                  variantNameRu
+                  variantNameUk
                   variantStyle
                   remains
                 }
@@ -163,6 +165,13 @@ const DetailPage = () => {
 
     const wishlist = new Set(Object.values(cookies.wishlist || []))
 
+    const isUk = i18n.language === "ua"
+
+    const viewDescription = (description) => description.split('⚡').map(sentence =>
+        <p key={sentence} style={{ marginBottom: 0, marginTop: 0 }}>
+            {sentence}
+        </p>)
+
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
             {
@@ -226,7 +235,7 @@ const DetailPage = () => {
             </Row> : <></>}
             {appropriateRemains.length === 1 ? <div>
                 <AdditionalInfo header={t("Выбранный вариант")}>
-                    <p style={descriptionStyle}>{appropriateRemains[0].variantName}</p>
+                    <p style={descriptionStyle}>{isUk ? appropriateRemains[0].variantNameUk : appropriateRemains[0].variantNameRu}</p>
                     <p style={descriptionStyle}>{t("В наличии")} {appropriateRemains[0].remains} {t("шт")}</p>
                 </AdditionalInfo>
             </div> : <></>}
@@ -305,12 +314,9 @@ const DetailPage = () => {
                 </Col>
             </Row>
             {<AdditionalInfo header={t("О товаре")}>
-                {data?.productById.description ?
+                {data?.productById.descriptionRu ?
                     <div style={descriptionStyle}>{
-                        data?.productById.description.split('⚡').map(sentence =>
-                            <p key={sentence} style={{ marginBottom: 0, marginTop: 0 }}>
-                                {sentence}
-                            </p>)
+                        isUk ? viewDescription(data?.productById.descriptionUk) : viewDescription(data?.productById.descriptionRu)
                     }</div> : <></>}
                 <ProductInfoModal name={t("Доставка")} iconName="local_shipping">
                     <div style={{ textAlign: "center" }}>
