@@ -3,7 +3,7 @@ import { Button, Col, Divider, MediaBox, Modal, Row } from "react-materialize"
 import { useParams } from 'react-router'
 import { gql, useQuery } from "@apollo/client"
 import { useCookies } from 'react-cookie'
-import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, SizeTable } from '..'
+import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, SizeTable, ProductDescription } from '..'
 import { alertsData, cartAndOrderLimits, categoriesData, sizeTableData } from "../../data/index"
 import { NavLink } from "react-router-dom"
 import { useTranslation } from "react-i18next"
@@ -167,11 +167,6 @@ const DetailPage = () => {
 
     const isUk = i18n.language === "ua"
 
-    const viewDescription = (description) => description.split('⚡').map(sentence =>
-        <p key={sentence} style={{ marginBottom: 0, marginTop: 0 }}>
-            {sentence}
-        </p>)
-
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
             {
@@ -235,7 +230,7 @@ const DetailPage = () => {
             </Row> : <></>}
             {appropriateRemains.length === 1 ? <div>
                 <AdditionalInfo header={t("Выбранный вариант")}>
-                    <p style={descriptionStyle}>{isUk ? appropriateRemains[0].variantNameUk : appropriateRemains[0].variantNameRu}</p>
+                    <p style={descriptionStyle}>{appropriateRemains[0][isUk ? 'variantNameUk' : 'variantNameRu']}</p>
                     <p style={descriptionStyle}>{t("В наличии")} {appropriateRemains[0].remains} {t("шт")}</p>
                 </AdditionalInfo>
             </div> : <></>}
@@ -315,9 +310,7 @@ const DetailPage = () => {
             </Row>
             {<AdditionalInfo header={t("О товаре")}>
                 {data?.productById.descriptionRu ?
-                    <div style={descriptionStyle}>{
-                        isUk ? viewDescription(data?.productById.descriptionUk) : viewDescription(data?.productById.descriptionRu)
-                    }</div> : <></>}
+                    <ProductDescription text={data?.productById[isUk ? 'descriptionUk' : 'descriptionRu']} descriptionStyle={descriptionStyle}/> : <></>}
                 <ProductInfoModal name={t("Доставка")} iconName="local_shipping">
                     <div style={{ textAlign: "center" }}>
                         <h6>{t("Новой почтой по Украине - по тарифам перевозчика.")}</h6>
