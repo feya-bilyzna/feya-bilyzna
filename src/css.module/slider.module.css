@@ -1,0 +1,79 @@
+.slider {
+    margin: 0 auto;
+    max-width: 1980px;
+    width: 100%;
+}
+
+.wrapperTextBelowLocation {
+    position: absolute;
+    top: 32%; 
+    left: 10%
+}
+
+.wrapperTextBelowLeft {
+    position: absolute;
+    top: 50%; 
+    left: 10%
+}
+.wrapperTextBelowRight {
+    position: absolute;
+    top: 50%; 
+    right: 10%
+}
+
+.headingLeft {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    color: white;
+    font-size: clamp(3rem, 7vw + 1rem, 10rem);
+}
+
+.headingRight {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    color: white;
+    font-size: clamp(3rem, 7vw + 1rem, 10rem);
+}
+
+.headingCenter {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    color: white;
+    font-size: calc(6);
+}
+
+.instagram {
+    position: absolute;
+    top: 1%;
+    left: 10%;
+    color: black;
+    font-size: clamp(2.5rem, 5vw + 1rem, 8rem);
+}
+
+.headingLannyMode {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-family: "AmazoneW01-Regular";
+    color: #b2a336;
+    font-size: clamp(3rem, 7vw + 1rem, 10rem);
+}
+
+.headingLocation {
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    color: #000000;
+    font-size: clamp(2rem, 3.5vw + 1rem, 6rem);
+}
+
+.belowLocation {
+    /* position: absolute; */
+    left: 10%;
+    color: #000000;
+    font-size: clamp(0.1rem, 1vw + 0.7rem, 5rem);
+    margin: 2px 0
+}

@@ -1,4 +1,5 @@
 export {default as MainPage}               from './Main/MainPage'
+export {default as Slider}                 from './Main/Slider'
 export {default as ContactsPage}           from './ContactsPage/ContactsPage'
 export {default as PopoutContactElements}  from './ContactsPage/PopoutContactElements'
 
