@@ -9,6 +9,7 @@ import styles from '../../css.module/slider.module.css'
 import { sliderData } from '../../data'
 import contactsData from "../../data/contactsData"
 import { useTranslation } from "react-i18next"
+import { SliderLink } from '..'
 
 export default function Slider() {
     SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay])
@@ -27,20 +28,17 @@ export default function Slider() {
             {sliderData.basicSlides.map((slide, index) =>
                 <SwiperSlide
                     key={index}>
-                    <a
-                        href={slide.pageLink}
-                        target={"_blank"}
-                        rel={"noopener noreferrer"}>
+                    <SliderLink link={slide.pageLink} isOuterURL={slide.isOuterURL}>
                         <img
                             className={styles.slider}
                             alt="Изображение"
                             src={slide.imageLink} />
                         <h1 className={styles[slide.styleHeadingText]}>{t(slide.headingText)}</h1>
                         <div className={styles[slide.wrapper]}>
-                            {slide.textBelow.split(';').map((text, index) =>
+                            {t(slide.textBelow).split(';').map((text, index) =>
                                 <h3 key={index} className={styles[slide.styleTextBelow]}>{t(text)}</h3>)}
                         </div>
-                    </a>
+                    </SliderLink>
                 </SwiperSlide>)}
             <SwiperSlide>
                 <a href={contactsData.instagramLink} target="_blank" rel="noopener noreferrer" >

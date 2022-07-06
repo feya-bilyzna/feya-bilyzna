@@ -9,7 +9,8 @@ const sliderData = {
         },
         {
             imageLink: "https://ams03pap001files.storage.live.com/y4mq9O4OW-yAJPJiMRnsZDzTZ9CGsmbWj-FQcTANZxA_XKTvj6YNDYA0wUsQcn5p81a4E929I_sDqi5pTUYpLu308nT9DF1BYlas8Uz2-F9RlzZJMzD-tPZyO8wE6hF3W-kTcMW5IYoHnnfa6ZoTreV0HWIA-y96FA0VRAR-6rXNv5bViYD3mzUp_5Rus7phcS3?width=1890&height=1080&cropmode=none",
-            pageLink: "https://feya-bilyzna.github.io/#/brands/lanny-mode",
+            pageLink: "brands/lanny-mode",
+            isOuterURL: false,
             styleHeadingText:"headingLannyMode",
             wrapper: "wrapperTextBelowRight",
             styleTextBelow:"belowLocation",
@@ -18,7 +19,8 @@ const sliderData = {
         },
         {
             imageLink: "https://bn1301files.storage.live.com/y4mwjz62nP_ULmRkyTOQN95B-b4W0UrVofrH1dyUvWK7rlaff3fcKt1Chu55KctkldrVjL3Q5fFLJmw0inEXZfuzWPnGVdaIX6Zpqr-0_M2g1ieYt7k2nuq4lXNhQpQCA_kUn9o-61Si37vsCMzVaZKTaFYDNrgXNK8BZbyTnDKcJQvXjpDynbvDsoLMWCMNkiP?width=660&height=346&cropmode=none",
-            pageLink: "https://feya-bilyzna.github.io/#/brands/diorella",
+            pageLink: "brands/diorella",
+            isOuterURL: false,
             styleHeadingText:"headingLeft",
             wrapper: "wrapperTextBelowLeft",
             headingText: "Diorella",
@@ -28,11 +30,12 @@ const sliderData = {
         {
             imageLink: "https://ams03pap001files.storage.live.com/y4mF9YFHZAIa1szKM6g8oZ-CuGK5ULjASEDtNtIeI5FUD2bc8l8xcKCM3P7zVNApKrvTWqYbRsW1UwsckilLedrqickZnWWWskdTKBKid0ep4fX0PUG0XKE4acAFcQSY9m2usi6p7IYf-UjbGYcu7A5THhlTxhhKykpkRnhr6xx2mL_Azj8PBkx0OAScl34720J?width=1890&height=1080&cropmode=none",
             pageLink: "https://g.page/bilyznaFeya?share",
+            isOuterURL: true,
             styleHeadingText:"headingLocation",
             headingText: "Приглашаем приобрести",
             wrapper: "wrapperTextBelowLocation",
             styleTextBelow:"belowLocation",
-            textBelow: "А также примерить;понравившийся товар;- город Кривой Рог;- Центр-городской район;- улица Лермонтова;- Вещевой рынок;- ряд 2 - место 29",
+            textBelow: "AddressForSlider",
         },
     ],
     instagramSlider: {
