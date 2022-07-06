@@ -1,4 +1,5 @@
 export {default as MainPage}               from './Main/MainPage'
+export {default as Slider}                 from './Main/Slider'
 export {default as ContactsPage}           from './ContactsPage/ContactsPage'
 export {default as PopoutContactElements}  from './ContactsPage/PopoutContactElements'
 
@@ -20,6 +21,7 @@ export {default as EmptyWishlist}          from './PartialElements/EmptyWishlist
 export {default as ExitButton}             from './PartialElements/ExitButton'
 export {default as CopyLinkButton}         from './PartialElements/CopyLinkButton'
 export {default as ProductDescription}     from './PartialElements/ProductDescription'
+export {default as SliderLink}             from './PartialElements/SliderLink'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'
