@@ -240,6 +240,15 @@ const DetailPage = () => {
                 </Col>
             </Row>
             <Row>
+                <Col>
+                    <p style={{
+                        fontWeight: "bold", color: "red",
+                        fontSize: "clamp(.685rem, 0.98vw + 0.1rem, 1rem)",
+                        margin: "-10px 0px"
+                    }}>{t("PriceWarning")}</p>
+                </Col>
+            </Row>
+            <Row>
                 <Col className="black-text" s={6}>
                     <Modal style={modalMarginBottom}
                         actions={[
@@ -294,7 +303,6 @@ const DetailPage = () => {
                                     appropriateRemains[0].price
                                 )}>
                                 {t(productAlreadyAdded ? "Добавлено" : "Купить")}
-                                {!productAlreadyAdded ? <CustomIcon tiny right>attach_money</CustomIcon> : <></>}
                             </div>
                         </Button>}
                     >
@@ -310,7 +318,7 @@ const DetailPage = () => {
             </Row>
             {<AdditionalInfo header={t("О товаре")}>
                 {data?.productById.descriptionRu ?
-                    <ProductDescription text={data?.productById[isUk ? 'descriptionUk' : 'descriptionRu']} descriptionStyle={descriptionStyle}/> : <></>}
+                    <ProductDescription text={data?.productById[isUk ? 'descriptionUk' : 'descriptionRu']} descriptionStyle={descriptionStyle} /> : <></>}
                 <ProductInfoModal name={t("Доставка")} iconName="local_shipping">
                     <div style={{ textAlign: "center" }}>
                         <h6>{t("Новой почтой по Украине - по тарифам перевозчика.")}</h6>
