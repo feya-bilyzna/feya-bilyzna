@@ -1,5 +1,5 @@
 import React from 'react'
-import { categoriesData, sliderData } from '../../data'
+import { categoriesData } from '../../data'
 import { GridView, Slider } from "../index"
 import { useTranslation } from "react-i18next"
 
