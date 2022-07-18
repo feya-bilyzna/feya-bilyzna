@@ -6,7 +6,7 @@ import { alertsData } from "../../data"
 import { filterSortData } from "../../data"
 import styles from "../../css.module/FilterSort.module.css"
 import { useTranslation } from "react-i18next"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 
 const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     const { t } = useTranslation()
