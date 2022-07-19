@@ -6,12 +6,13 @@ import { alertsData } from "../../data"
 import { filterSortData } from "../../data"
 import styles from "../../css.module/FilterSort.module.css"
 import { useTranslation } from "react-i18next"
+import { Helmet } from "react-helmet-async"
 
 const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     const { t } = useTranslation()
     const ProductsQuery = gql`
         query ProductsQuery($categoryName: [String]!, $page: Int!, $variantStyles: GenericScalar, $orderBy: ProductOrderBy) {
-             categoryProducts(categoryName: $categoryName, page: $page, variantStyles: $variantStyles, orderBy: $orderBy) {
+            categoryProducts(categoryName: $categoryName, page: $page, variantStyles: $variantStyles, orderBy: $orderBy) {
                 id
                 images
                 brandName
@@ -20,8 +21,8 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
                 remains {
                     price,
                     remains
-               }
-             }
+                }
+            }
         }
     `
 
@@ -74,8 +75,16 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
         setFilters(newFilters)
         refetch({ variantStyles: newFilters })
     }
+    const pageDescription = `Товары категории: ${subcategory.name}`
 
     return <>
+        <Helmet>
+            <title>{subcategory.name}</title>
+            <meta
+                name="description"
+                content={pageDescription}
+            />
+        </Helmet>
         {pageHeader}
         <Collapsible className={styles.paddingTop} style={{ margin: "0 3px 0 3px" }} accordion>
             <CollapsibleItem

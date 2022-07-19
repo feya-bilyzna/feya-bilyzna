@@ -219,7 +219,7 @@ const categoriesData = {
                 },
                 {
                     name: 'Без косточек',
-                    route: '/bras/bralette',
+                    route: '/bras/boneless',
                     sizeTable: "bras",
                     imageUrl: 'https://bn1301files.storage.live.com/y4mV4IhnbidFOvQ9bP4szVMirrnbMi0gqNZA2ZigCoOV_-TvJ9L5jK_4DJvAIY2aDeq82WzpnqagwKnMxqOo3xIBG3ySYzwYMqzY3KU2-lavjqabQhKIs6FpYZXuC40Lhc0xsqazug-yfVLfoayz9Zmfz0zYjswMAVAFXQcQ7lZY2Sp5vrUgaCZuItgpef3qODG?width=512&height=512&cropmode=none',
                 },

@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react'
-import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals'
@@ -7,6 +6,7 @@ import "materialize-css"
 import { ApolloClient, ApolloProvider, InMemoryCache, } from "@apollo/client"
 import { concatPagination } from '@apollo/client/utilities'
 import './i18n'
+import { hydrate, render } from "react-dom"
 
 const cache = new InMemoryCache({
     typePolicies: {
@@ -23,16 +23,26 @@ const client = new ApolloClient({
     cache: cache,
 })
 
-ReactDOM.render(
-    <React.StrictMode>
+
+
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+    hydrate(<React.StrictMode>
         <ApolloProvider client={client}>
             <Suspense fallback={null}>
                 <App />
             </Suspense>
         </ApolloProvider>
-    </React.StrictMode>,
-    document.getElementById('root')
-)
+    </React.StrictMode>, rootElement);
+} else {
+    render(<React.StrictMode>
+        <ApolloProvider client={client}>
+            <Suspense fallback={null}>
+                <App />
+            </Suspense>
+        </ApolloProvider>
+    </React.StrictMode>, rootElement);
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
