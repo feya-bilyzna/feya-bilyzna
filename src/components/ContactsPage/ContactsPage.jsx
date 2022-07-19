@@ -8,10 +8,10 @@ const ContactsPage = () => {
     const { t } = useTranslation()
     return <>
         <Helmet>
-            <title>{t("Контактная информация")} - Фея</title>
+            <title>Контактна інформація-Фея</title>
             <meta
                 name="description"
-                content="Соц сети, адрес"
+                content="Соціальні мережі та адреса"
             />
             <link href="https://feya-bilyzna.github.io/contacts" />
         </Helmet>
