@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/feya.pp.ua/static/css/main.60c32e61.chunk.css",
-    "main.js": "/feya.pp.ua/static/js/main.f3da3fb4.chunk.js",
-    "main.js.map": "/feya.pp.ua/static/js/main.f3da3fb4.chunk.js.map",
+    "main.css": "/feya.pp.ua/static/css/main.b4bf70d9.chunk.css",
+    "main.js": "/feya.pp.ua/static/js/main.5dccf7bd.chunk.js",
+    "main.js.map": "/feya.pp.ua/static/js/main.5dccf7bd.chunk.js.map",
     "runtime-main.js": "/feya.pp.ua/static/js/runtime-main.98dce22e.js",
     "runtime-main.js.map": "/feya.pp.ua/static/js/runtime-main.98dce22e.js.map",
     "static/css/2.caa0f46e.chunk.css": "/feya.pp.ua/static/css/2.caa0f46e.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.89e83ec3.chunk.js.map": "/feya.pp.ua/static/js/3.89e83ec3.chunk.js.map",
     "index.html": "/feya.pp.ua/index.html",
     "static/css/2.caa0f46e.chunk.css.map": "/feya.pp.ua/static/css/2.caa0f46e.chunk.css.map",
-    "static/css/main.60c32e61.chunk.css.map": "/feya.pp.ua/static/css/main.60c32e61.chunk.css.map",
+    "static/css/main.b4bf70d9.chunk.css.map": "/feya.pp.ua/static/css/main.b4bf70d9.chunk.css.map",
     "static/js/2.6fddc805.chunk.js.LICENSE.txt": "/feya.pp.ua/static/js/2.6fddc805.chunk.js.LICENSE.txt",
     "static/media/getFetch.cjs": "/feya.pp.ua/static/media/getFetch.582d29c4.cjs"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.98dce22e.js",
     "static/css/2.caa0f46e.chunk.css",
     "static/js/2.6fddc805.chunk.js",
-    "static/css/main.60c32e61.chunk.css",
-    "static/js/main.f3da3fb4.chunk.js"
+    "static/css/main.b4bf70d9.chunk.css",
+    "static/js/main.5dccf7bd.chunk.js"
   ]
 }
