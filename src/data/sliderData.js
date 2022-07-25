@@ -1,12 +1,9 @@
 const sliderData = {
+    flagSlider: {
+        link: "./UkrainianFlag.WebM",
+        iconLink: "https://bn1301files.storage.live.com/y4mkzYESjT2dZEaAr3HcXVuYf21_DCeMiCgdBKc5YQ9KAN7P3GKKW4RWR6g5fe7rm8bL5y1gjXoQLaJxGzlVa_XCT15zhpuhEAEqKaMnhmaF0qT75aP4-oNOUuDmcXc29zPOsPOCxIaihZVQIT4EzRXGAB7CVpY2Sm2LPCkIvksqI800d05lyTOtzLltT4yDpb_?width=256&height=256&cropmode=none",
+    },
     basicSlides: [
-        {
-            imageLink: "./Ukrainian flag.gif",
-            pageLink: null,
-            styleHeadingText:"",
-            headingText: "",
-            textBelow: "",
-        },
         {
             imageLink: "https://ams03pap001files.storage.live.com/y4mq9O4OW-yAJPJiMRnsZDzTZ9CGsmbWj-FQcTANZxA_XKTvj6YNDYA0wUsQcn5p81a4E929I_sDqi5pTUYpLu308nT9DF1BYlas8Uz2-F9RlzZJMzD-tPZyO8wE6hF3W-kTcMW5IYoHnnfa6ZoTreV0HWIA-y96FA0VRAR-6rXNv5bViYD3mzUp_5Rus7phcS3?width=1890&height=1080&cropmode=none",
             pageLink: "brands/lanny-mode",
