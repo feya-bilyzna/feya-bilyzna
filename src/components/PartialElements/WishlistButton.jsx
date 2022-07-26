@@ -19,10 +19,13 @@ const WishlistButton = ({ id, isSubcategory, wishlist }) => {
         )
     }
 
-    return <Button style={{ bottom: isSubcategory ? 0 : 0, right: 0, }}
+    return <Button style={{
+        position: "absolute",
+        marginBottom: "clamp(0rem, -.5rem + 2.4rem, 4.5vw)",
+        right: 10}}
         className={cx('notranslate', isSubcategory ?
-            "white hoverable halfway-fab waves-effect waves-light z-depth-0" :
-            "white hoverable waves-effect waves-light z-depth-0")}
+            "transparent hoverable halfway-fab waves-effect waves-light z-depth-0" :
+            "transparent hoverable waves-effect waves-light z-depth-0")}
         floating
         icon={<Icon className="pink-text accent-4">{isAdded ? "favorite" : "favorite_border"}</Icon>}
         node="button"
