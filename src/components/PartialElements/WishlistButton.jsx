@@ -19,12 +19,12 @@ const WishlistButton = ({ id, isSubcategory, wishlist }) => {
         )
     }
 
-    return <Button style={{ bottom: isSubcategory ? 5 : 0, right: 5, }}
+    return <Button style={{ bottom: isSubcategory ? 0 : 0, right: 0, }}
         className={cx('notranslate', isSubcategory ?
-            "green hoverable halfway-fab waves-effect waves-light" :
-            "green hoverable waves-effect waves-light")}
+            "white hoverable halfway-fab waves-effect waves-light z-depth-0" :
+            "white hoverable waves-effect waves-light z-depth-0")}
         floating
-        icon={<Icon>{isAdded ? "favorite" : "favorite_border"}</Icon>}
+        icon={<Icon className="pink-text accent-4">{isAdded ? "favorite" : "favorite_border"}</Icon>}
         node="button"
         tooltip={t(!isAdded ? "Добавить в избранное" : "Убрать из избранного")}
         tooltipOptions={{
