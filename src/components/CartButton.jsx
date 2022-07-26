@@ -60,10 +60,10 @@ const CartButton = () => {
             }}
         />
         <Button
-            className="green"
+            className="white"
             floating
             icon={<NavLink to="/wishlist">{
-                <CustomIcon className={"notranslate"}>favorite_border</CustomIcon>
+                <CustomIcon className={"notranslate pink-text accent-4"}>favorite</CustomIcon>
             }</NavLink>}
             node="button"
             tooltip={t("Список желаний")}
