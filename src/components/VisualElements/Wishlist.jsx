@@ -56,9 +56,9 @@ const Wishlist = () => {
         <div style={{ display: "flex", justifyContent: "center" }}>
             {wishlistHeader}
             <Button style={{ left: -20, bottom: -30 }}
-                className={"green hoverable waves-effect waves-light "}
+                className={"pink accent-4 hoverable waves-effect waves-light"}
                 floating
-                icon={<Icon>delete_sweep</Icon>}
+                icon={<Icon className='white-text'>delete_sweep</Icon>}
                 node="button"
                 tooltip={t("Очистить список желаний")}
                 tooltipOptions={{
