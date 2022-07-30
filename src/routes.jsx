@@ -13,6 +13,7 @@ import {
     ShoppingCart,
     PersonalDetails,
     Wishlist,
+    CookiesConsent
 } from './components'
 
 import { categoriesData } from './data'
@@ -24,6 +25,7 @@ export const useRoutes = () => {
     return <>
         <NavbarMenu />
         <CartButton />
+        <CookiesConsent />
         <PageContainer>
             <Switch>
                 <Route path="/" exact>
