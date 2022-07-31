@@ -1,17 +1,50 @@
 .ua {
     width: 40px;
     border-radius: 50%;
-    background: linear-gradient( 
-        rgb(0, 153, 255) 50%,
-        rgb(251, 255, 0) 50%
-    );
+    background: linear-gradient(rgb(0, 153, 255) 50%,
+            rgb(251, 255, 0) 50%);
 }
+.ua::before {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    content: "Укр";
+    text-shadow: 1px 1px 0 rgb(255, 255, 255),
+    -1px 0px 0 rgb(255, 255, 255),
+    1px 0px 0 rgb(255, 255, 255),
+    2px 2px 0 rgb(255, 255, 255),
+    -2px 0px 0 rgb(255, 255, 255),
+    2px 0px 0 rgb(255, 255, 255),
+    1px 2px 0 rgb(255, 255, 255),
+    -1px 2px 0 rgb(255, 255, 255),
+    1px -2px 0 rgb(255, 255, 255),
+    2px -1px 0 rgb(255, 255, 255),
+    -2px -1px 0 rgb(255, 255, 255);
+}
+
 .ru {
     width: 40px;
     border-radius: 50%;
-    background: linear-gradient( 
-        rgb(255, 0, 0) 33.3%, 
-        rgb(17, 0, 255) 33.3% 66.6%, 
-        rgb(255, 255, 255) 33.3%
-    );
+    background: rgb(255, 255, 255);
+}
+.ru::before {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    content: "Рус";
+    text-shadow: 1px 1px 0 rgb(50, 50, 50),
+    -2px 0px 0 rgb(50, 50, 50),
+    2px 0px 0 rgb(50, 50, 50),
+    1px 2px 0 rgb(50, 50, 50),
+    -1px 2px 0 rgb(50, 50, 50),
+    1px -2px 0 rgb(50, 50, 50),
+    -1px -2px 0 rgb(50, 50, 50),
+    2px 1px 0 rgb(50, 50, 50),
+    -2px 1px 0 rgb(50, 50, 50),
+    2px -1px 0 rgb(50, 50, 50),
+    -2px -1px 0 rgb(50, 50, 50);
+}
+.ru:hover {
+    background: rgb(255, 255, 255);
+}
+.ru:focus {
+    background: rgb(255, 255, 255);
 }
