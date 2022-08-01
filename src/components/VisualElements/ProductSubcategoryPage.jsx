@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client"
 import React, { useEffect, useState } from "react"
-import { Collapsible, CollapsibleItem, Icon, Row } from "react-materialize"
+import { Collapsible, CollapsibleItem, Row } from "react-materialize"
+import { CustomIcon } from "./../"
 import { LoadingAnimation, GridView, ProductOptionSelect } from '..'
 import { alertsData } from "../../data"
 import { filterSortData } from "../../data"
@@ -91,7 +92,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
                 className={"flow-text"}
                 expanded={false}
                 header={t("Фильтрация и сортировка")}
-                icon={<Icon>keyboard_arrow_down</Icon>}
+                icon={<CustomIcon>keyboard_arrow_down</CustomIcon>}
             >
                 <Row style={{ marginBottom: 0 }}>
                     <ProductOptionSelect
