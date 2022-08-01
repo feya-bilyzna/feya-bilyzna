@@ -26,7 +26,7 @@ export default function Slider() {
             scrollbar={{ draggable: true }}
         >
             <SwiperSlide>
-                <video className={styles.slider} autoplay="autoplay" muted loop src={sliderData.flagSlider.link} />
+                <video className={styles.slider} autoPlay="autoplay" muted loop src={sliderData.flagSlider.link} />
             </SwiperSlide>
             {sliderData.basicSlides.map((slide, index) =>
                 <SwiperSlide
