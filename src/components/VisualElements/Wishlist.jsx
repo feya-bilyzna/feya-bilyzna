@@ -5,7 +5,8 @@ import { gql, useQuery } from "@apollo/client"
 import { useTranslation } from "react-i18next"
 import { alertsData } from "../../data"
 import GridView from './GridView'
-import { Button, Icon } from 'react-materialize'
+import { Button } from 'react-materialize'
+import { CustomIcon } from './../'
 import EmptyWishlist from '../PartialElements/EmptyWishlist'
 
 const SHOPPING_CART_QUERY = gql`
@@ -58,7 +59,7 @@ const Wishlist = () => {
             <Button style={{ left: -20, bottom: -30 }}
                 className={"pink accent-4 hoverable waves-effect waves-light"}
                 floating
-                icon={<Icon className='white-text'>delete_sweep</Icon>}
+                icon={<CustomIcon className='white-text'>delete_sweep</CustomIcon>}
                 node="button"
                 tooltip={t("Очистить список желаний")}
                 tooltipOptions={{

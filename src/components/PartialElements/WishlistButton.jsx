@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, Icon } from "react-materialize"
+import { Button } from "react-materialize"
+import { CustomIcon } from "./../"
 import { useTranslation } from "react-i18next"
 import { useCookies } from "react-cookie"
 import cx from 'classnames'
@@ -27,7 +28,7 @@ const WishlistButton = ({ id, isSubcategory, wishlist }) => {
             "transparent hoverable halfway-fab waves-effect waves-light z-depth-0" :
             "transparent hoverable waves-effect waves-light z-depth-0")}
         floating
-        icon={<Icon className="pink-text accent-4">{isAdded ? "favorite" : "favorite_border"}</Icon>}
+        icon={<CustomIcon className="pink-text accent-4">{isAdded ? "favorite" : "favorite_border"}</CustomIcon>}
         node="button"
         tooltip={t(!isAdded ? "Добавить в избранное" : "Убрать из избранного")}
         tooltipOptions={{
