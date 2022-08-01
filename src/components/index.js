@@ -26,6 +26,7 @@ export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'
 export {default as PageContainer}          from './PageContainer'
 export {default as FooterComponent}        from './FooterComponent'
+export {default as CookiesConsent}         from './CookiesConsent'
 
 export {default as GridView}               from './VisualElements/GridView'
 export {default as ImageView}              from './VisualElements/ImageView'
