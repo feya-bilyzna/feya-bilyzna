@@ -22,8 +22,7 @@ export default function CookiesConsent() {
                 style={{ display: "flex", marginTop: 10, justifyContent: "center" }}
                 className="black-text" xl={9} m={12} s={12}>
                 <div>
-                    <div>{t("CookiesConsentText1")}</div>
-                    <div>{t("CookiesConsentText2")}</div>
+                    <div>{t("CookiesConsentText")}</div>
                 </div>
             </Col>
             <Col
