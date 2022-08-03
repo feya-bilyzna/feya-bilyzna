@@ -1,12 +1,10 @@
 import React from 'react'
 import { useCookies } from "react-cookie"
-import LoadingAnimation from '../PartialElements/LoadingAnimation'
+import { LoadingAnimation, CustomIcon, GridView, MetaTags } from '../'
 import { gql, useQuery } from "@apollo/client"
 import { useTranslation } from "react-i18next"
-import { alertsData } from "../../data"
-import GridView from './GridView'
+import { alertsData, metaTagsData } from "../../data"
 import { Button } from 'react-materialize'
-import { CustomIcon } from './../'
 import EmptyWishlist from '../PartialElements/EmptyWishlist'
 
 const SHOPPING_CART_QUERY = gql`
@@ -44,6 +42,7 @@ const Wishlist = () => {
     </>
 
     if (error) return <>
+        <MetaTags {...metaTagsData.wishlist} />
         {wishlistHeader}
         <h5 className='notranslate' style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
     </>
