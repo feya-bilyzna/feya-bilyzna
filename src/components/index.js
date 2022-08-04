@@ -21,6 +21,7 @@ export {default as ExitButton}             from './PartialElements/ExitButton'
 export {default as CopyLinkButton}         from './PartialElements/CopyLinkButton'
 export {default as ProductDescription}     from './PartialElements/ProductDescription'
 export {default as SliderLink}             from './PartialElements/SliderLink'
+export {default as MetaTags}               from './PartialElements/MetaTags'
 
 export {default as NavbarMenu}             from './NavbarMenu'
 export {default as CartButton}             from './CartButton'

@@ -1,20 +1,13 @@
 import React from 'react'
 import { useTranslation } from "react-i18next"
 import { Collection, CollectionItem } from 'react-materialize'
-import contactsData from "../../data/contactsData"
-import { Helmet } from 'react-helmet-async'
+import { contactsData, metaTagsData } from "../../data"
+import { MetaTags } from "../"
 
 const ContactsPage = () => {
     const { t } = useTranslation()
     return <>
-        <Helmet>
-            <title>Контактна інформація-Фея</title>
-            <meta
-                name="description"
-                content="Соціальні мережі та адреса"
-            />
-            <link href="https://feya-bilyzna.github.io/contacts" />
-        </Helmet>
+        <MetaTags {...metaTagsData.contactsPage}/>
         <h3 style={{ textAlign: "center" }}>{t("Контактная информация")}</h3>
         <Collection style={{ margin: "0 clamp(1rem, 5vw + 1rem, 1rem)" }}>
             {contactsData.contacts.map((contact, index) =>
