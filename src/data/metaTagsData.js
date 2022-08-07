@@ -25,6 +25,30 @@ const eroticKeywords = categoriesData.categories.erotic.subcategories.map(subcat
 const swimwearDescription = "Пляжна спідня білизна для усієї родини | Оберіть тип пляжної спідньої білизни який вам потрібен, та отримайте товари тільки обранного типу"
 const swimwearImage = "https://ams03pap001files.storage.live.com/y4mAJOm8Jw0lW0-PGKMZinLVwz-hyGYPvbT3NhPq43AA8kDw-mXg3Jwp6taGuvRONlPt_EBG3i9y4vGqqTw52jZbCkdpJBNPcvyoS0q2EJNWAX9hiw8-wa4cvy6GqZKG7KDtjmBEinjFuA50m_YG5ZYW6mrNaLxl35LVo3LPai6Sz6fpqSRbZZU72BJVm9T5KVZ?width=498&height=498&cropmode=none"
 const swimwearKeywords = categoriesData.categories.swimwear.subcategories.map(subcategory => subcategory.name)
+const sportsBraDescription = "Топіки для жінок | Купити топік | Мереживі, без/із підкладкою, на тонких бретелях, із формованими чашками, на широких бретелях, на поролонових вставних чашках, топ-бюстик, спортивний"
+const sportsBraImage = "https://ams03pap001files.storage.live.com/y4momeqVUSNoF5O6K8DCdaazbtipms_SgMfrCXx0LwXk4ERSqw5Bz4RD5CNjknakCvuBM6b7at-cqcZsc8s2fm-pKe87yRI1SNIk_V6hAEtw2_eXTPPilwOlzff9jVsqcxVe8GovRyyX4eSxs_JwIF1m8nhh8K3qgNDv0xFbAQzm1gfDleZ6yn4SzVC7gOfcPJU?width=498&height=498&cropmode=none"
+const sportsBraKeywords = "Купити топік | Мереживі, без підкладки, із підкладкою, на тонких бретелях, із формованими чашками, на широких бретелях, на поролонових вставних чашках, топ-бюстик, спортивний"
+const underwearSetDescription = "Комплекти | Мереживі, без/із підкладкою, на тонких бретелях, із формованими чашками, на широких бретелях, на поролонових вставних чашках, топ-бюстик, спортивний"
+const underwearSetImage = "https://ams03pap001files.storage.live.com/y4mq4zB1NaJm73lBkP-as1PzfMiDmcNPNd7-tfHQc3QGhLhH1j8YFnN3NKZYoNHUU2gdCJWzpw0N6JIwfLIacUgzxteoOVu8fN87oK47zWHub7h0vcCcbk9la_GFILsDWqhAOgX1to9HR1xL_boyiX4bKKuKUN6naP-uFLS0kGLcptWlKQCTkhtIwzpktr43zTt?width=498&height=498&cropmode=none"
+const underwearSetKeywords = "Комплекти | Мереживі, без підкладки, із підкладкою, на тонких бретелях, із формованими чашками, на широких бретелях, на поролонових вставних чашках, топ-бюстик, спортивний, Бюстгалтер та трусики, маєчка та шортики, топ з трусиками"
+const maleDescription = "Чоловіча спідня білизна | Труси, плавки, боксерки"
+const maleImage = "https://ams03pap001files.storage.live.com/y4mC_kgG7nrHkBFNmDAS96zI5jSlhna8eO1d91utKRYYXRZ4JfQSFuchBsr5Y9C58UdD3igAKZRHXHVWmB7cs8mjGJs0wjGbN4HdIXfghzmI9k_QF3yKB1WaOzGIGwqrq30opbjpkbEP7R9VKh-NvqSx0iaX_tMtX5f74iUodZr0y2uGNVMEaaHpvp_pG6LWKQK?width=498&height=498&cropmode=none"
+const maleKeywords = "Топіки, бюстгальтери, трусики"
+const teenagerDescription = "Чоловіче | Труси, плавки, боксерки"
+const teenagerImage = "https://ams03pap001files.storage.live.com/y4mr_Z8bANx2Oz5rjymFALzaROQCBo1F-yAGK_rvXrI40k5w0D4-H9IOddN9j_CeikOfzH6VfZo5bXtc69fOGUm3-JPBz3B537MLrTkG3Yu3mjcwpbiYrHtN_2gohv82C973nq8O013wi9pQzEHqLN0f7e5IHqL6KRbqhRn-JRZ3E9RKrUDBrhfbdd_Q6Pr0c_z?width=498&height=498&cropmode=none"
+const teenagerKeywords = "Підліткове, Труси, Топіки, бюстгальтери, трусики"
+const weddingDescription = "Спідня білизна на весілля"
+const weddingImage = "https://ams03pap001files.storage.live.com/y4mr_Z8bANx2Oz5rjymFALzaROQCBo1F-yAGK_rvXrI40k5w0D4-H9IOddN9j_CeikOfzH6VfZo5bXtc69fOGUm3-JPBz3B537MLrTkG3Yu3mjcwpbiYrHtN_2gohv82C973nq8O013wi9pQzEHqLN0f7e5IHqL6KRbqhRn-JRZ3E9RKrUDBrhfbdd_Q6Pr0c_z?width=498&height=498&cropmode=none"
+const weddingKeywords = "Нижня білизна, біле, свадьба, замужество, сексуальное, белье"
+const accessoriesDescription = "Бретелі, подовжувачі, прозорі бретелі"
+const accessoriesImage = "https://ams03pap001files.storage.live.com/y4mau0rWA2b6LTrJTHqHMdvc6ML6N-SE3OkQKt5jHNlizDCgp6ahTmfT5cLtG-9MZ6wSYYzIRauuMxVl9McKoawegDjE55HLvVW-MnaTq_gjQBEZa2Qiv_SC8RVbt9kX--t6vXcq_-zVO7BJ5QZAlbRU6Cs7Zy2HhF4u_T5SXDLnjsRrvsqSYczTqwsiM-HCyOM?width=498&height=498&cropmode=none"
+const accessoriesKeywords = "Бретелі, подовжувачі, прозорі бретелі, удленители, прозрачное, без бретелей, без бретелек"
+const otherDescription = "Різна спідня білизна"
+const otherImage = "https://ams03pap001files.storage.live.com/y4m0CofsuZCvC0lWUSGRBX0QwPM5VcbcmbLKv1QHPxtPnmITeUMErDdtU9dkXwrZv3ljUhLq--s16tKBMmV2ivJ574plEOrg9-9pTe9JeKyCszAxB0xt8oXbQobchA4WbsseeyRlQgBmJix1h1IPtMSXnP3uzF8oq1MVjauElWNxG5axGUQuu_ab_-vBJdGPdv9?width=498&height=498&cropmode=none"
+const otherKeywords = "Бретелі, подовжувачі, прозорі бретелі, удленители, прозрачное, без бретелей, без бретелек, колготки, пояса, чулки"
+const saleDescription = "Спідня білизна зі знижкою"
+const saleImage = "https://ams03pap001files.storage.live.com/y4m84K1zWo4O8P1UEAsuR69ajGzr4IA-hon_g7vBxU42nM22Q-UXBjUeUXjHMv56Y7kHMJ1WADkgB4dwYR6RGY_sC_6ly6B68kiR-JMGPvjNsAhs5aglocpCsTOBsY4r4vDUPnnMycx6FwwNSExJK4CKIf8mF2o2tYyu3vRZvKZZTO2uGhJEeASy4MCU7Z1FnIR?width=498&height=498&cropmode=none"
+const saleKeywords = "Акция, скидка, распродажа, акція"
 
 const metaTagsData = {
     wishlist: {
@@ -78,6 +102,54 @@ const metaTagsData = {
         description: swimwearDescription,
         image: swimwearImage,
         keywords: swimwearKeywords,
+    },
+    sportsBra: {
+        title: "Топіки | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: sportsBraDescription,
+        image: sportsBraImage,
+        keywords: sportsBraKeywords,
+    },
+    underwearSet: {
+        title: "Комплекти | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: underwearSetDescription,
+        image: underwearSetImage,
+        keywords: underwearSetKeywords,
+    },
+    male: {
+        title: "Чоловіче | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: maleDescription,
+        image: maleImage,
+        keywords: maleKeywords,
+    },
+    teenager: {
+        title: "Підліткове | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: teenagerDescription,
+        image: teenagerImage,
+        keywords: teenagerKeywords,
+    },
+    wedding: {
+        title: "Весільне | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: weddingDescription,
+        image: weddingImage,
+        keywords: weddingKeywords,
+    },
+    accessories: {
+        title: "Аксесуари | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: accessoriesDescription,
+        image: accessoriesImage,
+        keywords: accessoriesKeywords
+    },
+    other: {
+        title: "Рiзне | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: otherDescription,
+        image: otherImage,
+        keywords: otherKeywords
+    },
+    sale: {
+        title: "Розпродаж | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: saleDescription,
+        image: saleImage,
+        keywords: saleKeywords
     },
 }
 

@@ -1,15 +1,15 @@
 import { gql, useQuery } from "@apollo/client"
 import React, { useEffect, useState } from "react"
 import { Collapsible, CollapsibleItem, Row } from "react-materialize"
-import { CustomIcon } from "./../"
+import { CustomIcon, MetaTags } from "./../"
 import { LoadingAnimation, GridView, ProductOptionSelect } from '..'
 import { alertsData } from "../../data"
 import { filterSortData } from "../../data"
 import styles from "../../css.module/FilterSort.module.css"
 import { useTranslation } from "react-i18next"
-import { Helmet } from "react-helmet-async"
+import { metaTagsData } from './../../data'
 
-const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
+const ProductSubcategoryPage = ({ subcategory, subcategoryMetaName, parentFilters }) => {
     const { t } = useTranslation()
     const ProductsQuery = gql`
         query ProductsQuery($categoryName: [String]!, $page: Int!, $variantStyles: GenericScalar, $orderBy: ProductOrderBy) {
@@ -79,13 +79,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     const pageDescription = `Товары категории: ${subcategory.name}`
 
     return <>
-        <Helmet>
-            <title>{subcategory.name}</title>
-            <meta
-                name="description"
-                content={pageDescription}
-            />
-        </Helmet>
+        <MetaTags {...metaTagsData[subcategoryMetaName]} />
         {pageHeader}
         <Collapsible className={styles.paddingTop} style={{ margin: "0 3px 0 3px" }} accordion>
             <CollapsibleItem
