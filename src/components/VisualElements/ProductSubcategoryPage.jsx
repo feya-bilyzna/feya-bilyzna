@@ -76,7 +76,6 @@ const ProductSubcategoryPage = ({ subcategory, subcategoryMetaName, parentFilter
         setFilters(newFilters)
         refetch({ variantStyles: newFilters })
     }
-    const pageDescription = `Товары категории: ${subcategory.name}`
 
     return <>
         <MetaTags {...metaTagsData[subcategoryMetaName]} />
