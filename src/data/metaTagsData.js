@@ -151,6 +151,30 @@ const yenvyKeywords = "Weiyesi, бренд, купити, купить"
 const lusyaDescription = "Купити спідню білизну бренду Люся за доступною ціною"
 const lusyaImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
 const lusyaKeywords = "Люся, бренд, купити, купить"
+const foamDescription = "Бюстгальтери з поролоном>"
+const foamImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const foamKeywords = "Бюстгальтер, на поролоне, з поролоном, купити, купить"
+const pushUpDescription = "Бюстгальтери Push-up>"
+const pushUpImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const pushUpKeywords = "Бюстгальтер, на поролоне, push-up, пуш-ап, з поролоном, купити, купить"
+const semiFoamDescription = "Бюстгальтери Напівпоролон>"
+const semiFoamImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const semiFoamKeywords = "Напівпоролон, на поролоне, Полупоролон, з поролоном, купити, купить"
+const thinFoamDescription = "Бюстгальтери Тонкий поролон>"
+const thinFoamImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const thinFoamKeywords = "Тонкий поролон, купити, купить"
+const bonelessDescription = "Бюстгальтери Без кісточок>"
+const bonelessImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const bonelessKeywords = "Без кісточок, Без косточек, купити, купить"
+const noFoamDescription = "Бюстгальтери Без поролону>"
+const noFoamImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const noFoamKeywords = "Без поролону, Без поролона, купити, купить"
+const nursingDescription = "Бюстгальтери Для годування дитини>"
+const nursingImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const nursingKeywords = "для годування, для годівлі, дитина, купити, купить"
+const bustierDescription = "Бюстгальтери Бюстьє>"
+const bustierImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const bustierKeywords = "Бюстьє, Бюстье, купити, купить"
 
 const metaTagsData = {
     wishlist: {
@@ -462,6 +486,54 @@ const metaTagsData = {
         description: lusyaDescription,
         image: lusyaImage,
         keywords: lusyaKeywords
+    },
+    "С поролоном": {
+        title: "З поролоном | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: foamDescription,
+        image: foamImage,
+        keywords: foamKeywords
+    },
+    "Пуш-ап": {
+        title: "Пуш-ап | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: pushUpDescription,
+        image: pushUpImage,
+        keywords: pushUpKeywords
+    },
+    "Полупоролон": {
+        title: "Напівпоролон | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: semiFoamDescription,
+        image: semiFoamImage,
+        keywords: semiFoamKeywords
+    },
+    "Тонкий поролон": {
+        title: "Тонкий поролон | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: thinFoamDescription,
+        image: thinFoamImage,
+        keywords: thinFoamKeywords
+    },
+    "Без косточек": {
+        title: "Без кісточок | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: bonelessDescription,
+        image: bonelessImage,
+        keywords: bonelessKeywords
+    },
+    "Без поролона": {
+        title: "Без поролону | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: noFoamDescription,
+        image: noFoamImage,
+        keywords: noFoamKeywords
+    },
+    "Для кормления": {
+        title: "Для годування | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: nursingDescription,
+        image: nursingImage,
+        keywords: nursingKeywords
+    },
+    "Бюстье": {
+        title: "Бюстьє | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: bustierDescription,
+        image: bustierImage,
+        keywords: bustierKeywords
     },
 }
 
