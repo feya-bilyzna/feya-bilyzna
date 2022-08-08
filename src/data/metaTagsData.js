@@ -175,6 +175,30 @@ const nursingKeywords = "для годування, для годівлі, ди�
 const bustierDescription = "Бюстгальтери Бюстьє>"
 const bustierImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
 const bustierKeywords = "Бюстьє, Бюстье, купити, купить"
+const bikiniDescription = "Трусики Бікіні>"
+const bikiniImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const bikiniKeywords = "Бікіні, Бикини, купити, купить"
+const bodyshortDescription = "Трусики Безшовні>"
+const bodyshortImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const bodyshortKeywords = "Безшовні, Бесшовные, купити, купить"
+const brazilianDescription = "Трусики Бразиліани>"
+const brazilianImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const brazilianKeywords = "Бразиліани, Бразильяны, купити, купить"
+const briefDescription = "Трусики Норма, Сліпи>"
+const briefImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const briefKeywords = "Норма, Сліпи, Слипы, купити, купить"
+const gStringDescription = "Трусики Стрінги>"
+const gStringImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const gStringKeywords = "Стрінги, Стринги, чаечки, купити, купить"
+const hipsterDescription = "Трусики Батальні>"
+const hipsterImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const hipsterKeywords = "Батальні, Батальные, чаечки, купити, купить"
+const shortsTrousersDescription = "Шорти та Пантолони>"
+const shortsTrousersImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const shortsTrousersKeywords = "Шорти, Пантолони, Шорты, Панталоны, купити, купить"
+const shapewearDescription = "Коригувальна спідня білизна>"
+const shapewearImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const shapewearKeywords = "Коригувальне, Корректирующее, купити, купить"
 
 const metaTagsData = {
     wishlist: {
@@ -534,6 +558,54 @@ const metaTagsData = {
         description: bustierDescription,
         image: bustierImage,
         keywords: bustierKeywords
+    },
+    "Бикини": {
+        title: "Бікіні | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: bikiniDescription,
+        image: bikiniImage,
+        keywords: bikiniKeywords
+    },
+    "Бесшовные": {
+        title: "Безшовні | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: bodyshortDescription,
+        image: bodyshortImage,
+        keywords: bodyshortKeywords
+    },
+    "Бразильяны": {
+        title: "Бразиліани | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: brazilianDescription,
+        image: brazilianImage,
+        keywords: brazilianKeywords
+    },
+    "Норма, Слипы": {
+        title: "Норма, Сліпи | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: briefDescription,
+        image: briefImage,
+        keywords: briefKeywords
+    },
+    "Стринги": {
+        title: "Стрінги | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: gStringDescription,
+        image: gStringImage,
+        keywords: gStringKeywords
+    },
+    "Батальные": {
+        title: "Батальні | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: hipsterDescription,
+        image: hipsterImage,
+        keywords: hipsterKeywords
+    },
+    "Шорты/Панталоны": {
+        title: "Шорти/Пантолони | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: shortsTrousersDescription,
+        image: shortsTrousersImage,
+        keywords: shortsTrousersKeywords
+    },
+    "Корректирующее": {
+        title: "Коригувальне | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: shapewearDescription,
+        image: shapewearImage,
+        keywords: shapewearKeywords
     },
 }
 
