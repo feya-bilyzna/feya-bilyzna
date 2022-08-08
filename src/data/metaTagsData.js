@@ -199,6 +199,27 @@ const shortsTrousersKeywords = "Шорти, Пантолони, Шорты, Па
 const shapewearDescription = "Коригувальна спідня білизна>"
 const shapewearImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
 const shapewearKeywords = "Коригувальне, Корректирующее, купити, купить"
+const peignoirDescription = "Гарні і сексуальні пеньюари"
+const peignoirImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const peignoirKeywords = "пеньюари, Пеньюары, купити, купить"
+const beltsDescription = "Пояси для панчох>"
+const beltsImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const beltsKeywords = "Пояси, Пояса, ремінь, пасок, купити, купить"
+const masksDescription = "Еротичні маски"
+const masksImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const masksKeywords = "Еротичні, сексуальне, сексі, секси, маска, для рольових ігор, ролевых игр, купити, купить"
+const brailleDescription = "Еротичні Бральє"
+const brailleImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const brailleKeywords = "Бральє, Бралье, сексі, секси, купити, купить"
+const beachFeminineDescription = "Жіночі купальники"
+const beachFeminineImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const beachFeminineKeywords = "купальники, для басейна, для басейну, полавательное, купити, купить"
+const beachBabyDescription = "Дитячий одяг для купання | Купальники, плавки"
+const beachBabyImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const beachBabyKeywords = "купальники, плавки, боксерки, для басейна, для басейну, полавательное, купити, купить"
+const beachMaleDescription = "Чоловічий одяг для купання | Плавки, боксерки"
+const beachMaleImage = "https://ams03pap001files.storage.live.com/y4mOOgb-aJ-VVMTWwxGryhZtdb7UmC1zirv2Ctwg6lEr62hLvNLXq5IwaAibUT5rsx7knX-WwCzHXWbyh74XTs2c2TZ_dMvBRt9mkn119xXy0007ibJrlbB6yKGLZCvGztf2USVz9jQfG840kNZfBHSHUU48Kjmw92G7jchJjxoT0ijn0cl5n0a7dCiOqcE3g-p?width=498&height=498&cropmode=none"
+const beachMaleKeywords = "Чоловіче, плавки, боксерки, для басейна, для басейну, полавательное, купити, купить"
 
 const metaTagsData = {
     wishlist: {
@@ -606,6 +627,48 @@ const metaTagsData = {
         description: shapewearDescription,
         image: shapewearImage,
         keywords: shapewearKeywords
+    },
+    "Пеньюары": {
+        title: "Пеньюари | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: peignoirDescription,
+        image: peignoirImage,
+        keywords: peignoirKeywords
+    },
+    "Пояса": {
+        title: "Пояси | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: beltsDescription,
+        image: beltsImage,
+        keywords: beltsKeywords
+    },
+    "Маски": {
+        title: "Маски | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: masksDescription,
+        image: masksImage,
+        keywords: masksKeywords
+    },
+    "Бралье": {
+        title: "Бральє | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: brailleDescription,
+        image: brailleImage,
+        keywords: brailleKeywords
+    },
+    "Женское (Пляж)": {
+        title: "Жіноче (Пляж) | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: beachFeminineDescription,
+        image: beachFeminineImage,
+        keywords: beachFeminineKeywords
+    },
+    "Детское (Пляж)": {
+        title: "Дитяче (Пляж) | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: beachBabyDescription,
+        image: beachBabyImage,
+        keywords: beachBabyKeywords
+    },
+    "Мужское (Пляж)": {
+        title: "Чоловіче (Пляж) | Інтернет магазин ФЕЯ🧚‍♀️",
+        description: beachMaleDescription,
+        image: beachMaleImage,
+        keywords: beachMaleKeywords
     },
 }
 
