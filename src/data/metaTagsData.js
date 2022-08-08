@@ -274,49 +274,49 @@ const metaTagsData = {
         image: swimwearImage,
         keywords: swimwearKeywords,
     },
-    sportsBra: {
+    'Топики': {
         title: "Топіки | Інтернет магазин ФЕЯ🧚‍♀️",
         description: sportsBraDescription,
         image: sportsBraImage,
         keywords: sportsBraKeywords,
     },
-    underwearSet: {
+    'Комплекты': {
         title: "Комплекти | Інтернет магазин ФЕЯ🧚‍♀️",
         description: underwearSetDescription,
         image: underwearSetImage,
         keywords: underwearSetKeywords,
     },
-    male: {
+    'Мужское': {
         title: "Чоловіче | Інтернет магазин ФЕЯ🧚‍♀️",
         description: maleDescription,
         image: maleImage,
         keywords: maleKeywords,
     },
-    teenager: {
+    'Подростковое': {
         title: "Підліткове | Інтернет магазин ФЕЯ🧚‍♀️",
         description: teenagerDescription,
         image: teenagerImage,
         keywords: teenagerKeywords,
     },
-    wedding: {
+    'Свадебное': {
         title: "Весільне | Інтернет магазин ФЕЯ🧚‍♀️",
         description: weddingDescription,
         image: weddingImage,
         keywords: weddingKeywords,
     },
-    accessories: {
+    'Аксессуары': {
         title: "Аксесуари | Інтернет магазин ФЕЯ🧚‍♀️",
         description: accessoriesDescription,
         image: accessoriesImage,
         keywords: accessoriesKeywords
     },
-    other: {
+    'Разное': {
         title: "Рiзне | Інтернет магазин ФЕЯ🧚‍♀️",
         description: otherDescription,
         image: otherImage,
         keywords: otherKeywords
     },
-    sale: {
+    'Распродажа': {
         title: "Розпродаж | Інтернет магазин ФЕЯ🧚‍♀️",
         description: saleDescription,
         image: saleImage,

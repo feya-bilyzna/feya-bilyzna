@@ -9,7 +9,7 @@ import styles from "../../css.module/FilterSort.module.css"
 import { useTranslation } from "react-i18next"
 import { metaTagsData } from './../../data'
 
-const ProductSubcategoryPage = ({ subcategory, subcategoryMetaName, parentFilters }) => {
+const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     const { t } = useTranslation()
     const ProductsQuery = gql`
         query ProductsQuery($categoryName: [String]!, $page: Int!, $variantStyles: GenericScalar, $orderBy: ProductOrderBy) {
@@ -69,7 +69,10 @@ const ProductSubcategoryPage = ({ subcategory, subcategoryMetaName, parentFilter
     const pageHeader = <h3 style={{ textAlign: "center" }}>{t(subcategory.name)}</h3>
 
     if (loading) return <>{pageHeader}<LoadingAnimation style={{ height: "50vh" }} /></>
-    if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    if (error) return <>
+        <MetaTags {...metaTagsData[subcategory.metaDataKey]} />
+        <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    </>
 
     const updateFilters = (filterName, filterValue) => {
         const newFilters = { ...filters, [filterName]: filterValue || undefined }
@@ -78,7 +81,6 @@ const ProductSubcategoryPage = ({ subcategory, subcategoryMetaName, parentFilter
     }
 
     return <>
-        <MetaTags {...metaTagsData[subcategoryMetaName]} />
         {pageHeader}
         <Collapsible className={styles.paddingTop} style={{ margin: "0 3px 0 3px" }} accordion>
             <CollapsibleItem

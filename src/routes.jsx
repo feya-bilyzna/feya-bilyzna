@@ -39,15 +39,15 @@ export const useRoutes = () => {
                         <ProductCategoryPage categoryKey={categoryDataKey} categoryValue={categoryDataValue} />
                     </Route>
                 )}
-                {Object.entries(categoriesData.uncategorizedSubcategories).map(([subcategoryDataKey, subcategoryDataValue]) =>
-                    <Route key={subcategoryDataValue.route} path={subcategoryDataValue.route} exact>
-                        <ProductSubcategoryPage subcategory={subcategoryDataValue} subcategoryMetaName={subcategoryDataKey} />
+                {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
+                    <Route key={subcategoryData.route} path={subcategoryData.route} exact>
+                        <ProductSubcategoryPage subcategory={subcategoryData} />
                     </Route>
                 )}
                 {Object.values(categoriesData.categories).map(categoryData =>
                     categoryData.subcategories.map(subcategoryData =>
                         <Route key={subcategoryData.route} path={subcategoryData.route} exact>
-                            <ProductSubcategoryPage subcategory={subcategoryData} subcategoryMetaName={subcategoryData.name} parentFilters={categoryData.filters} />
+                            <ProductSubcategoryPage subcategory={subcategoryData} parentFilters={categoryData.filters} />
                         </Route>
                     )
                 )}
