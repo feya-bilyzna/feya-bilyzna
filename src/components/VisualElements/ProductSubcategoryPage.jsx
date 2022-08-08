@@ -1,13 +1,13 @@
 import { gql, useQuery } from "@apollo/client"
 import React, { useEffect, useState } from "react"
 import { Collapsible, CollapsibleItem, Row } from "react-materialize"
-import { CustomIcon } from "./../"
+import { CustomIcon, MetaTags } from "./../"
 import { LoadingAnimation, GridView, ProductOptionSelect } from '..'
 import { alertsData } from "../../data"
 import { filterSortData } from "../../data"
 import styles from "../../css.module/FilterSort.module.css"
 import { useTranslation } from "react-i18next"
-import { Helmet } from "react-helmet-async"
+import { metaTagsData } from './../../data'
 
 const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     const { t } = useTranslation()
@@ -69,23 +69,18 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     const pageHeader = <h3 style={{ textAlign: "center" }}>{t(subcategory.name)}</h3>
 
     if (loading) return <>{pageHeader}<LoadingAnimation style={{ height: "50vh" }} /></>
-    if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    if (error) return <>
+        <MetaTags {...metaTagsData[subcategory.metaDataKey]} />
+        <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    </>
 
     const updateFilters = (filterName, filterValue) => {
         const newFilters = { ...filters, [filterName]: filterValue || undefined }
         setFilters(newFilters)
         refetch({ variantStyles: newFilters })
     }
-    const pageDescription = `Товары категории: ${subcategory.name}`
 
     return <>
-        <Helmet>
-            <title>{subcategory.name}</title>
-            <meta
-                name="description"
-                content={pageDescription}
-            />
-        </Helmet>
         {pageHeader}
         <Collapsible className={styles.paddingTop} style={{ margin: "0 3px 0 3px" }} accordion>
             <CollapsibleItem
