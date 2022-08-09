@@ -69,6 +69,7 @@ const ShoppingCart = () => {
     )
 
     return <>
+        <MetaTags {...metaTagsData.shoppingCart} /> 
         {cartHeader}
         <Row style={{ display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5 }}>
             <CartCell size={2}>

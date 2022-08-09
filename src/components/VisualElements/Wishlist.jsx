@@ -49,10 +49,12 @@ const Wishlist = () => {
 
     if (cookies.wishlist === undefined || cookies.wishlist.length === 0) return <>
         {wishlistHeader}
+        <MetaTags {...metaTagsData.wishlist} />
         <EmptyWishlist />
     </>
 
     return <>
+        <MetaTags {...metaTagsData.wishlist} />
         <div style={{ display: "flex", justifyContent: "center" }}>
             {wishlistHeader}
             <Button style={{ left: -20, bottom: -30 }}

@@ -81,6 +81,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     }
 
     return <>
+        <MetaTags {...metaTagsData[subcategory.metaDataKey]} />
         {pageHeader}
         <Collapsible className={styles.paddingTop} style={{ margin: "0 3px 0 3px" }} accordion>
             <CollapsibleItem
