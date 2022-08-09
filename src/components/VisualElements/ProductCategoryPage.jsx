@@ -1,12 +1,14 @@
-import {GridView} from "../index"
+import { GridView, MetaTags } from "../"
 import React from "react"
 import { useTranslation } from "react-i18next"
+import { metaTagsData } from './../../data'
 
-const ProductCategoryPage = ({category}) => {
+const ProductCategoryPage = ({ categoryKey, categoryValue }) => {
     const { t } = useTranslation()
     return <>
-        <h3 style={{textAlign: "center"}}>{t(category.name)}</h3>
-        <GridView cardItems={category.subcategories}/>
+        <MetaTags {...metaTagsData[categoryKey]}/>
+        <h3 style={{ textAlign: "center" }}>{t(categoryValue.name)}</h3>
+        <GridView cardItems={categoryValue.subcategories} />
     </>
 }
 

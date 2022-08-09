@@ -1,8 +1,8 @@
 import React from 'react'
-import {Col, Row} from "react-materialize"
-import {CustomCard} from ".."
+import { Col, Row } from "react-materialize"
+import { CustomCard } from ".."
 
-const GridView = ({cardItems, isSubcategory , route}) => {
+const GridView = ({ cardItems, isSubcategory, route }) => {
     return (
         <Row>
             {cardItems.map((cardItem, index) => (
@@ -12,14 +12,14 @@ const GridView = ({cardItems, isSubcategory , route}) => {
                     l={6}
                     s={6}
                     key={index}
-                    style={{padding: "0 3px 0 3px", marginTop: 0}}
+                    style={{ padding: "0 3px 0 3px", marginTop: 0 }}
                 >
                     <CustomCard
-                        isSubcategory  = {isSubcategory }
+                        isSubcategory={isSubcategory}
                         item={cardItem}
                         route={route}
-                        image={isSubcategory  ?
-                            cardItem.images[0]?.url :
+                        image={isSubcategory ?
+                            cardItem.images[0] :
                             cardItem.imageUrl ? cardItem.imageUrl : cardItem.name
                         } />
                 </Col>

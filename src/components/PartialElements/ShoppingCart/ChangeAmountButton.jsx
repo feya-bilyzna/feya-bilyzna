@@ -1,9 +1,9 @@
 import React from 'react'
-import {Button} from "react-materialize"
+import { Button } from "react-materialize"
 
 
-const ChangeAmountButton = ({disabled, onClickFunc, children}) => {
-    return <Button 
+const ChangeAmountButton = ({ disabled, onClickFunc, children }) => {
+    return <Button
         flat
         node="button"
         className="red lighten-2"
@@ -18,7 +18,7 @@ const ChangeAmountButton = ({disabled, onClickFunc, children}) => {
             lineHeight: "18px",
             color: "white",
             margin: 5,
-    }}>{children}</Button>
+        }}>{children}</Button>
 }
 
 export default ChangeAmountButton

@@ -1,8 +1,11 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import cx from 'classnames'
-import {LoadingAnimation} from '..'
+import { LoadingAnimation } from '..'
+import { useTranslation } from "react-i18next"
 
-const CustomCardTitle = ({image, reveal, waves, children, page, ...props}) => {
+const CustomCardTitle = ({ image, reveal, waves, children, page, ...props }) => {
+    const { t } = useTranslation()
+
     const classes = cx({
         'card-image': true,
         'waves-effect': waves,
@@ -19,11 +22,11 @@ const CustomCardTitle = ({image, reveal, waves, children, page, ...props}) => {
             position: "relative",
             display: 'block',
         }}>
-            {imageLoaded ? <></> : <LoadingAnimation style={{position: "absolute"}}/>}
+            {imageLoaded ? <></> : <LoadingAnimation style={{ position: "absolute" }} />}
             <img
-                className={cx({activator: reveal})}
+                className={cx({ activator: reveal })}
                 src={image}
-                alt="Изображение"
+                alt={t("Изображение")}
                 style={{
                     position: "absolute",
                     top: "50%",

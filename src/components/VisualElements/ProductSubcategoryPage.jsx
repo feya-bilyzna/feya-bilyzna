@@ -1,28 +1,29 @@
 import { gql, useQuery } from "@apollo/client"
 import React, { useEffect, useState } from "react"
-import { Collapsible, CollapsibleItem, Icon, Row } from "react-materialize"
+import { Collapsible, CollapsibleItem, Row } from "react-materialize"
+import { CustomIcon, MetaTags } from "./../"
 import { LoadingAnimation, GridView, ProductOptionSelect } from '..'
 import { alertsData } from "../../data"
 import { filterSortData } from "../../data"
 import styles from "../../css.module/FilterSort.module.css"
 import { useTranslation } from "react-i18next"
+import { metaTagsData } from './../../data'
 
 const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     const { t } = useTranslation()
     const ProductsQuery = gql`
         query ProductsQuery($categoryName: [String]!, $page: Int!, $variantStyles: GenericScalar, $orderBy: ProductOrderBy) {
-             categoryProducts(categoryName: $categoryName, page: $page, variantStyles: $variantStyles, orderBy: $orderBy) {
+            categoryProducts(categoryName: $categoryName, page: $page, variantStyles: $variantStyles, orderBy: $orderBy) {
                 id
-                images {
-                  url
-                }
+                images
                 brandName
                 categories
                 vendorCode
                 remains {
-                    price
-               }
-             }
+                    price,
+                    remains
+                }
+            }
         }
     `
 
@@ -43,7 +44,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
         const handleScroll = () => {
             if (
                 data?.categoryProducts &&
-                window.innerHeight + window.scrollY >= document.body.offsetHeight-10 &&
+                window.innerHeight + window.scrollY >= document.body.offsetHeight - 10 &&
                 !additionalLoading
             ) {
                 setAdditionalLoading(true)
@@ -68,7 +69,10 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     const pageHeader = <h3 style={{ textAlign: "center" }}>{t(subcategory.name)}</h3>
 
     if (loading) return <>{pageHeader}<LoadingAnimation style={{ height: "50vh" }} /></>
-    if (error) return <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    if (error) return <>
+        <MetaTags {...metaTagsData[subcategory.metaDataKey]} />
+        <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+    </>
 
     const updateFilters = (filterName, filterValue) => {
         const newFilters = { ...filters, [filterName]: filterValue || undefined }
@@ -83,7 +87,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
                 className={"flow-text"}
                 expanded={false}
                 header={t("Фильтрация и сортировка")}
-                icon={<Icon>keyboard_arrow_down</Icon>}
+                icon={<CustomIcon>keyboard_arrow_down</CustomIcon>}
             >
                 <Row style={{ marginBottom: 0 }}>
                     <ProductOptionSelect

@@ -1,19 +1,19 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {
     Button,
     Col,
     Modal,
     Row,
 } from "react-materialize"
-import {gql, useQuery, useMutation} from "@apollo/client"
-import {useCookies} from 'react-cookie'
-import {RegisterForm} from "../.."
-import { PendingOrder, CartExitButton, OrderOverflowAlert } from '.'
-import {cartAndOrderLimits} from "../../../data"
+import { gql, useQuery, useMutation } from "@apollo/client"
+import { useCookies } from 'react-cookie'
+import { ExitButton, RegisterForm } from "../.."
+import { PendingOrder, OrderOverflowAlert } from '.'
+import { cartAndOrderLimits } from "../../../data"
 import M from 'materialize-css'
 import { useTranslation } from "react-i18next"
 
-const CartFunctionality = ({emptyCart, orderPrice}) => {
+const CartFunctionality = ({ emptyCart, orderPrice }) => {
     const { t } = useTranslation()
     const ORDER_BY_CONTACT_INFO = gql`
     query OrderQuery($contactInfo: String!) {
@@ -27,9 +27,7 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
                     price
                 }
                 product {
-                    images {
-                        url
-                    }
+                    images
                     id
                 }
             }
@@ -40,8 +38,8 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
     const [cookies, setCookie, removeCookie] = useCookies(['user', 'cartProducts'])
 
 
-    const {data, refetch} = useQuery(
-        ORDER_BY_CONTACT_INFO, {variables: {contactInfo: cookies.user}, skip: !cookies.user}
+    const { data, refetch } = useQuery(
+        ORDER_BY_CONTACT_INFO, { variables: { contactInfo: cookies.user }, skip: !cookies.user }
     )
 
     const ORDER_CREATION_MUTATION = gql`
@@ -57,10 +55,10 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
         {
             onCompleted: () => {
                 removeCookie('cartProducts')
-                M.toast({html: t('Заказ оформлен!')})
+                M.toast({ html: t('Заказ оформлен!') })
                 refetch()
             },
-            onError: () => {M.toast({html: 'Произошла ошибка.'})},
+            onError: () => { M.toast({ html: 'Произошла ошибка.' }) },
         }
     )
 
@@ -68,18 +66,18 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
         return <PendingOrder orderItems={data.orderByContactinfo.positions} />
     else if (emptyCart) return <></>
 
-    const centerStyle = {display: "flex", justifyContent: "center", alignItems: "center"}
-    const textStyle = {color: 'white', overflow: "hidden", fontSize: "min(2.5vw, 14px)"}
+    const centerStyle = { display: "flex", justifyContent: "center", alignItems: "center" }
+    const textStyle = { color: 'white', overflow: "hidden", fontSize: "min(2.5vw, 14px)" }
 
     const combinedProducts = []
     for (const [remainsId, orderData] of Object.entries(cookies.cartProducts || {})) {
-        combinedProducts.push({remainsId: remainsId, amount: orderData.amount})
+        combinedProducts.push({ remainsId: remainsId, amount: orderData.amount })
     }
 
     if (data?.orderByContactinfo?.positions && cookies.cartProducts !== undefined) {
         for (const position of data?.orderByContactinfo?.positions) {
             if (!(parseInt(position.productremains.id) in cookies.cartProducts))
-                combinedProducts.push({remainsId: position.productremains.id, amount: position.amount})
+                combinedProducts.push({ remainsId: position.productremains.id, amount: position.amount })
         }
     }
 
@@ -88,7 +86,7 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
     return <>
         <Row>
             <Col s={6} m={6} l={6} xl={6}>
-                <CartExitButton style={centerStyle}/>
+                <ExitButton style={centerStyle} />
             </Col>
             <Col s={6} m={6} l={6} xl={6}>
                 <div style={centerStyle}>
@@ -97,13 +95,13 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
                         header={t("Оформление заказа")}
                         actions={<Row>
                             <Col>
-                                <Button 
+                                <Button
                                     className="pink accent-4"
                                     node="button"
                                     waves="red"
                                     flat
                                     modal="close"
-                                    style={{...textStyle}}
+                                    style={{ ...textStyle }}
                                     disabled={!cookies.user && !usernameInput}
                                     onClick={() => {
                                         if (!cookies.user) setCookie('user', usernameInput)
@@ -114,12 +112,12 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
                                                     ordersList: combinedProducts,
                                                 }
                                             })
-                                }}>{t("Подтвердить")}</Button>
+                                    }}>{t("Подтвердить")}</Button>
                             </Col>
                             <Col>
                                 <Button
                                     className="pink accent-4"
-                                    style={{...textStyle}}
+                                    style={{ ...textStyle }}
                                     flat
                                     modal="close"
                                     node="button"
@@ -142,10 +140,10 @@ const CartFunctionality = ({emptyCart, orderPrice}) => {
                             </> :
                             <>
                                 <h6>{t("Укажите контактные данные")}</h6>
-                                <RegisterForm onValueChange={setUsernameInput}/>
+                                <RegisterForm onValueChange={setUsernameInput} />
                             </>
                         }
-                        <h5><b>{orderPrice}</b> грн</h5>
+                        <h5><b>{orderPrice}</b> {t("грн")}</h5>
                     </Modal>
                 </div>
             </Col>

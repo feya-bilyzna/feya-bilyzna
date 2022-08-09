@@ -1,14 +1,14 @@
 import React from 'react'
-import {NavLink} from "react-router-dom"
-import {CustomIcon} from "../index"
-import {Button, Col, Modal, Row} from "react-materialize"
-import {useCookies} from 'react-cookie'
+import { NavLink } from "react-router-dom"
+import { CustomIcon } from "../index"
+import { Button, Modal } from "react-materialize"
+import { useCookies } from 'react-cookie'
 import RegisterForm from "./RegisterForm"
 import styles from "../../css.module/login.module.css"
 import cx from "classnames";
 import { useTranslation } from "react-i18next"
 
-const LoginButton = ({cardButton, sideNav}) => {
+const LoginButton = ({ cardButton, sideNav }) => {
     const { t } = useTranslation()
     const [cookies] = useCookies(['user'])
 
@@ -27,18 +27,10 @@ const LoginButton = ({cardButton, sideNav}) => {
                     position: 'left'
                 }}
             />
-            : sideNav ? <NavLink to="/login">{
-                <Row style={{marginBottom: 0}}><Col style={{padding: 0}}>{t("Личный кабинет")}</Col>
-                    <Col>
-                        <CustomIcon  tiny right
-                            style={{paddingTop: 17.5, marginLeft: 0}}
-                            className={"notranslate"}>person</CustomIcon>
-                    </Col>
-                </Row>
-            }</NavLink>
-            : <NavLink to="/login">{
-                <CustomIcon  className={"notranslate"}>person</CustomIcon>
-            }</NavLink>
+            : sideNav ? <NavLink className='white-text' to="/login">{t("Личный кабинет")}</NavLink>
+                : <NavLink to="/login">{
+                    <CustomIcon className={"notranslate"}>person</CustomIcon>
+                }</NavLink>
         :
         cardButton ?
             <Modal
@@ -90,20 +82,11 @@ const LoginButton = ({cardButton, sideNav}) => {
                     startingTop: '4%'
                 }}
                 trigger={sideNav ?
-                        <NavLink to={""}
-                                 className="flow-text white z-depth-0"
-                                 style={{
-                                     color: "rgba(0,0,0,0.87)",
-                                 }}
-                        >
-                            <Row style={{marginBottom: 0}}>
-                                <Col style={{padding: 0}}>{t("Войти")}</Col>
-                                <Col><CustomIcon
-                                    tiny right className={"notranslate"}
-                                    style={{paddingTop: 17.5, marginLeft: 0}}
-                                >login</CustomIcon></Col>
-                            </Row>
-                        </NavLink>
+                    <NavLink className='white-text' to={""}
+                        style={{ margin: 0 }}
+                    >
+                        {t("Войти")}
+                    </NavLink>
                     : <Button
                         className={cx(styles.login, "z-depth-0")}
                         style={{
@@ -112,12 +95,12 @@ const LoginButton = ({cardButton, sideNav}) => {
                             justifyContent: "center",
                             alignItems: "center",
                         }}><CustomIcon
-                        className="notranslate"
-                    >
-                        login
-                    </CustomIcon></Button>}
+                            className="notranslate"
+                        >
+                            login
+                        </CustomIcon></Button>}
             >
-                <RegisterForm/>
+                <RegisterForm />
             </Modal>
 }
 

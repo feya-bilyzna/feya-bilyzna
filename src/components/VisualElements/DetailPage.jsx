@@ -3,14 +3,15 @@ import { Button, Col, Divider, MediaBox, Modal, Row } from "react-materialize"
 import { useParams } from 'react-router'
 import { gql, useQuery } from "@apollo/client"
 import { useCookies } from 'react-cookie'
-import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, SizeTable } from '..'
+import { LoadingAnimation, VariantSelectors, AdditionalInfo, ProductInfoModal, CustomIcon, SizeTable, ProductDescription } from '..'
 import { alertsData, cartAndOrderLimits, categoriesData, sizeTableData } from "../../data/index"
 import { NavLink } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import WishlistButton from '../PartialElements/WishlistButton'
 
 const DetailPage = () => {
 
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
     const descriptionStyle = { fontSize: 13, marginBottom: 10 }
     const modalMarginBottom = { marginBottom: "90px" }
 
@@ -18,18 +19,17 @@ const DetailPage = () => {
     query ProductQuery($id: Int!) {
         productById(id: $id) {
                 categories
-                description
+                descriptionRu
+                descriptionUk
                 id
-                images {
-                  id
-                  url
-                }
+                images
                 name
                 remains {
                   id
                   price
                   variantId
-                  variantName
+                  variantNameRu
+                  variantNameUk
                   variantStyle
                   remains
                 }
@@ -42,7 +42,7 @@ const DetailPage = () => {
     const [selectedOptions, setselectedOptions] = useState({})
     const { productId } = useParams()
 
-    const [cookies, setCookie] = useCookies(['cartProducts'])
+    const [cookies, setCookie] = useCookies(['cartProducts', 'wishlist'])
 
     const { loading, error, data } = useQuery(ProductQuery, {
         variables: { id: productId },
@@ -137,7 +137,7 @@ const DetailPage = () => {
                 <NavLink to={"/contacts"}><Button
                     className="red"
                     node="button"
-                >Контакты</Button></NavLink></div>
+                >{t("Контакты")}</Button></NavLink></div>
         </>
 
     const tooMuchItemsInCart = cookies.cartProducts && Object.keys(cookies.cartProducts).length >= cartAndOrderLimits
@@ -163,6 +163,10 @@ const DetailPage = () => {
 
     const sizeTable = sizeTableData[parentCategories.find(category => category.sizeTable)?.sizeTable]
 
+    const wishlist = new Set(Object.values(cookies.wishlist || []))
+
+    const isUk = i18n.language === "ua"
+
     return <Row className={"flow-text"}>
         <Col className="black-text" xl={6} m={6} s={12}>
             {
@@ -179,10 +183,10 @@ const DetailPage = () => {
                     }
                 </Fragment>)
             }
-            {Object.values(data?.productById.images).map(image =>
+            {Object.values(data?.productById.images).map((image, index) =>
                 <div
                     className="z-depth-1-half"
-                    key={image.id}
+                    key={index}
                     style={{
                         marginTop: 15,
                         borderRadius: "2px"
@@ -194,8 +198,8 @@ const DetailPage = () => {
                         }}
                     >
                         <img
-                            alt="Изображение товара"
-                            src={image.url}
+                            alt={t("Изображение")}
+                            src={image}
                             width="100%"
                         />
                     </MediaBox>
@@ -226,17 +230,26 @@ const DetailPage = () => {
             </Row> : <></>}
             {appropriateRemains.length === 1 ? <div>
                 <AdditionalInfo header={t("Выбранный вариант")}>
-                    <p style={descriptionStyle}>{appropriateRemains[0].variantName}</p>
-                    <p style={descriptionStyle}>{t("В наличии")} {appropriateRemains[0].remains} шт</p>
+                    <p style={descriptionStyle}>{appropriateRemains[0][isUk ? 'variantNameUk' : 'variantNameRu']}</p>
+                    <p style={descriptionStyle}>{t("В наличии")} {appropriateRemains[0].remains} {t("шт")}</p>
                 </AdditionalInfo>
             </div> : <></>}
             <Row>
                 <Col className="pink-text accent-4">
-                    <h3 style={{ fontWeight: "bold", margin: 0 }}>{appropriateRemains[0].price} грн</h3>
+                    <h3 style={{ fontWeight: "bold", margin: 0 }}>{appropriateRemains[0].price} {t("грн")}</h3>
                 </Col>
             </Row>
             <Row>
-                <Col className="black-text" s={12}>
+                <Col>
+                    <p style={{
+                        fontWeight: "bold", color: "red",
+                        fontSize: "clamp(.685rem, 0.98vw + 0.1rem, 1rem)",
+                        margin: "-10px 0px"
+                    }}>{t("PriceWarning")}</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col className="black-text" s={6}>
                     <Modal style={modalMarginBottom}
                         actions={[
                             <div style={{ textAlign: "center" }}>
@@ -253,7 +266,7 @@ const DetailPage = () => {
                                     >
                                         <Row>
                                             <Col style={{ marginLeft: 39 }}>
-                                                Да
+                                                {t("Да")}
                                             </Col>
                                             <Col>
                                                 <CustomIcon tiny>shopping_cart</CustomIcon>
@@ -270,7 +283,7 @@ const DetailPage = () => {
                                     style={{ margin: 5, color: 'white' }}
                                 >
                                     <Row>
-                                        <Col>Продолжить</Col>
+                                        <Col>{t("Продолжить")}</Col>
                                     </Row>
                                 </Button>
                             </div>
@@ -290,7 +303,6 @@ const DetailPage = () => {
                                     appropriateRemains[0].price
                                 )}>
                                 {t(productAlreadyAdded ? "Добавлено" : "Купить")}
-                                {!productAlreadyAdded ? <CustomIcon tiny right>attach_money</CustomIcon> : <></>}
                             </div>
                         </Button>}
                     >
@@ -300,15 +312,13 @@ const DetailPage = () => {
                         </div>
                     </Modal>
                 </Col>
+                <Col className="black-text" s={6}>
+                    <WishlistButton id={productId} wishlist={wishlist} />
+                </Col>
             </Row>
             {<AdditionalInfo header={t("О товаре")}>
-                {data?.productById.description ?
-                    <div style={descriptionStyle}>{
-                        data?.productById.description.split('⚡').map(sentence =>
-                            <p style={{ marginBottom: 0, marginTop: 0 }}>
-                                {sentence}
-                            </p>)
-                    }</div> : <></>}
+                {data?.productById.descriptionRu ?
+                    <ProductDescription text={data?.productById[isUk ? 'descriptionUk' : 'descriptionRu']} descriptionStyle={descriptionStyle} /> : <></>}
                 <ProductInfoModal name={t("Доставка")} iconName="local_shipping">
                     <div style={{ textAlign: "center" }}>
                         <h6>{t("Новой почтой по Украине - по тарифам перевозчика.")}</h6>

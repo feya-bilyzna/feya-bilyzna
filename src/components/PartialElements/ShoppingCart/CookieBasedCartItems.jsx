@@ -1,23 +1,23 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import {
     Button,
     Divider,
     Row,
 } from "react-materialize"
-import {useCookies} from 'react-cookie'
-import {ImageView, CustomIcon} from "../.."
-import {CartCell, ChangeAmountButton} from '.'
-import {NavLink} from "react-router-dom"
+import { useCookies } from 'react-cookie'
+import { ImageView, CustomIcon } from "../.."
+import { CartCell, ChangeAmountButton } from '.'
+import { NavLink } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 
-const CookieBasedCartItems = ({products}) => {
+const CookieBasedCartItems = ({ products }) => {
     const { t } = useTranslation()
     const [cookies, setCookie, removeCookie] = useCookies(['cartProducts'])
     if (!cookies.cartProducts) return <></>
 
     const deleteCartItem = (remainsId) => {
         if (!window.confirm(t("Вы уверены, что хотите убрать данный товар из корзины?"))) return
-        const {[remainsId]: deleted, ...otherProducts} = cookies.cartProducts
+        const { [remainsId]: deleted, ...otherProducts } = cookies.cartProducts
 
         if (Object.keys(otherProducts).length)
             setCookie('cartProducts', otherProducts)
@@ -34,27 +34,27 @@ const CookieBasedCartItems = ({products}) => {
                 'cartProducts',
                 {
                     ...(cookies.cartProducts || {}),
-                    [remainsId]: {...purchaseData, amount: purchaseData.amount + amountChange}
+                    [remainsId]: { ...purchaseData, amount: purchaseData.amount + amountChange }
                 }
             )
 
             return <Fragment key={index}>
-                <Row style={{display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5}}>
+                <Row style={{ display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5 }}>
                     <CartCell size={2}>
                         <Button small
-                                tooltip={t("Удалить из корзины")}
-                                tooltipOptions={{
-                                    position: 'top'
-                                }}
-                                className="red" floating
-                                icon={<CustomIcon>delete_forever</CustomIcon>}
-                                node="button" waves="light"
-                                onClick={() => deleteCartItem(remainsId)}
+                            tooltip={t("Удалить из корзины")}
+                            tooltipOptions={{
+                                position: 'top'
+                            }}
+                            className="red" floating
+                            icon={<CustomIcon>delete_forever</CustomIcon>}
+                            node="button" waves="light"
+                            onClick={() => deleteCartItem(remainsId)}
                         />
                     </CartCell>
                     <CartCell size={3}>
-                        <NavLink to={`/${productData.id}`} style={{width: "100%"}}>
-                            <ImageView image={productData.images[0]?.url}/>
+                        <NavLink to={`/${productData.id}`} style={{ width: "100%" }}>
+                            <ImageView image={productData.images[0]} />
                         </NavLink>
                     </CartCell>
                     <CartCell size={2}>{remainsData.variantName}</CartCell>
@@ -69,9 +69,9 @@ const CookieBasedCartItems = ({products}) => {
                             onClickFunc={() => changeOrderAmount(1, remainsId)}
                         >+</ChangeAmountButton>
                     </CartCell>
-                    <CartCell size={2} bold>{remainsData.price * purchaseData.amount} грн</CartCell>
+                    <CartCell size={2} bold>{remainsData.price * purchaseData.amount} {t("грн")}</CartCell>
                 </Row>
-                <Divider/>
+                <Divider />
             </Fragment>
         }
     )

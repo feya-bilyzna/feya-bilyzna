@@ -2,7 +2,7 @@
   "name": "feya-bilyzna-front-end",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://feya-bilyzna.github.io",
+  "homepage": "https://feya.pp.ua",
   "dependencies": {
     "@apollo/client": "^3.4.5",
     "@testing-library/jest-dom": "^5.14.1",
@@ -17,10 +17,13 @@
     "react": "^17.0.2",
     "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.3.0",
     "react-i18next": "^11.15.1",
     "react-materialize": "^3.9.8",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-snap": "^1.23.0",
+    "swiper": "^6.8.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -29,7 +32,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": [

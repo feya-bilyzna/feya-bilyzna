@@ -1,7 +1,7 @@
 import React from 'react'
-import {Col} from "react-materialize"
+import { Col } from "react-materialize"
 
-const CartCell = ({size, children, bold}) => {
+const CartCell = ({ size, children, bold }) => {
     return <Col s={size} m={size} l={size} xl={size} style={{
         display: "flex",
         justifyContent: "center",
