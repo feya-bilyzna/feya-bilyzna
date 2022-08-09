@@ -52,7 +52,6 @@ const NavbarMenu = () => {
                         </div>
                     </Row>
                 </NavLink>
-
                 <NavLink className={styles.navElement} to="/cart" style={{
                     position: "absolute",
                     right: 0,
