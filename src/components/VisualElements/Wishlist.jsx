@@ -36,26 +36,16 @@ const Wishlist = () => {
 
     const wishlistHeader = <h4 className='notranslate' style={{ "textAlign": "center", margin: 30 }}>{t("Список желаний")}</h4>
 
-    if (loading) return <>
-        {wishlistHeader}
+    let pageContent
+    if (loading) pageContent =
         <LoadingAnimation style={{ height: "50vh" }} />
-    </>
-
-    if (error) return <>
-        <MetaTags {...metaTagsData.wishlist} />
-        {wishlistHeader}
+    else if (error) pageContent =
         <h5 className='notranslate' style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
-    </>
-
-    if (cookies.wishlist === undefined || cookies.wishlist.length === 0) return <>
-        {wishlistHeader}
+    else if (cookies.wishlist === undefined || cookies.wishlist.length === 0) pageContent =
         <EmptyWishlist />
-    </>
-
-    return <>
+    else pageContent = <>
         <div style={{ display: "flex", justifyContent: "center" }}>
-            {wishlistHeader}
-            <Button style={{ left: -20, bottom: -30 }}
+            <Button style={{ left: 140, bottom: 65, marginBottom: -45 }}
                 className={"pink accent-4 hoverable waves-effect waves-light"}
                 floating
                 icon={<CustomIcon className='white-text'>delete_sweep</CustomIcon>}
@@ -70,5 +60,12 @@ const Wishlist = () => {
         </div>
         <GridView className='notranslate' isSubcategory cardItems={data.productsByIds.map(product => product)} />
     </>
+
+    return <>
+        {wishlistHeader}
+        <MetaTags {...metaTagsData.wishlist} />
+        {pageContent}
+    </>
+
 }
 export default Wishlist
