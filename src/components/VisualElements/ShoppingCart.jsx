@@ -6,14 +6,14 @@ import {
 } from "react-materialize"
 import { gql, useQuery } from "@apollo/client"
 import { useCookies } from 'react-cookie'
-import { LoadingAnimation, CustomIcon } from ".."
+import { LoadingAnimation, CustomIcon, MetaTags } from ".."
 import {
     CartCell,
     CartFunctionality,
     EmptyCart,
     CookieBasedCartItems,
 } from '../PartialElements/ShoppingCart'
-import { alertsData } from "../../data"
+import { alertsData, metaTagsData } from "../../data"
 import { useTranslation } from "react-i18next"
 
 const ShoppingCart = () => {
@@ -48,6 +48,7 @@ const ShoppingCart = () => {
 
     if (cookies.cartProducts === undefined) return <>
         {cartHeader}
+        <MetaTags {...metaTagsData.shoppingCart} />
         <EmptyCart>{cookies.user ? <CartFunctionality emptyCart /> : <></>}</EmptyCart>
     </>
 
@@ -68,6 +69,7 @@ const ShoppingCart = () => {
     )
 
     return <>
+        <MetaTags {...metaTagsData.shoppingCart} /> 
         {cartHeader}
         <Row style={{ display: "flex", flexWrap: "wrap", marginBottom: 5, marginTop: 5 }}>
             <CartCell size={2}>

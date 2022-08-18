@@ -34,9 +34,9 @@ export const useRoutes = () => {
                 <Route path="/contacts" exact>
                     <ContactsPage />
                 </Route>
-                {Object.values(categoriesData.categories).map(categoryData =>
-                    <Route key={categoryData.route} path={categoryData.route} exact>
-                        <ProductCategoryPage category={categoryData} />
+                {Object.entries(categoriesData.categories).map(([categoryDataKey, categoryDataValue]) =>
+                    <Route key={categoryDataValue.route} path={categoryDataValue.route} exact>
+                        <ProductCategoryPage categoryKey={categoryDataKey} categoryValue={categoryDataValue} />
                     </Route>
                 )}
                 {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
