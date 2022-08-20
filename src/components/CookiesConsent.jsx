@@ -22,7 +22,7 @@ export default function CookiesConsent() {
                 style={{ display: "flex", marginTop: 10, justifyContent: "center" }}
                 className="black-text" xl={9} m={12} s={12}>
                 <div>
-                    <div>{t("CookiesConsentText")}</div>
+                    <div data-nosnippet>{t("CookiesConsentText")}</div>
                 </div>
             </Col>
             <Col
@@ -31,7 +31,7 @@ export default function CookiesConsent() {
                     onClick={() => { setCookie('cookiesConsent', true) }}
                     className="pink accent-4"
                 >
-                    Ok
+                    <div data-nosnippet>Ok</div>
                 </Button >
             </Col>
         </Row>

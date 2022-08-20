@@ -71,7 +71,7 @@ const NavbarMenu = () => {
         menuIcon={<CustomIcon>menu</CustomIcon>}
         alignLinks='right sidenav-close'
         sidenav={
-            <div className='pink accent-4'>
+            <div data-nosnippet className='pink accent-4'>
                 <NavLink to="/">
                     <div className="background">
                         <img style={{ width: "100%" }} alt="Логотип" src="https://bn1301files.storage.live.com/y4moe3hVn4paJgAFL1jDAEl3VyJrCawq4hIPSPdmDwHMpMKqa85lvHgqVnezDlNAICbnSeMxOK1eMR2As3uVkDEi8IfzhphnGhcdOqSE_ecGzisHPFLus1GgFdzzwej_e-yTbWHfAucXe7Qfo1mj9SPjYALn8vYrSWUWBbAeHIQ8UugG-6QoXAuWPrB6y9NT4aa?width=256&height=256&cropmode=none" />
@@ -81,17 +81,17 @@ const NavbarMenu = () => {
                 <hr style={divider} />
                 {Object.values(categoriesData.categories).map(categoryData =>
                     <li key={categoryData.route}>
-                        <NavLink className="white-text" to={categoryData.route}>{t(categoryData.name)}</NavLink>
+                        <NavLink className="white-text" to={categoryData.route}><div data-nosnippet>{t(categoryData.name)}</div></NavLink>
                         <hr style={divider} />
                     </li>
                 )}
                 {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
                     <li key={subcategoryData.route}>
-                        <NavLink className='white-text' to={subcategoryData.route}>{t(subcategoryData.name)}</NavLink>
+                        <NavLink className='white-text' to={subcategoryData.route}><div data-nosnippet>{t(subcategoryData.name)}</div></NavLink>
                         <hr style={divider} />
                     </li>
                 )}
-                <li><NavLink className='white-text' to="/contacts">{t("Контакты")}</NavLink></li>
+                <li><NavLink className='white-text' to="/contacts"><div data-nosnippet>{t("Контакты")}</div></NavLink></li>
             </div>
         }
         options={{
@@ -124,25 +124,25 @@ const NavbarMenu = () => {
             }}
             trigger={<a style={{ display: "flex" }} href="#!">
                 <CustomIcon style={{ marginRight: 20 }}>arrow_drop_down</CustomIcon>
-                {t("Все товары")}
+                <div data-nosnippet>{t("Все товары")}</div>
             </a>}
         >
             {Object.values(categoriesData.categories).map(categoryData =>
                 <NavLink key={categoryData.name} className={cx(dropDownStyle.dropDown, "white-text")}
                     to={categoryData.route}>
-                    •{t(categoryData.name)}
+                    <div data-nosnippet>•{t(categoryData.name)}</div>
                 </NavLink>
             )}
             {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
                 <NavLink key={subcategoryData.name} className={cx(dropDownStyle.dropDown, "white-text")}
                     to={subcategoryData.route}>
-                    •{t(subcategoryData.name)}
+                    <div data-nosnippet>•{t(subcategoryData.name)}</div>
                 </NavLink>
             )}
         </Dropdown>
         <NavLink style={{ display: "flex" }} to="/contacts">
             <CustomIcon style={{ marginRight: 20 }}>phone_in_talk</CustomIcon>
-            {t("Контакты")}
+            <div data-nosnippet>{t("Контакты")}</div>
         </NavLink>
         <LanguageSelector />
         <LoginButton cardButton={false} />
