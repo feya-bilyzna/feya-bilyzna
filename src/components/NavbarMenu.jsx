@@ -47,7 +47,7 @@ const NavbarMenu = () => {
                                 l={6}
                                 xl={6}
                             >
-                                <span style={{ fontFamily: "Boyarsky", marginRight: 10, marginLeft: -10 }}>Feya</span>
+                                <span style={{ fontFamily: "boyarskycregular", marginRight: 25, marginLeft: -10 }}>Feya</span>
                             </Col>
                         </div>
                     </Row>
