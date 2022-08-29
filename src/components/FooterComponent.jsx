@@ -14,7 +14,7 @@ const FooterComponent = () => {
             className="white-text right"
             to={"/contacts"}
         >
-            {t("Больше контактов")}
+            <div data-nosnippet>{t("Больше контактов")}</div>
         </NavLink>
         }
         links={
@@ -34,20 +34,20 @@ const FooterComponent = () => {
     >
         <Row>
             <Col xl={6} l={6} s={6}>
-                <div>{t("Бюстгальтеры")}:</div>
+                <div data-nosnippet>{t("Бюстгальтеры")}:</div>
                 {categoriesData.categories.bras.subcategories.map(
                     (subcategory, index) =>
-                        <div key={index} >
+                        <div data-nosnippet key={index} >
                             <NavLink style={{ color: "white" }} to={subcategory.route}>
                                 {t(subcategory.name)}
                             </NavLink>
                         </div>)}
             </Col>
             <Col xl={6} l={6} s={6}>
-                <div>{t("Трусики")}:</div>
+                <div data-nosnippet>{t("Трусики")}:</div>
                 {categoriesData.categories.knickers.subcategories.map(
                     (subcategory, index) =>
-                        <div key={index} >
+                        <div data-nosnippet key={index} >
                             <NavLink style={{ color: "white" }} to={subcategory.route}>
                                 {t(subcategory.name)}
                             </NavLink>
