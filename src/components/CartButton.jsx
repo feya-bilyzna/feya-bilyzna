@@ -36,7 +36,7 @@ const CartButton = () => {
     const disabledTextSelectionStyle={userSelect: "none", webUserSelect: "none" }
 
     return <div style={{ position: "absolute" }}><Button
-        className={cx("blue", { pulse: cartSize })}
+        className={cx("blue darken-2", { pulse: cartSize })}
         fab={{ direction: "top", hoverEnabled: false }}
         floating
         large
@@ -48,7 +48,7 @@ const CartButton = () => {
 
     >
         <Button
-            className="blue"
+            className="blue darken-2"
             floating
             icon={<NavLink to="/cart">{
                 <CustomIcon className={"notranslate"}>shopping_cart</CustomIcon>

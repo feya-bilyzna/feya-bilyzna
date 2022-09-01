@@ -8,7 +8,7 @@ const FooterComponent = () => {
     const { t } = useTranslation()
     return <Footer
         style={{ zIndex: 3 }}
-        className={"pink accent-4"}
+        className={"pink darken-3"}
         copyrights={t("Нижнее белье по доступным ценам")}
         moreLinks={<NavLink
             className="white-text right"
@@ -27,7 +27,10 @@ const FooterComponent = () => {
                             target={"_blank"}
                             rel={"noopener noreferrer"}
                         >
-                            {contact.svgIcon}
+                            <div>
+                                {contact.svgIcon}
+                                <span style={{ position: "relative", bottom: 20, color: "white" }}>{contact.name}</span>
+                            </div>
                         </a>
                 )
         }

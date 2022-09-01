@@ -77,21 +77,23 @@ const NavbarMenu = () => {
                         <img style={{ width: "100%" }} alt="Логотип" src="https://bn1301files.storage.live.com/y4moe3hVn4paJgAFL1jDAEl3VyJrCawq4hIPSPdmDwHMpMKqa85lvHgqVnezDlNAICbnSeMxOK1eMR2As3uVkDEi8IfzhphnGhcdOqSE_ecGzisHPFLus1GgFdzzwej_e-yTbWHfAucXe7Qfo1mj9SPjYALn8vYrSWUWBbAeHIQ8UugG-6QoXAuWPrB6y9NT4aa?width=256&height=256&cropmode=none" />
                     </div>
                 </NavLink>
-                <li className="" style={{ padding: 0, margin: 0 }}><LoginButton sideNav={true} /></li>
+                <ul><li className="" style={{ padding: 0, margin: 0 }}><LoginButton sideNav={true} /></li></ul>
                 <hr style={divider} />
-                {Object.values(categoriesData.categories).map(categoryData =>
+                <ul>{Object.values(categoriesData.categories).map(categoryData =>
                     <li key={categoryData.route}>
                         <NavLink className="white-text" to={categoryData.route}><div data-nosnippet>{t(categoryData.name)}</div></NavLink>
                         <hr style={divider} />
                     </li>
-                )}
-                {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
-                    <li key={subcategoryData.route}>
-                        <NavLink className='white-text' to={subcategoryData.route}><div data-nosnippet>{t(subcategoryData.name)}</div></NavLink>
-                        <hr style={divider} />
-                    </li>
-                )}
-                <li><NavLink className='white-text' to="/contacts"><div data-nosnippet>{t("Контакты")}</div></NavLink></li>
+                )}</ul>
+                <ul>
+                    {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
+                        <li key={subcategoryData.route}>
+                            <NavLink className='white-text' to={subcategoryData.route}><div data-nosnippet>{t(subcategoryData.name)}</div></NavLink>
+                            <hr style={divider} />
+                        </li>
+                    )}
+                    <li><NavLink className='white-text' to="/contacts"><div data-nosnippet>{t("Контакты")}</div></NavLink></li>
+                </ul>
             </div>
         }
         options={{
