@@ -8,7 +8,7 @@ const MainPage = () => {
     return <>
         <MetaTags {...metaTagsData.mainPage}/>
         <Slider />
-        <h3 style={{ "textAlign": "center", margin: 30 }}>{t("Группы товаров")}</h3>
+        <h2 style={{ "textAlign": "center", margin: 30 }}>{t("Группы товаров")}</h2>
         <GridView cardItems={[
             ...Object.values(categoriesData.categories),
             ...Object.values(categoriesData.uncategorizedSubcategories),

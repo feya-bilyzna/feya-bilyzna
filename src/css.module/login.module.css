@@ -5,3 +5,11 @@
 .login:hover{
     background-color: rgba(0,0,0,0.1);
 }
+
+.sideNavLogin{
+    background-color: #c51162;
+}
+
+.sideNavLogin:hover{
+    background-color: rgba(167, 34, 92, 0.35);
+}

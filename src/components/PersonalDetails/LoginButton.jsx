@@ -82,10 +82,10 @@ const LoginButton = ({ cardButton, sideNav }) => {
                     startingTop: '4%'
                 }}
                 trigger={sideNav ?
-                    <NavLink className='white-text' to={""}
-                        style={{ margin: 0 }}
-                    >
-                        {t("Войти")}
+                    <NavLink to={""}>
+                        <div className={cx(styles.sideNavLogin, 'white-text')} style={{ paddingTop: 10, fontWeight: "bold", width: "100%",marginTop: "-10px" }}>
+                            <div style={{position: "relative", bottom: 15, left: 30, marginTop: 20}}>{t("Войти")}</div>
+                        </div>
                     </NavLink>
                     : <Button
                         className={cx(styles.login, "z-depth-0")}

@@ -39,7 +39,7 @@ export default function Slider() {
                         <h1 className={styles[slide.styleHeadingText]}>{t(slide.headingText)}</h1>
                         <div className={styles[slide.wrapper]}>
                             {t(slide.textBelow).split(';').map((text, index) =>
-                                <h3 key={index} className={styles[slide.styleTextBelow]}>{t(text)}</h3>)}
+                                <div key={index} className={styles[slide.styleTextBelow]}>{t(text)}</div>)}
                         </div>
                     </SliderLink>
                 </SwiperSlide>)}
