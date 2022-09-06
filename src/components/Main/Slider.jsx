@@ -35,7 +35,7 @@ export default function Slider() {
                         <img
                             className={styles.slider}
                             alt="Изображение"
-                            src={slide.imageLink} />
+                            src={slide.image} />
                         <h1 className={styles[slide.styleHeadingText]}>{t(slide.headingText)}</h1>
                         <div className={styles[slide.wrapper]}>
                             {t(slide.textBelow).split(';').map((text, index) =>
@@ -46,7 +46,7 @@ export default function Slider() {
             <SwiperSlide>
                 <a href={contactsData.instagramLink} target="_blank" rel="noopener noreferrer" >
                     <img className={styles.slider} alt="Изображение"
-                        src={sliderData.instagramSlider.link} />
+                        src={sliderData.instagramSlider.image} />
                     <h1 className={styles.instagram} style={{ paddingTop: 5 }} >{contactsData.instagram}</h1>
                 </a>
             </SwiperSlide>
