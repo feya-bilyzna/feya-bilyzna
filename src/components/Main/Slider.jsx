@@ -1,6 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper'
+import SwiperCore, { Navigation, Scrollbar, A11y, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import 'swiper/components/pagination'
@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next"
 import { SliderLink } from '..'
 
 export default function Slider() {
-    SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay])
+    SwiperCore.use([Navigation, Scrollbar, A11y, Autoplay])
 
     const { t } = useTranslation()
     return <div style={{ margin: "0 3px 30px 3px" }}>

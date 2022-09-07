@@ -40,7 +40,7 @@ const FooterComponent = () => {
                 <div data-nosnippet>{t("Бюстгальтеры")}:</div>
                 {categoriesData.categories.bras.subcategories.map(
                     (subcategory, index) =>
-                        <div data-nosnippet key={index} >
+                        <div data-nosnippet key={index} style={{ paddingTop: 9 }}>
                             <NavLink style={{ color: "white" }} to={subcategory.route}>
                                 {t(subcategory.name)}
                             </NavLink>
@@ -50,7 +50,7 @@ const FooterComponent = () => {
                 <div data-nosnippet>{t("Трусики")}:</div>
                 {categoriesData.categories.knickers.subcategories.map(
                     (subcategory, index) =>
-                        <div data-nosnippet key={index} >
+                        <div data-nosnippet key={index} style={{ paddingTop: 9 }}>
                             <NavLink style={{ color: "white" }} to={subcategory.route}>
                                 {t(subcategory.name)}
                             </NavLink>
