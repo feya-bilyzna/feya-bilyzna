@@ -1,4 +1,9 @@
 import packageJSON from "../../package.json"
+const getImage = (imageName) => {
+    const image = new Image()
+    image.src = `${packageJSON.homepage}/images/slider/${imageName}`
+    return image
+}
 
 const sliderData = {
     flagSlider: {
@@ -6,7 +11,7 @@ const sliderData = {
     },
     basicSlides: [
         {
-            image: `${packageJSON.homepage}/images/slider/lanny-mode.webp`,
+            image: getImage('lanny-mode.webp'),
             pageLink: "brands/lanny-mode",
             isOuterURL: false,
             styleHeadingText:"headingLannyMode",
@@ -16,7 +21,7 @@ const sliderData = {
             textBelow: "",
         },
         {
-            image: `${packageJSON.homepage}/images/slider/diorella.webp`,
+            image: getImage('diorella.webp'),
             pageLink: "brands/diorella",
             isOuterURL: false,
             styleHeadingText:"headingLeft",
@@ -26,7 +31,7 @@ const sliderData = {
             textBelow: "",
         },
         {
-            image: `${packageJSON.homepage}/images/slider/address.webp`,
+            image: getImage('address.webp'),
             pageLink: "https://g.page/bilyznaFeya?share",
             isOuterURL: true,
             styleHeadingText:"headingLocation",
@@ -37,7 +42,7 @@ const sliderData = {
         },
     ],
     instagramSlider: {
-        image: `${packageJSON.homepage}/images/slider/instagram.webp`,
+        image: getImage('instagram.webp'),
     },
 }
 

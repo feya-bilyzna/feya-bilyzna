@@ -24,6 +24,9 @@ const NavbarMenu = () => {
 
     const divider = { margin: 0, border: "solid", borderWidth: "0.01em", borderColor: "rgb(224,224,224)" }
 
+    const sideNavLogo = new Image()
+    sideNavLogo.src = `${packageJSON.homepage}/images/sideNavLogo.webp`
+
     return <Navbar style={{ zIndex: 3 }}
 
         className={"pink accent-4"}
@@ -75,7 +78,7 @@ const NavbarMenu = () => {
             <div data-nosnippet className='pink accent-4'>
                 <NavLink to="/">
                     <div className="background">
-                        <img style={{ width: "100%" }} alt="Логотип" src={`${packageJSON.homepage}/images/sideNavLogo.webp`} />
+                    <img style={{ width: "100%", height: "100%" }} alt="Логотип" width={sideNavLogo.width} height={sideNavLogo.height} src={sideNavLogo.src} />
                     </div>
                 </NavLink>
                 <LoginButton sideNav={true} />
