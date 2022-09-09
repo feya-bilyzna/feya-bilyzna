@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { NavLink } from 'react-router-dom'
 import M from 'materialize-css'
 import { useCookies } from 'react-cookie'
-import { CustomIcon, LoginButton, LanguageSelector, CopyLinkButton } from "./index";
+import { CustomFabButton, CustomIcon, LoginButton, LanguageSelector, CopyLinkButton } from "./index";
 import { useTranslation } from "react-i18next"
 
 const AddedProductsIndicator = props => {
@@ -35,17 +35,12 @@ const CartButton = () => {
 
     const disabledTextSelectionStyle={userSelect: "none", webUserSelect: "none" }
 
-    return <div style={{ position: "absolute" }}><Button
+    return <div style={{ position: "absolute" }}><CustomFabButton
         className={cx("blue darken-2", { pulse: cartSize })}
-        fab={{ direction: "top", hoverEnabled: false }}
-        floating
-        large
         icon={cartSize ? <>
             <AddedProductsIndicator>{cartSize}</AddedProductsIndicator>
             <CustomIcon style={disabledTextSelectionStyle}>shopping_cart</CustomIcon>
         </> : <CustomIcon style={disabledTextSelectionStyle} className={"notranslate"}>shopping_cart</CustomIcon>}
-        node="button"
-
     >
         <Button
             className="blue darken-2"
@@ -74,7 +69,7 @@ const CartButton = () => {
         <LanguageSelector />
         <LoginButton cardButton={true} />
         <CopyLinkButton/>
-    </Button></div>
+    </CustomFabButton></div>
 }
 
 export default CartButton

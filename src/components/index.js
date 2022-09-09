@@ -5,6 +5,7 @@ export {default as ContactsPage}           from './ContactsPage/ContactsPage'
 export {default as CustomCard}             from './CustomMaterialize/CustomCard'
 export {default as CustomCardTitle}        from './CustomMaterialize/CustomCardTitle'
 export {default as CustomIcon}             from './CustomMaterialize/CustomIcon'
+export {default as CustomFabButton}        from './CustomMaterialize/CustomFabButton'
 
 export {default as ProductOptionSelect}    from './PartialElements/ProductOptionSelect'
 export {default as LoadingAnimation}       from './PartialElements/LoadingAnimation'
