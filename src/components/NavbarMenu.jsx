@@ -75,15 +75,17 @@ const NavbarMenu = () => {
         menuIcon={<CustomIcon>menu</CustomIcon>}
         alignLinks='right sidenav-close'
         sidenav={
-            <div data-nosnippet className='pink accent-4'>
-                <NavLink to="/">
-                    <div className="background">
-                    <img style={{ width: "100%", height: "100%" }} alt="Логотип" width={sideNavLogo.width} height={sideNavLogo.height} src={sideNavLogo.src} />
-                    </div>
-                </NavLink>
-                <LoginButton sideNav={true} />
-                <hr style={divider} />
+            <li data-nosnippet className='pink accent-4'>
                 <ul>
+                    <li>
+                        <NavLink style={{ marginBottom: 260 }} to="/">
+                            <img style={{ width: "130%", height: "640%", position: "relative", right: 35 }} alt="Логотип" width={sideNavLogo.width} height={sideNavLogo.height} src={sideNavLogo.src} />
+                        </NavLink>
+                    </li>
+                    <li>
+                        <LoginButton sideNav={true} />
+                        <hr style={divider} />
+                    </li>
                     {Object.values(categoriesData.categories).map(categoryData =>
                         <li key={categoryData.route}>
                             <NavLink className="white-text" to={categoryData.route}><div data-nosnippet>{t(categoryData.name)}</div></NavLink>
@@ -98,7 +100,7 @@ const NavbarMenu = () => {
                     )}
                     <li><NavLink className='white-text' to="/contacts"><div data-nosnippet>{t("Контакты")}</div></NavLink></li>
                 </ul>
-            </div>
+            </li>
         }
         options={{
             draggable: false,
