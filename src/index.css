@@ -1,13 +1,12 @@
 @font-face {
     font-family: "AmazoneW01-Regular";
-    src: url('./css.module/fonts/AmazoneW01-Regular.woff');
-    src: url('./css.module/fonts/AmazoneW01-Regular.woff2');
+    src: url('./css.module/fonts/AmazoneW01-Regular Shorted(Lanny mode).woff2');
     font-display: swap
 }
 
 @font-face {
     font-family: 'boyarskycregular';
-    src: url('./css.module/fonts/boyarskyc.woff') format('woff'), url('./css.module/fonts/boyarskyc.woff2') format('woff2');
+    src: url('./css.module/fonts/BoyarskyC-Shorted(Feya).woff2') format('woff2');
     font-display: swap
 }
 
