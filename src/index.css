@@ -13,7 +13,8 @@
 @font-face {
     font-family: 'Material Icons';
     font-weight: 400;
-    src: url('./css.module/fonts/Material Icons(_abcdefghiklmnoprstuvwy).woff2') format('woff2')
+    src: url('./css.module/fonts/MaterialIcons-Regular-Short.woff2') format('woff2');
+    font-display: swap
 }
 
 .material-icons {
