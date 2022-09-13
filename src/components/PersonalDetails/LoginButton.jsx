@@ -61,7 +61,7 @@ const LoginButton = ({ cardButton, sideNav }) => {
                     }}
                 />}
             >
-                {cardButton ? <RegisterForm inputId="register-form-input-cardButton" /> : <></>}
+                <RegisterForm/>
             </Modal>
             :
             <Modal
@@ -100,7 +100,7 @@ const LoginButton = ({ cardButton, sideNav }) => {
                             login
                         </CustomIcon></Button>}
             >
-                {sideNav ? <RegisterForm inputId="register-form-input-sideNav" /> : <></>}
+                <RegisterForm /> 
             </Modal>
 }
 
