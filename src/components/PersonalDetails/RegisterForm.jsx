@@ -3,20 +3,18 @@ import { Button, TextInput } from "react-materialize"
 import { useCookies } from "react-cookie"
 import { useTranslation } from "react-i18next"
 
-const RegisterForm = ({ onValueChange, inputId }) => {
+const RegisterForm = ({ onValueChange }) => {
     const { t } = useTranslation()
     const [inputUserName, setInputUserName] = useState("")
     const [, setCookie] = useCookies(['user'])
 
     return <>
         <TextInput
-            id={inputId}
             onChange={event => onValueChange ?
                 onValueChange(event.target.value) :
                 setInputUserName(event.target.value)
             }
-            label={t("Введите ваши данные для регистрации")}
-            placeholder=""
+            placeholder={t("Введите ваши данные для регистрации")}
         />
         {onValueChange ? <></> : <Button
             node="button" waves="red" flat modal="close"
