@@ -61,7 +61,7 @@ const LoginButton = ({ cardButton, sideNav }) => {
                     }}
                 />}
             >
-                <RegisterForm />
+                <RegisterForm/>
             </Modal>
             :
             <Modal
@@ -82,10 +82,10 @@ const LoginButton = ({ cardButton, sideNav }) => {
                     startingTop: '4%'
                 }}
                 trigger={sideNav ?
-                    <NavLink className='white-text' to={""}
-                        style={{ margin: 0 }}
-                    >
-                        {t("Войти")}
+                    <NavLink to={""}>
+                        <div className='white-text' style={{ paddingTop: 10, fontWeight: "bold", width: "100%" }}>
+                            <div style={{ position: "relative", bottom: 40, marginTop: 30 }}>{t("Войти")}</div>
+                        </div>
                     </NavLink>
                     : <Button
                         className={cx(styles.login, "z-depth-0")}
@@ -100,7 +100,7 @@ const LoginButton = ({ cardButton, sideNav }) => {
                             login
                         </CustomIcon></Button>}
             >
-                <RegisterForm />
+                <RegisterForm /> 
             </Modal>
 }
 

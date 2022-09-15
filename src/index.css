@@ -1,16 +1,26 @@
 @font-face {
     font-family: "AmazoneW01-Regular";
-    src: url("//db.onlinewebfonts.com/t/ec5f0f09bc2e80db6a3abe86716d8f7f.eot");
-    src: url("//db.onlinewebfonts.com/t/ec5f0f09bc2e80db6a3abe86716d8f7f.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/ec5f0f09bc2e80db6a3abe86716d8f7f.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/ec5f0f09bc2e80db6a3abe86716d8f7f.woff") format("woff"), url("//db.onlinewebfonts.com/t/ec5f0f09bc2e80db6a3abe86716d8f7f.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/ec5f0f09bc2e80db6a3abe86716d8f7f.svg#AmazoneW01-Regular") format("svg");
-    font-display: swap;
+    src: url('./css.module/fonts/AmazoneW01-Regular Shorted(Lanny mode).woff2');
+    font-display: swap
 }
 
 @font-face {
     font-family: 'boyarskycregular';
-    src: url('./css.module/fonts/boyarskyc.woff') format('woff'), url('./css.module/fonts/boyarskyc.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+    src: url('./css.module/fonts/BoyarskyC-Shorted(Feya).woff2') format('woff2');
+    font-display: swap
 }
 
-@import "~materialize-css/dist/css/materialize.min.css";
+@font-face {
+    font-family: 'Material Icons';
+    font-weight: 400;
+    src: url('./css.module/fonts/MaterialIcons-Regular-Short.woff2') format('woff2');
+    font-display: swap
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-style: normal;
+    text-transform: none;
+}
+
+@import "~materialize-css/dist/css/materialize.min.css"

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper'
+import SwiperCore, { Navigation, Scrollbar, A11y, Autoplay } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import 'swiper/components/pagination'
@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next"
 import { SliderLink } from '..'
 
 export default function Slider() {
-    SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay])
+    SwiperCore.use([Navigation, Scrollbar, A11y, Autoplay])
 
     const { t } = useTranslation()
     return <div style={{ margin: "0 3px 30px 3px" }}>
@@ -35,18 +35,22 @@ export default function Slider() {
                         <img
                             className={styles.slider}
                             alt="Изображение"
-                            src={slide.imageLink} />
+                            width={slide.image.width}
+                            height={slide.image.height}
+                            src={slide.image.src} />
                         <h1 className={styles[slide.styleHeadingText]}>{t(slide.headingText)}</h1>
                         <div className={styles[slide.wrapper]}>
                             {t(slide.textBelow).split(';').map((text, index) =>
-                                <h3 key={index} className={styles[slide.styleTextBelow]}>{t(text)}</h3>)}
+                                <div key={index} className={styles[slide.styleTextBelow]}>{t(text)}</div>)}
                         </div>
                     </SliderLink>
                 </SwiperSlide>)}
             <SwiperSlide>
                 <a href={contactsData.instagramLink} target="_blank" rel="noopener noreferrer" >
                     <img className={styles.slider} alt="Изображение"
-                        src={sliderData.instagramSlider.link} />
+                        width={sliderData.instagramSlider.image.width}
+                        height={sliderData.instagramSlider.image.height}
+                        src={sliderData.instagramSlider.image.src} />
                     <h1 className={styles.instagram} style={{ paddingTop: 5 }} >{contactsData.instagram}</h1>
                 </a>
             </SwiperSlide>

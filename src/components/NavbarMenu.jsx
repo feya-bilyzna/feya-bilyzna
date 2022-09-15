@@ -9,6 +9,7 @@ import styles from "../css.module/navbar.module.css"
 import dropDownStyle from "../css.module/dropDown.module.css"
 import cx from "classnames";
 import { useTranslation } from "react-i18next"
+import packageJSON from "../../package.json"
 
 Navbar.propTypes = {
     ...Navbar.propTypes,
@@ -22,6 +23,9 @@ const NavbarMenu = () => {
     const cartSize = Object.keys(cookies.cartProducts || {}).length
 
     const divider = { margin: 0, border: "solid", borderWidth: "0.01em", borderColor: "rgb(224,224,224)" }
+
+    const sideNavLogo = new Image()
+    sideNavLogo.src = `${packageJSON.homepage}/images/sideNavLogo.webp`
 
     return <Navbar style={{ zIndex: 3 }}
 
@@ -71,28 +75,32 @@ const NavbarMenu = () => {
         menuIcon={<CustomIcon>menu</CustomIcon>}
         alignLinks='right sidenav-close'
         sidenav={
-            <div data-nosnippet className='pink accent-4'>
-                <NavLink to="/">
-                    <div className="background">
-                        <img style={{ width: "100%" }} alt="Логотип" src="https://bn1301files.storage.live.com/y4moe3hVn4paJgAFL1jDAEl3VyJrCawq4hIPSPdmDwHMpMKqa85lvHgqVnezDlNAICbnSeMxOK1eMR2As3uVkDEi8IfzhphnGhcdOqSE_ecGzisHPFLus1GgFdzzwej_e-yTbWHfAucXe7Qfo1mj9SPjYALn8vYrSWUWBbAeHIQ8UugG-6QoXAuWPrB6y9NT4aa?width=256&height=256&cropmode=none" />
-                    </div>
-                </NavLink>
-                <li className="" style={{ padding: 0, margin: 0 }}><LoginButton sideNav={true} /></li>
-                <hr style={divider} />
-                {Object.values(categoriesData.categories).map(categoryData =>
-                    <li key={categoryData.route}>
-                        <NavLink className="white-text" to={categoryData.route}><div data-nosnippet>{t(categoryData.name)}</div></NavLink>
+            <li data-nosnippet className='pink accent-4'>
+                <ul>
+                    <li>
+                        <NavLink style={{ marginBottom: 260 }} to="/">
+                            <img style={{ width: "130%", height: "640%", position: "relative", right: 35 }} alt="Логотип" width={sideNavLogo.width} height={sideNavLogo.height} src={sideNavLogo.src} />
+                        </NavLink>
+                    </li>
+                    <li>
+                        <LoginButton sideNav={true} />
                         <hr style={divider} />
                     </li>
-                )}
-                {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
-                    <li key={subcategoryData.route}>
-                        <NavLink className='white-text' to={subcategoryData.route}><div data-nosnippet>{t(subcategoryData.name)}</div></NavLink>
-                        <hr style={divider} />
-                    </li>
-                )}
-                <li><NavLink className='white-text' to="/contacts"><div data-nosnippet>{t("Контакты")}</div></NavLink></li>
-            </div>
+                    {Object.values(categoriesData.categories).map(categoryData =>
+                        <li key={categoryData.route}>
+                            <NavLink className="white-text" to={categoryData.route}><div data-nosnippet>{t(categoryData.name)}</div></NavLink>
+                            <hr style={divider} />
+                        </li>
+                    )}
+                    {Object.values(categoriesData.uncategorizedSubcategories).map(subcategoryData =>
+                        <li key={subcategoryData.route}>
+                            <NavLink className='white-text' to={subcategoryData.route}><div data-nosnippet>{t(subcategoryData.name)}</div></NavLink>
+                            <hr style={divider} />
+                        </li>
+                    )}
+                    <li><NavLink className='white-text' to="/contacts"><div data-nosnippet>{t("Контакты")}</div></NavLink></li>
+                </ul>
+            </li>
         }
         options={{
             draggable: false,

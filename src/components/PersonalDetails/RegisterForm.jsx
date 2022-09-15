@@ -14,8 +14,7 @@ const RegisterForm = ({ onValueChange }) => {
                 onValueChange(event.target.value) :
                 setInputUserName(event.target.value)
             }
-            label={t("Введите ваши данные для регистрации")}
-            placeholder=""
+            placeholder={t("Введите ваши данные для регистрации")}
         />
         {onValueChange ? <></> : <Button
             node="button" waves="red" flat modal="close"
