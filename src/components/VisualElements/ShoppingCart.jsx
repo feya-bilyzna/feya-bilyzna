@@ -59,7 +59,7 @@ const ShoppingCart = () => {
 
     if (error) return <>
         {cartHeader}
-        <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+        <h5 style={{ textAlign: "center" }}>{t(alertsData.serverRequestFailed)}</h5>
     </>
 
     const products = Object.fromEntries(data.productsByIds.map(product => [product.id, product]))

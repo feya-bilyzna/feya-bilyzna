@@ -40,7 +40,7 @@ const Wishlist = () => {
     if (loading) pageContent =
         <LoadingAnimation style={{ height: "50vh" }} />
     else if (error) pageContent =
-        <h5 className='notranslate' style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+        <h5 className='notranslate' style={{ textAlign: "center" }}>{t(alertsData.serverRequestFailed)}</h5>
     else if (cookies.wishlist === undefined || cookies.wishlist.length === 0) pageContent =
         <EmptyWishlist />
     else pageContent = <>
