@@ -339,6 +339,7 @@ const categoriesData = {
                 },
                 {
                     name: 'Шорты/Панталоны',
+                    metaDataKey: 'Шорты/Панталоны',
                     sizeTable: "knickers",
                     route: '/knickers/shorts-trousers',
                     imageUrl: `${packageJSON.homepage}/images/knickers/shorts-trousers.webp`,
