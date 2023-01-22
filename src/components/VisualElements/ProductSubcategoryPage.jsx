@@ -71,7 +71,7 @@ const ProductSubcategoryPage = ({ subcategory, parentFilters }) => {
     if (loading) return <>{pageHeader}<LoadingAnimation style={{ height: "50vh" }} /></>
     if (error) return <>
         <MetaTags {...metaTagsData[subcategory.metaDataKey]} />
-        <h5 style={{ textAlign: "center" }}>{alertsData.serverRequestFailed}</h5>
+        <h5 style={{ textAlign: "center" }}>{t(alertsData.serverRequestFailed)}</h5>
     </>
 
     const updateFilters = (filterName, filterValue) => {
